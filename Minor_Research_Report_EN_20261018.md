@@ -161,10 +161,10 @@ A dedicated, full-stack web experimental platform has been engineered and deploy
 - **Real-Time Researcher Dashboard**: Displays live $2 \times 2$ cell counts, choice ratios, and scale means, with one-click UTF-8 BOM `.csv` export for statistical software.
 
 ### 6.2 Live System URLs
-- **Participant Survey Entry**: [https://ratio-employ-boston-zone.trycloudflare.com](https://ratio-employ-boston-zone.trycloudflare.com)
-- **Researcher & Supervisor Admin Portal**: [https://ratio-employ-boston-zone.trycloudflare.com/admin](https://ratio-employ-boston-zone.trycloudflare.com/admin)
+- **Participant Survey Entry**: [https://durian-experiment.vercel.app](https://durian-experiment.vercel.app)
+- **Researcher & Supervisor Admin Portal**: [https://durian-experiment.vercel.app/admin](https://durian-experiment.vercel.app/admin)
 - **Direct Condition Preview Links**:
-  - Condition 1 (94.8% × AI Fails): [https://ratio-employ-boston-zone.trycloudflare.com/?condition=1](https://ratio-employ-boston-zone.trycloudflare.com/?condition=1)
-  - Condition 2 (58.2% × AI Fails): [https://ratio-employ-boston-zone.trycloudflare.com/?condition=2](https://ratio-employ-boston-zone.trycloudflare.com/?condition=2)
-  - Condition 3 (94.8% × AI Succeeds): [https://ratio-employ-boston-zone.trycloudflare.com/?condition=3](https://ratio-employ-boston-zone.trycloudflare.com/?condition=3)
-  - Condition 4 (58.2% × AI Succeeds): [https://ratio-employ-boston-zone.trycloudflare.com/?condition=4](https://ratio-employ-boston-zone.trycloudflare.com/?condition=4)
+  - Condition 1 (94.8% × AI Fails): [https://durian-experiment.vercel.app/?condition=1](https://durian-experiment.vercel.app/?condition=1)
+  - Condition 2 (58.2% × AI Fails): [https://durian-experiment.vercel.app/?condition=2](https://durian-experiment.vercel.app/?condition=2)
+  - Condition 3 (94.8% × AI Succeeds): [https://durian-experiment.vercel.app/?condition=3](https://durian-experiment.vercel.app/?condition=3)
+  - Condition 4 (58.2% × AI Succeeds): [https://durian-experiment.vercel.app/?condition=4](https://durian-experiment.vercel.app/?condition=4)

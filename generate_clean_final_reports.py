@@ -19,7 +19,7 @@ from docx.oxml.ns import nsdecls, qn
 BASE_DIR = "/Users/xwq123456/.gemini/antigravity/scratch/durian-experiment"
 DESKTOP_SUBDIR = "/Users/xwq123456/Desktop/副课题"
 
-PUBLIC_URL = "https://ratio-employ-boston-zone.trycloudflare.com"
+PUBLIC_URL = "https://durian-experiment.vercel.app"
 ADMIN_URL = f"{PUBLIC_URL}/admin"
 
 # ==============================================================================

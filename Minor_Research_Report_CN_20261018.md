@@ -161,10 +161,10 @@
 - **实时统计看板与导出**：导师管理后台实时渲染 $2 \times 2$ 各组样本量、AI 选择率及 Q2–Q9 均值矩阵，支持一键导出标准 UTF-8 BOM 编码的 `.csv` 原始数据集，可直接导入 SPSS、R 或 Python 进行统计建模。
 
 ### 6.2 在线系统访问链接
-- **受试者问卷系统主链接**：[https://ratio-employ-boston-zone.trycloudflare.com](https://ratio-employ-boston-zone.trycloudflare.com)
-- **研究者与导师管理后台**：[https://ratio-employ-boston-zone.trycloudflare.com/admin](https://ratio-employ-boston-zone.trycloudflare.com/admin)
+- **受试者问卷系统主链接**：[https://durian-experiment.vercel.app](https://durian-experiment.vercel.app)
+- **研究者与导师管理后台**：[https://durian-experiment.vercel.app/admin](https://durian-experiment.vercel.app/admin)
 - **四组实验条件独立直达链接**：
-  - Condition 1 (94.8% × AI 失败)：[https://ratio-employ-boston-zone.trycloudflare.com/?condition=1](https://ratio-employ-boston-zone.trycloudflare.com/?condition=1)
-  - Condition 2 (58.2% × AI 失败)：[https://ratio-employ-boston-zone.trycloudflare.com/?condition=2](https://ratio-employ-boston-zone.trycloudflare.com/?condition=2)
-  - Condition 3 (94.8% × AI 成功)：[https://ratio-employ-boston-zone.trycloudflare.com/?condition=3](https://ratio-employ-boston-zone.trycloudflare.com/?condition=3)
-  - Condition 4 (58.2% × AI 成功)：[https://ratio-employ-boston-zone.trycloudflare.com/?condition=4](https://ratio-employ-boston-zone.trycloudflare.com/?condition=4)
+  - Condition 1 (94.8% × AI 失败)：[https://durian-experiment.vercel.app/?condition=1](https://durian-experiment.vercel.app/?condition=1)
+  - Condition 2 (58.2% × AI 失败)：[https://durian-experiment.vercel.app/?condition=2](https://durian-experiment.vercel.app/?condition=2)
+  - Condition 3 (94.8% × AI 成功)：[https://durian-experiment.vercel.app/?condition=3](https://durian-experiment.vercel.app/?condition=3)
+  - Condition 4 (58.2% × AI 成功)：[https://durian-experiment.vercel.app/?condition=4](https://durian-experiment.vercel.app/?condition=4)
