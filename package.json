@@ -1,0 +1,9 @@
+{
+  "name": "durian-decision-experiment",
+  "version": "1.0.0",
+  "description": "Data-Driven AI vs. Ineffable Expert Intuition: 2x2 Between-Subjects Study",
+  "private": true,
+  "scripts": {
+    "start": "python3 server.py"
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "experimentTitle": "Data-Driven AI vs. Ineffable Expert Intuition",
+  "experimentSubtitle": "Knowledge Science & Experimental Philosophy: 2×2 Between-Subjects Experiment",
+  "conditions": {
+    "1": {
+      "id": 1,
+      "confidenceLevel": "high",
+      "confidenceVal": "94.8%",
+      "outcomeType": "ai_fail",
+      "desc_en": "High Confidence (94.8%) × AI Fails (Manager Correct)",
+      "desc_zh": "高置信度 (94.8%) × AI 失败（店长正确）"
+    },
+    "2": {
+      "id": 2,
+      "confidenceLevel": "low",
+      "confidenceVal": "58.2%",
+      "outcomeType": "ai_fail",
+      "desc_en": "Low Confidence (58.2%) × AI Fails (Manager Correct)",
+      "desc_zh": "低置信度 (58.2%) × AI 失败（店长正确）"
+    },
+    "3": {
+      "id": 3,
+      "confidenceLevel": "high",
+      "confidenceVal": "94.8%",
+      "outcomeType": "ai_succeed",
+      "desc_en": "High Confidence (94.8%) × AI Succeeds (Manager Fails)",
+      "desc_zh": "高置信度 (94.8%) × AI 成功（店长失误）"
+    },
+    "4": {
+      "id": 4,
+      "confidenceLevel": "low",
+      "confidenceVal": "58.2%",
+      "outcomeType": "ai_succeed",
+      "desc_en": "Low Confidence (58.2%) × AI Succeeds (Manager Fails)",
+      "desc_zh": "低置信度 (58.2%) × AI 成功（店长失误）"
+    }
+  },
+  "managerProfile": {
+    "name_en": "Veteran Fruit Store Manager (15 Years Experience)",
+    "name_zh": "资深水果店长（15年选果经验）",
+    "quote_en": "“I honestly can't explain it in words. There is no fixed rule to tell you. It's just a gut feeling and intuition after handling tens of thousands of durians over 15 years. Durian A is definitely fuller.”",
+    "quote_zh": "“我也没法用语言跟你说清楚具体看哪里，挑榴莲没有死规矩，就是我干了15年、摸过几万颗榴莲攒下来的直觉与手感，A号肯定肉多。”"
+  },
+  "aiProfile": {
+    "name_en": "Deep Learning Visual AI System",
+    "name_zh": "深度学习视觉 AI 系统",
+    "tech_en": "Trained on massive dataset of 1,000,000+ real durian images without explicit rule algorithms",
+    "tech_zh": "基于超过 100 万张真实榴莲外观—开壳结果配对图像训练而成的神经网络模型（无人工编写规则）"
+  }
+}

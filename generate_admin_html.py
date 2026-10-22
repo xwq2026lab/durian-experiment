@@ -1,0 +1,532 @@
+admin_html = '''<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Professor Console: 2x2 Between-Subjects Experiment Analytics</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Serif:wght@600;700&display=swap');
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800 min-h-screen flex flex-col justify-between selection:bg-indigo-600 selection:text-white">
+
+  <div id="app" class="max-w-6xl mx-auto w-full px-4 py-6 md:py-10 flex-1">
+
+    <!-- Top Admin Header -->
+    <header class="mb-6 pb-4 border-b border-slate-200">
+      <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+        <div>
+          <div class="flex items-center gap-2 text-xs font-bold tracking-wider text-indigo-700 uppercase mb-1">
+            <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
+            <span>{{ loc.portalBadge }}</span>
+          </div>
+          <h1 class="text-xl sm:text-2xl font-bold text-slate-900">
+            {{ loc.portalTitle }}
+          </h1>
+          <p class="text-xs text-slate-500 mt-0.5">
+            {{ loc.portalSubtitle }}
+          </p>
+        </div>
+
+        <div class="flex flex-wrap items-center gap-2">
+          <!-- Language Toggle in Top Right -->
+          <div class="flex items-center gap-1 bg-white p-1 rounded-xl border border-slate-200 shadow-sm text-xs font-medium">
+            <span class="text-slate-400 pl-1.5 pr-0.5">🌐</span>
+            <button @click="setLang('en')" 
+                    :class="currentLang === 'en' ? 'bg-indigo-600 text-white font-bold shadow-sm' : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'"
+                    class="px-2.5 py-1 rounded-lg transition">
+              English
+            </button>
+            <button @click="setLang('ja')" 
+                    :class="currentLang === 'ja' ? 'bg-indigo-600 text-white font-bold shadow-sm' : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'"
+                    class="px-2.5 py-1 rounded-lg transition">
+              日本語
+            </button>
+            <button @click="setLang('zh')" 
+                    :class="currentLang === 'zh' ? 'bg-indigo-600 text-white font-bold shadow-sm' : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'"
+                    class="px-2.5 py-1 rounded-lg transition">
+              中文
+            </button>
+          </div>
+
+          <a href="/api/export.csv" target="_blank"
+             class="px-3.5 py-2 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl text-xs font-semibold shadow-sm transition flex items-center gap-1.5">
+            <span>📥</span>
+            <span>{{ loc.btnExportCsv }}</span>
+          </a>
+
+          <button @click="confirmClearData"
+                  class="px-3.5 py-2 bg-white hover:bg-rose-50 text-rose-600 border border-rose-200 rounded-xl text-xs font-semibold transition flex items-center gap-1.5">
+            <span>🗑️</span>
+            <span>{{ loc.btnClearData }}</span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Condition Direct Links Panel for Professor -->
+    <section class="bg-white border border-slate-200 rounded-2xl p-4 sm:p-6 mb-6 shadow-sm">
+      <div class="flex items-center justify-between mb-3">
+        <h2 class="text-xs font-bold text-slate-900 uppercase tracking-wider flex items-center gap-2">
+          <span>🎯</span>
+          <span>{{ loc.condTestHeading }}</span>
+        </h2>
+        <span class="text-[11px] text-slate-400">{{ loc.condTestSubtitle }}</span>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+        <div v-for="c in [1, 2, 3, 4]" :key="'cond_link_' + c"
+             class="p-3 rounded-xl border border-slate-200 bg-slate-50/70 hover:bg-indigo-50/40 hover:border-indigo-300 transition flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-1.5">
+              <span class="text-xs font-bold text-slate-900">Condition {{ c }}</span>
+              <span class="text-[10px] px-1.5 py-0.5 rounded font-mono font-bold"
+                    :class="c <= 2 ? 'bg-amber-100 text-amber-800' : 'bg-indigo-100 text-indigo-800'">
+                {{ c === 1 ? 'High × Fail' : (c === 2 ? 'Low × Fail' : (c === 3 ? 'High × Win' : 'Low × Win')) }}
+              </span>
+            </div>
+            <p class="text-[11px] text-slate-600 leading-tight mb-3">
+              {{ c === 1 ? loc.cond1Desc : (c === 2 ? loc.cond2Desc : (c === 3 ? loc.cond3Desc : loc.cond4Desc)) }}
+            </p>
+          </div>
+          <div class="flex items-center justify-between pt-2 border-t border-slate-200/80">
+            <a :href="'/?condition=' + c" target="_blank"
+               class="text-xs font-semibold text-indigo-600 hover:text-indigo-800 flex items-center gap-1">
+              <span>{{ loc.btnOpenTest }}</span>
+              <span>↗</span>
+            </a>
+            <button @click="copyLink('/?condition=' + c)" class="text-[11px] text-slate-400 hover:text-slate-700">
+              {{ loc.btnCopy }}
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Main Navigation Tabs -->
+    <div class="flex border-b border-slate-200 mb-6 gap-6 text-sm font-semibold">
+      <button @click="activeTab = 'stats'"
+              :class="activeTab === 'stats' ? 'text-indigo-600 border-b-2 border-indigo-600 pb-3' : 'text-slate-500 hover:text-slate-800 pb-3 transition'">
+        📊 {{ loc.tabStatsTitle }}
+      </button>
+      <button @click="activeTab = 'editor'"
+              :class="activeTab === 'editor' ? 'text-indigo-600 border-b-2 border-indigo-600 pb-3' : 'text-slate-500 hover:text-slate-800 pb-3 transition'">
+        ⚙️ {{ loc.tabEditorTitle }}
+      </button>
+    </div>
+
+    <!-- TAB 1: 2x2 Factorial Matrix & Behavioral Analytics -->
+    <div v-if="activeTab === 'stats'" class="space-y-6">
+
+      <!-- High-level KPI Cards -->
+      <div class="grid grid-cols-1 sm:grid-cols-4 gap-4">
+        <div class="bg-white border border-slate-200 p-5 rounded-2xl shadow-sm">
+          <div class="text-xs font-semibold text-slate-500 mb-1">{{ loc.kpiTotalN }}</div>
+          <div class="text-3xl font-extrabold text-slate-900 font-mono">{{ stats.total || 0 }}</div>
+          <div class="text-[11px] text-slate-400 mt-1">{{ loc.kpiTotalDesc }}</div>
+        </div>
+
+        <div class="bg-white border border-slate-200 p-5 rounded-2xl shadow-sm">
+          <div class="text-xs font-semibold text-slate-500 mb-1">{{ loc.kpiHighConfRate }}</div>
+          <div class="text-3xl font-extrabold text-indigo-600 font-mono">
+            {{ stats.confidenceEffect?.high?.rate || '0.0' }}%
+          </div>
+          <div class="text-[11px] text-slate-400 mt-1">N = {{ stats.confidenceEffect?.high?.n || 0 }} (Cond 1 & 3)</div>
+        </div>
+
+        <div class="bg-white border border-slate-200 p-5 rounded-2xl shadow-sm">
+          <div class="text-xs font-semibold text-slate-500 mb-1">{{ loc.kpiLowConfRate }}</div>
+          <div class="text-3xl font-extrabold text-amber-600 font-mono">
+            {{ stats.confidenceEffect?.low?.rate || '0.0' }}%
+          </div>
+          <div class="text-[11px] text-slate-400 mt-1">N = {{ stats.confidenceEffect?.low?.n || 0 }} (Cond 2 & 4)</div>
+        </div>
+
+        <div class="bg-white border border-slate-200 p-5 rounded-2xl shadow-sm">
+          <div class="text-xs font-semibold text-slate-500 mb-1">{{ loc.kpiBullshitPeak }}</div>
+          <div class="text-3xl font-extrabold text-rose-600 font-mono">
+            {{ stats.conditions?.['1']?.avg_q6 || '0.00' }} / 7
+          </div>
+          <div class="text-[11px] text-slate-400 mt-1">{{ loc.kpiBullshitDesc }}</div>
+        </div>
+      </div>
+
+      <!-- 2x2 Factorial Matrix Table -->
+      <div class="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm">
+        <div class="flex items-center justify-between mb-4">
+          <div>
+            <h3 class="text-base font-bold text-slate-900">{{ loc.matrixHeading }}</h3>
+            <p class="text-xs text-slate-500 mt-0.5">{{ loc.matrixSub }}</p>
+          </div>
+          <button @click="refreshStats" class="text-xs text-indigo-600 hover:text-indigo-800 font-semibold">
+            🔄 {{ loc.btnRefresh }}
+          </button>
+        </div>
+
+        <div class="overflow-x-auto">
+          <table class="w-full text-xs text-left border-collapse">
+            <thead>
+              <tr class="bg-slate-100/80 text-slate-700">
+                <th class="p-3 border border-slate-200 font-bold">2×2 Conditions</th>
+                <th class="p-3 border border-slate-200 font-bold text-center">Sample Size (n)</th>
+                <th class="p-3 border border-slate-200 font-bold text-center">Choice B % (Chose AI)</th>
+                <th class="p-3 border border-slate-200 font-bold text-center">Q2 Data Authority</th>
+                <th class="p-3 border border-slate-200 font-bold text-center">Q4 Tacit Skepticism</th>
+                <th class="p-3 border border-slate-200 font-bold text-center text-rose-600">Q6 Bullshitting</th>
+                <th class="p-3 border border-slate-200 font-bold text-center">Q7 Deception</th>
+                <th class="p-3 border border-slate-200 font-bold text-center">Q8 Tacit Re-eval</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Condition 1 -->
+              <tr class="hover:bg-slate-50">
+                <td class="p-3 border border-slate-200 font-bold">
+                  <span class="inline-block w-5 h-5 rounded-full bg-slate-800 text-white text-center leading-5 text-[10px] mr-1.5">1</span>
+                  High Confidence (94.8%) × AI Fails
+                </td>
+                <td class="p-3 border border-slate-200 text-center font-mono font-bold">{{ stats.conditions?.['1']?.n || 0 }}</td>
+                <td class="p-3 border border-slate-200 text-center font-mono font-bold text-indigo-600">{{ stats.conditions?.['1']?.chooseAiRate || 0 }}%</td>
+                <td class="p-3 border border-slate-200 text-center font-mono">{{ stats.conditions?.['1']?.avg_q2 || '0.00' }}</td>
+                <td class="p-3 border border-slate-200 text-center font-mono">{{ stats.conditions?.['1']?.avg_q4 || '0.00' }}</td>
+                <td class="p-3 border border-slate-200 text-center font-mono font-bold text-rose-600 bg-rose-50/50">{{ stats.conditions?.['1']?.avg_q6 || '0.00' }}</td>
+                <td class="p-3 border border-slate-200 text-center font-mono">{{ stats.conditions?.['1']?.avg_q7 || '0.00' }}</td>
+                <td class="p-3 border border-slate-200 text-center font-mono font-bold text-emerald-600">{{ stats.conditions?.['1']?.avg_q8 || '0.00' }}</td>
+              </tr>
+
+              <!-- Condition 2 -->
+              <tr class="hover:bg-slate-50">
+                <td class="p-3 border border-slate-200 font-bold">
+                  <span class="inline-block w-5 h-5 rounded-full bg-slate-800 text-white text-center leading-5 text-[10px] mr-1.5">2</span>
+                  Low Confidence (58.2%) × AI Fails
+                </td>
+                <td class="p-3 border border-slate-200 text-center font-mono font-bold">{{ stats.conditions?.['2']?.n || 0 }}</td>
+                <td class="p-3 border border-slate-200 text-center font-mono font-bold text-amber-600">{{ stats.conditions?.['2']?.chooseAiRate || 0 }}%</td>
+                <td class="p-3 border border-slate-200 text-center font-mono">{{ stats.conditions?.['2']?.avg_q2 || '0.00' }}</td>
+                <td class="p-3 border border-slate-200 text-center font-mono">{{ stats.conditions?.['2']?.avg_q4 || '0.00' }}</td>
+                <td class="p-3 border border-slate-200 text-center font-mono">{{ stats.conditions?.['2']?.avg_q6 || '0.00' }}</td>
+                <td class="p-3 border border-slate-200 text-center font-mono">{{ stats.conditions?.['2']?.avg_q7 || '0.00' }}</td>
+                <td class="p-3 border border-slate-200 text-center font-mono">{{ stats.conditions?.['2']?.avg_q8 || '0.00' }}</td>
+              </tr>
+
+              <!-- Condition 3 -->
+              <tr class="hover:bg-slate-50">
+                <td class="p-3 border border-slate-200 font-bold">
+                  <span class="inline-block w-5 h-5 rounded-full bg-slate-800 text-white text-center leading-5 text-[10px] mr-1.5">3</span>
+                  High Confidence (94.8%) × AI Succeeds
+                </td>
+                <td class="p-3 border border-slate-200 text-center font-mono font-bold">{{ stats.conditions?.['3']?.n || 0 }}</td>
+                <td class="p-3 border border-slate-200 text-center font-mono font-bold text-indigo-600">{{ stats.conditions?.['3']?.chooseAiRate || 0 }}%</td>
+                <td class="p-3 border border-slate-200 text-center font-mono">{{ stats.conditions?.['3']?.avg_q2 || '0.00' }}</td>
+                <td class="p-3 border border-slate-200 text-center font-mono">{{ stats.conditions?.['3']?.avg_q4 || '0.00' }}</td>
+                <td class="p-3 border border-slate-200 text-center font-mono">{{ stats.conditions?.['3']?.avg_q6 || '0.00' }}</td>
+                <td class="p-3 border border-slate-200 text-center font-mono">{{ stats.conditions?.['3']?.avg_q7 || '0.00' }}</td>
+                <td class="p-3 border border-slate-200 text-center font-mono">{{ stats.conditions?.['3']?.avg_q8 || '0.00' }}</td>
+              </tr>
+
+              <!-- Condition 4 -->
+              <tr class="hover:bg-slate-50">
+                <td class="p-3 border border-slate-200 font-bold">
+                  <span class="inline-block w-5 h-5 rounded-full bg-slate-800 text-white text-center leading-5 text-[10px] mr-1.5">4</span>
+                  Low Confidence (58.2%) × AI Succeeds
+                </td>
+                <td class="p-3 border border-slate-200 text-center font-mono font-bold">{{ stats.conditions?.['4']?.n || 0 }}</td>
+                <td class="p-3 border border-slate-200 text-center font-mono font-bold text-amber-600">{{ stats.conditions?.['4']?.chooseAiRate || 0 }}%</td>
+                <td class="p-3 border border-slate-200 text-center font-mono">{{ stats.conditions?.['4']?.avg_q2 || '0.00' }}</td>
+                <td class="p-3 border border-slate-200 text-center font-mono">{{ stats.conditions?.['4']?.avg_q4 || '0.00' }}</td>
+                <td class="p-3 border border-slate-200 text-center font-mono">{{ stats.conditions?.['4']?.avg_q6 || '0.00' }}</td>
+                <td class="p-3 border border-slate-200 text-center font-mono">{{ stats.conditions?.['4']?.avg_q7 || '0.00' }}</td>
+                <td class="p-3 border border-slate-200 text-center font-mono">{{ stats.conditions?.['4']?.avg_q8 || '0.00' }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Two-Way ANOVA Hypotheses Verification Checklist -->
+      <div class="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm">
+        <h3 class="text-sm font-bold text-slate-900 mb-3 flex items-center gap-2">
+          <span>🔬</span>
+          <span>{{ loc.hypoTitle }}</span>
+        </h3>
+        <div class="space-y-3 text-xs leading-relaxed text-slate-700">
+          <div class="p-3 rounded-lg border border-slate-200 bg-slate-50/50">
+            <span class="font-bold text-indigo-700">Hypothesis 1 (Main Effect of Confidence on Choice B):</span>
+            <p class="text-slate-600 mt-1">{{ loc.h1Text }}</p>
+          </div>
+          <div class="p-3 rounded-lg border border-slate-200 bg-slate-50/50">
+            <span class="font-bold text-rose-700">Hypothesis 2 (Interaction on Bullshitting Attribution Q6):</span>
+            <p class="text-slate-600 mt-1">{{ loc.h2Text }}</p>
+          </div>
+          <div class="p-3 rounded-lg border border-slate-200 bg-slate-50/50">
+            <span class="font-bold text-emerald-700">Hypothesis 3 (Tacit Knowledge Valuation & Asymmetric Penalty Q8):</span>
+            <p class="text-slate-600 mt-1">{{ loc.h3Text }}</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- TAB 2: Parameter & Content Editor -->
+    <div v-if="activeTab === 'editor'" class="space-y-6">
+      <div class="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm">
+        <h3 class="text-sm font-bold text-slate-900 mb-2">{{ loc.editorHeader }}</h3>
+        <p class="text-xs text-slate-500 mb-6">{{ loc.editorSub }}</p>
+
+        <div class="space-y-5 text-xs">
+          <div>
+            <label class="block font-bold text-slate-800 mb-1">Experiment Title</label>
+            <input type="text" v-model="editConfig.experimentTitle" class="w-full p-2.5 border border-slate-300 rounded-lg text-xs">
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div>
+              <label class="block font-bold text-slate-800 mb-1">High Confidence Value (Default: 94.8%)</label>
+              <input type="text" v-model="editConfig.conditions['1'].confidenceVal" class="w-full p-2.5 border border-slate-300 rounded-lg text-xs font-mono">
+            </div>
+            <div>
+              <label class="block font-bold text-slate-800 mb-1">Low Confidence Value (Default: 58.2%)</label>
+              <input type="text" v-model="editConfig.conditions['2'].confidenceVal" class="w-full p-2.5 border border-slate-300 rounded-lg text-xs font-mono">
+            </div>
+          </div>
+
+          <div>
+            <label class="block font-bold text-slate-800 mb-1">Veteran Store Manager Quote (Ineffable Tacit Intuition)</label>
+            <textarea v-model="editConfig.managerProfile.quote_en" rows="3" class="w-full p-2.5 border border-slate-300 rounded-lg text-xs font-mono"></textarea>
+          </div>
+
+          <div>
+            <label class="block font-bold text-slate-800 mb-1">AI System Dataset Description</label>
+            <input type="text" v-model="editConfig.aiProfile.tech_en" class="w-full p-2.5 border border-slate-300 rounded-lg text-xs font-mono">
+          </div>
+
+          <div class="pt-4 border-t border-slate-200 flex items-center justify-between">
+            <span class="text-slate-400 text-[11px]">{{ saveStatus }}</span>
+            <button @click="saveConfigChanges"
+                    class="px-5 py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl font-bold transition">
+              {{ loc.btnSaveConfig }}
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    const { createApp, ref, computed, onMounted } = Vue;
+
+    const i18nAdmin = {
+      en: {
+        portalBadge: "Professor Dashboard & 2x2 Experiment Control",
+        portalTitle: "2x2 Between-Subjects Study Analytics Console",
+        portalSubtitle: "Study: Data-Driven AI vs. Ineffable Expert Intuition in Decision Conflicts",
+        btnExportCsv: "Export Full CSV",
+        btnClearData: "Clear All Responses (N=0)",
+        condTestHeading: "2×2 Condition Quick Links (For Testing & Preview)",
+        condTestSubtitle: "Click to open each condition directly with preset parameters",
+        cond1Desc: "High Confidence (94.8%) × AI Fails (Manager Wins)",
+        cond2Desc: "Low Confidence (58.2%) × AI Fails (Manager Wins)",
+        cond3Desc: "High Confidence (94.8%) × AI Succeeds (Manager Fails)",
+        cond4Desc: "Low Confidence (58.2%) × AI Succeeds (Manager Fails)",
+        btnOpenTest: "Open Test",
+        btnCopy: "Copy",
+        tabStatsTitle: "2×2 Factorial Analytics",
+        tabEditorTitle: "Experiment Config Editor",
+        kpiTotalN: "Total Participants (N)",
+        kpiTotalDesc: "Fully completed submissions",
+        kpiHighConfRate: "High Conf Choice B %",
+        kpiLowConfRate: "Low Conf Choice B %",
+        kpiBullshitPeak: "Cond 1 Bullshit Mean",
+        kpiBullshitDesc: "Hypothesized interaction peak",
+        matrixHeading: "2×2 Factorial Interaction Matrix",
+        matrixSub: "Factor 1: AI Confidence Level (High vs Low) × Factor 2: Actual Outcome (AI Fail vs Win)",
+        btnRefresh: "Refresh Data",
+        hypoTitle: "Two-Way ANOVA Hypothesis Checklist",
+        h1Text: "Examines whether High Confidence (94.8%) significantly increases Option B selection rate regardless of explicit reasoning.",
+        h2Text: "Examines whether High-Confidence Failure (Condition 1) generates significantly higher Q6 Bullshitting attribution compared to Low-Confidence Failure (Condition 2).",
+        h3Text: "Examines whether failure restores evaluation of ineffable tacit knowledge (Q8).",
+        editorHeader: "Live Parameter & Text Modifier",
+        editorSub: "Changes are persisted directly to config.json and synchronized with participants in real time.",
+        btnSaveConfig: "Save Config Changes"
+      },
+      zh: {
+        portalBadge: "导师管理与 2×2 实验控制台",
+        portalTitle: "2×2 组间情境实验数据看板与参数控制器",
+        portalSubtitle: "课题：《数据驱动型 AI 与不可言传的专家直觉：置信度诱导与结果归因研究》",
+        btnExportCsv: "导出完整学术 CSV",
+        btnClearData: "清空所有问卷数据 (N=0)",
+        condTestHeading: "2×2 实验分组测试直达通道",
+        condTestSubtitle: "点击可直接以固定组别进入答题界面进行测试",
+        cond1Desc: "高置信度 (94.8%) × AI 失败（店长正确）",
+        cond2Desc: "低置信度 (58.2%) × AI 失败（店长正确）",
+        cond3Desc: "高置信度 (94.8%) × AI 成功（店长失误）",
+        cond4Desc: "低置信度 (58.2%) × AI 成功（店长失误）",
+        btnOpenTest: "打开测试",
+        btnCopy: "复制链接",
+        tabStatsTitle: "2×2 组间统计矩阵",
+        tabEditorTitle: "实验参数与文案修改器",
+        kpiTotalN: "总有效样本量 (N)",
+        kpiTotalDesc: "完整答毕并提交样本",
+        kpiHighConfRate: "高置信度组选择 AI 比例",
+        kpiLowConfRate: "低置信度组选择 AI 比例",
+        kpiBullshitPeak: "组别 1 “胡扯”归因均分",
+        kpiBullshitDesc: "核心交互峰值假设 (Q6)",
+        matrixHeading: "2×2 双因素方差分析矩阵",
+        matrixSub: "自变量 1：AI 置信度 (高 vs 低) × 自变量 2：开壳真实胜负 (AI 失败 vs AI 成功)",
+        btnRefresh: "刷新数据",
+        hypoTitle: "双因素方差分析（Two-Way ANOVA）核心假设对照",
+        h1Text: "检验高置信度（94.8%）是否在无显性规则下显著提高对 AI 的选择率（验证自动化偏差）。",
+        h2Text: "检验“高置信度失败（组别 1）”是否诱发最高强度的拟人化道德谴责（Q6 胡扯归因），显著高于低置信度失败组（组别 2）。",
+        h3Text: "检验受试者在目睹 AI 惨败后对人类不可言传隐性经验（Q8）的价值补偿回升。",
+        editorHeader: "在线参数与文案调节器",
+        editorSub: "保存后将直接写入 config.json，受试者端刷新即可生效。",
+        btnSaveConfig: "保存修改并实时同步"
+      },
+      ja: {
+        portalBadge: "指導教員用 2×2 実験管理コンソール",
+        portalTitle: "2×2 被験者間実験データ分析ダッシュボード",
+        portalSubtitle: "研究題目：データ駆動型AIと暗黙的直観の対立：判断競合における確信度誘導とエラー帰属",
+        btnExportCsv: "CSVデータ出力",
+        btnClearData: "データ全件消去 (N=0)",
+        condTestHeading: "2×2 実験群クイックアクセス（プレビュー用）",
+        condTestSubtitle: "各実験群のURLをワンクリックでテスト表示可能",
+        cond1Desc: "高確信度 (94.8%) × AI 失敗（店長的中）",
+        cond2Desc: "低確信度 (58.2%) × AI 失敗（店長的中）",
+        cond3Desc: "高確信度 (94.8%) × AI 的中（店長失敗）",
+        cond4Desc: "低確信度 (58.2%) × AI 的中（店長失敗）",
+        btnOpenTest: "テストを開く",
+        btnCopy: "コピー",
+        tabStatsTitle: "2×2 要因計画分析",
+        tabEditorTitle: "実験設定エディタ",
+        kpiTotalN: "総被験者数 (N)",
+        kpiTotalDesc: "有効回答完了数",
+        kpiHighConfRate: "高確信度群 AI選択率",
+        kpiLowConfRate: "低確信度群 AI選択率",
+        kpiBullshitPeak: "群1「ペテン」帰属平均",
+        kpiBullshitDesc: "交互作用のピーク仮説 (Q6)",
+        matrixHeading: "2×2 要因配置マトリックス",
+        matrixSub: "要因1：AI確信度水準 (高 vs 低) × 要因2：実際の開殻結果 (AI失敗 vs AI的中)",
+        btnRefresh: "データ更新",
+        hypoTitle: "二元配置分散分析（Two-Way ANOVA）仮説検証チェック",
+        h1Text: "高確信度（94.8%）が明示的規則なしにAI選択率を有意に高めるか（自動化偏向の検証）。",
+        h2Text: "「高確信度失敗（群1）」が低確信度失敗（群2）に比べ、有意に高いペテン帰属（Q6）を誘発するか。",
+        h3Text: "AIの大敗が人間の暗黙知（Q8）に対する再評価を促すか。",
+        editorHeader: "実験パラメータ変更",
+        editorSub: "保存内容は直ちに config.json に保存され、受試者に反映されます。",
+        btnSaveConfig: "設定を保存"
+      }
+    };
+
+    createApp({
+      setup() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const currentLang = ref(urlParams.get('lang') || 'en');
+        const activeTab = ref('stats');
+        const stats = ref({ total: 0, conditions: {}, confidenceEffect: {} });
+        const editConfig = ref({
+          experimentTitle: '',
+          conditions: {
+            '1': { confidenceVal: '94.8%' },
+            '2': { confidenceVal: '58.2%' },
+            '3': { confidenceVal: '94.8%' },
+            '4': { confidenceVal: '58.2%' }
+          },
+          managerProfile: { quote_en: '', quote_zh: '' },
+          aiProfile: { tech_en: '', tech_zh: '' }
+        });
+        const saveStatus = ref('');
+
+        const loc = computed(() => i18nAdmin[currentLang.value] || i18nAdmin.en);
+
+        const setLang = (lang) => {
+          currentLang.value = lang;
+        };
+
+        const refreshStats = async () => {
+          try {
+            const res = await fetch('/api/stats');
+            if (res.ok) stats.value = await res.json();
+          } catch(e) {
+            console.error('Failed to load stats', e);
+          }
+        };
+
+        const loadConfigData = async () => {
+          try {
+            const res = await fetch('/api/config');
+            if (res.ok) {
+              const cfg = await res.json();
+              if (cfg.conditions) editConfig.value = cfg;
+            }
+          } catch(e) {}
+        };
+
+        const saveConfigChanges = async () => {
+          saveStatus.value = 'Saving...';
+          try {
+            const res = await fetch('/api/config', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify(editConfig.value)
+            });
+            if (res.ok) {
+              saveStatus.value = 'Saved successfully!';
+              setTimeout(() => { saveStatus.value = ''; }, 3000);
+            }
+          } catch(e) {
+            saveStatus.value = 'Failed to save';
+          }
+        };
+
+        const confirmClearData = async () => {
+          if (!confirm('Are you sure you want to purge all responses and reset to N=0?')) return;
+          try {
+            await fetch('/api/clear', { method: 'POST' });
+            await refreshStats();
+            alert('Database reset to N=0');
+          } catch(e) {
+            alert('Failed to clear database');
+          }
+        };
+
+        const copyLink = (path) => {
+          const full = window.location.origin + path;
+          navigator.clipboard.writeText(full).then(() => {
+            alert('Copied link: ' + full);
+          });
+        };
+
+        onMounted(() => {
+          refreshStats();
+          loadConfigData();
+        });
+
+        return {
+          currentLang,
+          setLang,
+          loc,
+          activeTab,
+          stats,
+          editConfig,
+          saveStatus,
+          refreshStats,
+          saveConfigChanges,
+          confirmClearData,
+          copyLink
+        };
+      }
+    }).mount('#app');
+  </script>
+</body>
+</html>
+'''
+
+with open("admin.html", "w", encoding="utf-8") as f:
+    f.write(admin_html)
+
+print("Generated admin.html successfully")
