@@ -87,7 +87,7 @@ admin_html = '''<!DOCTYPE html>
               <span class="text-xs font-bold text-slate-900">Condition {{ c }}</span>
               <span class="text-[10px] px-1.5 py-0.5 rounded font-mono font-bold"
                     :class="c <= 2 ? 'bg-amber-100 text-amber-800' : 'bg-indigo-100 text-indigo-800'">
-                {{ c === 1 ? 'High × Fail' : (c === 2 ? 'Low × Fail' : (c === 3 ? 'High × Win' : 'Low × Win')) }}
+                {{ c === 1 ? '90% × AI Fail' : (c === 2 ? '60% × AI Fail' : (c === 3 ? '90% × Human Fail' : '60% × Human Fail')) }}
               </span>
             </div>
             <p class="text-[11px] text-slate-600 leading-tight mb-3">
@@ -136,7 +136,7 @@ admin_html = '''<!DOCTYPE html>
           <div class="text-3xl font-extrabold text-indigo-600 font-mono">
             {{ stats.confidenceEffect?.high?.rate || '0.0' }}%
           </div>
-          <div class="text-[11px] text-slate-400 mt-1">N = {{ stats.confidenceEffect?.high?.n || 0 }} (Cond 1 & 3)</div>
+          <div class="text-[11px] text-slate-400 mt-1">N = {{ stats.confidenceEffect?.high?.n || 0 }} (Cond 1 & 3: 90%)</div>
         </div>
 
         <div class="bg-white border border-slate-200 p-5 rounded-2xl shadow-sm">
@@ -144,7 +144,7 @@ admin_html = '''<!DOCTYPE html>
           <div class="text-3xl font-extrabold text-amber-600 font-mono">
             {{ stats.confidenceEffect?.low?.rate || '0.0' }}%
           </div>
-          <div class="text-[11px] text-slate-400 mt-1">N = {{ stats.confidenceEffect?.low?.n || 0 }} (Cond 2 & 4)</div>
+          <div class="text-[11px] text-slate-400 mt-1">N = {{ stats.confidenceEffect?.low?.n || 0 }} (Cond 2 & 4: 60%)</div>
         </div>
 
         <div class="bg-white border border-slate-200 p-5 rounded-2xl shadow-sm">
@@ -172,14 +172,14 @@ admin_html = '''<!DOCTYPE html>
           <table class="w-full text-xs text-left border-collapse">
             <thead>
               <tr class="bg-slate-100/80 text-slate-700">
-                <th class="p-3 border border-slate-200 font-bold">2×2 Conditions</th>
+                <th class="p-3 border border-slate-200 font-bold">2×2 Symmetric Conditions (Baseline: ~3,000 Durians, 85% Acc)</th>
                 <th class="p-3 border border-slate-200 font-bold text-center">Sample Size (n)</th>
                 <th class="p-3 border border-slate-200 font-bold text-center">Choice B % (Chose AI)</th>
-                <th class="p-3 border border-slate-200 font-bold text-center">Q2 Data Authority</th>
-                <th class="p-3 border border-slate-200 font-bold text-center">Q4 Tacit Skepticism</th>
+                <th class="p-3 border border-slate-200 font-bold text-center">Q2 AI Objectivity</th>
+                <th class="p-3 border border-slate-200 font-bold text-center">Q4 Double Standard</th>
                 <th class="p-3 border border-slate-200 font-bold text-center text-rose-600">Q6 Bullshitting</th>
-                <th class="p-3 border border-slate-200 font-bold text-center">Q7 Deception</th>
-                <th class="p-3 border border-slate-200 font-bold text-center">Q8 Tacit Re-eval</th>
+                <th class="p-3 border border-slate-200 font-bold text-center">Q7 Overconfidence</th>
+                <th class="p-3 border border-slate-200 font-bold text-center">Q8 Post-hoc XAI</th>
               </tr>
             </thead>
             <tbody>
@@ -187,7 +187,7 @@ admin_html = '''<!DOCTYPE html>
               <tr class="hover:bg-slate-50">
                 <td class="p-3 border border-slate-200 font-bold">
                   <span class="inline-block w-5 h-5 rounded-full bg-slate-800 text-white text-center leading-5 text-[10px] mr-1.5">1</span>
-                  High Confidence (94.8%) × AI Fails
+                  Both High Conf (90%) × AI Fails (Human Wins)
                 </td>
                 <td class="p-3 border border-slate-200 text-center font-mono font-bold">{{ stats.conditions?.['1']?.n || 0 }}</td>
                 <td class="p-3 border border-slate-200 text-center font-mono font-bold text-indigo-600">{{ stats.conditions?.['1']?.chooseAiRate || 0 }}%</td>
@@ -202,7 +202,7 @@ admin_html = '''<!DOCTYPE html>
               <tr class="hover:bg-slate-50">
                 <td class="p-3 border border-slate-200 font-bold">
                   <span class="inline-block w-5 h-5 rounded-full bg-slate-800 text-white text-center leading-5 text-[10px] mr-1.5">2</span>
-                  Low Confidence (58.2%) × AI Fails
+                  Both Low Conf (60%) × AI Fails (Human Wins)
                 </td>
                 <td class="p-3 border border-slate-200 text-center font-mono font-bold">{{ stats.conditions?.['2']?.n || 0 }}</td>
                 <td class="p-3 border border-slate-200 text-center font-mono font-bold text-amber-600">{{ stats.conditions?.['2']?.chooseAiRate || 0 }}%</td>
@@ -217,7 +217,7 @@ admin_html = '''<!DOCTYPE html>
               <tr class="hover:bg-slate-50">
                 <td class="p-3 border border-slate-200 font-bold">
                   <span class="inline-block w-5 h-5 rounded-full bg-slate-800 text-white text-center leading-5 text-[10px] mr-1.5">3</span>
-                  High Confidence (94.8%) × AI Succeeds
+                  Both High Conf (90%) × Human Fails (AI Wins)
                 </td>
                 <td class="p-3 border border-slate-200 text-center font-mono font-bold">{{ stats.conditions?.['3']?.n || 0 }}</td>
                 <td class="p-3 border border-slate-200 text-center font-mono font-bold text-indigo-600">{{ stats.conditions?.['3']?.chooseAiRate || 0 }}%</td>
@@ -232,7 +232,7 @@ admin_html = '''<!DOCTYPE html>
               <tr class="hover:bg-slate-50">
                 <td class="p-3 border border-slate-200 font-bold">
                   <span class="inline-block w-5 h-5 rounded-full bg-slate-800 text-white text-center leading-5 text-[10px] mr-1.5">4</span>
-                  Low Confidence (58.2%) × AI Succeeds
+                  Both Low Conf (60%) × Human Fails (AI Wins)
                 </td>
                 <td class="p-3 border border-slate-200 text-center font-mono font-bold">{{ stats.conditions?.['4']?.n || 0 }}</td>
                 <td class="p-3 border border-slate-200 text-center font-mono font-bold text-amber-600">{{ stats.conditions?.['4']?.chooseAiRate || 0 }}%</td>
@@ -255,15 +255,15 @@ admin_html = '''<!DOCTYPE html>
         </h3>
         <div class="space-y-3 text-xs leading-relaxed text-slate-700">
           <div class="p-3 rounded-lg border border-slate-200 bg-slate-50/50">
-            <span class="font-bold text-indigo-700">Hypothesis 1 (Main Effect of Confidence on Choice B):</span>
+            <span class="font-bold text-indigo-700">Hypothesis 1 (Epistemic Double Standard Under Strict Symmetry - Stage 1):</span>
             <p class="text-slate-600 mt-1">{{ loc.h1Text }}</p>
           </div>
           <div class="p-3 rounded-lg border border-slate-200 bg-slate-50/50">
-            <span class="font-bold text-rose-700">Hypothesis 2 (Interaction on Bullshitting Attribution Q6):</span>
+            <span class="font-bold text-rose-700">Hypothesis 2 (Asymmetric "Bullshitting" & Overconfidence Attribution - Q6 & Q7):</span>
             <p class="text-slate-600 mt-1">{{ loc.h2Text }}</p>
           </div>
           <div class="p-3 rounded-lg border border-slate-200 bg-slate-50/50">
-            <span class="font-bold text-emerald-700">Hypothesis 3 (Tacit Knowledge Valuation & Asymmetric Penalty Q8):</span>
+            <span class="font-bold text-emerald-700">Hypothesis 3 (Demand for Post-Hoc Feature Extraction & Trust Shift - Q8 & Q9):</span>
             <p class="text-slate-600 mt-1">{{ loc.h3Text }}</p>
           </div>
         </div>
@@ -285,23 +285,13 @@ admin_html = '''<!DOCTYPE html>
 
           <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
-              <label class="block font-bold text-slate-800 mb-1">High Confidence Value (Default: 94.8%)</label>
+              <label class="block font-bold text-slate-800 mb-1">Matched High Confidence Value (Default: 90%)</label>
               <input type="text" v-model="editConfig.conditions['1'].confidenceVal" class="w-full p-2.5 border border-slate-300 rounded-lg text-xs font-mono">
             </div>
             <div>
-              <label class="block font-bold text-slate-800 mb-1">Low Confidence Value (Default: 58.2%)</label>
+              <label class="block font-bold text-slate-800 mb-1">Matched Low Confidence Value (Default: 60%)</label>
               <input type="text" v-model="editConfig.conditions['2'].confidenceVal" class="w-full p-2.5 border border-slate-300 rounded-lg text-xs font-mono">
             </div>
-          </div>
-
-          <div>
-            <label class="block font-bold text-slate-800 mb-1">Veteran Store Manager Quote (Ineffable Tacit Intuition)</label>
-            <textarea v-model="editConfig.managerProfile.quote_en" rows="3" class="w-full p-2.5 border border-slate-300 rounded-lg text-xs font-mono"></textarea>
-          </div>
-
-          <div>
-            <label class="block font-bold text-slate-800 mb-1">AI System Dataset Description</label>
-            <input type="text" v-model="editConfig.aiProfile.tech_en" class="w-full p-2.5 border border-slate-300 rounded-lg text-xs font-mono">
           </div>
 
           <div class="pt-4 border-t border-slate-200 flex items-center justify-between">
@@ -324,100 +314,100 @@ admin_html = '''<!DOCTYPE html>
       en: {
         portalBadge: "Professor Dashboard & 2x2 Experiment Control",
         portalTitle: "2x2 Between-Subjects Study Analytics Console",
-        portalSubtitle: "Study: Data-Driven AI vs. Ineffable Expert Intuition in Decision Conflicts",
+        portalSubtitle: "Study: Human Intuition vs. AI Intuition — Epistemic Asymmetry When Two Black-Boxes Conflict",
         btnExportCsv: "Export Full CSV",
         btnClearData: "Clear All Responses (N=0)",
-        condTestHeading: "2×2 Condition Quick Links (For Testing & Preview)",
-        condTestSubtitle: "Click to open each condition directly with preset parameters",
-        cond1Desc: "High Confidence (94.8%) × AI Fails (Manager Wins)",
-        cond2Desc: "Low Confidence (58.2%) × AI Fails (Manager Wins)",
-        cond3Desc: "High Confidence (94.8%) × AI Succeeds (Manager Fails)",
-        cond4Desc: "Low Confidence (58.2%) × AI Succeeds (Manager Fails)",
+        condTestHeading: "2×2 Symmetric Condition Quick Links (For Testing & Preview)",
+        condTestSubtitle: "Baseline: Both trained on ~3,000 tasted durians, 85% overall accuracy, both unexplainable in words",
+        cond1Desc: "Both High Confidence (90%) × AI Fails (Store Manager Wins)",
+        cond2Desc: "Both Low Confidence (60%) × AI Fails (Store Manager Wins)",
+        cond3Desc: "Both High Confidence (90%) × Store Manager Fails (AI Wins)",
+        cond4Desc: "Both Low Confidence (60%) × Store Manager Fails (AI Wins)",
         btnOpenTest: "Open Test",
         btnCopy: "Copy",
         tabStatsTitle: "2×2 Factorial Analytics",
         tabEditorTitle: "Experiment Config Editor",
         kpiTotalN: "Total Participants (N)",
         kpiTotalDesc: "Fully completed submissions",
-        kpiHighConfRate: "High Conf Choice B %",
-        kpiLowConfRate: "Low Conf Choice B %",
+        kpiHighConfRate: "High Conf (90%) Choice B %",
+        kpiLowConfRate: "Low Conf (60%) Choice B %",
         kpiBullshitPeak: "Cond 1 Bullshit Mean",
-        kpiBullshitDesc: "Hypothesized interaction peak",
+        kpiBullshitDesc: "AI High-Conf Fail (Q6)",
         matrixHeading: "2×2 Factorial Interaction Matrix",
-        matrixSub: "Factor 1: AI Confidence Level (High vs Low) × Factor 2: Actual Outcome (AI Fail vs Win)",
+        matrixSub: "Factor 1: Matched Case Confidence (90% vs 60%) × Factor 2: Who Failed (AI Fails vs Human Fails)",
         btnRefresh: "Refresh Data",
-        hypoTitle: "Two-Way ANOVA Hypothesis Checklist",
-        h1Text: "Examines whether High Confidence (94.8%) significantly increases Option B selection rate regardless of explicit reasoning.",
-        h2Text: "Examines whether High-Confidence Failure (Condition 1) generates significantly higher Q6 Bullshitting attribution compared to Low-Confidence Failure (Condition 2).",
-        h3Text: "Examines whether failure restores evaluation of ineffable tacit knowledge (Q8).",
+        hypoTitle: "Two-Way ANOVA Core Hypotheses (Addressing Epistemic Isomorphism of Two Intuitions)",
+        h1Text: "Tests whether participants hold an epistemic double standard toward unexplainability (Q4) and whether matched high confidence (90% vs 90%) shifts preference between Human Intuition and AI Intuition compared to matched low confidence (60% vs 60%).",
+        h2Text: "Tests the Interaction Effect on Q6 (Bullshitting) & Q7 (Overconfidence): When an unexplainable intuitive judgment fails at 90% confidence, is AI Intuition penalized significantly more harshly as 'bullshitting' (Cond 1) than Human Intuition failing under the exact same 90% confidence (Cond 3)?",
+        h3Text: "Tests whether post-hoc explicit feature extraction (Q8) is perceived as a key epistemic differentiator for deep-learning AI.",
         editorHeader: "Live Parameter & Text Modifier",
-        editorSub: "Changes are persisted directly to config.json and synchronized with participants in real time.",
+        editorSub: "Changes are persisted to configuration and synchronized with participants.",
         btnSaveConfig: "Save Config Changes"
       },
       zh: {
         portalBadge: "导师管理与 2×2 实验控制台",
         portalTitle: "2×2 组间情境实验数据看板与参数控制器",
-        portalSubtitle: "课题：《数据驱动型 AI 与不可言传的专家直觉：置信度诱导与结果归因研究》",
+        portalSubtitle: "课题：《人类直觉 vs. 人工直觉：两个“不可言传黑盒”冲突时的认识论双标与错误归因研究》",
         btnExportCsv: "导出完整学术 CSV",
         btnClearData: "清空所有问卷数据 (N=0)",
-        condTestHeading: "2×2 实验分组测试直达通道",
-        condTestSubtitle: "点击可直接以固定组别进入答题界面进行测试",
-        cond1Desc: "高置信度 (94.8%) × AI 失败（店长正确）",
-        cond2Desc: "低置信度 (58.2%) × AI 失败（店长正确）",
-        cond3Desc: "高置信度 (94.8%) × AI 成功（店长失误）",
-        cond4Desc: "低置信度 (58.2%) × AI 成功（店长失误）",
+        condTestHeading: "2×2 对称实验分组测试直达通道",
+        condTestSubtitle: "对称基线：双方均基于约3,000颗开壳品尝样本、历史总体准确率均为85%、均无法用语言解释",
+        cond1Desc: "双方高把握 (90%) × AI 失误（店长正确）",
+        cond2Desc: "双方低把握 (60%) × AI 失误（店长正确）",
+        cond3Desc: "双方高把握 (90%) × 店长失误（AI 正确）",
+        cond4Desc: "双方低把握 (60%) × 店长失误（AI 正确）",
         btnOpenTest: "打开测试",
         btnCopy: "复制链接",
         tabStatsTitle: "2×2 组间统计矩阵",
         tabEditorTitle: "实验参数与文案修改器",
         kpiTotalN: "总有效样本量 (N)",
         kpiTotalDesc: "完整答毕并提交样本",
-        kpiHighConfRate: "高置信度组选择 AI 比例",
-        kpiLowConfRate: "低置信度组选择 AI 比例",
+        kpiHighConfRate: "高把握组(90%)选 AI 比例",
+        kpiLowConfRate: "低把握组(60%)选 AI 比例",
         kpiBullshitPeak: "组别 1 “胡扯”归因均分",
-        kpiBullshitDesc: "核心交互峰值假设 (Q6)",
+        kpiBullshitDesc: "AI 高把握失误组 (Q6)",
         matrixHeading: "2×2 双因素方差分析矩阵",
-        matrixSub: "自变量 1：AI 置信度 (高 vs 低) × 自变量 2：开壳真实胜负 (AI 失败 vs AI 成功)",
+        matrixSub: "自变量 1：双方对等把握度 (90% vs 60%) × 自变量 2：失误主体 (AI 失误 vs 人类失误)",
         btnRefresh: "刷新数据",
         hypoTitle: "双因素方差分析（Two-Way ANOVA）核心假设对照",
-        h1Text: "检验高置信度（94.8%）是否在无显性规则下显著提高对 AI 的选择率（验证自动化偏差）。",
-        h2Text: "检验“高置信度失败（组别 1）”是否诱发最高强度的拟人化道德谴责（Q6 胡扯归因），显著高于低置信度失败组（组别 2）。",
-        h3Text: "检验受试者在目睹 AI 惨败后对人类不可言传隐性经验（Q8）的价值补偿回升。",
+        h1Text: "检验在训练样本量（3,000颗）、总体准确率（85%）与单次把握度（90%或60%）完全对称的前提下，受试者对“人类说不出理由”与“AI说不出理由”是否存在认识论双重标准（Q4）及偏好差异。",
+        h2Text: "检验 Q6（胡扯归因）与 Q7（过度自信谴责）的交互效应：同样以 90% 高把握做出无法言传的直觉判断并翻车，人们对“AI 直觉翻车（组别1）”的 Bullshitting 谴责是否显著高于“人类直觉翻车（组别3）”？",
+        h3Text: "检验事后显性特征提取（Post-hoc Feature Extraction, Q8）对于弥补深度学习黑盒直觉信任赤字的作用。",
         editorHeader: "在线参数与文案调节器",
-        editorSub: "保存后将直接写入 config.json，受试者端刷新即可生效。",
+        editorSub: "保存后将同步更新配置参数。",
         btnSaveConfig: "保存修改并实时同步"
       },
       ja: {
         portalBadge: "指導教員用 2×2 実験管理コンソール",
         portalTitle: "2×2 被験者間実験データ分析ダッシュボード",
-        portalSubtitle: "研究題目：データ駆動型AIと暗黙的直観の対立：判断競合における確信度誘導とエラー帰属",
+        portalSubtitle: "研究題目：人間の直観 vs AIの直観：2つの「言語化不能なブラックボックス」の対立と認識論的二重基準",
         btnExportCsv: "CSVデータ出力",
         btnClearData: "データ全件消去 (N=0)",
-        condTestHeading: "2×2 実験群クイックアクセス（プレビュー用）",
-        condTestSubtitle: "各実験群のURLをワンクリックでテスト表示可能",
-        cond1Desc: "高確信度 (94.8%) × AI 失敗（店長的中）",
-        cond2Desc: "低確信度 (58.2%) × AI 失敗（店長的中）",
-        cond3Desc: "高確信度 (94.8%) × AI 的中（店長失敗）",
-        cond4Desc: "低確信度 (58.2%) × AI 的中（店長失敗）",
+        condTestHeading: "2×2 対称実験群クイックアクセス（プレビュー用）",
+        condTestSubtitle: "共通ベースライン：開殻・試食検証 約3,000個、全体正解率85%、ともに言語化不可能",
+        cond1Desc: "双方高確信度 (90%) × AI 失敗（店長的中）",
+        cond2Desc: "双方低確信度 (60%) × AI 失敗（店長的中）",
+        cond3Desc: "双方高確信度 (90%) × 店長失敗（AI 的中）",
+        cond4Desc: "双方低確信度 (60%) × 店長失敗（AI 的中）",
         btnOpenTest: "テストを開く",
         btnCopy: "コピー",
         tabStatsTitle: "2×2 要因計画分析",
         tabEditorTitle: "実験設定エディタ",
         kpiTotalN: "総被験者数 (N)",
         kpiTotalDesc: "有効回答完了数",
-        kpiHighConfRate: "高確信度群 AI選択率",
-        kpiLowConfRate: "低確信度群 AI選択率",
+        kpiHighConfRate: "高確信度群(90%) AI選択率",
+        kpiLowConfRate: "低確信度群(60%) AI選択率",
         kpiBullshitPeak: "群1「ペテン」帰属平均",
-        kpiBullshitDesc: "交互作用のピーク仮説 (Q6)",
+        kpiBullshitDesc: "AI高確信度失敗 (Q6)",
         matrixHeading: "2×2 要因配置マトリックス",
-        matrixSub: "要因1：AI確信度水準 (高 vs 低) × 要因2：実際の開殻結果 (AI失敗 vs AI的中)",
+        matrixSub: "要因1：双方の確信度水準 (90% vs 60%) × 要因2：失敗主体 (AI失敗 vs 店長失敗)",
         btnRefresh: "データ更新",
         hypoTitle: "二元配置分散分析（Two-Way ANOVA）仮説検証チェック",
-        h1Text: "高確信度（94.8%）が明示的規則なしにAI選択率を有意に高めるか（自動化偏向の検証）。",
-        h2Text: "「高確信度失敗（群1）」が低確信度失敗（群2）に比べ、有意に高いペテン帰属（Q6）を誘発するか。",
-        h3Text: "AIの大敗が人間の暗黙知（Q8）に対する再評価を促すか。",
+        h1Text: "訓練データ（約3,000個）・全体正解率（85%）・確信度（90%または60%）が完全に対称な条件下で、人間とAIの「言語化不可能性」に対する二重基準（Q4）と選好を検証する。",
+        h2Text: "同じ90%の確信度で直観的判断が外れた際、「AIの失敗（群1）」が「人間の失敗（群3）」よりも有意に強く「知ったかぶり（Bullshitting, Q6）」として非難されるか（非対称的帰属）を検証する。",
+        h3Text: "AIによる事後的な明示的特徴抽出（Post-hoc Feature Extraction, Q8）が信頼形成に果たす役割を検証する。",
         editorHeader: "実験パラメータ変更",
-        editorSub: "保存内容は直ちに config.json に保存され、受試者に反映されます。",
+        editorSub: "保存内容は直ちに反映されます。",
         btnSaveConfig: "設定を保存"
       }
     };
@@ -429,12 +419,12 @@ admin_html = '''<!DOCTYPE html>
         const activeTab = ref('stats');
         const stats = ref({ total: 0, conditions: {}, confidenceEffect: {} });
         const editConfig = ref({
-          experimentTitle: '',
+          experimentTitle: 'Human Intuition vs. AI Intuition: 2x2 Experiment',
           conditions: {
-            '1': { confidenceVal: '94.8%' },
-            '2': { confidenceVal: '58.2%' },
-            '3': { confidenceVal: '94.8%' },
-            '4': { confidenceVal: '58.2%' }
+            '1': { confidenceVal: '90%' },
+            '2': { confidenceVal: '60%' },
+            '3': { confidenceVal: '90%' },
+            '4': { confidenceVal: '60%' }
           },
           managerProfile: { quote_en: '', quote_zh: '' },
           aiProfile: { tech_en: '', tech_zh: '' }

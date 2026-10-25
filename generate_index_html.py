@@ -10,7 +10,7 @@ html_template = f'''<!DOCTYPE html>
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Data-Driven AI vs. Ineffable Expert Intuition: 2x2 Experiment</title>
+  <title>Human Intuition vs. AI Intuition: 2x2 Between-Subjects Experiment</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
   <style>
@@ -43,7 +43,7 @@ html_template = f'''<!DOCTYPE html>
       <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-4">
         <div class="flex items-center gap-2 text-xs font-semibold tracking-wider text-indigo-700 uppercase">
           <span class="w-2.5 h-2.5 rounded-full bg-indigo-600 animate-pulse"></span>
-          <span>{{{{ currentLang === 'en' ? 'Knowledge Science & HCI Lab · 2×2 Between-Subjects Study' : (currentLang === 'ja' ? '知識科学・HCI研究室 · 2×2 被験者間実験' : '知识科学与实验哲学 · 2×2 组间情境实验') }}}}</span>
+          <span>{{{{ currentLang === 'en' ? 'Knowledge Science & Experimental Philosophy · 2×2 Study' : (currentLang === 'ja' ? '知識科学・実験哲学研究室 · 2×2 被験者間実験' : '知识科学与实验哲学 · 2×2 组间情境实验') }}}}</span>
         </div>
 
         <div class="flex items-center gap-2">
@@ -98,8 +98,8 @@ html_template = f'''<!DOCTYPE html>
       </div>
       
       <div class="flex justify-between text-[11px] text-slate-500 font-medium px-1">
-        <span :class="{{'text-indigo-600 font-bold': currentStage >= 1}}">{{{{ currentLang === 'en' ? '1. Conflict Scenario & Decision' : (currentLang === 'ja' ? '1. 判断競合と意思決定' : '1. 人机冲突与决策') }}}}</span>
-        <span :class="{{'text-indigo-600 font-bold': currentStage >= 2}}">{{{{ currentLang === 'en' ? '2. Outcome & Attribution' : (currentLang === 'ja' ? '2. 開殻結果とエラー帰属' : '2. 结果揭晓与归因') }}}}</span>
+        <span :class="{{'text-indigo-600 font-bold': currentStage >= 1}}">{{{{ currentLang === 'en' ? '1. Symmetric Conflict & Decision' : (currentLang === 'ja' ? '1. 対称的直観の競合と意思決定' : '1. 对称直觉冲突与决策') }}}}</span>
+        <span :class="{{'text-indigo-600 font-bold': currentStage >= 2}}">{{{{ currentLang === 'en' ? '2. Cut-Open Outcome & Attribution' : (currentLang === 'ja' ? '2. 開殻結果と対称的帰属' : '2. 开壳结果与对称归因') }}}}</span>
         <span :class="{{'text-indigo-600 font-bold': currentStage >= 3}}">{{{{ currentLang === 'en' ? '3. Demographics & Receipt' : (currentLang === 'ja' ? '3. 被験者属性と受領書' : '3. 人口学与回执') }}}}</span>
       </div>
     </header>
@@ -110,7 +110,7 @@ html_template = f'''<!DOCTYPE html>
       <!-- STAGE 1: The Decision Conflict Scenario -->
       <transition name="fade" mode="out-in">
         <section v-if="currentStage === 1" key="stage1">
-          <div class="text-center mb-8">
+          <div class="text-center mb-6">
             <span class="inline-block px-3 py-1 bg-indigo-50 border border-indigo-200 rounded-full text-indigo-700 text-xs font-semibold mb-2">
               {{{{ t.stage1Badge }}}}
             </span>
@@ -122,7 +122,19 @@ html_template = f'''<!DOCTYPE html>
             </p>
           </div>
 
-          <!-- Dual Stimuli Comparison Cards: Store Manager (Tacit) vs Deep Learning AI -->
+          <!-- Epistemic Symmetry & Baseline Calibration Banner -->
+          <div class="mb-6 p-4 bg-slate-50 border border-slate-200 rounded-xl text-xs text-slate-700 space-y-2">
+            <div class="font-bold text-slate-900 text-xs sm:text-sm flex items-center gap-1.5">
+              <span>{{{{ t.baselineBannerTitle }}}}</span>
+            </div>
+            <ul class="space-y-1.5 text-[11px] sm:text-xs text-slate-600 leading-relaxed pl-1">
+              <li>{{{{ t.baselineItem1 }}}}</li>
+              <li>{{{{ t.baselineItem2 }}}}</li>
+              <li>{{{{ t.baselineItem3 }}}}</li>
+            </ul>
+          </div>
+
+          <!-- Dual Stimuli Comparison Cards: Human Intuition vs Deep-Learning AI Intuition -->
           <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
             
             <!-- Store Manager Card (Recommends A) -->
@@ -153,19 +165,24 @@ html_template = f'''<!DOCTYPE html>
                   </svg>
                 </div>
 
-                <!-- Manager Ineffable Statement Box -->
+                <!-- Manager Ineffable Statement Box (Matched Confidence) -->
                 <div class="bg-white border-l-4 border-amber-500 p-3 rounded-r-lg shadow-2xs text-xs text-slate-700">
-                  <div class="font-bold text-amber-900 mb-1 flex items-center gap-1.5">
+                  <div class="font-bold text-amber-900 mb-1 flex items-center justify-between">
                     <span>{{{{ t.managerHeader }}}}</span>
                   </div>
-                  <div class="text-[11px] text-slate-500 mb-2 italic">{{{{ t.managerSubtitle }}}}</div>
-                  <p class="leading-relaxed text-slate-700 italic">
-                    {{{{ t.managerQuote }}}}
+                  <div class="text-[11px] text-slate-500 mb-2 font-medium">{{{{ t.managerSubtitle }}}}</div>
+                  <p class="leading-relaxed text-slate-700 italic mb-2">
+                    {{{{ currentCondition.confidenceLevel === 'high' ? t.managerQuoteHigh : t.managerQuoteLow }}}}
                   </p>
+                  <div class="bg-amber-950 text-amber-100 font-mono text-[11px] p-2 rounded border border-amber-900">
+                    <span class="text-amber-300 font-bold">
+                      {{{{ currentLang === 'zh' ? '人类店长本次把握度：' : (currentLang === 'ja' ? '熟練店長の今回の確信度：' : 'Human Expert Case Confidence: ') }}}}{{{{ currentCondition.confidenceVal }}}}
+                    </span>
+                  </div>
                 </div>
               </div>
 
-              <div class="mt-4 pt-3 border-t border-slate-200 text-xs text-slate-500 font-medium">
+              <div class="mt-4 pt-3 border-t border-slate-200 text-[11px] text-slate-500 font-medium">
                 {{{{ t.sampleA_desc }}}}
               </div>
             </div>
@@ -197,14 +214,16 @@ html_template = f'''<!DOCTYPE html>
                   </svg>
                 </div>
 
-                <!-- AI Data-Driven Statement & Confidence Box -->
+                <!-- AI Intuitive Statement & Confidence Box -->
                 <div class="bg-white border-l-4 border-indigo-600 p-3 rounded-r-lg shadow-2xs text-xs text-slate-700">
                   <div class="font-bold text-indigo-950 mb-1 flex items-center gap-1.5">
                     <span>{{{{ t.aiHeader }}}}</span>
                   </div>
-                  <div class="text-[11px] text-slate-500 mb-2 italic">{{{{ t.aiSubtitle }}}}</div>
-                  <div class="bg-slate-900 text-slate-200 font-mono text-[11px] p-2.5 rounded border border-slate-800 space-y-1">
-                    <div class="text-slate-400 text-[10px]">{{{{ t.aiPredictionPrompt }}}}</div>
+                  <div class="text-[11px] text-slate-500 mb-2 font-medium">{{{{ t.aiSubtitle }}}}</div>
+                  <p class="leading-relaxed text-slate-600 italic mb-2">
+                    {{{{ t.aiPredictionPrompt }}}}
+                  </p>
+                  <div class="bg-slate-900 text-slate-200 font-mono text-[11px] p-2 rounded border border-slate-800">
                     <div class="text-emerald-400 font-bold">
                       {{{{ currentCondition.confidenceLevel === 'high' ? t.aiPredictionHigh : t.aiPredictionLow }}}}
                     </div>
@@ -212,7 +231,7 @@ html_template = f'''<!DOCTYPE html>
                 </div>
               </div>
 
-              <div class="mt-4 pt-3 border-t border-slate-200 text-xs text-slate-500 font-medium">
+              <div class="mt-4 pt-3 border-t border-slate-200 text-[11px] text-slate-500 font-medium">
                 {{{{ t.sampleB_desc }}}}
               </div>
             </div>
@@ -222,7 +241,7 @@ html_template = f'''<!DOCTYPE html>
           <!-- Q1: Behavioral Choice -->
           <div class="mb-8 p-6 bg-indigo-50/40 border border-indigo-200/80 rounded-xl">
             <h3 class="text-sm font-bold text-slate-900 mb-3 leading-snug">
-              {{{{ t.q1_label }}}}
+              {{{{ fmt(t.q1_label) }}}}
             </h3>
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
               <label :class="{{'ring-2 ring-indigo-600 bg-white border-indigo-500 shadow-sm': formData.q1 === 'A', 'bg-white/80 border-slate-200 hover:border-slate-300': formData.q1 !== 'A'}}"
@@ -247,9 +266,9 @@ html_template = f'''<!DOCTYPE html>
               </h4>
             </div>
 
-            <!-- Q2: Data Objectivity -->
+            <!-- Q2: Perceived Objectivity -->
             <div class="space-y-2">
-              <div class="text-xs font-medium text-slate-800 leading-relaxed">{{{{ t.q2_title }}}}</div>
+              <div class="text-xs font-medium text-slate-800 leading-relaxed">{{{{ fmt(t.q2_title) }}}}</div>
               <div class="flex items-center justify-between gap-1 sm:gap-2">
                 <span class="text-[10px] text-slate-400 hidden sm:inline">1 (Disagree)</span>
                 <div class="flex gap-1 sm:gap-2 flex-1 justify-center">
@@ -267,7 +286,7 @@ html_template = f'''<!DOCTYPE html>
             <!-- Q3: Confidence Impact -->
             <div class="space-y-2">
               <div class="text-xs font-medium text-slate-800 leading-relaxed">
-                {{{{ t.q3_title.replace('{{confVal}}', currentCondition.confidenceVal) }}}}
+                {{{{ fmt(t.q3_title) }}}}
               </div>
               <div class="flex items-center justify-between gap-1 sm:gap-2">
                 <span class="text-[10px] text-slate-400 hidden sm:inline">1 (Disagree)</span>
@@ -283,9 +302,9 @@ html_template = f'''<!DOCTYPE html>
               </div>
             </div>
 
-            <!-- Q4: Skepticism Toward Ineffable Intuition -->
+            <!-- Q4: Epistemic Double Standard -->
             <div class="space-y-2">
-              <div class="text-xs font-medium text-slate-800 leading-relaxed">{{{{ t.q4_title }}}}</div>
+              <div class="text-xs font-medium text-slate-800 leading-relaxed">{{{{ fmt(t.q4_title) }}}}</div>
               <div class="flex items-center justify-between gap-1 sm:gap-2">
                 <span class="text-[10px] text-slate-400 hidden sm:inline">1 (Disagree)</span>
                 <div class="flex gap-1 sm:gap-2 flex-1 justify-center">
@@ -331,7 +350,7 @@ html_template = f'''<!DOCTYPE html>
                :class="currentCondition.outcomeType === 'ai_fail' ? 'bg-emerald-50/50 border-emerald-200' : 'bg-indigo-50/50 border-indigo-200'">
             <div class="flex items-start gap-4">
               <span class="text-3xl">
-                {{{{ currentCondition.outcomeType === 'ai_fail' ? '👨🌾' : '🤖' }}}}
+                {{{{ currentCondition.outcomeType === 'ai_fail' ? '👨‍🌾' : '🤖' }}}}
               </span>
               <div>
                 <h3 class="text-base font-bold mb-2"
@@ -339,7 +358,7 @@ html_template = f'''<!DOCTYPE html>
                   {{{{ currentCondition.outcomeType === 'ai_fail' ? t.outcomeAiFailTitle : t.outcomeAiSucceedTitle }}}}
                 </h3>
                 <p class="text-xs sm:text-sm text-slate-700 leading-relaxed">
-                  {{{{ currentCondition.outcomeType === 'ai_fail' ? t.outcomeAiFailDesc : t.outcomeAiSucceedDesc }}}}
+                  {{{{ fmt(currentCondition.outcomeType === 'ai_fail' ? t.outcomeAiFailDesc : t.outcomeAiSucceedDesc) }}}}
                 </p>
               </div>
             </div>
@@ -355,7 +374,7 @@ html_template = f'''<!DOCTYPE html>
 
             <!-- Q5: Statistical / Probabilistic -->
             <div class="space-y-2">
-              <div class="text-xs font-medium text-slate-800 leading-relaxed">{{{{ t.q5_title }}}}</div>
+              <div class="text-xs font-medium text-slate-800 leading-relaxed">{{{{ fmt(t.q5_title) }}}}</div>
               <div class="flex items-center justify-between gap-1 sm:gap-2">
                 <span class="text-[10px] text-slate-400 hidden sm:inline">1 (Disagree)</span>
                 <div class="flex gap-1 sm:gap-2 flex-1 justify-center">
@@ -373,7 +392,7 @@ html_template = f'''<!DOCTYPE html>
             <!-- Q6: Bullshitting / Bluffing -->
             <div class="space-y-2">
               <div class="text-xs font-medium text-slate-800 leading-relaxed">
-                {{{{ t.q6_title.replace('{{confVal}}', currentCondition.confidenceVal) }}}}
+                {{{{ fmt(t.q6_title) }}}}
               </div>
               <div class="flex items-center justify-between gap-1 sm:gap-2">
                 <span class="text-[10px] text-slate-400 hidden sm:inline">1 (Disagree)</span>
@@ -389,9 +408,9 @@ html_template = f'''<!DOCTYPE html>
               </div>
             </div>
 
-            <!-- Q7: Perceived Deception -->
+            <!-- Q7: Perceived Overconfidence / Misleadingness -->
             <div class="space-y-2">
-              <div class="text-xs font-medium text-slate-800 leading-relaxed">{{{{ t.q7_title }}}}</div>
+              <div class="text-xs font-medium text-slate-800 leading-relaxed">{{{{ fmt(t.q7_title) }}}}</div>
               <div class="flex items-center justify-between gap-1 sm:gap-2">
                 <span class="text-[10px] text-slate-400 hidden sm:inline">1 (Disagree)</span>
                 <div class="flex gap-1 sm:gap-2 flex-1 justify-center">
@@ -406,9 +425,9 @@ html_template = f'''<!DOCTYPE html>
               </div>
             </div>
 
-            <!-- Q8: Re-evaluation of Tacit Knowledge -->
+            <!-- Q8: Value of Post-Hoc Feature Extraction -->
             <div class="space-y-2">
-              <div class="text-xs font-medium text-slate-800 leading-relaxed">{{{{ t.q8_title }}}}</div>
+              <div class="text-xs font-medium text-slate-800 leading-relaxed">{{{{ fmt(t.q8_title) }}}}</div>
               <div class="flex items-center justify-between gap-1 sm:gap-2">
                 <span class="text-[10px] text-slate-400 hidden sm:inline">1 (Disagree)</span>
                 <div class="flex gap-1 sm:gap-2 flex-1 justify-center">
@@ -423,9 +442,9 @@ html_template = f'''<!DOCTYPE html>
               </div>
             </div>
 
-            <!-- Q9: Future Automation Bias -->
+            <!-- Q9: Future Trust Preference -->
             <div class="space-y-2">
-              <div class="text-xs font-medium text-slate-800 leading-relaxed">{{{{ t.q9_title }}}}</div>
+              <div class="text-xs font-medium text-slate-800 leading-relaxed">{{{{ fmt(t.q9_title) }}}}</div>
               <div class="flex items-center justify-between gap-1 sm:gap-2">
                 <span class="text-[10px] text-slate-400 hidden sm:inline">1 (Disagree)</span>
                 <div class="flex gap-1 sm:gap-2 flex-1 justify-center">
@@ -571,34 +590,32 @@ html_template = f'''<!DOCTYPE html>
 
     <!-- Footer -->
     <footer class="mt-8 text-center text-xs text-slate-400">
-      <p>Research Project: Data-Driven AI vs. Ineffable Expert Intuition in Decision Conflicts</p>
-      <p class="mt-1 text-[11px] text-slate-400">Knowledge Science & HCI Experimental Lab · 2026</p>
+      <p>Research Project: Human Intuition vs. AI Intuition — Epistemic Asymmetry in Decision Conflicts</p>
+      <p class="mt-1 text-[11px] text-slate-400">Knowledge Science & Experimental Philosophy Lab · 2026</p>
     </footer>
 
   </div>
 
   <script>
-    const {{ createApp, ref, computed, onMounted }} = Vue;
+    const {{ createApp, ref, computed }} = Vue;
 
     const I18N_DICT = {i18n_json_str};
 
     const CONDITIONS_DEF = {{
-      1: {{ id: 1, confidenceLevel: 'high', confidenceVal: '94.8%', outcomeType: 'ai_fail', label_en: 'High Conf (94.8%) × AI Fails', label_zh: '高置信度(94.8%) × AI失败', label_ja: '高確信度(94.8%) × AI失敗' }},
-      2: {{ id: 2, confidenceLevel: 'low', confidenceVal: '58.2%', outcomeType: 'ai_fail', label_en: 'Low Conf (58.2%) × AI Fails', label_zh: '低置信度(58.2%) × AI失败', label_ja: '低確信度(58.2%) × AI失敗' }},
-      3: {{ id: 3, confidenceLevel: 'high', confidenceVal: '94.8%', outcomeType: 'ai_succeed', label_en: 'High Conf (94.8%) × AI Succeeds', label_zh: '高置信度(94.8%) × AI成功', label_ja: '高確信度(94.8%) × AI成功' }},
-      4: {{ id: 4, confidenceLevel: 'low', confidenceVal: '58.2%', outcomeType: 'ai_succeed', label_en: 'Low Conf (58.2%) × AI Succeeds', label_zh: '低置信度(58.2%) × AI成功', label_ja: '低確信度(58.2%) × AI成功' }}
+      1: {{ id: 1, confidenceLevel: 'high', confidenceVal: '90%', outcomeType: 'ai_fail', label_en: 'Both 90% Conf × AI Fails', label_zh: '双方90%把握 × AI失误', label_ja: '双方90%確信 × AI失敗' }},
+      2: {{ id: 2, confidenceLevel: 'low', confidenceVal: '60%', outcomeType: 'ai_fail', label_en: 'Both 60% Conf × AI Fails', label_zh: '双方60%把握 × AI失误', label_ja: '双方60%確信 × AI失敗' }},
+      3: {{ id: 3, confidenceLevel: 'high', confidenceVal: '90%', outcomeType: 'ai_succeed', label_en: 'Both 90% Conf × Human Fails', label_zh: '双方90%把握 × 店长失误', label_ja: '双方90%確信 × 店長失敗' }},
+      4: {{ id: 4, confidenceLevel: 'low', confidenceVal: '60%', outcomeType: 'ai_succeed', label_en: 'Both 60% Conf × Human Fails', label_zh: '双方60%把握 × 店长失误', label_ja: '双方60%確信 × 店長失敗' }}
     }};
 
     createApp({{
       setup() {{
-        // Always default to English when opened unless ?lang= is explicitly given
         const urlParams = new URLSearchParams(window.location.search);
         const currentLang = ref(urlParams.get('lang') || 'en');
         const currentStage = ref(1);
         const isSubmitting = ref(false);
         const submissionResult = ref({{}});
 
-        // Determine 2x2 Condition from URL query (?condition=1..4 or ?c=1..4), otherwise random 1..4
         let urlCond = parseInt(urlParams.get('condition') || urlParams.get('c') || urlParams.get('cond'));
         if (!urlCond || urlCond < 1 || urlCond > 4) {{
           urlCond = Math.floor(Math.random() * 4) + 1;
@@ -615,6 +632,13 @@ html_template = f'''<!DOCTYPE html>
 
         const t = computed(() => I18N_DICT[currentLang.value] || I18N_DICT.en);
 
+        const fmt = (str) => {{
+          if (!str) return '';
+          const failedAgent = currentCondition.value.outcomeType === 'ai_fail' ? t.value.failedAgent_ai : t.value.failedAgent_human;
+          return str.replaceAll('{{confVal}}', currentCondition.value.confidenceVal)
+                    .replaceAll('{{failedAgent}}', failedAgent);
+        }};
+
         const setLang = (lang) => {{
           currentLang.value = lang;
           document.documentElement.lang = lang;
@@ -627,12 +651,10 @@ html_template = f'''<!DOCTYPE html>
           window.history.replaceState({{}}, '', newUrl);
         }};
 
-        // Timing
         const startTime = ref(Date.now());
         const stageTiming = ref({{ stage1Ms: 0, stage2Ms: 0, stage3Ms: 0 }});
         let stageStart = Date.now();
 
-        // Responses
         const formData = ref({{
           q1: null, q2: null, q3: null, q4: null,
           q5: null, q6: null, q7: null, q8: null, q9: null,
@@ -739,6 +761,7 @@ html_template = f'''<!DOCTYPE html>
           currentLang,
           setLang,
           t,
+          fmt,
           conditionId,
           currentCondition,
           conditionLabel,

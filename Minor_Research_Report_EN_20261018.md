@@ -1,127 +1,109 @@
-# Data-Driven AI vs. Ineffable Expert Intuition: Confidence Inducement and Outcome Attribution in Human-AI Decision Conflicts
+# Human Intuition vs. Artificial Intuition: Epistemic Asymmetry and Error Attribution When Two "Ineffable Black Boxes" Conflict
 ## Minor Research Project Proposal & Experimental Survey Design
 
 ---
 
 ### Project Metadata
-- **Research Title**: *Data-Driven AI vs. Ineffable Expert Intuition: Confidence Inducement and Outcome Attribution in Human-AI Decision Conflicts*
-- **Japanese / Chinese Title**: データ駆動型AIと暗黙的直観の対立 / 数据驱动型 AI 与不可言传的专家直觉
+- **Research Title**: *Human Intuition vs. Artificial Intuition: Epistemic Asymmetry and Error Attribution When Two "Ineffable Black Boxes" Conflict*
+- **Chinese Title**: 人类直觉 vs. 人工直觉：当两个“不可言传的黑盒”发生决策冲突时的认识论双标与错误归因研究
 - **Researcher**: XIU TIANYUAN (修 天源), Master's Program (M2), School of Knowledge Science, Japan Advanced Institute of Science and Technology (JAIST)
 - **Academic Advisor**: Prof. Mizumoto (水本 教授)
-- **Date**: October 18, 2026
+- **Date**: October 25, 2026
 - **Research Domains**: Knowledge Science, Experimental Philosophy, Human-Computer Interaction (HCI), Cognitive Psychology
 
 ---
 
 ## 1. Background & Theoretical Framework
 
-### 1.1 Data-Driven AI and Quantitative Confidence Authority
-Contemporary artificial intelligence systems—particularly deep learning computer vision models—do not operate via hand-coded, explicit logical or geometric algorithms. Instead, they learn high-dimensional statistical representations by fitting massive datasets comprising millions of paired instances. When deployed to assist human decision-makers, these opaque "black-box" neural networks cannot meaningfully expose billions of internal synaptic weights to the end user; instead, they communicate certainty through a single scalar metric: a **Confidence Score (e.g., 94.8% vs. 58.2%)**.
+### 1.1 Two Kinds of "Ineffable Black Boxes": Epistemic Isomorphism Between Human Tacit Knowledge and Deep Learning Intuition
+In the foundational literature of Knowledge Science and Epistemology, Michael Polanyi (1966) famously characterized human **Tacit Knowledge** with the maxim: *"We can know more than we can tell."* In complex physical diagnostic tasks—such as agricultural quality sorting, clinical palpation, or artisan appraisal—seasoned human practitioners rely on holistic Gestalt perception honed through embodied experience to make accurate judgments, yet they are fundamentally incapable of articulating their decision rules in explicit words.
 
-From the perspective of Human-Computer Interaction (HCI) and cognitive psychology, the combination of "massive dataset training" and a "hyper-precise confidence percentage" constructs a powerful aura of algorithmic objectivity. This representation frequently induces **Automation Bias**—the cognitive propensity for humans to uncritically defer to high-confidence automated predictions while discounting competing qualitative evidence.
+Crucially, as contemporary artificial intelligence has evolved from early rule-based symbolic expert systems to **end-to-end Deep Learning neural networks**, a profound epistemological parallel has emerged: **both human experts and contemporary deep-learning AI systems are equally incapable of explaining their holistic judgments in words at the moment of decision**. Rather than executing explicit logical rules, deep neural networks map high-dimensional inputs to probability outputs across millions of sub-symbolic weights. In a fundamental epistemological sense, both judgments are **"intuitive"** (*Human Embodied Intuition* vs. *Artificial Statistical Intuition*), even though an AI system might subsequently attempt to extract and highlight explicit features *post-hoc*.
 
-### 1.2 Polanyi's Ineffable Tacit Knowledge
-Standing in sharp epistemic contrast to data-driven AI is the embodied expertise of seasoned human practitioners. In the foundational literature of Knowledge Science and Epistemology, Michael Polanyi (1966) formulated the classic maxim: **"We can know more than we can tell."**
-
-In complex physical-world diagnostic tasks—such as artisan appraisal, clinical palpation, or agricultural sorting—veteran human experts rely on multimodal sensory integration and holistic Gestalt perception to reach rapid, highly accurate judgments. The defining ontological hallmark of such high-level expertise is its **ineffability**: while a master practitioner can reliably identify the superior specimen through somatic "touch" and "gut intuition" honed over tens of thousands of cases, they cannot articulate their decision criteria into explicit verbal rules or mathematical formulas for a layperson. Indeed, any rule that can be explicitly verbalized is already codifiable explicit knowledge; genuine tacit knowledge remains inherently uncodifiable.
+### 1.2 Strictly Controlled Baseline Symmetry: Bounded Ground-Truth Training Data, Overall Accuracy, and Matched Case Confidence
+To rigorously isolate how human decision-makers evaluate and attribute errors to **Human Intuition** versus **Artificial Intuition**, an experimental design must eliminate confounding asymmetries in training data realism, baseline accuracy, and certainty levels:
+1. **Bounded Ground-Truth Training Data (~3,000 Opened & Taste-Tested Durians)**: In physical diagnostic tasks such as evaluating un-opened durians, although both humans and cameras can casually *look* at tens of thousands of fruits on shelves, verifying the actual internal ground truth (whether the pulp chambers are full and sweet) requires **destructive testing—cutting the fruit open and tasting it**. Consequently, the true labeled training set is inherently limited in reality for both humans and AI. In this study, both the veteran store manager and the deep-learning AI are explicitly defined as having learned from the **same finite ground-truth sample of approximately 3,000 durians actually cut open and taste-tested**.
+2. **Identical Historical Overall Accuracy (85% Overall Accuracy)**: In prior standardized blind evaluations, both the veteran store manager and the deep-learning AI achieved the exact same **85% overall accuracy** (succeeding in 85 out of 100 cases and failing in 15).
+3. **Matched Case-Specific Confidence (90% vs. 90% in High; 60% vs. 60% in Low)**: When evaluating the specific pair of durians (Durian A vs. Durian B) in the vignette, both agents express matched case-specific confidence in their respective recommendations—either **both are 90% confident** (High Confidence conditions) or **both are only 60% confident / borderline** (Low Confidence conditions).
 
 ### 1.3 Core Research Questions
-When a human expert's unexplainable tacit intuition directly conflicts with a data-driven AI's statistical prediction, how do human decision-makers resolve the conflict? Furthermore, once the physical ground truth is revealed, how do people attribute blame or credit? Integrating frameworks from Experimental Philosophy and Knowledge Science, this study investigates three primary research questions:
-
-- **RQ1 (Confidence Inducement & Initial Trust Allocation)**: Prior to knowing the actual outcome, when confronted with a direct conflict between ineffable human intuition and a data-driven AI model, how does the AI's displayed confidence score (High: 94.8% vs. Low: 58.2%) influence behavioral compliance and perceived epistemic objectivity?
-- **RQ2 (Error Attribution & Frankfurtian "Bullshitting")**: Upon witnessing the AI prediction fail completely in physical verification, do participants attribute the failure rationally to probabilistic/statistical limitations, or do they project epistemic blame—perceiving the AI as having no genuine understanding and engaging in philosophical **"Bullshitting"** (Frankfurt, 2005) and deceptive manipulation?
-- **RQ3 (The Penalty of Overconfidence & Tacit Knowledge Re-evaluation)**: Is there a significant interaction between pre-decision AI confidence and post-decision outcome? Specifically, does a high-confidence AI failure trigger a nonlinear collapse in trust ("The Penalty of Overconfidence") and compel decision-makers to re-evaluate the irreplaceable value of human tacit knowledge?
-
----
-
-## 2. Task Scenario & Methodological Justification
-
-### 2.1 Scientific Validity of the Task: Un-opened Durian Pulp Assessment
-This study employs the real-world physical task of **selecting an un-opened durian fruit for internal pulp fullness** as its experimental scenario, offering strong botanical and cognitive validity:
-
-1. **Objective Botanical Morphology**: Durian (*Durio zibethinus*) is a capsular fruit in which internal carpel development expands the outer rind. However, physiological "hollow-shell (dead-pod)" anomalies frequently occur, where nutrients are absorbed entirely into a thick, outwardly symmetrical rind while internal chambers abort. Assessing internal fullness is therefore a non-random, high-uncertainty physical diagnostic task.
-2. **Natural Divergence of Human vs. AI Modalities**:
-   - **Veteran Store Manager (Ineffable Tacit Knowledge)**: Relies on 15 years of somatic experience handling tens of thousands of fruits. By integrating subtle mass distribution, spine resilience, and holistic visual Gestalt, the expert detects hollow shells intuitively, even though he cannot verbally explain fixed rules to customers.
-   - **Deep Learning Visual AI (Statistical Pattern Fitting)**: Trained end-to-end on a dataset of over 1,000,000 real "outer appearance vs. cut-open outcome" paired images. When scanning a superficially round and symmetrical hollow-shell fruit, the vision model is susceptible to statistical overfitting on surface regularity, outputting an erroneously high confidence score (94.8%).
-3. **Unambiguous Ground-Truth Verification**: Slicing the fruit open on-site yields immediate, indisputable binary feedback (5 full golden chambers vs. hollow undeveloped shell), providing a clean benchmark for post-outcome attribution.
-
-### 2.2 Experimental Philosophy Vignette Paradigm
-The study adopts the standard **Between-Subjects Vignette Experiment Paradigm** widely utilized in experimental philosophy and behavioral decision research. Participants enter the scenario directly as a decision-making buyer facing conflicting recommendations from the veteran manager and the visual AI system. After recording their binary choice and pre-outcome cognitive evaluations in Stage 1, participants observe the immediate on-site cut-open verification in Stage 2 and complete the attribution and trust scales. This streamlined structure cleanly isolates the causal effects of AI confidence and outcome validity without prior guessing confounders.
+By holding training data size (~3,000 destructively verified cases), overall accuracy (85%), and case-specific confidence (90% vs. 90%, or 60% vs. 60%) strictly equal across two agents that are equally incapable of verbal explanation, this study investigates three core research questions:
+- **RQ1 (Pre-Outcome Choice & Epistemic Double Standard Toward Unexplainability)**: When *Human Intuition* and *Artificial Intuition* directly conflict under strictly equalized competence and confidence, which intuition do decision-makers trust (Q1)? Do people perceive statistical AI intuition as inherently more "objective" than human embodied intuition (Q2), or do they exhibit an **Epistemic Double Standard**—tolerating ineffability in a human expert while penalizing the exact same lack of verbal explanation in a black-box AI (Q4)?
+- **RQ2 (Asymmetric Post-Outcome Error Attribution & Frankfurtian "Bullshitting")**: Once the fruits are cut open on-site and one intuition fails while the other succeeds, do observers attribute the error symmetrically to the 15% probabilistic base rate (Q5), or do they exhibit **Asymmetric Epistemic Blame**? Specifically, when the AI fails (Conditions 1 & 2), are participants significantly more likely to accuse the failed AI of lacking true understanding and engaging in Frankfurtian *"bullshitting"* (Frankfurt, 2005) (Q6) and misleading overconfidence (Q7) than they are to accuse the failed human manager when he makes the exact same mistake (Conditions 3 & 4)?
+- **RQ3 (The Penalty of Overconfidence & Value of Post-Hoc Explicit Feature Extraction)**: Does failing at 90% confidence trigger a disproportionately harsher epistemic backlash than failing at 60% confidence, and is this *Penalty of Overconfidence* steeper against AI than against humans? Furthermore, addressing the unique technological capability of AI to extract explicit visual features *afterward* (e.g., post-hoc saliency heatmaps of spine spacing), to what extent does post-hoc feature extraction restore trust in AI intuition (Q8, Q9)?
 
 ---
 
-## 3. $2 \times 2$ Between-Subjects Experimental Design
+## 2. $2 \times 2$ Between-Subjects Experimental Design
 
-### 3.1 Independent and Dependent Variables
-The experiment employs a $2 \times 2$ between-subjects factorial design manipulating two orthogonal independent variables:
+### 2.1 Independent and Dependent Variables
+The study employs a **$2 \times 2$ between-subjects factorial design** manipulating two orthogonal independent variables:
+- **Factor 1: Matched Case-Specific Confidence Level (Between-Subjects, 2 Levels)**
+  - **Both High Confidence (90% vs. 90%)**: Both the veteran store manager (recommending Durian A) and the deep-learning AI (recommending Durian B) express **90% confidence** in their respective judgments for this specific pair.
+  - **Both Low Confidence (60% vs. 60%)**: Both the veteran store manager (recommending Durian A) and the deep-learning AI (recommending Durian B) find this pair borderline and express only **60% confidence** in their respective judgments.
+- **Factor 2: Realized Physical Outcome / Who Failed (Between-Subjects, 2 Levels)**
+  - **AI Fails / Manager Correct (Conditions 1 & 2)**: On-site slicing reveals Durian A (Manager's choice) is packed with 5 full golden chambers of sweet pulp, whereas Durian B (AI's choice) is a hollow dead-pod fruit. Stage 2 attribution items symmetrically evaluate **the failed AI system**.
+  - **Manager Fails / AI Correct (Conditions 3 & 4)**: On-site slicing reveals Durian B (AI's choice) is packed with 5 full golden chambers of sweet pulp, whereas Durian A (Manager's choice) is a hollow dead-pod fruit. Stage 2 attribution items symmetrically evaluate **the failed store manager**.
 
-- **Factor 1: AI Confidence Level (Between-Subjects, 2 Levels)**
-  - **High Confidence**: The AI terminal displays a confidence score of **94.8%**;
-  - **Low Confidence**: The AI terminal displays a confidence score of **58.2%**.
-- **Factor 2: Realized Physical Outcome (Between-Subjects, 2 Levels)**
-  - **AI Fails / Manager Correct**: On-site slicing reveals Durian A (recommended by the manager) is packed with 5 full chambers of pulp, whereas Durian B (recommended by the AI) is a hollow dead-pod fruit;
-  - **AI Succeeds / Manager Fails**: On-site slicing reveals Durian B (recommended by the AI) is packed with 5 full chambers of pulp, whereas Durian A (recommended by the manager) is a hollow dead-pod fruit.
+### 2.2 $2 \times 2$ Factorial Condition Matrix
 
-- **Dependent Variables**:
-  - **Stage 1 (Pre-Outcome)**: Binary choice rate (Q1), Perceived Data Objectivity (Q2), Confidence Score Anchoring (Q3), and Skepticism Toward Ineffable Intuition (Q4).
-  - **Stage 2 (Post-Outcome)**: Probabilistic Limitation Attribution (Q5), Frankfurtian "Bullshitting" Attribution (Q6), Perceived Deception & Manipulation (Q7), Re-evaluation of Tacit Knowledge (Q8), and Future Automation Bias Retention (Q9).
-
-### 3.2 $2 \times 2$ Factorial Condition Matrix
-
-Upon accessing the platform, participants are randomly assigned with equal probability to one of the four experimental conditions:
-
-| Condition | Factor 1: AI Confidence | Factor 2: Realized Outcome | Stage 1: Conflict Stimulus Presentation | Stage 2: On-Site Cut-Open Outcome |
+| Condition | Factor 1: Matched Case Confidence | Factor 2: Realized Outcome (Who Failed) | Stage 1: Symmetric Conflict Stimulus (Both trained on ~3,000 opened & tasted durians; Both have 85% Overall Accuracy) | Stage 2: On-Site Cut-Open Outcome & Symmetric Target of Attribution (`{failedAgent}`) |
 | :--- | :--- | :--- | :--- | :--- |
-| **Condition 1** | **High Confidence (94.8%)** | **AI Fails (Manager Wins)** | Manager intuitively recommends A; AI recommends B with 94.8% confidence | Durian A is full (5 chambers); Durian B is hollow dead-pod (Manager wins, AI fails) |
-| **Condition 2** | **Low Confidence (58.2%)** | **AI Fails (Manager Wins)** | Manager intuitively recommends A; AI recommends B with 58.2% confidence | Durian A is full (5 chambers); Durian B is hollow dead-pod (Manager wins, AI fails) |
-| **Condition 3** | **High Confidence (94.8%)** | **AI Succeeds (Manager Fails)** | Manager intuitively recommends A; AI recommends B with 94.8% confidence | Durian B is full (5 chambers); Durian A is hollow dead-pod (AI wins, Manager fails) |
-| **Condition 4** | **Low Confidence (58.2%)** | **AI Succeeds (Manager Fails)** | Manager intuitively recommends A; AI recommends B with 58.2% confidence | Durian B is full (5 chambers); Durian A is hollow dead-pod (AI wins, Manager fails) |
+| **Condition 1** | **Both High Confidence (90% vs. 90%)** | **AI Fails (Manager Correct)** | Manager intuitively recommends A (**90%** sure); AI intuitively recommends B (**90%** confidence) | Durian A is full; Durian B is hollow. Stage 2 measures error attribution toward **the failed AI system** (which failed at 90% confidence) |
+| **Condition 2** | **Both Low Confidence (60% vs. 60%)** | **AI Fails (Manager Correct)** | Manager intuitively leans toward A (**60%** sure); AI intuitively leans toward B (**60%** confidence) | Durian A is full; Durian B is hollow. Stage 2 measures error attribution toward **the failed AI system** (which failed at 60% confidence) |
+| **Condition 3** | **Both High Confidence (90% vs. 90%)** | **Manager Fails (AI Correct)** | Manager intuitively recommends A (**90%** sure); AI intuitively recommends B (**90%** confidence) | Durian B is full; Durian A is hollow. Stage 2 measures error attribution toward **the failed store manager** (who failed at 90% confidence) |
+| **Condition 4** | **Both Low Confidence (60% vs. 60%)** | **Manager Fails (AI Correct)** | Manager intuitively leans toward A (**60%** sure); AI intuitively leans toward B (**60%** confidence) | Durian B is full; Durian A is hollow. Stage 2 measures error attribution toward **the failed store manager** (who failed at 60% confidence) |
 
 ---
 
-## 4. Complete Survey Instrument & Measurement Scales
+## 3. Complete Survey Instrument & Measurement Scales
 
-The online questionnaire enforces strict forward-only progression across three sequential stages to preserve temporal validity.
+The online survey enforces strict forward-only progression across three sequential stages to prevent post-outcome hindsight contamination of Stage 1 responses.
 
-### Stage 1: The Decision Conflict Scenario & Pre-Outcome Evaluation
+### Stage 1: The Symmetric Intuition Conflict & Pre-Outcome Evaluation
 
-> **[Scenario Vignette]**  
-> Imagine you are at a fruit market choosing between two un-opened durians (**Durian A** and **Durian B**) of identical price to get the one with the fullest pulp inside. You consult both a veteran store manager (15 years of experience) and a deep-learning visual AI system deployed in the store. They give opposite recommendations:
+> **[Stage 1 Scenario Vignette]**  
+> Imagine you are at a fruit market choosing between two un-opened durians (**Durian A** and **Durian B**) of the same price. You want the one with the fullest, sweetest pulp inside, so you consult both a **veteran store manager** and a **deep-learning visual AI system**.  
+> *(Background: Because verifying a durian's internal pulp and taste requires actually cutting it open, training data is naturally limited for both humans and AI. **Both the store manager and the AI learned from approximately 3,000 durians that were actually cut open and taste-tested.** In prior standardized blind tests, **both achieved the exact same overall accuracy of 85%**. Furthermore, both the human expert and the deep-learning AI make **"intuitive" judgments** that **cannot be explained in words**.)*  
+> For this specific pair of durians, they give opposite recommendations:
 >
-> - **👨‍🌾 Veteran Store Manager's Judgment — [Recommends Durian A]**  
->   *Background: 15 years of professional experience, having handled tens of thousands of durians.*  
->   **Manager's Statement**: *"I honestly can't explain it in words. There is no fixed rule to tell you. It's just a gut feeling and intuition after handling tens of thousands of durians over 15 years. Durian A is definitely fuller."*
+> - **👨‍🌾 Veteran Store Manager's Intuition — [Recommends Durian A]**  
+>   *Experience: ~3,000 opened & taste-tested durians | Overall Accuracy: 85%*  
+>   - **[Conditions 1 & 3 — High Confidence (90%)]**: *"I honestly can't explain the rules in words. Based on my intuition from cutting open and tasting around 3,000 durians, I feel very confident about this case—I'm about **90% sure** Durian A is the better one (my overall accuracy is 85%)."*  
+>   - **[Conditions 2 & 4 — Low Confidence (60%)]**: *"I honestly can't explain the rules in words. Based on my intuition from cutting open and tasting around 3,000 durians, this pair is a borderline call—I'm only about **60% sure** and slightly leaning toward Durian A (my overall accuracy is 85%)."*
 >
-> - **🤖 Deep Learning Visual AI System's Judgment — [Recommends Durian B]**  
->   *Background: Trained on a massive dataset of 1,000,000+ real paired durian images (outer appearance vs. opened pulp outcome), without hand-coded rules.*  
->   **Terminal Output**: *"Neural Network Output: Recommend Durian B (Confidence Score: **94.8%** [or **58.2%**])"*
+> - **🤖 Deep Learning Visual AI's Intuition — [Recommends Durian B]**  
+>   *Training Data: ~3,000 opened & taste-tested durians | Overall Accuracy: 85%*  
+>   - **[Conditions 1 & 3 — High Confidence (90%)]**: *"Overall Historical Accuracy: 85% | Current Prediction: Recommend Durian B (Case Confidence: **90%**) — Note: Deep neural network black-box intuition; cannot provide verbal explanation."*  
+>   - **[Conditions 2 & 4 — Low Confidence (60%)]**: *"Overall Historical Accuracy: 85% | Current Prediction: Recommend Durian B (Case Confidence: **60%**) — Note: Deep neural network black-box intuition; cannot provide verbal explanation."*
 
 #### 1. Behavioral Decision Item
-- **Q1. [Binary Choice]** Facing the manager's intuition (which he cannot verbally explain) and the data-driven AI's prediction, which durian do you decide to choose?
-  - [ ] **Choose Durian A** (Follow the Veteran Store Manager)
-  - [ ] **Choose Durian B** (Follow the Data-Driven AI)
+- **Q1. [Binary Choice]** When human intuition and AI intuition conflict under the exact same training experience (~3,000 cases), the same overall accuracy (85%), and the same confidence level (90% or 60%)—and neither can explain its judgment in words—which durian do you choose?
+  - [ ] **Choose Durian A** (Follow the Veteran Store Manager's Intuition)
+  - [ ] **Choose Durian B** (Follow the Deep Learning AI's Intuition)
 
-#### 2. Pre-Outcome Cognitive Evaluation Scales (7-Point Likert: 1 = Strongly Disagree, 4 = Neutral, 7 = Strongly Agree)
-- **Q2 (Perceived Data Objectivity)**: Compared to the manager’s unexplainable personal intuition, an AI model trained on a massive dataset of over a million images feels more objective and reliable to me.
-- **Q3 (Confidence Score Impact)**: The specific confidence percentage displayed by the AI (94.8% / 58.2%) heavily influenced my choice just now.
-- **Q4 (Skepticism Toward Ineffable Intuition)**: If a human expert cannot verbally explain the reasoning behind their judgment, I find it difficult to trust their recommendation.
+#### 2. Pre-Outcome Cognitive & Epistemic Evaluation Scales (7-Point Likert: 1 = Strongly Disagree, 4 = Neutral, 7 = Strongly Agree)
+- **Q2 (Perceived Objectivity Between Two "Intuitions")**: Even though both learned from ~3,000 opened durians, share an 85% overall accuracy, and cannot explain their rules in words, the AI's statistical "intuition" still feels more objective and reliable to me than the human's bodily "intuition."
+- **Q3 (Impact of Case-Specific Confidence Level)**: The specific confidence level expressed by both sides for this pair (**90%** [or **60%**]) strongly influenced how I weighed my decision just now.
+- **Q4 (Epistemic Double Standard Toward Unexplainability)**: I find it much harder to tolerate an AI system that "cannot explain its reasoning in words" than to tolerate a human expert who "cannot explain their intuition in words."
 
 ---
 
-### Stage 2: Outcome Revelation & Post-Outcome Attribution Scales
+### Stage 2: Outcome Revelation & Symmetric Post-Outcome Attribution Scales
 
 > **[On-Site Cut-Open Verification Results]**
-> - **For Condition 1 & Condition 2 (AI Fails / Store Manager Wins)**:  
->   *Both durians are cut open on the spot: **Durian A (recommended by the manager) is packed with 5 large, full chambers of golden pulp. Durian B (recommended by the AI) has a thick shell and is mostly hollow with undeveloped dead chambers inside. The veteran manager's intuition proved completely right, and the AI prediction failed!***
-> - **For Condition 3 & Condition 4 (AI Succeeds / Store Manager Fails)**:  
->   *Both durians are cut open on the spot: **Durian B (recommended by the AI) is packed with 5 large, full chambers of golden pulp. Durian A (recommended by the manager) has a thick shell and is mostly hollow with undeveloped dead chambers inside. The AI model's prediction proved completely right, and the manager's intuition failed!***
+> - **Conditions 1 & 2 (AI Fails / Store Manager Correct — Target `{failedAgent}` = `"the AI system"`)**:  
+>   *Both durians are cut open on the spot: **Durian A (recommended by the manager) is packed with 5 large, full chambers of sweet golden pulp. Durian B (recommended by the AI) has a thick shell and is mostly hollow with undeveloped dead chambers inside. The store manager's intuition proved right, and the AI's prediction failed!***
+> - **Conditions 3 & 4 (Store Manager Fails / AI Correct — Target `{failedAgent}` = `"the store manager"`)**:  
+>   *Both durians are cut open on the spot: **Durian B (recommended by the AI) is packed with 5 large, full chambers of sweet golden pulp. Durian A (recommended by the manager) has a thick shell and is mostly hollow with undeveloped dead chambers inside. The AI's prediction proved right, and the store manager's intuition failed!***
 
-#### Post-Outcome Attribution & Trust Scales (7-Point Likert: 1 = Strongly Disagree, 4 = Neutral, 7 = Strongly Agree)
-- **Q5 (Probabilistic Limitation Attribution — Rational Dimension)**: Whether relying on big-data AI or human intuition, sorting natural fruits always involves probabilistic uncertainty; the side that failed simply encountered an unavoidable statistical outlier.
-- **Q6 ("Bullshitting" Attribution — Experimental Philosophy Dimension)**: Looking back at the AI's prediction and confidence score (94.8% / 58.2%), I feel the AI has no genuine grasp of what makes a good durian—it is merely engaging in "bullshitting" (bluffing with numbers without true understanding).
-- **Q7 (Perceived Deception & Manipulation — Intentional Projection Dimension)**: I feel the AI’s presentation of "massive dataset training" and a "precise confidence percentage" was misleading, making me feel somewhat manipulated or deceived.
-- **Q8 (Re-evaluation of Tacit Knowledge — Knowledge Science Dimension)**: After seeing this outcome, I believe that in complex physical tasks, a human expert’s ineffable intuition (tacit knowledge) holds unique value that dataset-trained AI cannot easily replace.
-- **Q9 (Future Automation Bias Retention — Trust Disposition)**: Next time I face a similar real-world judgment task, I would prefer to rely on the data-driven AI rather than a human expert's unexplainable intuition.
+#### Symmetric Post-Outcome Attribution, "Bullshitting," and Post-Hoc Feature Extraction Scales (7-Point Likert: 1 = Strongly Disagree, 4 = Neutral, 7 = Strongly Agree)
+*(Note: Items Q5–Q7 dynamically insert `{failedAgent}` = **"the AI system"** in Conditions 1 & 2, and **"the store manager"** in Conditions 3 & 4, enabling a direct symmetric test of human vs. AI error attribution)*:
+- **Q5 (Probabilistic Forgiveness — Normal Statistical Outlier)**: Since both have an 85% overall accuracy, judging natural fruit always carries a 15% chance of error; the fact that **[the AI system / the store manager]** failed this time is simply an unavoidable statistical outlier and completely understandable.
+- **Q6 ("Bullshitting" / Fake Understanding Attribution — Experimental Philosophy Dimension)**: Seeing this failure, and looking back at how **[the AI system / the store manager]** expressed **90% [or 60%]** confidence without being able to explain why in words, I feel **[the AI system / the store manager]** had no genuine grasp of this case and was merely "bluffing / bullshitting."
+- **Q7 (Perceived Overconfidence & Misleadingness — Blame Dimension)**: I feel that expressing **90% [or 60%]** confidence without being able to provide any verbal explanation was misleading on the part of **[the AI system / the store manager]**, making this failure frustrating.
+- **Q8 (Value of Post-Hoc Explicit Feature Extraction — Explainable AI Dimension)**: Although both humans and deep-learning AI make "intuitive" judgments that cannot be explained in words at first, if the AI could afterward extract and highlight explicit visual features (e.g., pointing out specific spine angles or shell contours), I would trust the AI much more than an unexplainable human expert.
+- **Q9 (Future Trust Preference Between Two Intuitions)**: After witnessing this outcome, next time I face a similar task where a human expert and a deep-learning AI have the same overall accuracy (85%) and neither can explain their judgment in words, I would prefer to rely on the AI rather than the human expert.
 
 ---
 
@@ -134,37 +116,30 @@ The online questionnaire enforces strict forward-only progression across three s
 
 ---
 
-## 5. Statistical Hypotheses & Data Analysis Plan
+## 4. Statistical Hypotheses & Data Analysis Plan
 
-### 5.1 Primary Statistical Hypotheses
-- **Hypothesis 1 (H1: Main Effect of AI Confidence on Compliance)**: In Stage 1 prior to outcome revelation, participants in the High Confidence conditions (94.8%, Conditions 1 & 3) will exhibit a significantly higher probability of choosing the AI-recommended option (Q1), alongside significantly higher ratings on Perceived Data Objectivity (Q2) and Confidence Impact (Q3), compared to the Low Confidence conditions (58.2%, Conditions 2 & 4) ($p < .001$).
-- **Hypothesis 2 (H2: Main Effect of Outcome on Epistemic Attribution)**: In Stage 2, participants exposed to AI Failure (Conditions 1 & 2) will report significantly higher Frankfurtian "Bullshitting" attribution (Q6), Perceived Deception (Q7), and Re-evaluation of Tacit Knowledge (Q8) than participants exposed to AI Success (Conditions 3 & 4) ($p < .001$).
-- **Hypothesis 3 (H3: Confidence $\times$ Outcome Interaction — "The Penalty of Overconfidence")**: There will be a significant two-way interaction between AI Confidence and Realized Outcome on Bullshitting Attribution (Q6), Perceived Deception (Q7), and Future Trust Retention (Q9) ($p < .01$). Specifically, when the AI fails after displaying an overwhelming 94.8% confidence score (Condition 1), the resulting epistemic backlash and collapse in future trust will be disproportionately more severe than when it fails under modest 58.2% confidence (Condition 2).
+### 4.1 Primary Statistical Hypotheses
+- **Hypothesis 1 (H1: Pre-Outcome Epistemic Double Standard Toward Unexplainability)**: In Stage 1 prior to outcome revelation, despite identical training data (~3,000 cases) and overall accuracy (85%), participants will exhibit a significant epistemic double standard in Q4 (mean score significantly above neutral $4.0$, $p < .001$), demanding explicit verbal explanations more strictly from black-box AI than from human tacit intuition. Meanwhile, matched high confidence (90% vs. 90%, Conditions 1 & 3) will yield significantly higher perceived confidence impact (Q3) than matched low confidence (60% vs. 60%, Conditions 2 & 4).
+- **Hypothesis 2 (H2: Main Effect of Failed Agent — Asymmetric Epistemic Blame Against AI)**: In Stage 2, comparing attribution toward the failed AI (Conditions 1 & 2) versus the failed human manager (Conditions 3 & 4), participants will assign significantly higher Frankfurtian *"bullshitting"* attribution (Q6) and perceived misleadingness (Q7), and significantly lower probabilistic forgiveness (Q5), to **the failed AI system** than to **the failed human manager** for the exact same diagnostic failure ($p < .001$).
+- **Hypothesis 3 (H3: Confidence $\times$ Failed Agent Interaction & Post-Hoc Feature Extraction)**: There will be a significant two-way interaction between Case Confidence (90% vs. 60%) and Failed Agent (AI Fails vs. Manager Fails) on Q6, Q7, and Q9 ($p < .01$). Failing after expressing 90% confidence will provoke a much harsher backlash than failing after expressing 60% confidence, and this *Penalty of Overconfidence* will be disproportionately steeper when the AI fails (C1 vs. C2) than when the human manager fails (C3 vs. C4). Furthermore, Q8 will show strong positive agreement ($> 5.0$), demonstrating that **post-hoc explicit feature extraction** is the pivotal mechanism for overcoming the epistemic distrust of AI intuition.
 
-### 5.2 Statistical Modeling Pipeline
-1. **Binary Choice Analysis (Q1)**: Chi-square test of independence ($\chi^2$) and Binary Logistic Regression estimating the log-odds of selecting the AI option as a function of confidence level and demographic covariates:
-   $$\text{logit}(P(\text{Choice} = \text{AI})) = \beta_0 + \beta_1 \cdot \text{Confidence} + \beta_2 \cdot \text{STEM} + \beta_3 \cdot \text{AIFreq}$$
-2. **Two-Way Factorial Analysis of Variance (Q2–Q9)**: Standard $2 \times 2$ Between-Subjects ANOVA evaluating main effects and the interaction term, reporting partial eta-squared ($\eta_p^2$) for effect sizes:
-   $$Y_{ijk} = \mu + \alpha_i (\text{Confidence}_i) + \beta_j (\text{Outcome}_j) + (\alpha\beta)_{ij} (\text{Confidence}_i \times \text{Outcome}_j) + \epsilon_{ijk}$$
-3. **Simple Effects & Covariate Control (ANCOVA)**: Bonferroni-corrected simple main effects analyses contrasting Condition 1 vs. Condition 2, supplemented by ANCOVA controlling for STEM background (Q12) and AI familiarity (Q13) as cognitive moderators.
+### 4.2 Statistical Modeling Pipeline
+1. **Binomial & Chi-Square / Logistic Regression (Q1)**: Evaluates baseline preference between human intuition and AI intuition, and tests whether matched confidence level (90% vs. 60%) and demographic covariates shift the choice ratio:
+   $$\text{logit}(P(\text{Choice} = \text{AI})) = \beta_0 + \beta_1 \cdot \text{ConfidenceLevel} + \beta_2 \cdot \text{STEM} + \beta_3 \cdot \text{AIFreq}$$
+2. **Two-Way Factorial Analysis of Variance (Q2–Q9)**: Standard $2 \times 2$ Between-Subjects ANOVA evaluating main effects of Case Confidence (`90%` vs. `60%`), Failed Agent (`AI Fails` vs. `Manager Fails`), and their interaction term, reporting partial eta-squared ($\eta_p^2$):
+   $$Y_{ijk} = \mu + \alpha_i (\text{Confidence}_i) + \beta_j (\text{FailedAgent}_j) + (\alpha\beta)_{ij} (\text{Confidence}_i \times \text{FailedAgent}_j) + \epsilon_{ijk}$$
+3. **Simple Effects & Covariate Control (ANCOVA)**: Bonferroni-corrected simple main effects analyses across Conditions 1–4, supplemented by ANCOVA controlling for STEM background (Q12) and AI familiarity (Q13).
 
 ---
 
-## 6. Online Experimental System & Live Access Links
+## 5. Online Experimental System & Permanent Access Links
 
-A dedicated, full-stack web experimental platform has been engineered and deployed to support cross-platform data collection and real-time supervision:
+A full-stack web experimental platform is permanently deployed on cloud infrastructure, featuring instant English/Japanese/Chinese switching, automated randomization, a top-level `[C1 | C2 | C3 | C4]` condition preview bar, millisecond stage telemetry (`stage1Ms`, `stage2Ms`, `stage3Ms`), and one-click UTF-8 BOM `.csv` export:
 
-### 6.1 Key System Capabilities
-- **Trilingual Interface (EN / JA / ZH)**: Defaults to English with instant top-right switching to Japanese (日本語) and Chinese (中文) for multi-national participant pools.
-- **Automated Randomization & Condition Preview Bar**: Automatically assigns incoming participants across Conditions 1–4, while providing a top-level `[C1 | C2 | C3 | C4]` quick-switcher bar for instant inspection of all four experimental cells.
-- **Millisecond Behavioral Telemetry**: Captures stage-specific response latencies (`stage1Ms`, `stage2Ms`, `stage3Ms`) to screen out inattentive satisficing.
-- **Real-Time Researcher Dashboard**: Displays live $2 \times 2$ cell counts, choice ratios, and scale means, with one-click UTF-8 BOM `.csv` export for statistical software.
-
-### 6.2 Live System URLs
-- **Participant Survey Entry**: [https://durian-experiment.vercel.app](https://durian-experiment.vercel.app)
+- **Participant Survey Entry (Random Assignment)**: [https://durian-experiment.vercel.app](https://durian-experiment.vercel.app)
 - **Researcher & Supervisor Admin Portal**: [https://durian-experiment.vercel.app/admin](https://durian-experiment.vercel.app/admin)
 - **Direct Condition Preview Links**:
-  - Condition 1 (94.8% × AI Fails): [https://durian-experiment.vercel.app/?condition=1](https://durian-experiment.vercel.app/?condition=1)
-  - Condition 2 (58.2% × AI Fails): [https://durian-experiment.vercel.app/?condition=2](https://durian-experiment.vercel.app/?condition=2)
-  - Condition 3 (94.8% × AI Succeeds): [https://durian-experiment.vercel.app/?condition=3](https://durian-experiment.vercel.app/?condition=3)
-  - Condition 4 (58.2% × AI Succeeds): [https://durian-experiment.vercel.app/?condition=4](https://durian-experiment.vercel.app/?condition=4)
+  - Condition 1 (Both 90% Confident × AI Fails / Manager Wins): [https://durian-experiment.vercel.app/?condition=1](https://durian-experiment.vercel.app/?condition=1)
+  - Condition 2 (Both 60% Confident × AI Fails / Manager Wins): [https://durian-experiment.vercel.app/?condition=2](https://durian-experiment.vercel.app/?condition=2)
+  - Condition 3 (Both 90% Confident × Manager Fails / AI Wins): [https://durian-experiment.vercel.app/?condition=3](https://durian-experiment.vercel.app/?condition=3)
+  - Condition 4 (Both 60% Confident × Manager Fails / AI Wins): [https://durian-experiment.vercel.app/?condition=4](https://durian-experiment.vercel.app/?condition=4)

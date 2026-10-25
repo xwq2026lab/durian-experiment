@@ -12,12 +12,12 @@ export default function handler(req, res) {
   }
 
   res.status(200).json({
-    experimentTitle: "Data-Driven AI vs. Ineffable Expert Intuition: 2x2 Experiment",
+    experimentTitle: "Human Intuition vs. AI Intuition: 2x2 Experiment",
     conditions: {
-      "1": { confidenceVal: "94.8%", outcome: "AI Fails (Store Manager Correct)" },
-      "2": { confidenceVal: "58.2%", outcome: "AI Fails (Store Manager Correct)" },
-      "3": { confidenceVal: "94.8%", outcome: "AI Succeeds (Store Manager Fails)" },
-      "4": { confidenceVal: "58.2%", outcome: "AI Succeeds (Store Manager Fails)" }
+      "1": { confidenceVal: "90%", outcome: "AI Fails (Store Manager Correct)" },
+      "2": { confidenceVal: "60%", outcome: "AI Fails (Store Manager Correct)" },
+      "3": { confidenceVal: "90%", outcome: "Store Manager Fails (AI Correct)" },
+      "4": { confidenceVal: "60%", outcome: "Store Manager Fails (AI Correct)" }
     }
   });
 }

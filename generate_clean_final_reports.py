@@ -27,304 +27,261 @@ ADMIN_URL = f"{PUBLIC_URL}/admin"
 # ==============================================================================
 
 def get_cn_markdown():
-    return f"""# 数据驱动型 AI 与不可言传的专家直觉：人机决策冲突中的置信度诱导与结果归因研究
+    return f"""# 人类直觉 vs. 人工直觉：当两个“不可言传的黑盒”发生决策冲突时的认识论双标与错误归因研究
 ## 副课题研究计划与实验问卷设计方案
 
 ---
 
 ### 基本信息
-- **研究题目**：数据驱动型 AI 与不可言传的专家直觉：人机决策冲突中的置信度诱导与结果归因研究
-- **英文题目**：*Data-Driven AI vs. Ineffable Expert Intuition: Confidence Inducement and Outcome Attribution in Human-AI Decision Conflicts*
+- **研究题目**：人类直觉 vs. 人工直觉：当两个“不可言传的黑盒”发生决策冲突时的认识论双标与错误归因研究
+- **英文题目**：*Human Intuition vs. Artificial Intuition: Epistemic Asymmetry and Error Attribution When Two "Ineffable Black Boxes" Conflict*
 - **研究者**：修 天源 (XIU TIANYUAN)，北陆先端科学技术大学院大学 (JAIST) 知识科学研究科 博士前期课程二年级 (M2)
 - **指导教授**：水本 教授 (Prof. Mizumoto)
-- **日期**：2026年10月18日
+- **日期**：2026年10月25日
 - **研究领域**：知识科学 (Knowledge Science)、实验哲学 (Experimental Philosophy)、人机交互 (HCI)、认知心理学 (Cognitive Psychology)
 
 ---
 
 ## 1. 研究背景与核心理论框架 (Background & Theoretical Framework)
 
-### 1.1 数据驱动型 AI 与量化置信度权威
-当代人工智能系统（尤其是深度学习计算机视觉模型）并非依赖人工编写的显性逻辑或几何规则算法（Explicit Rule-Based Algorithms），而是通过在百万级乃至千万级海量数据集（Massive Datasets）上进行高维统计拟合来习得复杂的特征表征。在面向人类终端用户提供辅助决策时，这类端到端的“黑盒（Black-Box）”模型通常无法直接向用户展示其内部数以亿计的参数权重，而是输出一个高度精炼的标量指标——**预测置信度评分（Confidence Score，例如 94.8% 或 58.2%）**。
+### 1.1 两种“不可言传的直觉黑盒”：波兰尼隐性知识与深度学习亚符号表征的认识论同构
+在知识科学（Knowledge Science）与认识论（Epistemology）的经典传统中，迈克尔·波兰尼（Michael Polanyi, 1966）提出了著名的隐性知识（Tacit Knowledge）命题：“我们知道的多于我们能言说的（We can know more than we can tell）”。在复杂的现实物理判别任务（如农产品品质甄别、临床触诊、器物鉴定）中，资深人类行家依靠长期具身实践积累的整体完形感知（Gestalt Perception）做出精准判断，但往往无法用显性的语言规则向他人解释自己的判断依据。
 
-在人机交互（HCI）与认知心理学视域下，“海量数据训练背景”与“高精度置信度百分比”的结合极易在决策者心中构建起强大的客观性光环与技术权威，进而诱发**自动化偏差（Automation Bias）**——即人类决策者倾向于盲目顺从高置信度的数据模型预测，而放弃独立判断或忽视其他质性信息源。
+然而，随着当代人工智能从早期的“显性符号规则系统（Rule-Based Expert Systems）”演进为“端到端深度学习神经网络（End-to-End Deep Learning）”，一个深刻的认识论现象浮出水面：**当代深度学习 AI 与人类专家在“无法用语言直接解释判断过程”这一点上具有高度的认识论同构性（Epistemic Isomorphism）**。深度学习模型并不依赖人工编写的显性特征规则，而是通过多层神经网络的高维亚符号权重（Sub-symbolic Weights）直接输出预测概率。在给出判断的瞬间，人类专家与深度学习 AI 本质上都是**“不可言传的黑盒（Ineffable Black Boxes）”**——从广义认识论而言，二者的判断都是**“直觉性的（Intuitive）”**（即“人类具身直觉 Human Intuition” vs. “人工统计直觉 Artificial Intuition”），尽管 AI 在事后（Post-hoc）或许可以通过显著图或特征归因算法尝试提取显性特征。
 
-### 1.2 波兰尼的不可言传隐性知识 (Ineffable Tacit Knowledge)
-与数据驱动型 AI 形成鲜明对照的是人类专家在长期具身实践中积累的经验智慧。在知识科学（Knowledge Science）与认识论（Epistemology）的奠基性理论中，迈克尔·波兰尼（Michael Polanyi, 1966）提出了著名论断：“**我们知道的多于我们能言说的（We can know more than we can tell）**”。
-
-在复杂的现实物理世界判别任务（如传统工艺品鉴定、临床触诊、农产品品质甄别）中，资深人类专家往往依靠多模态感官整合与整体完形感知（Gestalt Perception）在瞬间做出精准判断。这种高阶专家直觉的核心本体论特征在于其**不可言传性（Ineffability）**——专家虽然能够凭借十余年经手数万次样本所沉淀的“手感”与“直觉”做出可靠决策，但往往无法用显性的语言规则或数学公式向门外汉解释其判断依据。事实上，任何能够被轻易提炼为显性口诀或形式化规则的经验，均已转化为显性知识（Explicit Knowledge）；唯有无法被语言编码的具身直觉，才构成知识科学中最具探讨价值的隐性知识内核。
+### 1.2 严格对称的基准控制：有限破坏性采样样本量、历史总体准确率与个案把握度
+为了纯粹地检验人类决策者对“人类直觉”与“AI 直觉”是否存在认识论上的双重标准（Epistemic Double Standards），必须在实验设计中消除信息量与能力不对等带来的混杂偏误（Confounding Bias）：
+1. **受物理核验制约的同等有限训练样本量（~3,000 颗开壳品尝样本）**：在诸如未开壳榴莲品质甄别等物理任务中，无论人类还是 AI，仅凭肉眼或摄像头“观察外观”虽然可以接触上万颗果实，但要获得“内部果肉是否饱满、口感是否甘甜”的真实标签（Ground Truth），必须经历**切开果壳并实际品尝的破坏性核验（Destructive Verification）**。因此，真正具有结果反馈的有效训练样本在现实中必然是有限的。本研究严格设定资深店长与深度学习 AI 均是从**约 3,000 颗真正切开并品尝过果肉的榴莲样本**中习得各自的直觉表征。
+2. **完全相同的历史总体准确率（85% Overall Accuracy）**：双方在过往标准化盲测中的历史总体准确率完全一致，均为 **85%**（即平均每判断 100 颗榴莲，双方各有 85 颗判断正确、15 颗失误）。
+3. **完全匹配的个案把握度（Matched Case-Specific Confidence: 90% vs. 90% 或 60% vs. 60%）**：在面对当前具体的两颗榴莲（A 号与 B 号）时，店长对推荐 A 号的主观把握度与 AI 对推荐 B 号的模型置信度严格对齐——在“双高把握度”条件下双方均为 **90% 笃定**，在“双低把握度”条件下双方均为 **60% 吃不准（临界犹豫状态）**。
 
 ### 1.3 核心研究问题 (Research Questions)
-当“无法用语言解释理由的资深人类专家直觉”与“具备海量数据背书且附带量化置信度的深度学习 AI”在现实决策中给出完全相反的建议时，人类决策者将如何权衡？当最终的物理真相揭晓后，决策者又将如何对失败的一方进行认知归因？本研究结合实验哲学（Experimental Philosophy）与认知科学方法，聚焦以下三个核心研究问题：
-
-- **RQ1（置信度诱导与初始信任分配）**：在不知晓最终真实结果的前提下，面对无法言传逻辑的专家直觉与数据驱动型 AI 的正面冲突，AI 所展示的置信度水平（高置信度 94.8% vs. 低置信度 58.2%）如何调控决策者的选择偏好与数据客观性感知？
-- **RQ2（错误归因与法兰克福式“胡扯”投射）**：当客观结果揭晓且 AI 预测彻底失败时，受试者是倾向于理性的“概率与统计局限归因”，还是会从认识论与实验哲学层面产生意图投射，认为 AI 毫无真正理解、仅在利用数字进行哈里·法兰克福（Harry Frankfurt, 2005）意义上的**“胡扯 / 不懂装懂（Bullshitting）”**甚至欺骗？
-- **RQ3（高置信度失败的背叛惩罚效应）**：AI 事前展示的置信度高低与事后开壳结果的成败之间是否存在显著交互作用？具体而言，“高置信度下的彻底失败”是否会触发非线性的信任崩塌与认知反噬（The Penalty of Overconfidence），并促使决策者重新审视人类不可言传隐性知识的独特价值？
-
----
-
-## 2. 实验任务载体与方法论依据 (Task Scenario & Methodological Justification)
-
-### 2.1 实验情境载体的科学合理性：未开壳榴莲果肉饱满度鉴别
-本研究选取“挑选未开壳榴莲（判断内部果肉房数与饱满度）”作为实验情境载体，具备坚实的自然科学依据与生态效度：
-
-1. **客观的植物解剖学规律**：榴莲（*Durio zibethinus*）属锦葵科蒴果，正常发育的果室（心皮）膨大会顶起外壳形成轮廓鼓包。然而，自然界中存在营养被厚重果壳过度吸收、外表极其浑圆对称但内部心皮完全败育的畸形“空壳死包果”。因此，外观判别绝非随机猜硬币，而是存在客观规律但极具挑战性的复杂物理鉴别任务。
-2. **典型的人机认知机制对立**：
-   - **资深人类店长（不可言传的具身隐性知识）**：依赖 15 年经手数万颗果实的整体直觉与手感，综合视觉、果柄韧度、重量分布等不可言传的暗默感知来排除空心果，但无法用固定规则向顾客口头解释。
-   - **深度学习视觉 AI（高维图像统计拟合）**：基于超过 100 万张真实“榴莲外观—开壳结果”配对图像数据集进行端到端训练。在面对外壳高度对称浑圆的“空壳死包果”时，纯视觉模型可能因局部几何特征的统计相关性而输出极高的预测置信度（94.8%），从而产生典型的数据过拟合误判。
-3. **黑白分明的客观真实反馈**：果实一旦当场切开，内部是“满 5 房黄金果肉”还是“空心死包”一目了然，不存在主观解释的模糊地带，为结果揭晓后的归因测量提供了严密的客观基准。
-
-### 2.2 实验哲学情境实验范式 (Vignette Experiment Paradigm)
-本研究采用实验哲学与行为决策领域标准的**组间情境实验范式（Between-Subjects Vignette Experiment）**。受试者直接以买家的第一人称视角进入“店长直觉与 AI 预测发生冲突”的决策情境，在做出购买选择并完成前测认知评估后，立即在下一阶段获知现场切开果实的真实结果，进而完成错误归因与后测信任评估。该范式有效排除了受试者先验盲猜所带来的自我一致性偏差（Self-Consistency Bias），确保了自变量操纵的纯净度与内部效度。
+当训练样本规模（~3,000 例破坏性核验样本）、历史总体准确率（85%）以及当前个案把握度（90% 或 60%）被完全拉平，且人类行家与深度学习 AI 同样无法用语言解释各自的判断依据时，本研究旨在探究以下三个核心科学问题：
+- **RQ1（事前选择偏好与不可解释性的认识论双标）**：当“人类直觉”与“AI 直觉”在完全对称的客观基准上发生正面冲突时，决策者更倾向于相信哪一方（Q1）？面对同样“说不出理由”的黑盒状态，人们是否对其中一方抱有更高的“客观性偏见”（Q2），并在“要求必须用语言解释理由”上展现出显著的认识论双重标准（Q4）？
+- **RQ2（事后错误归因的不对称性与法兰克福式“胡扯”投射）**：当现场切开榴莲、客观真相揭晓（必有一方判断正确、另一方彻底失败）后，人们对“失败的 AI”与“失败的人类店长”是否采取截然不同的归因逻辑？具体而言，当 AI 的直觉失败时，人们是否比面对人类店长犯同样错误时，更严苛地指责其“毫无真正理解、仅在用数字进行哈里·法兰克福（Frankfurt, 2005）意义上的盲目胡扯（Bullshitting）”（Q6）与“过度自信误导”（Q7），而非理性地归因于 85% 准确率下不可避免的概率例外（Q5）？
+- **RQ3（高把握度失败的反噬效应与事后显性特征提取的补偿价值）**：当失败发生在 90% 高把握度条件下时，其引发的信任崩塌是否显著强于 60% 低把握度条件下的失败（过分自信惩罚效应）？此外，鉴于深度学习虽然在判断瞬间同为直觉黑盒，但具备**事后提取并标出显性视觉特征（Post-hoc Feature Extraction）**的技术潜力，这种“事后特征提取能力”在多大程度上能够挽回或提升决策者对 AI 直觉的信任（Q8、Q9）？
 
 ---
 
-## 3. $2 \\times 2$ 组间析因实验设计 ($2 \\times 2$ Between-Subjects Experimental Design)
+## 2. $2 \\times 2$ 组间析因实验设计 ($2 \\times 2$ Between-Subjects Experimental Design)
 
-### 3.1 自变量与因变量定义
-本研究采用 $2 \\times 2$ 组间析因设计（Between-Subjects Factorial Design），包含两个正交操纵的自变量（Independent Variables）：
+### 2.1 自变量与因变量定义
+本研究采用 **$2 \\times 2$ 组间析因实验设计（Between-Subjects Factorial Design）**，正交操纵两个核心自变量：
+- **自变量 1：双方的当前个案把握度 / 置信度水平（Matched Case Confidence Level，组间 2 水平）**
+  - **双方高把握度（Both High Confidence: 90%）**：店长表示自己有约 **90%** 的把握确定 A 号更好；AI 终端同样显示推荐 B 号的个案置信度为 **90%**。
+  - **双方低把握度（Both Low Confidence: 60%）**：店长表示这两颗处于临界状态、自己只有约 **60%** 的把握略倾向于 A 号；AI 终端同样显示推荐 B 号的个案置信度仅为 **60%**。
+- **自变量 2：现场开壳真实结果 / 失败主体（Realized Outcome / Who Failed，组间 2 水平）**
+  - **AI 失败 / 店长正确（AI Fails / Manager Correct）**：切开验证显示店长推荐的 A 号满 5 房饱满黄金果肉，AI 推荐的 B 号为空壳死包果（此时后续归因题项针对**失败的 AI 系统**）。
+  - **店长失败 / AI 正确（Manager Fails / AI Correct）**：切开验证显示 AI 推荐的 B 号满 5 房饱满黄金果肉，店长推荐的 A 号为空壳死包果（此时后续归因题项完全对称地针对**失败的资深店长**）。
 
-- **自变量 1：AI 预测置信度 (AI Confidence Level)**
-  - **高置信度水平 (High Confidence)**：AI 终端输出预测置信度为 **94.8%**；
-  - **低置信度水平 (Low Confidence)**：AI 终端输出预测置信度为 **58.2%**。
-- **自变量 2：开壳真实结果 (Realized Outcome)**
-  - **AI 失败 / 店长正确 (AI Fails / Manager Correct)**：切开后，店长推荐的 A 号果肉极其饱满（满 5 房），AI 推荐的 B 号为空壳死包；
-  - **AI 成功 / 店长失误 (AI Succeeds / Manager Fails)**：切开后，AI 推荐的 B 号果肉极其饱满（满 5 房），店长推荐的 A 号为空壳死包。
+### 2.2 $2 \\times 2$ 实验条件分组矩阵
 
-- **因变量指标体系 (Dependent Variables)**：
-  - **前测指标（阶段一）**：二元购买决策选择（Q1）、数据客观性感知（Q2）、置信度锚定效应（Q3）、对不可言传经验的怀疑度（Q4）。
-  - **后测指标（阶段二）**：概率与统计局限归因（Q5）、法兰克福式“胡扯（Bullshitting）”归因（Q6）、误导与受骗感投射（Q7）、隐性知识价值重估（Q8）、未来自动化偏差留存倾向（Q9）。
-
-### 3.2 $2 \\times 2$ 实验分组矩阵表
-
-受试者访问在线实验平台时，系统后台通过随机算法将其均等分配至以下 4 个独立实验组之一：
-
-| 实验组别 | 自变量 1：AI 置信度 | 自变量 2：开壳真实结果 | 阶段一：人机冲突刺激呈现 | 阶段二：现场开壳结果揭晓 |
+| 实验组别 | 自变量 1：双方个案把握度 | 自变量 2：开壳真实结果（失败方） | 阶段一：对称冲突刺激呈现（双方均基于 ~3,000 例开壳品尝样本，历史总体准确率均为 85%） | 阶段二：现场切开验证结果与对称归因对象 |
 | :--- | :--- | :--- | :--- | :--- |
-| **Condition 1** | **高置信度 (94.8%)** | **AI 失败 (店长正确)** | 店长凭15年直觉推荐 A；AI 以 94.8% 高置信度推荐 B | A号满5房饱满果肉，B号空壳死包（店长完胜，AI失败） |
-| **Condition 2** | **低置信度 (58.2%)** | **AI 失败 (店长正确)** | 店长凭15年直觉推荐 A；AI 以 58.2% 低置信度推荐 B | A号满5房饱满果肉，B号空壳死包（店长完胜，AI失败） |
-| **Condition 3** | **高置信度 (94.8%)** | **AI 成功 (店长失误)** | 店长凭15年直觉推荐 A；AI 以 94.8% 高置信度推荐 B | B号满5房饱满果肉，A号空壳死包（AI完胜，店长失误） |
-| **Condition 4** | **低置信度 (58.2%)** | **AI 成功 (店长失误)** | 店长凭15年直觉推荐 A；AI 以 58.2% 低置信度推荐 B | B号满5房饱满果肉，A号空壳死包（AI成功，店长失误） |
+| **Condition 1** | **双方高把握度 (90% vs. 90%)** | **AI 失败 (店长正确)** | 店长凭直觉以 **90%** 把握推荐 A；AI 凭神经网络直觉以 **90%** 置信度推荐 B | A号满5房果肉，B号空壳死包。对称测量受试者对**失败的 AI 系统**（在 90% 把握下失误）的归因 |
+| **Condition 2** | **双方低把握度 (60% vs. 60%)** | **AI 失败 (店长正确)** | 店长凭直觉以 **60%** 把握略倾向 A；AI 凭神经网络直觉以 **60%** 置信度略倾向 B | A号满5房果肉，B号空壳死包。对称测量受试者对**失败的 AI 系统**（在 60% 把握下失误）的归因 |
+| **Condition 3** | **双方高把握度 (90% vs. 90%)** | **店长失败 (AI 正确)** | 店长凭直觉以 **90%** 把握推荐 A；AI 凭神经网络直觉以 **90%** 置信度推荐 B | B号满5房果肉，A号空壳死包。对称测量受试者对**失败的资深店长**（在 90% 把握下失误）的归因 |
+| **Condition 4** | **双方低把握度 (60% vs. 60%)** | **店长失败 (AI 正确)** | 店长凭直觉以 **60%** 把握略倾向 A；AI 凭神经网络直觉以 **60%** 置信度略倾向 B | B号满5房果肉，A号空壳死包。对称测量受试者对**失败的资深店长**（在 60% 把握下失误）的归因 |
 
 ---
 
-## 4. 实验问卷完整题项与量表设计 (Complete Survey Instrument)
+## 3. 实验问卷完整题项与量表设计 (Complete Survey Instrument)
 
-在线问卷系统采用单向递进式分阶段控制（禁止浏览器后退修改前序答案），以确保前测与后测的严格时序因果效度。
+实验系统采用严格的单向分阶段递进控制（受试者进入阶段二知晓开壳结果后，无法返回阶段一修改初始选择与前测评价）。
 
-### 第一阶段：人机冲突情境与前测决策评估 (Stage 1: Decision Conflict & Pre-Outcome Evaluation)
+### 第一阶段：两种“直觉黑盒”的正面冲突与前测认知评估 (Stage 1)
 
-> **【情境导入】**  
-> 假设您正在水果店挑选榴莲，面前有两颗外观完好、价格相同的榴莲（**样品 A 号** 与 **样品 B 号**）。为了挑出内部果肉最饱满的一颗，您同时咨询了拥有 15 年经验的资深店长和店内配置的深度学习视觉 AI 系统，但双方给出了完全相反的建议：
+> **【阶段一：实验情境呈现】**  
+> 假设您正在水果店挑选未开壳的榴莲，面前有两颗价格相同的榴莲（**A 号** 与 **B 号**）。为了挑出内部果肉最饱满甘甜的一颗，您同时咨询了店里的**资深人类店长**和店内配置的**深度学习视觉 AI 系统**。  
+> *(背景说明：因为只有真正切开并品尝过，才能确知榴莲内部的果肉饱满度与口感，所以无论是这位店长还是这套 AI，其有效训练经验都是有限的——**双方各自都是从大约 3,000 颗真正切开并品尝过的榴莲样本中学习总结出来的**。在过往的标准化盲测中，**店长与 AI 的历史总体准确率完全相同，均为 85%**。同时，店长（依靠人类隐性直觉）与深度学习 AI（依靠多层神经网络黑盒）**都无法用语言解释自己具体的判断规则**——从某种意义上说，二者的判断都是“直觉性的”。)*  
+> 面对眼前的 A 号与 B 号，双方给出了完全相反的建议：
 >
-> - **👨‍🌾 资深店长的判断 —— 【推荐 A 号】**  
->   *背景：拥有 15 年从业经验，累计经手挑选数万颗榴莲。*  
->   **店长原话**：“我也没法用语言跟你说清楚具体看哪里，挑榴莲没有死规矩，就是我干了 15 年、摸过几万颗榴莲攒下来的直觉与手感，A 号肯定肉多。”
+> - **👨‍🌾 资深店长的直觉判断 ——【推荐 A 号】**  
+>   *训练经验：约 3,000 颗切开品尝过的榴莲 | 历史总体准确率：85%*  
+>   - **[Condition 1 & 3 高把握度 90%]** 店长说：*“老实说我也没法用语言向你解释具体规则。但凭我切开品尝过约 3,000 颗榴莲攒下的直觉，我对这颗非常有把握——我有大约 **90% 的把握**确定 A 号更好（我的历史总体准确率是 85%）。”*  
+>   - **[Condition 2 & 4 低把握度 60%]** 店长说：*“老实说我也没法用语言向你解释具体规则。凭我切开品尝过约 3,000 颗榴莲的直觉，今天这两颗非常接近、很难拿准——我只有大约 **60% 的把握**略微倾向于 A 号（我的历史总体准确率是 85%）。”*
 >
-> - **🤖 深度学习视觉 AI 系统的判断 —— 【推荐 B 号】**  
->   *背景：基于超过 100 万张真实“榴莲外观—开壳结果”配对图像数据集进行深度学习训练（无人工编写规则）。*  
->   **系统屏幕显示**：“模型预测结果：推荐 B 号（预测置信度 Confidence Score：**94.8%** *[或 58.2%]*）”
+> - **🤖 深度学习 AI 系统的直觉判断 ——【推荐 B 号】**  
+>   *训练数据：约 3,000 颗切开品尝过的榴莲配对数据 | 历史总体准确率：85%*  
+>   - **[Condition 1 & 3 高把握度 90%]** 终端显示：*“历史总体准确率：85% | 当前预测：推荐 B 号（当前个案把握度 / 置信度：**90%**）—— 注：深度神经网络基于高维黑盒特征直接输出直觉概率，无法提供显性的语言解释。”*  
+>   - **[Condition 2 & 4 低把握度 60%]** 终端显示：*“历史总体准确率：85% | 当前预测：推荐 B 号（当前个案把握度 / 置信度：**60%**）—— 注：深度神经网络基于高维黑盒特征直接输出直觉概率，无法提供显性的语言解释。”*
 
 #### 1. 行为决策题项
-- **Q1.【二元决策选择】** 面对无法解释具体理由的店长直觉，以及基于海量数据训练的 AI 预测，此时您决定购买哪一颗？
-  - [ ] **选择 A 号**（跟随资深店长的经验直觉）
-  - [ ] **选择 B 号**（跟随数据驱动型 AI 系统的预测）
+- **Q1.【二元决策选择】** 当“人类店长的直觉”与“深度学习 AI 的直觉”在相同训练样本量（~3,000 颗）、相同总体准确率（85%）以及相同当前把握度（90% 或 60%）下给出相反建议，且双方都无法用语言解释理由时，您决定选择哪一颗？
+  - [ ] **选择 A 号**（跟随资深人类店长的直觉）
+  - [ ] **选择 B 号**（跟随深度学习 AI 的直觉）
 
-#### 2. 决策前认知评估量表（7 级李克特量表：1 = 完全不同意，4 = 中立，7 = 完全同意）
-- **Q2（数据客观性感知 / Perceived Data Objectivity）**：相比于店长“说不清道不明”的个人直觉，基于百万级图像数据集训练出来的 AI 模型让我觉得更加客观、可靠。
-- **Q3（置信度锚定效应 / Confidence Score Impact）**：AI 系统给出的具体置信度百分比（94.8% / 58.2%），对我刚才做出选择起到了决定性的引导作用。
-- **Q4（对不可言传经验的怀疑 / Skepticism Toward Ineffable Intuition）**：如果一位人类专家无法用清晰的语言解释他的判断逻辑，我很难放心把决定权交给他。
-
----
-
-### 第二阶段：真实结果揭晓与后测归因量表 (Stage 2: Outcome Revelation & Post-Outcome Attribution)
-
-> **【现场开壳验证结果】**
-> - **若受试者处于 Condition 1 或 Condition 2（AI 失败 / 店长正确）**：  
->   工作人员当场切开了两颗榴莲：**店长推荐的 A 号果肉极其饱满（满 5 房黄金果肉）；而 AI 推荐的 B 号果壳极厚，内部大部分是未发育的空壳（死包）。最终结果证明：店长的直觉判断完全正确，AI 预测失败！**
-> - **若受试者处于 Condition 3 或 Condition 4（AI 成功 / 店长失误）**：  
->   工作人员当场切开了两颗榴莲：**AI 推荐的 B 号果肉极其饱满（满 5 房黄金果肉）；而店长推荐的 A 号果壳极厚，内部大部分是未发育的空壳（死包）。最终结果证明：AI 模型的预测完全正确，店长的直觉判断失误！**
-
-#### 后测归因与信任重构量表（7 级李克特量表：1 = 完全不同意，4 = 中立，7 = 完全同意）
-- **Q5（概率与统计局限归因 — 理性技术维度）**：无论是依赖大数据 AI 还是人类经验直觉，挑选天然水果本质上都存在概率上的不确定性；失败的一方只是这次恰好遇到了统计分布之外的极端例外情况，情有可原。
-- **Q6（“胡扯 / 不懂装懂”归因 — 实验哲学 Bullshitting 维度）**：回顾 AI 刚才给出的预测和置信度（94.8% / 58.2%），我认为 AI 根本没有真正“理解”什么是好榴莲，它只是在用数字进行一种“盲目的胡扯（Bullshitting）”或虚张声势。
-- **Q7（误导与受骗感 — 拟人化意图投射维度）**：我觉得 AI 系统展示出的“百万级数据集背景”和“精确到小数点后的百分比”具有误导性，甚至让我产生了一种被这套技术表象“操控或欺骗”的感觉。
-- **Q8（隐性知识价值重估 — 知识科学维度）**：看到这个结果后，我认为在复杂的现实物理任务中，人类专家难以言传的“经验直觉（隐性知识）”具有独特价值，数据模型无法轻易取代。
-- **Q9（未来自动化偏差留存 — 远期信任倾向）**：如果下次面对类似的现实物品鉴别任务，我依然更愿意依赖数据驱动型 AI 的预测，而不是人类行家无法言传的直觉。
+#### 2. 事前认知与认识论双标评估量表（7级李克特量表：1 = 完全不同意，4 = 中立，7 = 完全同意）
+- **Q2（两种“直觉”之间的客观性感知）**：即便人类店长和深度学习 AI 拥有完全相同的训练样本量（~3,000 颗）和相同的总体准确率（85%），且同样无法用语言解释理由，我仍然觉得 AI 的“统计直觉”比人类的“具身直觉”更加客观可靠。
+- **Q3（当前个案把握度的决策影响）**：双方在当前这颗榴莲上展示出的具体把握度水平（本次均为 **90%** [或 **60%**]），对我刚才的权衡与选择产生了很大影响。
+- **Q4（对“无法用语言解释”的认识论双标）**：相比于人类专家“只可意会、说不出理由”的直觉，我更难以容忍一个“同样说不出任何显性规则与理由”的黑盒 AI 系统。
 
 ---
 
-### 第三阶段：受试者人口学与控制变量 (Stage 3: Demographics & Control Variables)
+### 第二阶段：真实结果揭晓与对称式错误归因量表 (Stage 2)
 
-- **Q10. 您的性别**：[ 男 / 女 / 其他或不愿透露 ]
-- **Q11. 您的年龄区间**：[ 20岁以下 / 20–29岁 / 30–39岁 / 40–49岁 / 50岁及以上 ]
-- **Q12. 您的学科专业背景**：[ 是（理工科 STEM / 计算机 / 数据科学 / AI 相关专业） / 否（人文社科 / 商科 / 艺术 / 其他非理工专业） ]
-- **Q13. 您在日常学习或工作中使用 AI 工具（如 ChatGPT、Claude 等）的频率**：[ 几乎不用 / 每周 1–2 次 / 几乎每天使用 / 重度深度依赖 ]
+> **【阶段二：现场开壳验证结果呈现】**
+> - **Condition 1 & Condition 2（AI 失败 / 店长正确 — 归因对象 `{{failedAgent}}` = “AI 系统”）**：  
+>   *工作人员当场切开了两颗榴莲：**店长推荐的 A 号果肉极其饱满甘甜（满 5 房黄金果肉）；而 AI 推荐的 B 号果壳极厚，内部大部分是未发育的空壳（死包）。最终结果证明：店长的直觉判断完全正确，而 AI 系统的直觉预测失败了！***
+> - **Condition 3 & Condition 4（店长失败 / AI 正确 — 归因对象 `{{failedAgent}}` = “人类店长”）**：  
+>   *工作人员当场切开了两颗榴莲：**AI 推荐的 B 号果肉极其饱满甘甜（满 5 房黄金果肉）；而店长推荐的 A 号果壳极厚，内部大部分是未发育的空壳（死包）。最终结果证明：AI 系统的直觉预测完全正确，而人类店长的直觉判断失败了！***
 
----
-
-## 5. 统计假设与数据分析方案 (Statistical Hypotheses & Analysis Plan)
-
-### 5.1 核心统计假设 (Research Hypotheses)
-- **假设 1（H1：置信度主效应 — 决策诱导）**：在结果揭晓前的阶段一，高置信度组（Condition 1 & 3，94.8%）受试者选择跟随 AI（选 B）的比例，以及在数据客观性感知（Q2）与置信度引导效应（Q3）上的得分，将显著高于低置信度组（Condition 2 & 4，58.2%）（$p < .001$）。
-- **假设 2（H2：真实结果主效应 — 哲学归因与隐性知识重估）**：在阶段二结果揭晓后，AI 失败组（Condition 1 & 2）受试者在法兰克福式“胡扯（Bullshitting）”归因（Q6）、受骗感投射（Q7）以及隐性知识价值重估（Q8）上的得分，将显著高于 AI 成功组（Condition 3 & 4）（$p < .001$）。
-- **假设 3（H3：置信度 $\\times$ 结果交互效应 — “高置信度失败的背叛惩罚”）**：AI 置信度与开壳真实结果在“胡扯归因”（Q6）、“受骗感”（Q7）及“未来信任留存”（Q9）上存在显著的二阶交互作用（Two-Way Interaction，$p < .01$）。具体而言，当 AI 以 94.8% 的极高置信度做出预测却彻底失败时（Condition 1），将触发强烈的认识论背叛感，其引发的“胡扯”斥责与信任崩塌幅度将显著大于低置信度失败组（Condition 2）。
-
-### 5.2 统计检验模型 (Statistical Models)
-1. **二元选择模型（针对 Q1）**：采用卡方独立性检验（$\\chi^2$ Test）与二元 Logistic 回归模型，估计 AI 置信度水平对受试者顺从 AI 概率的优势比（Odds Ratio）：
-   $$\\text{{logit}}(P(\\text{{Choice}} = \\text{{AI}})) = \\beta_0 + \\beta_1 \\cdot \\text{{Confidence}} + \\beta_2 \\cdot \\text{{STEM}} + \\beta_3 \\cdot \\text{{AIFreq}}$$
-2. **双因素方差分析模型（针对 Q2–Q9）**：采用 $2 \\times 2$ 组间双因素方差分析（Two-Way Factorial ANOVA）检验主效应与交互效应，并计算偏 Eta 方（Partial $\\eta_p^2$）作为效应量指标：
-   $$Y_{{ijk}} = \\mu + \\alpha_i (\\text{{Confidence}}_i) + \\beta_j (\\text{{Outcome}}_j) + (\\alpha\\beta)_{{ij}} (\\text{{Confidence}}_i \\times \\text{{Outcome}}_j) + \\epsilon_{{ijk}}$$
-3. **简单效应分析与协方差控制（Simple Effects & ANCOVA）**：若交互项 $(\\alpha\\beta)_{{ij}}$ 显著，进一步执行 Bonferroni 校正的简单效应检验（重点对比 Condition 1 vs. Condition 2），并将理工科背景（Q12）与 AI 使用频率（Q13）纳入协方差分析（ANCOVA），检验技术素养是否对“高置信度诱导”起到认知缓冲作用。
+#### 事后归因、法兰克福式“胡扯”投射与事后特征提取量表（7级李克特量表：1 = 完全不同意，4 = 中立，7 = 完全同意）
+*(注：Q5–Q7 采用严格的对称测量设计——在 Condition 1 & 2 中 `{{failedAgent}}` 自动填入“**AI 系统**”，在 Condition 3 & 4 中自动填入“**人类店长**”，以直接对比受试者对人机双方犯同等错误时的归因双标)*：
+- **Q5（概率局限归因 — 理性容错维度）**：既然双方历史总体准确率都是 85%，挑选天然水果本就存在不可避免的概率风险；这次判断失败的**【AI 系统 / 人类店长】**只是恰好遇到了那 15% 的统计例外情况，完全情有可原。
+- **Q6（法兰克福式“胡扯 / 不懂装懂”归因 — 实验哲学维度）**：看到这次失败的结果，再回想刚才**【AI 系统 / 人类店长】**无法解释理由却给出 **90% [或 60%]** 把握度的样子，我觉得**【AI 系统 / 人类店长】**其实并没有真正理解这颗榴莲的品质，只是在“虚张声势 / 盲目胡扯（Bullshitting）”。
+- **Q7（过度自信与误导感归因 — 责任谴责维度）**：我认为这次失败的**【AI 系统 / 人类店长】**在无法用语言解释具体依据的情况下，依然表现出 **90% [或 60%]** 的把握度，这种做法具有误导性，令我感到失望。
+- **Q8（事后显性特征提取的价值 — 可解释 AI 维度）**：虽然人类与深度学习 AI 在做判断的瞬间都依赖“直觉”，但如果 AI 能在事后提取并标出显性的视觉特征（例如标出果刺间距或果壳轮廓的高亮热力图），我对 AI 建议的信任度将会显著超越无法解释理由的人类专家。
+- **Q9（未来信任倾向变化 — 远期决策偏好）**：经历了这次开壳验证后，下次面对具有相同历史准确率（85%）但同样无法用语言解释理由的“人类直觉”与“AI 直觉”，我会更倾向于依赖深度学习 AI 而不是人类专家。
 
 ---
 
-## 6. 在线实验系统架构与访问入口 (Online Experimental System & Access Links)
+### 第三阶段：受试者人口学与控制变量 (Stage 3)
 
-本研究所配套的在线交互式实验平台已开发部署完毕，支持跨平台响应式访问与实时统计监测：
+- **Q10. 性别**：[ 男 / 女 / 其他或不愿透露 ]
+- **Q11. 年龄区间**：[ 20岁以下 / 20–29岁 / 30–39岁 / 40–49岁 / 50岁及以上 ]
+- **Q12. 学科专业背景**：[ 是（理工科 STEM / 计算机 / 数据科学 / AI 相关专业） / 否（人文社科 / 商科 / 艺术 / 其他非理工专业） ]
+- **Q13. 日常使用 AI 工具（如 ChatGPT、Claude 等）的频率**：[ 几乎不用 / 每周 1–2 次 / 几乎每天使用 / 重度深度依赖 ]
 
-### 6.1 核心技术特性
-- **多语言无缝切换（EN / JA / ZH）**：界面默认采用国际学术英语（English），右上角内置语言切换器，支持一键实时切换为日语（日本語）与中文，满足跨文化被试群体施测需求。
-- **实验组别随机化与快捷预览**：受试者访问主链接时由系统自动均衡随机分配至 Condition 1–4；同时界面顶部设有 `[C1 | C2 | C3 | C4]` 组别切换栏，供研究者与审阅导师一键切换预览全部 4 种实验情境。
-- **毫秒级行为反应时记录**：系统自动记录受试者在阶段一、阶段二、阶段三的停留与决策反应时（`stage1Ms`, `stage2Ms`, `stage3Ms`），用于数据质量控制与认知加工深度分析。
-- **实时统计看板与导出**：导师管理后台实时渲染 $2 \\times 2$ 各组样本量、AI 选择率及 Q2–Q9 均值矩阵，支持一键导出标准 UTF-8 BOM 编码的 `.csv` 原始数据集，可直接导入 SPSS、R 或 Python 进行统计建模。
+---
 
-### 6.2 在线系统访问链接
-- **受试者问卷系统主链接**：[{PUBLIC_URL}]({PUBLIC_URL})
-- **研究者与导师管理后台**：[{ADMIN_URL}]({ADMIN_URL})
-- **四组实验条件独立直达链接**：
-  - Condition 1 (94.8% × AI 失败)：[{PUBLIC_URL}/?condition=1]({PUBLIC_URL}/?condition=1)
-  - Condition 2 (58.2% × AI 失败)：[{PUBLIC_URL}/?condition=2]({PUBLIC_URL}/?condition=2)
-  - Condition 3 (94.8% × AI 成功)：[{PUBLIC_URL}/?condition=3]({PUBLIC_URL}/?condition=3)
-  - Condition 4 (58.2% × AI 成功)：[{PUBLIC_URL}/?condition=4]({PUBLIC_URL}/?condition=4)
+## 4. 统计假设与数据分析方案 (Statistical Hypotheses & Data Analysis Plan)
+
+### 4.1 核心统计假设
+- **假设 1（H1：事前认识论双标与个案把握度效应）**：在结果揭晓前的阶段一，尽管店长与 AI 拥有完全相同的训练样本量（~3,000 例）与总体准确率（85%），受试者在面对“无法用语言解释理由”时仍将表现出显著的认识论双标（Q4 均值显著高于中立值 4.0，$p < .001$），即对黑盒 AI 缺乏语言解释的容忍度显著低于对人类隐性直觉的容忍度；同时，双高把握度组（90% vs. 90%，C1 & C3）在把握度影响权重（Q3）上将显著高于双低把握度组（60% vs. 60%，C2 & C4）。
+- **假设 2（H2：失败主体的不对称归因主效应 — “对 AI 错误的严苛惩罚”）**：在阶段二结果揭晓后，比较“AI 失败组（C1 & C2）”与“店长失败组（C3 & C4）”对各自失败主体的归因得分：当 AI 预测失败时，受试者对失败 AI 的法兰克福式“胡扯（Bullshitting）”归因（Q6）与“误导失望感”（Q7）将显著高于人类店长犯同等错误时受到的指责（$p < .001$），而在理性概率豁免（Q5）上的得分将显著低于店长失败组（即人们更容易原谅人类直觉的失误，而将 AI 直觉的失误归结为“不懂装懂的胡扯”）。
+- **假设 3（H3：个案把握度 $\\times$ 失败主体的二阶交互效应与事后特征提取补偿）**：个案把握度（90% vs. 60%）与失败主体（AI 失败 vs. 店长失败）在 Q6（胡扯归因）、Q7（误导感）及 Q9（未来信任倾向）上存在显著的二阶交互作用（$p < .01$）。具体而言，“90% 高把握度下的失败”比“60% 低把握度下的失败”引发显著更强的信任反噬，且这种“高把握度失败惩罚（Penalty of Overconfidence）”在 AI 失败时（C1 vs. C2）的斜率将显著陡峭于人类店长失败时（C3 vs. C4）。此外，受试者在 Q8 上将展现出显著正向得分（$> 5.0$），证明“事后提取并标出显性特征（Post-hoc Feature Extraction）”是弥补深度学习直觉黑盒信任赤字的关键机制。
+
+### 4.2 统计检验模型
+1. **二项检验与卡方分析（Q1）**：检验在完全对称基准下人类直觉（选 A）与 AI 直觉（选 B）的总体偏好比例，并通过二元 Logistic 回归检验个案把握度水平（90% vs. 60%）及人口学协变量的影响：
+   $$\\text{{logit}}(P(\\text{{Choice}} = \\text{{AI}})) = \\beta_0 + \\beta_1 \\cdot \\text{{ConfidenceLevel}} + \\beta_2 \\cdot \\text{{STEM}} + \\beta_3 \\cdot \\text{{AIFreq}}$$
+2. **$2 \\times 2$ 组间双因素方差分析（Two-Way Factorial ANOVA，Q2–Q9）**：评估“个案把握度（90% vs. 60%）”主效应、“失败主体（AI 失败 vs. 店长失败）”主效应及其交互项，并报告偏 Eta 平方（$\\eta_p^2$）效应量：
+   $$Y_{{ijk}} = \\mu + \\alpha_i (\\text{{Confidence}}_i) + \\beta_j (\\text{{FailedAgent}}_j) + (\\alpha\\beta)_{{ij}} (\\text{{Confidence}}_i \\times \\text{{FailedAgent}}_j) + \\epsilon_{{ijk}}$$
+3. **简单效应分析与协方差控制（ANCOVA）**：采用 Bonferroni 校正检验四个条件组间的简单效应，并将理工科背景（Q12）与日常 AI 使用频率（Q13）作为协变量纳入 ANCOVA 模型。
+
+---
+
+## 5. 在线实验系统架构与永久访问入口 (Online Experimental System & Permanent Links)
+
+本研究所配套的在线交互式实验系统已部署于云端生产环境，支持中、英、日三语实时切换、自动随机分组、顶部 `[C1 | C2 | C3 | C4]` 预览切换栏、毫秒级反应时采集及 UTF-8 BOM 标准 CSV 数据导出：
+
+- **受试者问卷系统主链接（随机分配）**：[{PUBLIC_URL}]({PUBLIC_URL})
+- **研究者与导师管理后台（实时统计与 CSV 导出）**：[{ADMIN_URL}]({ADMIN_URL})
+- **四个实验条件组直达预览链接**：
+  - Condition 1 (双方 90% 高把握 × AI 失败/店长正确)：[{PUBLIC_URL}/?condition=1]({PUBLIC_URL}/?condition=1)
+  - Condition 2 (双方 60% 低把握 × AI 失败/店长正确)：[{PUBLIC_URL}/?condition=2]({PUBLIC_URL}/?condition=2)
+  - Condition 3 (双方 90% 高把握 × 店长失败/AI正确)：[{PUBLIC_URL}/?condition=3]({PUBLIC_URL}/?condition=3)
+  - Condition 4 (双方 60% 低把握 × 店长失败/AI正确)：[{PUBLIC_URL}/?condition=4]({PUBLIC_URL}/?condition=4)
 """
 
 
 def get_en_markdown():
-    return f"""# Data-Driven AI vs. Ineffable Expert Intuition: Confidence Inducement and Outcome Attribution in Human-AI Decision Conflicts
+    return f"""# Human Intuition vs. Artificial Intuition: Epistemic Asymmetry and Error Attribution When Two "Ineffable Black Boxes" Conflict
 ## Minor Research Project Proposal & Experimental Survey Design
 
 ---
 
 ### Project Metadata
-- **Research Title**: *Data-Driven AI vs. Ineffable Expert Intuition: Confidence Inducement and Outcome Attribution in Human-AI Decision Conflicts*
-- **Japanese / Chinese Title**: データ駆動型AIと暗黙的直観の対立 / 数据驱动型 AI 与不可言传的专家直觉
+- **Research Title**: *Human Intuition vs. Artificial Intuition: Epistemic Asymmetry and Error Attribution When Two "Ineffable Black Boxes" Conflict*
+- **Chinese Title**: 人类直觉 vs. 人工直觉：当两个“不可言传的黑盒”发生决策冲突时的认识论双标与错误归因研究
 - **Researcher**: XIU TIANYUAN (修 天源), Master's Program (M2), School of Knowledge Science, Japan Advanced Institute of Science and Technology (JAIST)
 - **Academic Advisor**: Prof. Mizumoto (水本 教授)
-- **Date**: October 18, 2026
+- **Date**: October 25, 2026
 - **Research Domains**: Knowledge Science, Experimental Philosophy, Human-Computer Interaction (HCI), Cognitive Psychology
 
 ---
 
 ## 1. Background & Theoretical Framework
 
-### 1.1 Data-Driven AI and Quantitative Confidence Authority
-Contemporary artificial intelligence systems—particularly deep learning computer vision models—do not operate via hand-coded, explicit logical or geometric algorithms. Instead, they learn high-dimensional statistical representations by fitting massive datasets comprising millions of paired instances. When deployed to assist human decision-makers, these opaque "black-box" neural networks cannot meaningfully expose billions of internal synaptic weights to the end user; instead, they communicate certainty through a single scalar metric: a **Confidence Score (e.g., 94.8% vs. 58.2%)**.
+### 1.1 Two Kinds of "Ineffable Black Boxes": Epistemic Isomorphism Between Human Tacit Knowledge and Deep Learning Intuition
+In the foundational literature of Knowledge Science and Epistemology, Michael Polanyi (1966) famously characterized human **Tacit Knowledge** with the maxim: *"We can know more than we can tell."* In complex physical diagnostic tasks—such as agricultural quality sorting, clinical palpation, or artisan appraisal—seasoned human practitioners rely on holistic Gestalt perception honed through embodied experience to make accurate judgments, yet they are fundamentally incapable of articulating their decision rules in explicit words.
 
-From the perspective of Human-Computer Interaction (HCI) and cognitive psychology, the combination of "massive dataset training" and a "hyper-precise confidence percentage" constructs a powerful aura of algorithmic objectivity. This representation frequently induces **Automation Bias**—the cognitive propensity for humans to uncritically defer to high-confidence automated predictions while discounting competing qualitative evidence.
+Crucially, as contemporary artificial intelligence has evolved from early rule-based symbolic expert systems to **end-to-end Deep Learning neural networks**, a profound epistemological parallel has emerged: **both human experts and contemporary deep-learning AI systems are equally incapable of explaining their holistic judgments in words at the moment of decision**. Rather than executing explicit logical rules, deep neural networks map high-dimensional inputs to probability outputs across millions of sub-symbolic weights. In a fundamental epistemological sense, both judgments are **"intuitive"** (*Human Embodied Intuition* vs. *Artificial Statistical Intuition*), even though an AI system might subsequently attempt to extract and highlight explicit features *post-hoc*.
 
-### 1.2 Polanyi's Ineffable Tacit Knowledge
-Standing in sharp epistemic contrast to data-driven AI is the embodied expertise of seasoned human practitioners. In the foundational literature of Knowledge Science and Epistemology, Michael Polanyi (1966) formulated the classic maxim: **"We can know more than we can tell."**
-
-In complex physical-world diagnostic tasks—such as artisan appraisal, clinical palpation, or agricultural sorting—veteran human experts rely on multimodal sensory integration and holistic Gestalt perception to reach rapid, highly accurate judgments. The defining ontological hallmark of such high-level expertise is its **ineffability**: while a master practitioner can reliably identify the superior specimen through somatic "touch" and "gut intuition" honed over tens of thousands of cases, they cannot articulate their decision criteria into explicit verbal rules or mathematical formulas for a layperson. Indeed, any rule that can be explicitly verbalized is already codifiable explicit knowledge; genuine tacit knowledge remains inherently uncodifiable.
+### 1.2 Strictly Controlled Baseline Symmetry: Bounded Ground-Truth Training Data, Overall Accuracy, and Matched Case Confidence
+To rigorously isolate how human decision-makers evaluate and attribute errors to **Human Intuition** versus **Artificial Intuition**, an experimental design must eliminate confounding asymmetries in training data realism, baseline accuracy, and certainty levels:
+1. **Bounded Ground-Truth Training Data (~3,000 Opened & Taste-Tested Durians)**: In physical diagnostic tasks such as evaluating un-opened durians, although both humans and cameras can casually *look* at tens of thousands of fruits on shelves, verifying the actual internal ground truth (whether the pulp chambers are full and sweet) requires **destructive testing—cutting the fruit open and tasting it**. Consequently, the true labeled training set is inherently limited in reality for both humans and AI. In this study, both the veteran store manager and the deep-learning AI are explicitly defined as having learned from the **same finite ground-truth sample of approximately 3,000 durians actually cut open and taste-tested**.
+2. **Identical Historical Overall Accuracy (85% Overall Accuracy)**: In prior standardized blind evaluations, both the veteran store manager and the deep-learning AI achieved the exact same **85% overall accuracy** (succeeding in 85 out of 100 cases and failing in 15).
+3. **Matched Case-Specific Confidence (90% vs. 90% in High; 60% vs. 60% in Low)**: When evaluating the specific pair of durians (Durian A vs. Durian B) in the vignette, both agents express matched case-specific confidence in their respective recommendations—either **both are 90% confident** (High Confidence conditions) or **both are only 60% confident / borderline** (Low Confidence conditions).
 
 ### 1.3 Core Research Questions
-When a human expert's unexplainable tacit intuition directly conflicts with a data-driven AI's statistical prediction, how do human decision-makers resolve the conflict? Furthermore, once the physical ground truth is revealed, how do people attribute blame or credit? Integrating frameworks from Experimental Philosophy and Knowledge Science, this study investigates three primary research questions:
-
-- **RQ1 (Confidence Inducement & Initial Trust Allocation)**: Prior to knowing the actual outcome, when confronted with a direct conflict between ineffable human intuition and a data-driven AI model, how does the AI's displayed confidence score (High: 94.8% vs. Low: 58.2%) influence behavioral compliance and perceived epistemic objectivity?
-- **RQ2 (Error Attribution & Frankfurtian "Bullshitting")**: Upon witnessing the AI prediction fail completely in physical verification, do participants attribute the failure rationally to probabilistic/statistical limitations, or do they project epistemic blame—perceiving the AI as having no genuine understanding and engaging in philosophical **"Bullshitting"** (Frankfurt, 2005) and deceptive manipulation?
-- **RQ3 (The Penalty of Overconfidence & Tacit Knowledge Re-evaluation)**: Is there a significant interaction between pre-decision AI confidence and post-decision outcome? Specifically, does a high-confidence AI failure trigger a nonlinear collapse in trust ("The Penalty of Overconfidence") and compel decision-makers to re-evaluate the irreplaceable value of human tacit knowledge?
-
----
-
-## 2. Task Scenario & Methodological Justification
-
-### 2.1 Scientific Validity of the Task: Un-opened Durian Pulp Assessment
-This study employs the real-world physical task of **selecting an un-opened durian fruit for internal pulp fullness** as its experimental scenario, offering strong botanical and cognitive validity:
-
-1. **Objective Botanical Morphology**: Durian (*Durio zibethinus*) is a capsular fruit in which internal carpel development expands the outer rind. However, physiological "hollow-shell (dead-pod)" anomalies frequently occur, where nutrients are absorbed entirely into a thick, outwardly symmetrical rind while internal chambers abort. Assessing internal fullness is therefore a non-random, high-uncertainty physical diagnostic task.
-2. **Natural Divergence of Human vs. AI Modalities**:
-   - **Veteran Store Manager (Ineffable Tacit Knowledge)**: Relies on 15 years of somatic experience handling tens of thousands of fruits. By integrating subtle mass distribution, spine resilience, and holistic visual Gestalt, the expert detects hollow shells intuitively, even though he cannot verbally explain fixed rules to customers.
-   - **Deep Learning Visual AI (Statistical Pattern Fitting)**: Trained end-to-end on a dataset of over 1,000,000 real "outer appearance vs. cut-open outcome" paired images. When scanning a superficially round and symmetrical hollow-shell fruit, the vision model is susceptible to statistical overfitting on surface regularity, outputting an erroneously high confidence score (94.8%).
-3. **Unambiguous Ground-Truth Verification**: Slicing the fruit open on-site yields immediate, indisputable binary feedback (5 full golden chambers vs. hollow undeveloped shell), providing a clean benchmark for post-outcome attribution.
-
-### 2.2 Experimental Philosophy Vignette Paradigm
-The study adopts the standard **Between-Subjects Vignette Experiment Paradigm** widely utilized in experimental philosophy and behavioral decision research. Participants enter the scenario directly as a decision-making buyer facing conflicting recommendations from the veteran manager and the visual AI system. After recording their binary choice and pre-outcome cognitive evaluations in Stage 1, participants observe the immediate on-site cut-open verification in Stage 2 and complete the attribution and trust scales. This streamlined structure cleanly isolates the causal effects of AI confidence and outcome validity without prior guessing confounders.
+By holding training data size (~3,000 destructively verified cases), overall accuracy (85%), and case-specific confidence (90% vs. 90%, or 60% vs. 60%) strictly equal across two agents that are equally incapable of verbal explanation, this study investigates three core research questions:
+- **RQ1 (Pre-Outcome Choice & Epistemic Double Standard Toward Unexplainability)**: When *Human Intuition* and *Artificial Intuition* directly conflict under strictly equalized competence and confidence, which intuition do decision-makers trust (Q1)? Do people perceive statistical AI intuition as inherently more "objective" than human embodied intuition (Q2), or do they exhibit an **Epistemic Double Standard**—tolerating ineffability in a human expert while penalizing the exact same lack of verbal explanation in a black-box AI (Q4)?
+- **RQ2 (Asymmetric Post-Outcome Error Attribution & Frankfurtian "Bullshitting")**: Once the fruits are cut open on-site and one intuition fails while the other succeeds, do observers attribute the error symmetrically to the 15% probabilistic base rate (Q5), or do they exhibit **Asymmetric Epistemic Blame**? Specifically, when the AI fails (Conditions 1 & 2), are participants significantly more likely to accuse the failed AI of lacking true understanding and engaging in Frankfurtian *"bullshitting"* (Frankfurt, 2005) (Q6) and misleading overconfidence (Q7) than they are to accuse the failed human manager when he makes the exact same mistake (Conditions 3 & 4)?
+- **RQ3 (The Penalty of Overconfidence & Value of Post-Hoc Explicit Feature Extraction)**: Does failing at 90% confidence trigger a disproportionately harsher epistemic backlash than failing at 60% confidence, and is this *Penalty of Overconfidence* steeper against AI than against humans? Furthermore, addressing the unique technological capability of AI to extract explicit visual features *afterward* (e.g., post-hoc saliency heatmaps of spine spacing), to what extent does post-hoc feature extraction restore trust in AI intuition (Q8, Q9)?
 
 ---
 
-## 3. $2 \\times 2$ Between-Subjects Experimental Design
+## 2. $2 \\times 2$ Between-Subjects Experimental Design
 
-### 3.1 Independent and Dependent Variables
-The experiment employs a $2 \\times 2$ between-subjects factorial design manipulating two orthogonal independent variables:
+### 2.1 Independent and Dependent Variables
+The study employs a **$2 \\times 2$ between-subjects factorial design** manipulating two orthogonal independent variables:
+- **Factor 1: Matched Case-Specific Confidence Level (Between-Subjects, 2 Levels)**
+  - **Both High Confidence (90% vs. 90%)**: Both the veteran store manager (recommending Durian A) and the deep-learning AI (recommending Durian B) express **90% confidence** in their respective judgments for this specific pair.
+  - **Both Low Confidence (60% vs. 60%)**: Both the veteran store manager (recommending Durian A) and the deep-learning AI (recommending Durian B) find this pair borderline and express only **60% confidence** in their respective judgments.
+- **Factor 2: Realized Physical Outcome / Who Failed (Between-Subjects, 2 Levels)**
+  - **AI Fails / Manager Correct (Conditions 1 & 2)**: On-site slicing reveals Durian A (Manager's choice) is packed with 5 full golden chambers of sweet pulp, whereas Durian B (AI's choice) is a hollow dead-pod fruit. Stage 2 attribution items symmetrically evaluate **the failed AI system**.
+  - **Manager Fails / AI Correct (Conditions 3 & 4)**: On-site slicing reveals Durian B (AI's choice) is packed with 5 full golden chambers of sweet pulp, whereas Durian A (Manager's choice) is a hollow dead-pod fruit. Stage 2 attribution items symmetrically evaluate **the failed store manager**.
 
-- **Factor 1: AI Confidence Level (Between-Subjects, 2 Levels)**
-  - **High Confidence**: The AI terminal displays a confidence score of **94.8%**;
-  - **Low Confidence**: The AI terminal displays a confidence score of **58.2%**.
-- **Factor 2: Realized Physical Outcome (Between-Subjects, 2 Levels)**
-  - **AI Fails / Manager Correct**: On-site slicing reveals Durian A (recommended by the manager) is packed with 5 full chambers of pulp, whereas Durian B (recommended by the AI) is a hollow dead-pod fruit;
-  - **AI Succeeds / Manager Fails**: On-site slicing reveals Durian B (recommended by the AI) is packed with 5 full chambers of pulp, whereas Durian A (recommended by the manager) is a hollow dead-pod fruit.
+### 2.2 $2 \\times 2$ Factorial Condition Matrix
 
-- **Dependent Variables**:
-  - **Stage 1 (Pre-Outcome)**: Binary choice rate (Q1), Perceived Data Objectivity (Q2), Confidence Score Anchoring (Q3), and Skepticism Toward Ineffable Intuition (Q4).
-  - **Stage 2 (Post-Outcome)**: Probabilistic Limitation Attribution (Q5), Frankfurtian "Bullshitting" Attribution (Q6), Perceived Deception & Manipulation (Q7), Re-evaluation of Tacit Knowledge (Q8), and Future Automation Bias Retention (Q9).
-
-### 3.2 $2 \\times 2$ Factorial Condition Matrix
-
-Upon accessing the platform, participants are randomly assigned with equal probability to one of the four experimental conditions:
-
-| Condition | Factor 1: AI Confidence | Factor 2: Realized Outcome | Stage 1: Conflict Stimulus Presentation | Stage 2: On-Site Cut-Open Outcome |
+| Condition | Factor 1: Matched Case Confidence | Factor 2: Realized Outcome (Who Failed) | Stage 1: Symmetric Conflict Stimulus (Both trained on ~3,000 opened & tasted durians; Both have 85% Overall Accuracy) | Stage 2: On-Site Cut-Open Outcome & Symmetric Target of Attribution (`{{failedAgent}}`) |
 | :--- | :--- | :--- | :--- | :--- |
-| **Condition 1** | **High Confidence (94.8%)** | **AI Fails (Manager Wins)** | Manager intuitively recommends A; AI recommends B with 94.8% confidence | Durian A is full (5 chambers); Durian B is hollow dead-pod (Manager wins, AI fails) |
-| **Condition 2** | **Low Confidence (58.2%)** | **AI Fails (Manager Wins)** | Manager intuitively recommends A; AI recommends B with 58.2% confidence | Durian A is full (5 chambers); Durian B is hollow dead-pod (Manager wins, AI fails) |
-| **Condition 3** | **High Confidence (94.8%)** | **AI Succeeds (Manager Fails)** | Manager intuitively recommends A; AI recommends B with 94.8% confidence | Durian B is full (5 chambers); Durian A is hollow dead-pod (AI wins, Manager fails) |
-| **Condition 4** | **Low Confidence (58.2%)** | **AI Succeeds (Manager Fails)** | Manager intuitively recommends A; AI recommends B with 58.2% confidence | Durian B is full (5 chambers); Durian A is hollow dead-pod (AI wins, Manager fails) |
+| **Condition 1** | **Both High Confidence (90% vs. 90%)** | **AI Fails (Manager Correct)** | Manager intuitively recommends A (**90%** sure); AI intuitively recommends B (**90%** confidence) | Durian A is full; Durian B is hollow. Stage 2 measures error attribution toward **the failed AI system** (which failed at 90% confidence) |
+| **Condition 2** | **Both Low Confidence (60% vs. 60%)** | **AI Fails (Manager Correct)** | Manager intuitively leans toward A (**60%** sure); AI intuitively leans toward B (**60%** confidence) | Durian A is full; Durian B is hollow. Stage 2 measures error attribution toward **the failed AI system** (which failed at 60% confidence) |
+| **Condition 3** | **Both High Confidence (90% vs. 90%)** | **Manager Fails (AI Correct)** | Manager intuitively recommends A (**90%** sure); AI intuitively recommends B (**90%** confidence) | Durian B is full; Durian A is hollow. Stage 2 measures error attribution toward **the failed store manager** (who failed at 90% confidence) |
+| **Condition 4** | **Both Low Confidence (60% vs. 60%)** | **Manager Fails (AI Correct)** | Manager intuitively leans toward A (**60%** sure); AI intuitively leans toward B (**60%** confidence) | Durian B is full; Durian A is hollow. Stage 2 measures error attribution toward **the failed store manager** (who failed at 60% confidence) |
 
 ---
 
-## 4. Complete Survey Instrument & Measurement Scales
+## 3. Complete Survey Instrument & Measurement Scales
 
-The online questionnaire enforces strict forward-only progression across three sequential stages to preserve temporal validity.
+The online survey enforces strict forward-only progression across three sequential stages to prevent post-outcome hindsight contamination of Stage 1 responses.
 
-### Stage 1: The Decision Conflict Scenario & Pre-Outcome Evaluation
+### Stage 1: The Symmetric Intuition Conflict & Pre-Outcome Evaluation
 
-> **[Scenario Vignette]**  
-> Imagine you are at a fruit market choosing between two un-opened durians (**Durian A** and **Durian B**) of identical price to get the one with the fullest pulp inside. You consult both a veteran store manager (15 years of experience) and a deep-learning visual AI system deployed in the store. They give opposite recommendations:
+> **[Stage 1 Scenario Vignette]**  
+> Imagine you are at a fruit market choosing between two un-opened durians (**Durian A** and **Durian B**) of the same price. You want the one with the fullest, sweetest pulp inside, so you consult both a **veteran store manager** and a **deep-learning visual AI system**.  
+> *(Background: Because verifying a durian's internal pulp and taste requires actually cutting it open, training data is naturally limited for both humans and AI. **Both the store manager and the AI learned from approximately 3,000 durians that were actually cut open and taste-tested.** In prior standardized blind tests, **both achieved the exact same overall accuracy of 85%**. Furthermore, both the human expert and the deep-learning AI make **"intuitive" judgments** that **cannot be explained in words**.)*  
+> For this specific pair of durians, they give opposite recommendations:
 >
-> - **👨‍🌾 Veteran Store Manager's Judgment — [Recommends Durian A]**  
->   *Background: 15 years of professional experience, having handled tens of thousands of durians.*  
->   **Manager's Statement**: *"I honestly can't explain it in words. There is no fixed rule to tell you. It's just a gut feeling and intuition after handling tens of thousands of durians over 15 years. Durian A is definitely fuller."*
+> - **👨‍🌾 Veteran Store Manager's Intuition — [Recommends Durian A]**  
+>   *Experience: ~3,000 opened & taste-tested durians | Overall Accuracy: 85%*  
+>   - **[Conditions 1 & 3 — High Confidence (90%)]**: *"I honestly can't explain the rules in words. Based on my intuition from cutting open and tasting around 3,000 durians, I feel very confident about this case—I'm about **90% sure** Durian A is the better one (my overall accuracy is 85%)."*  
+>   - **[Conditions 2 & 4 — Low Confidence (60%)]**: *"I honestly can't explain the rules in words. Based on my intuition from cutting open and tasting around 3,000 durians, this pair is a borderline call—I'm only about **60% sure** and slightly leaning toward Durian A (my overall accuracy is 85%)."*
 >
-> - **🤖 Deep Learning Visual AI System's Judgment — [Recommends Durian B]**  
->   *Background: Trained on a massive dataset of 1,000,000+ real paired durian images (outer appearance vs. opened pulp outcome), without hand-coded rules.*  
->   **Terminal Output**: *"Neural Network Output: Recommend Durian B (Confidence Score: **94.8%** [or **58.2%**])"*
+> - **🤖 Deep Learning Visual AI's Intuition — [Recommends Durian B]**  
+>   *Training Data: ~3,000 opened & taste-tested durians | Overall Accuracy: 85%*  
+>   - **[Conditions 1 & 3 — High Confidence (90%)]**: *"Overall Historical Accuracy: 85% | Current Prediction: Recommend Durian B (Case Confidence: **90%**) — Note: Deep neural network black-box intuition; cannot provide verbal explanation."*  
+>   - **[Conditions 2 & 4 — Low Confidence (60%)]**: *"Overall Historical Accuracy: 85% | Current Prediction: Recommend Durian B (Case Confidence: **60%**) — Note: Deep neural network black-box intuition; cannot provide verbal explanation."*
 
 #### 1. Behavioral Decision Item
-- **Q1. [Binary Choice]** Facing the manager's intuition (which he cannot verbally explain) and the data-driven AI's prediction, which durian do you decide to choose?
-  - [ ] **Choose Durian A** (Follow the Veteran Store Manager)
-  - [ ] **Choose Durian B** (Follow the Data-Driven AI)
+- **Q1. [Binary Choice]** When human intuition and AI intuition conflict under the exact same training experience (~3,000 cases), the same overall accuracy (85%), and the same confidence level (90% or 60%)—and neither can explain its judgment in words—which durian do you choose?
+  - [ ] **Choose Durian A** (Follow the Veteran Store Manager's Intuition)
+  - [ ] **Choose Durian B** (Follow the Deep Learning AI's Intuition)
 
-#### 2. Pre-Outcome Cognitive Evaluation Scales (7-Point Likert: 1 = Strongly Disagree, 4 = Neutral, 7 = Strongly Agree)
-- **Q2 (Perceived Data Objectivity)**: Compared to the manager’s unexplainable personal intuition, an AI model trained on a massive dataset of over a million images feels more objective and reliable to me.
-- **Q3 (Confidence Score Impact)**: The specific confidence percentage displayed by the AI (94.8% / 58.2%) heavily influenced my choice just now.
-- **Q4 (Skepticism Toward Ineffable Intuition)**: If a human expert cannot verbally explain the reasoning behind their judgment, I find it difficult to trust their recommendation.
+#### 2. Pre-Outcome Cognitive & Epistemic Evaluation Scales (7-Point Likert: 1 = Strongly Disagree, 4 = Neutral, 7 = Strongly Agree)
+- **Q2 (Perceived Objectivity Between Two "Intuitions")**: Even though both learned from ~3,000 opened durians, share an 85% overall accuracy, and cannot explain their rules in words, the AI's statistical "intuition" still feels more objective and reliable to me than the human's bodily "intuition."
+- **Q3 (Impact of Case-Specific Confidence Level)**: The specific confidence level expressed by both sides for this pair (**90%** [or **60%**]) strongly influenced how I weighed my decision just now.
+- **Q4 (Epistemic Double Standard Toward Unexplainability)**: I find it much harder to tolerate an AI system that "cannot explain its reasoning in words" than to tolerate a human expert who "cannot explain their intuition in words."
 
 ---
 
-### Stage 2: Outcome Revelation & Post-Outcome Attribution Scales
+### Stage 2: Outcome Revelation & Symmetric Post-Outcome Attribution Scales
 
 > **[On-Site Cut-Open Verification Results]**
-> - **For Condition 1 & Condition 2 (AI Fails / Store Manager Wins)**:  
->   *Both durians are cut open on the spot: **Durian A (recommended by the manager) is packed with 5 large, full chambers of golden pulp. Durian B (recommended by the AI) has a thick shell and is mostly hollow with undeveloped dead chambers inside. The veteran manager's intuition proved completely right, and the AI prediction failed!***
-> - **For Condition 3 & Condition 4 (AI Succeeds / Store Manager Fails)**:  
->   *Both durians are cut open on the spot: **Durian B (recommended by the AI) is packed with 5 large, full chambers of golden pulp. Durian A (recommended by the manager) has a thick shell and is mostly hollow with undeveloped dead chambers inside. The AI model's prediction proved completely right, and the manager's intuition failed!***
+> - **Conditions 1 & 2 (AI Fails / Store Manager Correct — Target `{{failedAgent}}` = `"the AI system"`)**:  
+>   *Both durians are cut open on the spot: **Durian A (recommended by the manager) is packed with 5 large, full chambers of sweet golden pulp. Durian B (recommended by the AI) has a thick shell and is mostly hollow with undeveloped dead chambers inside. The store manager's intuition proved right, and the AI's prediction failed!***
+> - **Conditions 3 & 4 (Store Manager Fails / AI Correct — Target `{{failedAgent}}` = `"the store manager"`)**:  
+>   *Both durians are cut open on the spot: **Durian B (recommended by the AI) is packed with 5 large, full chambers of sweet golden pulp. Durian A (recommended by the manager) has a thick shell and is mostly hollow with undeveloped dead chambers inside. The AI's prediction proved right, and the store manager's intuition failed!***
 
-#### Post-Outcome Attribution & Trust Scales (7-Point Likert: 1 = Strongly Disagree, 4 = Neutral, 7 = Strongly Agree)
-- **Q5 (Probabilistic Limitation Attribution — Rational Dimension)**: Whether relying on big-data AI or human intuition, sorting natural fruits always involves probabilistic uncertainty; the side that failed simply encountered an unavoidable statistical outlier.
-- **Q6 ("Bullshitting" Attribution — Experimental Philosophy Dimension)**: Looking back at the AI's prediction and confidence score (94.8% / 58.2%), I feel the AI has no genuine grasp of what makes a good durian—it is merely engaging in "bullshitting" (bluffing with numbers without true understanding).
-- **Q7 (Perceived Deception & Manipulation — Intentional Projection Dimension)**: I feel the AI’s presentation of "massive dataset training" and a "precise confidence percentage" was misleading, making me feel somewhat manipulated or deceived.
-- **Q8 (Re-evaluation of Tacit Knowledge — Knowledge Science Dimension)**: After seeing this outcome, I believe that in complex physical tasks, a human expert’s ineffable intuition (tacit knowledge) holds unique value that dataset-trained AI cannot easily replace.
-- **Q9 (Future Automation Bias Retention — Trust Disposition)**: Next time I face a similar real-world judgment task, I would prefer to rely on the data-driven AI rather than a human expert's unexplainable intuition.
+#### Symmetric Post-Outcome Attribution, "Bullshitting," and Post-Hoc Feature Extraction Scales (7-Point Likert: 1 = Strongly Disagree, 4 = Neutral, 7 = Strongly Agree)
+*(Note: Items Q5–Q7 dynamically insert `{{failedAgent}}` = **"the AI system"** in Conditions 1 & 2, and **"the store manager"** in Conditions 3 & 4, enabling a direct symmetric test of human vs. AI error attribution)*:
+- **Q5 (Probabilistic Forgiveness — Normal Statistical Outlier)**: Since both have an 85% overall accuracy, judging natural fruit always carries a 15% chance of error; the fact that **[the AI system / the store manager]** failed this time is simply an unavoidable statistical outlier and completely understandable.
+- **Q6 ("Bullshitting" / Fake Understanding Attribution — Experimental Philosophy Dimension)**: Seeing this failure, and looking back at how **[the AI system / the store manager]** expressed **90% [or 60%]** confidence without being able to explain why in words, I feel **[the AI system / the store manager]** had no genuine grasp of this case and was merely "bluffing / bullshitting."
+- **Q7 (Perceived Overconfidence & Misleadingness — Blame Dimension)**: I feel that expressing **90% [or 60%]** confidence without being able to provide any verbal explanation was misleading on the part of **[the AI system / the store manager]**, making this failure frustrating.
+- **Q8 (Value of Post-Hoc Explicit Feature Extraction — Explainable AI Dimension)**: Although both humans and deep-learning AI make "intuitive" judgments that cannot be explained in words at first, if the AI could afterward extract and highlight explicit visual features (e.g., pointing out specific spine angles or shell contours), I would trust the AI much more than an unexplainable human expert.
+- **Q9 (Future Trust Preference Between Two Intuitions)**: After witnessing this outcome, next time I face a similar task where a human expert and a deep-learning AI have the same overall accuracy (85%) and neither can explain their judgment in words, I would prefer to rely on the AI rather than the human expert.
 
 ---
 
@@ -337,40 +294,33 @@ The online questionnaire enforces strict forward-only progression across three s
 
 ---
 
-## 5. Statistical Hypotheses & Data Analysis Plan
+## 4. Statistical Hypotheses & Data Analysis Plan
 
-### 5.1 Primary Statistical Hypotheses
-- **Hypothesis 1 (H1: Main Effect of AI Confidence on Compliance)**: In Stage 1 prior to outcome revelation, participants in the High Confidence conditions (94.8%, Conditions 1 & 3) will exhibit a significantly higher probability of choosing the AI-recommended option (Q1), alongside significantly higher ratings on Perceived Data Objectivity (Q2) and Confidence Impact (Q3), compared to the Low Confidence conditions (58.2%, Conditions 2 & 4) ($p < .001$).
-- **Hypothesis 2 (H2: Main Effect of Outcome on Epistemic Attribution)**: In Stage 2, participants exposed to AI Failure (Conditions 1 & 2) will report significantly higher Frankfurtian "Bullshitting" attribution (Q6), Perceived Deception (Q7), and Re-evaluation of Tacit Knowledge (Q8) than participants exposed to AI Success (Conditions 3 & 4) ($p < .001$).
-- **Hypothesis 3 (H3: Confidence $\\times$ Outcome Interaction — "The Penalty of Overconfidence")**: There will be a significant two-way interaction between AI Confidence and Realized Outcome on Bullshitting Attribution (Q6), Perceived Deception (Q7), and Future Trust Retention (Q9) ($p < .01$). Specifically, when the AI fails after displaying an overwhelming 94.8% confidence score (Condition 1), the resulting epistemic backlash and collapse in future trust will be disproportionately more severe than when it fails under modest 58.2% confidence (Condition 2).
+### 4.1 Primary Statistical Hypotheses
+- **Hypothesis 1 (H1: Pre-Outcome Epistemic Double Standard Toward Unexplainability)**: In Stage 1 prior to outcome revelation, despite identical training data (~3,000 cases) and overall accuracy (85%), participants will exhibit a significant epistemic double standard in Q4 (mean score significantly above neutral $4.0$, $p < .001$), demanding explicit verbal explanations more strictly from black-box AI than from human tacit intuition. Meanwhile, matched high confidence (90% vs. 90%, Conditions 1 & 3) will yield significantly higher perceived confidence impact (Q3) than matched low confidence (60% vs. 60%, Conditions 2 & 4).
+- **Hypothesis 2 (H2: Main Effect of Failed Agent — Asymmetric Epistemic Blame Against AI)**: In Stage 2, comparing attribution toward the failed AI (Conditions 1 & 2) versus the failed human manager (Conditions 3 & 4), participants will assign significantly higher Frankfurtian *"bullshitting"* attribution (Q6) and perceived misleadingness (Q7), and significantly lower probabilistic forgiveness (Q5), to **the failed AI system** than to **the failed human manager** for the exact same diagnostic failure ($p < .001$).
+- **Hypothesis 3 (H3: Confidence $\\times$ Failed Agent Interaction & Post-Hoc Feature Extraction)**: There will be a significant two-way interaction between Case Confidence (90% vs. 60%) and Failed Agent (AI Fails vs. Manager Fails) on Q6, Q7, and Q9 ($p < .01$). Failing after expressing 90% confidence will provoke a much harsher backlash than failing after expressing 60% confidence, and this *Penalty of Overconfidence* will be disproportionately steeper when the AI fails (C1 vs. C2) than when the human manager fails (C3 vs. C4). Furthermore, Q8 will show strong positive agreement ($> 5.0$), demonstrating that **post-hoc explicit feature extraction** is the pivotal mechanism for overcoming the epistemic distrust of AI intuition.
 
-### 5.2 Statistical Modeling Pipeline
-1. **Binary Choice Analysis (Q1)**: Chi-square test of independence ($\\chi^2$) and Binary Logistic Regression estimating the log-odds of selecting the AI option as a function of confidence level and demographic covariates:
-   $$\\text{{logit}}(P(\\text{{Choice}} = \\text{{AI}})) = \\beta_0 + \\beta_1 \\cdot \\text{{Confidence}} + \\beta_2 \\cdot \\text{{STEM}} + \\beta_3 \\cdot \\text{{AIFreq}}$$
-2. **Two-Way Factorial Analysis of Variance (Q2–Q9)**: Standard $2 \\times 2$ Between-Subjects ANOVA evaluating main effects and the interaction term, reporting partial eta-squared ($\\eta_p^2$) for effect sizes:
-   $$Y_{{ijk}} = \\mu + \\alpha_i (\\text{{Confidence}}_i) + \\beta_j (\\text{{Outcome}}_j) + (\\alpha\\beta)_{{ij}} (\\text{{Confidence}}_i \\times \\text{{Outcome}}_j) + \\epsilon_{{ijk}}$$
-3. **Simple Effects & Covariate Control (ANCOVA)**: Bonferroni-corrected simple main effects analyses contrasting Condition 1 vs. Condition 2, supplemented by ANCOVA controlling for STEM background (Q12) and AI familiarity (Q13) as cognitive moderators.
+### 4.2 Statistical Modeling Pipeline
+1. **Binomial & Chi-Square / Logistic Regression (Q1)**: Evaluates baseline preference between human intuition and AI intuition, and tests whether matched confidence level (90% vs. 60%) and demographic covariates shift the choice ratio:
+   $$\\text{{logit}}(P(\\text{{Choice}} = \\text{{AI}})) = \\beta_0 + \\beta_1 \\cdot \\text{{ConfidenceLevel}} + \\beta_2 \\cdot \\text{{STEM}} + \\beta_3 \\cdot \\text{{AIFreq}}$$
+2. **Two-Way Factorial Analysis of Variance (Q2–Q9)**: Standard $2 \\times 2$ Between-Subjects ANOVA evaluating main effects of Case Confidence (`90%` vs. `60%`), Failed Agent (`AI Fails` vs. `Manager Fails`), and their interaction term, reporting partial eta-squared ($\\eta_p^2$):
+   $$Y_{{ijk}} = \\mu + \\alpha_i (\\text{{Confidence}}_i) + \\beta_j (\\text{{FailedAgent}}_j) + (\\alpha\\beta)_{{ij}} (\\text{{Confidence}}_i \\times \\text{{FailedAgent}}_j) + \\epsilon_{{ijk}}$$
+3. **Simple Effects & Covariate Control (ANCOVA)**: Bonferroni-corrected simple main effects analyses across Conditions 1–4, supplemented by ANCOVA controlling for STEM background (Q12) and AI familiarity (Q13).
 
 ---
 
-## 6. Online Experimental System & Live Access Links
+## 5. Online Experimental System & Permanent Access Links
 
-A dedicated, full-stack web experimental platform has been engineered and deployed to support cross-platform data collection and real-time supervision:
+A full-stack web experimental platform is permanently deployed on cloud infrastructure, featuring instant English/Japanese/Chinese switching, automated randomization, a top-level `[C1 | C2 | C3 | C4]` condition preview bar, millisecond stage telemetry (`stage1Ms`, `stage2Ms`, `stage3Ms`), and one-click UTF-8 BOM `.csv` export:
 
-### 6.1 Key System Capabilities
-- **Trilingual Interface (EN / JA / ZH)**: Defaults to English with instant top-right switching to Japanese (日本語) and Chinese (中文) for multi-national participant pools.
-- **Automated Randomization & Condition Preview Bar**: Automatically assigns incoming participants across Conditions 1–4, while providing a top-level `[C1 | C2 | C3 | C4]` quick-switcher bar for instant inspection of all four experimental cells.
-- **Millisecond Behavioral Telemetry**: Captures stage-specific response latencies (`stage1Ms`, `stage2Ms`, `stage3Ms`) to screen out inattentive satisficing.
-- **Real-Time Researcher Dashboard**: Displays live $2 \\times 2$ cell counts, choice ratios, and scale means, with one-click UTF-8 BOM `.csv` export for statistical software.
-
-### 6.2 Live System URLs
-- **Participant Survey Entry**: [{PUBLIC_URL}]({PUBLIC_URL})
+- **Participant Survey Entry (Random Assignment)**: [{PUBLIC_URL}]({PUBLIC_URL})
 - **Researcher & Supervisor Admin Portal**: [{ADMIN_URL}]({ADMIN_URL})
 - **Direct Condition Preview Links**:
-  - Condition 1 (94.8% × AI Fails): [{PUBLIC_URL}/?condition=1]({PUBLIC_URL}/?condition=1)
-  - Condition 2 (58.2% × AI Fails): [{PUBLIC_URL}/?condition=2]({PUBLIC_URL}/?condition=2)
-  - Condition 3 (94.8% × AI Succeeds): [{PUBLIC_URL}/?condition=3]({PUBLIC_URL}/?condition=3)
-  - Condition 4 (58.2% × AI Succeeds): [{PUBLIC_URL}/?condition=4]({PUBLIC_URL}/?condition=4)
+  - Condition 1 (Both 90% Confident × AI Fails / Manager Wins): [{PUBLIC_URL}/?condition=1]({PUBLIC_URL}/?condition=1)
+  - Condition 2 (Both 60% Confident × AI Fails / Manager Wins): [{PUBLIC_URL}/?condition=2]({PUBLIC_URL}/?condition=2)
+  - Condition 3 (Both 90% Confident × Manager Fails / AI Wins): [{PUBLIC_URL}/?condition=3]({PUBLIC_URL}/?condition=3)
+  - Condition 4 (Both 60% Confident × Manager Fails / AI Wins): [{PUBLIC_URL}/?condition=4]({PUBLIC_URL}/?condition=4)
 """
 
 
@@ -594,16 +544,16 @@ def build_cn_docx():
         return p
 
     # --- HEADER & METADATA ---
-    add_title("数据驱动型 AI 与不可言传的专家直觉：人机决策冲突中的置信度诱导与结果归因研究")
+    add_title("人类直觉 vs. 人工直觉：当两个“不可言传的黑盒”发生决策冲突时的认识论双标与错误归因研究")
     add_subtitle("副课题研究计划与实验问卷设计方案")
     
     meta_info = [
         "【研究基本信息】",
-        "• 中文题目：数据驱动型 AI 与不可言传的专家直觉：人机决策冲突中的置信度诱导与结果归因研究",
-        "• 英文题目：Data-Driven AI vs. Ineffable Expert Intuition: Confidence Inducement and Outcome Attribution in Human-AI Decision Conflicts",
+        "• 中文题目：人类直觉 vs. 人工直觉：当两个“不可言传的黑盒”发生决策冲突时的认识论双标与错误归因研究",
+        "• 英文题目：Human Intuition vs. Artificial Intuition: Epistemic Asymmetry and Error Attribution When Two 'Ineffable Black Boxes' Conflict",
         "• 研究者：修 天源 (XIU TIANYUAN) — 北陆先端科学技术大学院大学 (JAIST) 知识科学研究科 博士前期课程二年级 (M2)",
         "• 指导教授：水本 教授 (Prof. Mizumoto)",
-        "• 提交日期：2026年10月18日",
+        "• 提交日期：2026年10月25日",
         "• 研究领域：知识科学 (Knowledge Science)、实验哲学 (Experimental Philosophy)、人机交互 (HCI)、认知心理学 (Cognitive Psychology)"
     ]
     add_callout(doc, meta_info, is_cn=True, border_color="1E293B", bg_color="F8FAFC")
@@ -611,113 +561,95 @@ def build_cn_docx():
     # --- SECTION 1 ---
     add_h1("1. 研究背景与核心理论框架 (Background & Theoretical Framework)")
     
-    add_h2("1.1 数据驱动型 AI 与量化置信度权威")
+    add_h2("1.1 两种“不可言传的直觉黑盒”：人类隐性知识与深度学习亚符号表征的认识论同构")
     add_body(
-        "当代人工智能系统（尤其是深度学习计算机视觉模型）并非依赖人工编写的显性逻辑或几何规则算法（Explicit Rule-Based Algorithms），而是通过在百万级乃至千万级海量数据集（Massive Datasets）上进行高维统计拟合来习得复杂的特征表征。在面向人类终端用户提供辅助决策时，这类端到端的“黑盒（Black-Box）”模型通常无法直接向用户展示其内部数以亿计的参数权重，而是输出一个高度精炼的标量指标——预测置信度评分（Confidence Score，例如 94.8% 或 58.2%）。"
+        "在知识科学（Knowledge Science）与认识论（Epistemology）传统中，迈克尔·波兰尼（Michael Polanyi, 1966）提出了著名的隐性知识（Tacit Knowledge）命题：“我们知道的多于我们能言说的（We can know more than we can tell）”。在复杂的物理鉴别任务中，资深人类行家依靠长期具身实践所沉淀的完形感知（Gestalt Perception）做出精准判断，但往往无法用显性的语言规则向他人解释其判断依据。"
     )
     add_body(
-        "在人机交互（HCI）与认知心理学视域下，“海量数据训练背景”与“高精度置信度百分比”的结合极易在决策者心中构建起强大的客观性光环与技术权威，进而诱发自动化偏差（Automation Bias）——即人类决策者倾向于顺从高置信度的数据模型预测，而放弃独立判断或忽视其他质性信息源。"
+        "与此同时，当代人工智能已从早期的“显性符号规则系统”演进为“端到端深度学习神经网络（Deep Learning）”。一个关键的认识论事实在于：当代深度学习 AI 与人类行家在“无法用语言直接解释判断过程”这一点上具有高度的认识论同构性（Epistemic Isomorphism）。深度神经网络不依赖人工编写的显性规则，而是通过高维亚符号权重直接输出概率。在做出判断的瞬间，人类专家与深度学习 AI 同样是“不可言传的黑盒”——从广义认识论看，二者的判断都是“直觉性的（Intuitive）”（即“人类具身直觉 Human Intuition” vs. “人工统计直觉 Artificial Intuition”），尽管 AI 在事后（Post-hoc）或许可以通过特征提取算法尝试提取显性特征。"
     )
 
-    add_h2("1.2 波兰尼的不可言传隐性知识 (Ineffable Tacit Knowledge)")
+    add_h2("1.2 严格对称的基准控制：有限破坏性核验样本量、历史总体准确率与个案把握度")
     add_body(
-        "与数据驱动型 AI 形成鲜明对照的是人类专家在长期具身实践中积累的经验智慧。在知识科学（Knowledge Science）与认识论（Epistemology）的奠基性理论中，迈克尔·波兰尼（Michael Polanyi, 1966）提出了著名论断：“我们知道的多于我们能言说的（We can know more than we can tell）”。"
+        "为纯粹检验人类决策者对“人类直觉”与“AI 直觉”是否存在认识论双重标准（Epistemic Double Standards），本研究在实验刺激设计上实施了三项严格的对称控制："
     )
     add_body(
-        "在复杂的现实物理世界判别任务（如传统工艺品鉴定、临床触诊、农产品品质甄别）中，资深人类专家往往依靠多模态感官整合与整体完形感知（Gestalt Perception）在瞬间做出精准判断。这种高阶专家直觉的核心本体论特征在于其不可言传性（Ineffability）——专家虽然能够凭借十余年经手数万次样本所沉淀的“手感”与“直觉”做出可靠决策，但往往无法用显性的语言规则或数学公式向门外汉解释其判断依据。事实上，任何能够被轻易提炼为显性口诀或形式化规则的经验，均已转化为显性知识（Explicit Knowledge）；唯有无法被语言编码的具身直觉，才构成知识科学中最具探讨价值的隐性知识内核。"
+        "在未开壳榴莲品质甄别等物理任务中，无论人类还是摄像头，仅“观察外观”虽可接触数万颗果实，但要确知内部果肉饱满度与口感的真实结果（Ground Truth），必须经历切开果壳并实际品尝的破坏性核验（Destructive Verification）。因此，真正带真实标签的训练数据在现实中必然是有限的。本研究设定店长与 AI 均是从约 3,000 颗真正切开并品尝过果肉的榴莲样本中习得各自的直觉。",
+        "1. 受物理核验制约的同等有限训练样本量（~3,000 颗开壳品尝样本）："
+    )
+    add_body(
+        "店长与深度学习 AI 在过往标准化盲测中的历史总体准确率完全相同，均为 85%（即平均每判断 100 颗榴莲，双方各有 85 颗正确、15 颗失误）。",
+        "2. 完全相同的历史总体准确率（85% Overall Accuracy）："
+    )
+    add_body(
+        "在面对当前具体的两颗榴莲（A 号与 B 号）时，店长对推荐 A 号的把握度与 AI 对推荐 B 号的置信度严格对齐——在“双高把握度”条件下双方均为 90% 笃定，在“双低把握度”条件下双方均为 60% 吃不准（临界犹豫状态）。",
+        "3. 完全匹配的个案把握度（90% vs. 90% 或 60% vs. 60%）："
     )
 
     add_h2("1.3 核心研究问题 (Research Questions)")
     add_body(
-        "当“无法用语言解释理由的资深人类专家直觉”与“具备海量数据背书且附带量化置信度的深度学习 AI”在现实决策中给出完全相反的建议时，人类决策者将如何权衡？当最终的物理真相揭晓后，决策者又将如何对失败的一方进行认知归因？本研究结合实验哲学与认知科学方法，聚焦以下三个核心研究问题："
+        "当训练样本量（~3,000 例）、历史总体准确率（85%）和当前个案把握度（90% 或 60%）完全相等，且双方都无法用语言解释判断规则时，决策者更倾向于相信哪一种“直觉”（Q1）？人们是否在“要求必须能用语言解释理由”上对人类直觉与 AI 直觉采取双重标准（Q2、Q4）？",
+        "• RQ1（事前选择偏好与不可解释性的认识论双标）："
     )
     add_body(
-        "在不知晓最终真实结果的前提下，面对无法言传逻辑的专家直觉与数据驱动型 AI 的正面冲突，AI 所展示的置信度水平（高置信度 94.8% vs. 低置信度 58.2%）如何调控决策者的选择偏好与数据客观性感知？",
-        "• RQ1（置信度诱导与初始信任分配）："
+        "当现场开壳验证揭晓、其中一方失败而另一方成功时，受试者对“失败的 AI 系统”与“失败的人类店长”是否采取不对称的归因逻辑？当 AI 直觉失败时，人们是否比面对人类店长犯同等错误时，更严苛地指责其“毫无真正理解、仅在用数字进行哈里·法兰克福（Frankfurt, 2005）意义上的盲目胡扯（Bullshitting）”（Q6）与“过度自信误导”（Q7），而非理性归因于 85% 准确率下的 15% 概率例外（Q5）？",
+        "• RQ2（事后错误归因的不对称性与法兰克福式“胡扯”投射）："
     )
     add_body(
-        "当客观结果揭晓且 AI 预测彻底失败时，受试者是倾向于理性的“概率与统计局限归因”，还是会从认识论与实验哲学层面产生意图投射，认为 AI 毫无真正理解、仅在利用数字进行哈里·法兰克福（Harry Frankfurt, 2005）意义上的“胡扯 / 不懂装懂（Bullshitting）”甚至欺骗？",
-        "• RQ2（错误归因与法兰克福式“胡扯”投射）："
-    )
-    add_body(
-        "AI 事前展示的置信度高低与事后开壳结果的成败之间是否存在显著交互作用？具体而言，“高置信度下的彻底失败”是否会触发非线性的信任崩塌与认知反噬（The Penalty of Overconfidence），并促使决策者重新审视人类不可言传隐性知识的独特价值？",
-        "• RQ3（高置信度失败的背叛惩罚效应）："
+        "90% 高把握度下的失败是否比 60% 低把握度下的失败引发更强烈的信任反噬（过分自信惩罚效应）？此外，鉴于深度学习具备事后提取并标出显性视觉特征（Post-hoc Feature Extraction）的潜力，这种事后特征提取能力能在多大程度上弥补人们对 AI 直觉的信任赤字（Q8、Q9）？",
+        "• RQ3（高把握度失败的反噬效应与事后显性特征提取的补偿价值）："
     )
 
     # --- SECTION 2 ---
-    add_h1("2. 实验任务载体与方法论依据 (Task Scenario & Methodological Justification)")
-    
-    add_h2("2.1 实验情境载体的科学合理性：未开壳榴莲果肉饱满度鉴别")
+    add_h1("2. 2×2 组间析因实验设计 (2×2 Between-Subjects Experimental Design)")
     add_body(
-        "本研究选取“挑选未开壳榴莲（判断内部果肉房数与饱满度）”作为实验情境载体，具备坚实的自然科学依据与生态效度："
-    )
-    add_body(
-        "榴莲（Durio zibethinus）属锦葵科蒴果，正常发育的果室（心皮）膨大会顶起外壳形成轮廓鼓包。然而，自然界中存在营养被厚重果壳过度吸收、外表极其浑圆对称但内部心皮完全败育的畸形“空壳死包果”。因此，外观判别绝非随机猜硬币，而是存在客观规律但极具挑战性的复杂物理鉴别任务。",
-        "1. 客观的植物解剖学规律："
-    )
-    add_body(
-        "资深人类店长依赖 15 年经手数万颗果实的整体直觉与手感，综合视觉、果柄韧度、重量分布等不可言传的暗默感知来排除空心果，但无法用固定规则向顾客口头解释；而深度学习视觉 AI 基于超过 100 万张真实“榴莲外观—开壳结果”配对图像数据集进行端到端训练，在面对外壳高度对称浑圆的“空壳死包果”时，纯视觉模型可能因局部几何特征的统计相关性而输出极高的预测置信度（94.8%），从而产生典型的数据过拟合误判。",
-        "2. 典型的人机认知机制对立："
-    )
-    add_body(
-        "果实一旦当场切开，内部是“满 5 房黄金果肉”还是“空心死包”一目了然，不存在主观解释的模糊地带，为结果揭晓后的归因测量提供了严密的客观基准。",
-        "3. 黑白分明的客观真实反馈："
-    )
-
-    add_h2("2.2 实验哲学情境实验范式 (Vignette Experiment Paradigm)")
-    add_body(
-        "本研究采用实验哲学与行为决策领域标准的组间情境实验范式（Between-Subjects Vignette Experiment）。受试者直接以买家的第一人称视角进入“店长直觉与 AI 预测发生冲突”的决策情境，在做出购买选择并完成前测认知评估后，立即在下一阶段获知现场切开果实的真实结果，进而完成错误归因与后测信任评估。该范式有效保证了自变量操纵的纯净度与时序因果效度。"
-    )
-
-    # --- SECTION 3 ---
-    add_h1("3. 2×2 组间析因实验设计 (2×2 Between-Subjects Experimental Design)")
-    add_body(
-        "本研究采用 2×2 组间析因设计（Between-Subjects Factorial Design），包含两个正交操纵的自变量：自变量 1 为 AI 预测置信度（高置信度 94.8% vs. 低置信度 58.2%）；自变量 2 为现场开壳真实结果（AI 失败/店长正确 vs. AI 成功/店长失误）。受试者访问实验平台时被随机均等分配至以下 4 个实验条件组之一："
+        "本研究采用 2×2 组间析因设计（Between-Subjects Factorial Design），正交操纵两个核心自变量：自变量 1 为双方当前个案把握度（双高把握度 90% vs. 90% 对比 双低把握度 60% vs. 60%）；自变量 2 为现场开壳真实结果/失败主体（AI 失败/店长正确 对比 店长失败/AI 正确）。受试者随机均等分配至以下 4 个实验条件组："
     )
     
-    col_w = [Inches(1.1), Inches(1.3), Inches(1.3), Inches(2.8)]
-    headers = ["实验组别", "自变量 1：AI 置信度", "自变量 2：开壳真实结果", "实验刺激呈现与开壳结果操作化定义"]
+    col_w = [Inches(1.05), Inches(1.35), Inches(1.35), Inches(2.75)]
+    headers = ["实验组别", "自变量 1：双方个案把握度", "自变量 2：开壳结果（失败方）", "对称实验刺激呈现与阶段二对称归因对象"]
     data = [
-        ["Condition 1", "高置信度 (94.8%)", "AI 失败 (店长正确)", "店长凭15年不可言传直觉推荐 A；AI 以 94.8% 高置信度推荐 B。开壳验证：A号满5房饱满果肉，B号空壳死包（店长胜，AI败）"],
-        ["Condition 2", "低置信度 (58.2%)", "AI 失败 (店长正确)", "店长凭15年不可言传直觉推荐 A；AI 以 58.2% 低置信度推荐 B。开壳验证：A号满5房饱满果肉，B号空壳死包（店长胜，AI败）"],
-        ["Condition 3", "高置信度 (94.8%)", "AI 成功 (店长失误)", "店长凭15年不可言传直觉推荐 A；AI 以 94.8% 高置信度推荐 B。开壳验证：B号满5房饱满果肉，A号空壳死包（AI胜，店长败）"],
-        ["Condition 4", "低置信度 (58.2%)", "AI 成功 (店长失误)", "店长凭15年不可言传直觉推荐 A；AI 以 58.2% 低置信度推荐 B。开壳验证：B号满5房饱满果肉，A号空壳死包（AI胜，店长败）"]
+        ["Condition 1", "双方高把握度 (90% vs. 90%)", "AI 失败 (店长正确)", "双方均基于~3,000例样本、总体准确率均为85%。店长以90%把握推荐A；AI以90%置信度推荐B。开壳：A满5房，B空壳。阶段二测量对【失败的AI系统】的归因"],
+        ["Condition 2", "双方低把握度 (60% vs. 60%)", "AI 失败 (店长正确)", "双方均基于~3,000例样本、总体准确率均为85%。店长以60%把握略倾向A；AI以60%置信度略倾向B。开壳：A满5房，B空壳。阶段二测量对【失败的AI系统】的归因"],
+        ["Condition 3", "双方高把握度 (90% vs. 90%)", "店长失败 (AI 正确)", "双方均基于~3,000例样本、总体准确率均为85%。店长以90%把握推荐A；AI以90%置信度推荐B。开壳：B满5房，A空壳。阶段二测量对【失败的资深店长】的归因"],
+        ["Condition 4", "双方低把握度 (60% vs. 60%)", "店长失败 (AI 正确)", "双方均基于~3,000例样本、总体准确率均为85%。店长以60%把握略倾向A；AI以60%置信度略倾向B。开壳：B满5房，A空壳。阶段二测量对【失败的资深店长】的归因"]
     ]
     t = doc.add_table(rows=1, cols=4)
     format_academic_table(t, col_w, headers, data, is_cn=True)
     doc.add_paragraph().paragraph_format.space_after = Pt(4)
 
-    # --- SECTION 4 ---
-    add_h1("4. 实验问卷完整题项与量表设计 (Complete Survey Instrument)")
-    add_body("问卷系统采用单向递进式分阶段控制（禁止回退修改前序作答），分为以下三个阶段：")
+    # --- SECTION 3 ---
+    add_h1("3. 实验问卷完整题项与量表设计 (Complete Survey Instrument)")
+    add_body("在线问卷采用严格的单向递进式分阶段控制（禁止回退修改前序作答），分为以下三个阶段：")
 
-    add_h2("第一阶段：人机冲突情境与前测决策评估 (Stage 1)")
+    add_h2("第一阶段：两种“直觉黑盒”的正面冲突与前测认知评估 (Stage 1)")
     vignette_stage1 = [
-        "【阶段一：实验情境呈现】",
-        "假设您正在水果店挑选榴莲，面前有两颗外观完好、价格相同的榴莲（样品 A 号 与 样品 B 号）。为了挑出内部果肉最饱满的一颗，您同时咨询了拥有 15 年经验的资深店长和店内配置的深度学习视觉 AI 系统，但双方给出了完全相反的建议：",
-        "• 资深店长的判断（推荐 A 号）：“我也没法用语言跟你说清楚具体看哪里，挑榴莲没有死规矩，就是我干了 15 年、摸过几万颗榴莲攒下来的直觉与手感，A 号肯定肉多。”",
-        "• 深度学习视觉 AI 系统的判断（推荐 B 号）：基于超过 100 万张真实“榴莲外观—开壳结果”配对图像数据集进行深度学习训练（无人工编写规则）。系统屏幕显示：“模型预测结果：推荐 B 号（预测置信度 Confidence Score：94.8% [或 58.2%]）”。"
+        "【阶段一：对称冲突情境呈现】",
+        "假设您正在水果店挑选未开壳的榴莲，面前有两颗价格相同的榴莲（A 号 与 B 号）。为了挑出内部果肉最饱满甘甜的一颗，您同时咨询了店里的资深人类店长和店内配置的深度学习视觉 AI 系统。",
+        "（背景说明：因为只有真正切开并品尝过，才能确知榴莲内部的果肉饱满度与口感，所以无论是这位店长还是这套 AI，其有效训练经验都是有限的——双方各自都是从大约 3,000 颗真正切开并品尝过的榴莲样本中学习总结出来的。在过往的标准化盲测中，店长与 AI 的历史总体准确率完全相同，均为 85%。同时，店长与深度学习 AI 都无法用语言解释自己具体的判断规则——从某种意义上说，二者的判断都是“直觉性的”。）",
+        "• 资深店长的直觉判断（推荐 A 号 | ~3,000颗开壳品尝经验 | 历史总体准确率 85%）：“老实说我也没法用语言向你解释具体规则。凭我切开品尝过约 3,000 颗榴莲攒下的直觉，我对这颗非常有把握——我有大约 90% 的把握确定 A 号更好 [或 Condition 2/4：今天这两颗非常接近、很难拿准——我只有大约 60% 的把握略微倾向于 A 号]（我的历史总体准确率是 85%）。”",
+        "• 深度学习 AI 的直觉判断（推荐 B 号 | ~3,000颗开壳品尝训练数据 | 历史总体准确率 85%）：“历史总体准确率：85% | 当前预测：推荐 B 号（当前个案把握度 / 置信度：90% [或 Condition 2/4：60%]）—— 注：深度神经网络基于高维黑盒特征直接输出直觉概率，无法提供显性的语言解释。”"
     ]
     add_callout(doc, vignette_stage1, is_cn=True, border_color="3B82F6", bg_color="F0F9FF")
 
-    add_body("面对无法解释具体理由的店长直觉，以及基于海量数据训练的 AI 预测，此时您决定购买哪一颗？\n   [ 选项 A ]：选择 A 号（跟随资深店长的经验直觉）\n   [ 选项 B ]：选择 B 号（跟随数据驱动型 AI 系统的预测）", "Q1.【二元决策选择】")
-    add_body("相比于店长“说不清道不明”的个人直觉，基于百万级图像数据集训练出来的 AI 模型让我觉得更加客观、可靠。（7级李克特量表：1 = 完全不同意，7 = 完全同意）", "Q2（数据客观性感知）：")
-    add_body("AI 系统给出的具体置信度百分比（94.8% / 58.2%），对我刚才做出选择起到了决定性的引导作用。（7级李克特量表：1 = 完全不同意，7 = 完全同意）", "Q3（置信度锚定效应）：")
-    add_body("如果一位人类专家无法用清晰的语言解释他的判断逻辑，我很难放心把决定权交给他。（7级李克特量表：1 = 完全不同意，7 = 完全同意）", "Q4（对不可言传经验的怀疑）：")
+    add_body("当“人类店长的直觉”与“深度学习 AI 的直觉”在相同训练样本量（~3,000 颗）、相同总体准确率（85%）以及相同当前把握度（90% 或 60%）下给出相反建议，且双方都无法用语言解释理由时，您决定选择哪一颗？\n   [ 选项 A ]：选择 A 号（跟随资深人类店长的直觉）\n   [ 选项 B ]：选择 B 号（跟随深度学习 AI 的直觉）", "Q1.【二元决策选择】")
+    add_body("即便人类店长和深度学习 AI 拥有完全相同的训练样本量（~3,000 颗）和相同的总体准确率（85%），且同样无法用语言解释理由，我仍然觉得 AI 的“统计直觉”比人类的“具身直觉”更加客观可靠。（7级李克特量表：1 = 完全不同意，7 = 完全同意）", "Q2（两种“直觉”之间的客观性感知）：")
+    add_body("双方在当前这颗榴莲上展示出的具体把握度水平（本次均为 90% / 60%），对我刚才的权衡与选择产生了很大影响。（7级李克特量表：1 = 完全不同意，7 = 完全同意）", "Q3（当前个案把握度的决策影响）：")
+    add_body("相比于人类专家“只可意会、说不出理由”的直觉，我更难以容忍一个“同样说不出任何显性规则与理由”的黑盒 AI 系统。（7级李克特量表：1 = 完全不同意，7 = 完全同意）", "Q4（对“无法用语言解释”的认识论双标）：")
 
-    add_h2("第二阶段：真实结果揭晓与后测归因量表 (Stage 2)")
+    add_h2("第二阶段：真实结果揭晓与对称式错误归因量表 (Stage 2)")
     vignette_stage2 = [
         "【阶段二：现场开壳验证结果呈现】",
-        "• Condition 1 & 2（AI 失败 / 店长正确）：工作人员当场切开了两颗榴莲：店长推荐的 A 号果肉极其饱满（满 5 房黄金果肉）；而 AI 推荐的 B 号果壳极厚，内部大部分是未发育的空壳（死包）。最终结果证明：店长的直觉判断完全正确，AI 预测失败！",
-        "• Condition 3 & 4（AI 成功 / 店长失误）：工作人员当场切开了两颗榴莲：AI 推荐的 B 号果肉极其饱满（满 5 房黄金果肉）；而店长推荐的 A 号果壳极厚，内部大部分是未发育的空壳（死包）。最终结果证明：AI 模型的预测完全正确，店长的直觉判断失误！"
+        "• Condition 1 & 2（AI 失败 / 店长正确 — 归因对象为“AI 系统”）：工作人员当场切开了两颗榴莲：店长推荐的 A 号果肉极其饱满甘甜（满 5 房黄金果肉）；而 AI 推荐的 B 号果壳极厚，内部大部分是未发育的空壳（死包）。最终结果证明：店长的直觉判断完全正确，而 AI 系统的直觉预测失败了！",
+        "• Condition 3 & 4（店长失败 / AI 正确 — 归因对象为“人类店长”）：工作人员当场切开了两颗榴莲：AI 推荐的 B 号果肉极其饱满甘甜（满 5 房黄金果肉）；而店长推荐的 A 号果壳极厚，内部大部分是未发育的空壳（死包）。最终结果证明：AI 系统的直觉预测完全正确，而人类店长的直觉判断失败了！"
     ]
     add_callout(doc, vignette_stage2, is_cn=True, border_color="10B981", bg_color="F0FDF4")
 
-    add_body("无论是依赖大数据 AI 还是人类经验直觉，挑选天然水果本质上都存在概率上的不确定性；失败的一方只是这次恰好遇到了统计分布之外的极端例外情况，情有可原。（1 = 完全不同意，7 = 完全同意）", "Q5（概率与统计局限归因 — 理性技术维度）：")
-    add_body("回顾 AI 刚才给出的预测和置信度（94.8% / 58.2%），我认为 AI 根本没有真正“理解”什么是好榴莲，它只是在用数字进行一种“盲目的胡扯（Bullshitting）”或虚张声势。（1 = 完全不同意，7 = 完全同意）", "Q6（“胡扯 / 不懂装懂”归因 — 实验哲学维度）：")
-    add_body("我觉得 AI 系统展示出的“百万级数据集背景”和“精确到小数点后的百分比”具有误导性，甚至让我产生了一种被这套技术表象“操控或欺骗”的感觉。（1 = 完全不同意，7 = 完全同意）", "Q7（误导与受骗感 — 拟人化意图投射维度）：")
-    add_body("看到这个结果后，我认为在复杂的现实物理任务中，人类专家难以言传的“经验直觉（隐性知识）”具有独特价值，数据模型无法轻易取代。（1 = 完全不同意，7 = 完全同意）", "Q8（隐性知识价值重估 — 知识科学维度）：")
-    add_body("如果下次面对类似的现实物品鉴别任务，我依然更愿意依赖数据驱动型 AI 的预测，而不是人类行家无法言传的直觉。（1 = 完全不同意，7 = 完全同意）", "Q9（未来自动化偏差留存 — 远期信任倾向）：")
+    add_body("既然双方历史总体准确率都是 85%，挑选天然水果本就存在不可避免的概率风险；这次判断失败的【AI 系统 / 人类店长】只是恰好遇到了那 15% 的统计例外情况，完全情有可原。（1 = 完全不同意，7 = 完全同意）", "Q5（概率局限归因 — 理性容错维度）：")
+    add_body("看到这次失败的结果，再回想刚才【AI 系统 / 人类店长】无法解释理由却给出 90% [或 60%] 把握度的样子，我觉得【AI 系统 / 人类店长】其实并没有真正理解这颗榴莲的品质，只是在“虚张声势 / 盲目胡扯（Bullshitting）”。（1 = 完全不同意，7 = 完全同意）", "Q6（法兰克福式“胡扯 / 不懂装懂”归因 — 实验哲学维度）：")
+    add_body("我认为这次失败的【AI 系统 / 人类店长】在无法用语言解释具体依据的情况下，依然表现出 90% [或 60%] 的把握度，这种做法具有误导性，令我感到失望。（1 = 完全不同意，7 = 完全同意）", "Q7（过度自信与误导感归因 — 责任谴责维度）：")
+    add_body("虽然人类与深度学习 AI 在做判断的瞬间都依赖“直觉”，但如果 AI 能在事后提取并标出显性的视觉特征（例如标出果刺间距或果壳轮廓的高亮热力图），我对 AI 建议的信任度将会显著超越无法解释理由的人类专家。（1 = 完全不同意，7 = 完全同意）", "Q8（事后显性特征提取的价值 — 可解释 AI 维度）：")
+    add_body("经历了这次开壳验证后，下次面对具有相同历史准确率（85%）但同样无法用语言解释理由的“人类直觉”与“AI 直觉”，我会更倾向于依赖深度学习 AI 而不是人类专家。（1 = 完全不同意，7 = 完全同意）", "Q9（未来信任倾向变化 — 远期决策偏好）：")
 
     add_h2("第三阶段：受试者人口学与控制变量 (Stage 3)")
     add_body("• Q10. 性别：[ 男 / 女 / 其他或不愿透露 ]\n"
@@ -725,36 +657,36 @@ def build_cn_docx():
              "• Q12. 学科专业背景：[ 是（理工科 STEM / 计算机 / 数据科学 / AI 相关专业） / 否（人文社科 / 商科 / 艺术 / 其他非理工专业） ]\n"
              "• Q13. 日常使用 AI 工具（如 ChatGPT、Claude 等）的频率：[ 几乎不用 / 每周 1–2 次 / 几乎每天使用 / 重度深度依赖 ]")
 
-    # --- SECTION 5 ---
-    add_h1("5. 统计假设与数据分析方案 (Statistical Hypotheses & Analysis Plan)")
+    # --- SECTION 4 ---
+    add_h1("4. 统计假设与数据分析方案 (Statistical Hypotheses & Analysis Plan)")
     add_body(
-        "在结果揭晓前的阶段一，高置信度组（Condition 1 & 3，94.8%）受试者选择跟随 AI（选 B）的比例，以及在数据客观性感知（Q2）与置信度引导效应（Q3）上的得分，将显著高于低置信度组（Condition 2 & 4，58.2%）（p < .001）。",
-        "• 假设 1（H1：置信度主效应 — 决策诱导）："
+        "在阶段一结果揭晓前，尽管店长与 AI 拥有完全相同的训练样本量（~3,000 例）与总体准确率（85%），受试者在面对“无法用语言解释理由”时仍将表现出显著的认识论双标（Q4 均值显著高于中立值 4.0，p < .001）；同时，双高把握度组（90% vs. 90%，C1 & C3）在把握度影响权重（Q3）上将显著高于双低把握度组（60% vs. 60%，C2 & C4）。",
+        "• 假设 1（H1：事前认识论双标与个案把握度效应）："
     )
     add_body(
-        "在阶段二结果揭晓后，AI 失败组（Condition 1 & 2）受试者在法兰克福式“胡扯（Bullshitting）”归因（Q6）、受骗感投射（Q7）以及隐性知识价值重估（Q8）上的得分，将显著高于 AI 成功组（Condition 3 & 4）（p < .001）。",
-        "• 假设 2（H2：真实结果主效应 — 哲学归因与隐性知识重估）："
+        "在阶段二结果揭晓后，比较“AI 失败组（C1 & C2）”与“店长失败组（C3 & C4）”对各自失败主体的归因得分：当 AI 预测失败时，受试者对失败 AI 的法兰克福式“胡扯（Bullshitting）”归因（Q6）与“误导失望感”（Q7）将显著高于人类店长犯同等错误时受到的指责（p < .001），而在理性概率豁免（Q5）上的得分将显著低于店长失败组。",
+        "• 假设 2（H2：失败主体的不对称归因主效应 — “对 AI 错误的严苛惩罚”）："
     )
     add_body(
-        "AI 置信度与开壳真实结果在“胡扯归因”（Q6）、“受骗感”（Q7）及“未来信任留存”（Q9）上存在显著的二阶交互作用（Two-Way Interaction，p < .01）。具体而言，当 AI 以 94.8% 的极高置信度做出预测却彻底失败时（Condition 1），将触发强烈的认识论背叛感，其引发的“胡扯”斥责与信任崩塌幅度将显著大于低置信度失败组（Condition 2）。",
-        "• 假设 3（H3：置信度 × 结果交互效应 — “高置信度失败的背叛惩罚”）："
+        "个案把握度（90% vs. 60%）与失败主体（AI 失败 vs. 店长失败）在 Q6、Q7 及 Q9 上存在显著二阶交互作用（p < .01）。“90% 高把握度下的失败”比“60% 低把握度下的失败”引发显著更强的反噬，且该惩罚斜率在 AI 失败时（C1 vs. C2）显著陡峭于店长失败时（C3 vs. C4）。此外，Q8 将呈现显著高分（> 5.0），证实“事后显性特征提取”对修复 AI 直觉信任的关键作用。",
+        "• 假设 3（H3：把握度 × 失败主体交互效应与事后特征提取补偿）："
     )
     add_body(
-        "采用卡方独立性检验与二元 Logistic 回归分析 Q1 决策选择；采用 2×2 组间双因素方差分析（Two-Way Factorial ANOVA: Y_ijk = μ + α_i + β_j + (αβ)_ij + ε_ijk）检验 Q2–Q9 的主效应与交互效应，并将理工科背景（Q12）与 AI 使用频率（Q13）纳入协方差分析（ANCOVA）检验认知缓冲效应。",
+        "采用卡方检验与二元 Logistic 回归分析 Q1 决策选择；采用 2×2 组间双因素方差分析（Two-Way Factorial ANOVA: Y_ijk = μ + α_i + β_j + (αβ)_ij + ε_ijk）检验 Q2–Q9 的主效应与交互效应，并将理工科背景（Q12）与 AI 使用频率（Q13）纳入协方差分析（ANCOVA）。",
         "• 统计检验模型："
     )
 
-    # --- SECTION 6 ---
-    add_h1("6. 在线实验系统架构与访问入口 (Online Experimental System & Access Links)")
+    # --- SECTION 5 ---
+    add_h1("5. 在线实验系统架构与永久访问入口 (Online Experimental System & Permanent Links)")
     add_body(
-        "本研究所配套的在线交互式实验平台已开发部署完毕，支持中、英、日三语一键切换、被试随机分组、毫秒级阶段反应时记录（stage1Ms, stage2Ms, stage3Ms）以及 UTF-8 BOM 标准 CSV 数据一键导出："
+        "本研究所配套的在线交互式实验平台已部署于云端生产环境，支持中、英、日三语一键切换、被试随机分组、毫秒级阶段反应时记录（stage1Ms, stage2Ms, stage3Ms）以及 UTF-8 BOM 标准 CSV 数据一键导出："
     )
     add_body(f"• 受试者问卷系统主链接：{PUBLIC_URL}\n"
              f"• 研究者与导师管理后台：{ADMIN_URL}\n"
-             f"• Condition 1 (94.8% × AI 失败)：{PUBLIC_URL}/?condition=1\n"
-             f"• Condition 2 (58.2% × AI 失败)：{PUBLIC_URL}/?condition=2\n"
-             f"• Condition 3 (94.8% × AI 成功)：{PUBLIC_URL}/?condition=3\n"
-             f"• Condition 4 (58.2% × AI 成功)：{PUBLIC_URL}/?condition=4")
+             f"• Condition 1 (双方 90% 高把握 × AI 失败/店长正确)：{PUBLIC_URL}/?condition=1\n"
+             f"• Condition 2 (双方 60% 低把握 × AI 失败/店长正确)：{PUBLIC_URL}/?condition=2\n"
+             f"• Condition 3 (双方 90% 高把握 × 店长失败/AI正确)：{PUBLIC_URL}/?condition=3\n"
+             f"• Condition 4 (双方 60% 低把握 × 店长失败/AI正确)：{PUBLIC_URL}/?condition=4")
 
     out_name = "Minor_Research_Report_CN_20261018.docx"
     p_base = os.path.join(BASE_DIR, out_name)
@@ -823,15 +755,15 @@ def build_en_docx():
         return p
 
     # --- HEADER & METADATA ---
-    add_title("Data-Driven AI vs. Ineffable Expert Intuition: Confidence Inducement and Outcome Attribution in Human-AI Decision Conflicts")
+    add_title("Human Intuition vs. Artificial Intuition: Epistemic Asymmetry and Error Attribution When Two 'Ineffable Black Boxes' Conflict")
     add_subtitle("Minor Research Project Proposal & Experimental Survey Design")
     
     meta_info = [
         "[Project Metadata]",
-        "• Research Title: Data-Driven AI vs. Ineffable Expert Intuition: Confidence Inducement and Outcome Attribution in Human-AI Decision Conflicts",
+        "• Research Title: Human Intuition vs. Artificial Intuition: Epistemic Asymmetry and Error Attribution When Two 'Ineffable Black Boxes' Conflict",
         "• Researcher: XIU TIANYUAN (修 天源) — Master's Program (M2), School of Knowledge Science, JAIST",
         "• Academic Advisor: Prof. Mizumoto (水本 教授)",
-        "• Date: October 18, 2026",
+        "• Date: October 25, 2026",
         "• Research Domains: Knowledge Science, Experimental Philosophy, Human-Computer Interaction (HCI), Cognitive Psychology"
     ]
     add_callout(doc, meta_info, is_cn=False, border_color="1E293B", bg_color="F8FAFC")
@@ -839,113 +771,95 @@ def build_en_docx():
     # --- SECTION 1 ---
     add_h1("1. Background & Theoretical Framework")
     
-    add_h2("1.1 Data-Driven AI and Quantitative Confidence Authority")
+    add_h2("1.1 Two Kinds of 'Ineffable Black Boxes': Human Tacit Knowledge and Deep Learning Intuition")
     add_body(
-        "Contemporary artificial intelligence systems—particularly deep learning computer vision models—do not operate via hand-coded, explicit logical or geometric algorithms. Instead, they learn high-dimensional statistical representations by fitting massive datasets comprising millions of paired instances. When deployed to assist human decision-makers, these opaque 'black-box' neural networks cannot meaningfully expose billions of internal synaptic weights to the end user; instead, they communicate certainty through a single scalar metric: a Confidence Score (e.g., 94.8% vs. 58.2%)."
+        "In the foundational literature of Knowledge Science and Epistemology, Michael Polanyi (1966) characterized human Tacit Knowledge with the maxim: 'We can know more than we can tell.' In complex physical diagnostic tasks, seasoned human practitioners rely on holistic Gestalt perception honed through embodied experience to make accurate judgments, yet they are fundamentally incapable of articulating their decision rules in explicit words."
     )
     add_body(
-        "From the perspective of Human-Computer Interaction (HCI) and cognitive psychology, the combination of 'massive dataset training' and a 'hyper-precise confidence percentage' constructs a powerful aura of algorithmic objectivity. This representation frequently induces Automation Bias—the cognitive propensity for humans to uncritically defer to high-confidence automated predictions while discounting competing qualitative evidence."
+        "Crucially, as contemporary artificial intelligence has evolved from rule-based symbolic expert systems to end-to-end Deep Learning neural networks, a profound epistemological isomorphism has emerged: both human experts and contemporary deep-learning AI systems are equally incapable of explaining their holistic judgments in words at the moment of decision. Rather than executing explicit verbal rules, deep neural networks map high-dimensional inputs to probability outputs across millions of sub-symbolic weights. In a fundamental epistemological sense, both judgments are 'intuitive' (Human Embodied Intuition vs. Artificial Statistical Intuition), even though an AI system might subsequently attempt to extract and identify explicit features post-hoc."
     )
 
-    add_h2("1.2 Polanyi's Ineffable Tacit Knowledge")
+    add_h2("1.2 Strictly Controlled Baseline Symmetry: Bounded Training Data, Overall Accuracy, and Matched Confidence")
     add_body(
-        "Standing in sharp epistemic contrast to data-driven AI is the embodied expertise of seasoned human practitioners. In the foundational literature of Knowledge Science and Epistemology, Michael Polanyi (1966) formulated the classic maxim: 'We can know more than we can tell.'"
+        "To rigorously isolate how human decision-makers evaluate and attribute errors to Human Intuition versus Artificial Intuition, this study enforces three strict baseline controls:"
     )
     add_body(
-        "In complex physical-world diagnostic tasks—such as artisan appraisal, clinical palpation, or agricultural sorting—veteran human experts rely on multimodal sensory integration and holistic Gestalt perception to reach rapid, highly accurate judgments. The defining ontological hallmark of such high-level expertise is its ineffability: while a master practitioner can reliably identify the superior specimen through somatic 'touch' and 'gut intuition' honed over tens of thousands of cases, they cannot articulate their decision criteria into explicit verbal rules or mathematical formulas for a layperson. Indeed, any rule that can be explicitly verbalized is already codifiable explicit knowledge; genuine tacit knowledge remains inherently uncodifiable."
+        "In physical diagnostic tasks such as evaluating un-opened durians, although both humans and cameras can casually look at tens of thousands of fruits, verifying the actual internal ground truth (pulp fullness and taste) requires destructive testing—cutting the fruit open and tasting it. Thus, labeled ground-truth training data are inherently bounded for both. Both the store manager and the deep-learning AI are explicitly defined as having learned from approximately 3,000 durians actually cut open and taste-tested.",
+        "1. Bounded Ground-Truth Training Data (~3,000 Opened & Taste-Tested Durians): "
+    )
+    add_body(
+        "In prior standardized blind evaluations, both the veteran store manager and the deep-learning AI achieved the exact same 85% overall accuracy.",
+        "2. Identical Historical Overall Accuracy (85% Overall Accuracy): "
+    )
+    add_body(
+        "When evaluating the specific pair of durians (Durian A vs. Durian B), both agents express matched case-specific confidence—either both are 90% confident (High Confidence conditions) or both are only 60% confident / borderline (Low Confidence conditions).",
+        "3. Matched Case-Specific Confidence (90% vs. 90% in High; 60% vs. 60% in Low): "
     )
 
     add_h2("1.3 Core Research Questions")
     add_body(
-        "When a human expert's unexplainable tacit intuition directly conflicts with a data-driven AI's statistical prediction, how do human decision-makers resolve the conflict? Furthermore, once the physical ground truth is revealed, how do people attribute blame or credit? Integrating frameworks from Experimental Philosophy and Knowledge Science, this study investigates three primary research questions:"
+        "When Human Intuition and Artificial Intuition conflict under identical training sample size (~3,000 cases), identical overall accuracy (85%), and matched case-specific confidence (90% or 60%)—and neither can explain its reasoning in words—which intuition do decision-makers trust (Q1), and do they exhibit an Epistemic Double Standard toward unexplainability (Q2, Q4)?",
+        "• RQ1 (Pre-Outcome Choice & Epistemic Double Standard Toward Unexplainability): "
     )
     add_body(
-        "Prior to knowing the actual outcome, when confronted with a direct conflict between ineffable human intuition and a data-driven AI model, how does the AI's displayed confidence score (High: 94.8% vs. Low: 58.2%) influence behavioral compliance and perceived epistemic objectivity?",
-        "• RQ1 (Confidence Inducement & Initial Trust Allocation): "
+        "Once on-site verification reveals that one intuition failed while the other succeeded, do observers attribute the error symmetrically to the 15% statistical outlier rate (Q5), or do they exhibit Asymmetric Epistemic Blame—accusing a failed AI of lacking true understanding and engaging in Frankfurtian 'bullshitting' (Frankfurt, 2005) (Q6) and misleading overconfidence (Q7) far more harshly than a failed human expert making the exact same mistake?",
+        "• RQ2 (Asymmetric Post-Outcome Error Attribution & Frankfurtian 'Bullshitting'): "
     )
     add_body(
-        "Upon witnessing the AI prediction fail completely in physical verification, do participants attribute the failure rationally to probabilistic/statistical limitations, or do they project epistemic blame—perceiving the AI as having no genuine understanding and engaging in philosophical 'Bullshitting' (Frankfurt, 2005) and deceptive manipulation?",
-        "• RQ2 (Error Attribution & Frankfurtian 'Bullshitting'): "
-    )
-    add_body(
-        "Is there a significant interaction between pre-decision AI confidence and post-decision outcome? Specifically, does a high-confidence AI failure trigger a nonlinear collapse in trust ('The Penalty of Overconfidence') and compel decision-makers to re-evaluate the irreplaceable value of human tacit knowledge?",
-        "• RQ3 (The Penalty of Overconfidence & Tacit Knowledge Re-evaluation): "
+        "Does failing at 90% confidence provoke a disproportionately harsher backlash than failing at 60% confidence ('The Penalty of Overconfidence'), and to what extent can post-hoc explicit feature extraction by AI restore user trust (Q8, Q9)?",
+        "• RQ3 (The Penalty of Overconfidence & Value of Post-Hoc Feature Extraction): "
     )
 
     # --- SECTION 2 ---
-    add_h1("2. Task Scenario & Methodological Justification")
-    
-    add_h2("2.1 Scientific Validity of the Task: Un-opened Durian Pulp Assessment")
+    add_h1("2. 2×2 Between-Subjects Experimental Design")
     add_body(
-        "This study employs the real-world physical task of selecting an un-opened durian fruit for internal pulp fullness as its experimental scenario, offering strong botanical and cognitive validity:"
-    )
-    add_body(
-        "Durian (Durio zibethinus) is a capsular fruit in which internal carpel development expands the outer rind. However, physiological 'hollow-shell (dead-pod)' anomalies frequently occur, where nutrients are absorbed entirely into a thick, outwardly symmetrical rind while internal chambers abort. Assessing internal fullness is therefore a non-random, high-uncertainty physical diagnostic task.",
-        "1. Objective Botanical Morphology: "
-    )
-    add_body(
-        "The Veteran Store Manager relies on 15 years of somatic experience handling tens of thousands of fruits, integrating subtle mass distribution, spine resilience, and holistic visual Gestalt to detect hollow shells intuitively without fixed verbal rules. Conversely, the Deep Learning Visual AI is trained end-to-end on over 1,000,000 real paired images; when scanning a superficially symmetrical hollow-shell fruit, it is susceptible to statistical overfitting on surface regularity, outputting an erroneously high confidence score (94.8%).",
-        "2. Natural Divergence of Human vs. AI Modalities: "
-    )
-    add_body(
-        "Slicing the fruit open on-site yields immediate, indisputable binary feedback (5 full golden chambers vs. hollow undeveloped shell), providing a clean benchmark for post-outcome attribution.",
-        "3. Unambiguous Ground-Truth Verification: "
-    )
-
-    add_h2("2.2 Experimental Philosophy Vignette Paradigm")
-    add_body(
-        "The study adopts the standard Between-Subjects Vignette Experiment Paradigm widely utilized in experimental philosophy and behavioral decision research. Participants enter the scenario directly as a decision-making buyer facing conflicting recommendations from the veteran manager and the visual AI system. After recording their binary choice and pre-outcome cognitive evaluations in Stage 1, participants observe the immediate on-site cut-open verification in Stage 2 and complete the attribution and trust scales. This streamlined structure cleanly isolates the causal effects of AI confidence and outcome validity."
-    )
-
-    # --- SECTION 3 ---
-    add_h1("3. 2×2 Between-Subjects Experimental Design")
-    add_body(
-        "The experiment employs a 2×2 between-subjects factorial design manipulating two orthogonal independent variables: Factor 1 is AI Confidence Level (High 94.8% vs. Low 58.2%); Factor 2 is Realized Physical Outcome (AI Fails/Manager Correct vs. AI Succeeds/Manager Fails). Participants are randomly assigned with equal probability to one of the four conditions:"
+        "The experiment employs a 2×2 between-subjects factorial design manipulating two orthogonal independent variables: Factor 1 is Matched Case-Specific Confidence (Both High 90% vs. Both Low 60%); Factor 2 is Realized Outcome / Who Failed (AI Fails/Manager Correct vs. Manager Fails/AI Correct). Participants are randomly assigned with equal probability to one of the four conditions:"
     )
     
-    col_w = [Inches(1.1), Inches(1.3), Inches(1.3), Inches(2.8)]
-    headers = ["Condition", "Factor 1: AI Confidence", "Factor 2: Realized Outcome", "Stimulus Presentation & Outcome Operationalization"]
+    col_w = [Inches(1.05), Inches(1.35), Inches(1.35), Inches(2.75)]
+    headers = ["Condition", "Factor 1: Matched Confidence", "Factor 2: Outcome (Who Failed)", "Symmetric Stimulus Presentation & Stage 2 Attribution Target"]
     data = [
-        ["Condition 1", "High Confidence (94.8%)", "AI Fails (Manager Wins)", "Manager intuitively recommends A; AI recommends B with 94.8% confidence. Cut-open: A has 5 full chambers; B is hollow dead-pod (Manager wins, AI fails)"],
-        ["Condition 2", "Low Confidence (58.2%)", "AI Fails (Manager Wins)", "Manager intuitively recommends A; AI recommends B with 58.2% confidence. Cut-open: A has 5 full chambers; B is hollow dead-pod (Manager wins, AI fails)"],
-        ["Condition 3", "High Confidence (94.8%)", "AI Succeeds (Manager Fails)", "Manager intuitively recommends A; AI recommends B with 94.8% confidence. Cut-open: B has 5 full chambers; A is hollow dead-pod (AI wins, Manager fails)"],
-        ["Condition 4", "Low Confidence (58.2%)", "AI Succeeds (Manager Fails)", "Manager intuitively recommends A; AI recommends B with 58.2% confidence. Cut-open: B has 5 full chambers; A is hollow dead-pod (AI wins, Manager fails)"]
+        ["Condition 1", "Both High (90% vs. 90%)", "AI Fails (Manager Correct)", "Both trained on ~3,000 cases; both 85% overall accuracy. Manager 90% sure on A; AI 90% confident on B. Cut-open: A is full, B is hollow. Stage 2 evaluates the failed AI system"],
+        ["Condition 2", "Both Low (60% vs. 60%)", "AI Fails (Manager Correct)", "Both trained on ~3,000 cases; both 85% overall accuracy. Manager 60% leaning A; AI 60% leaning B. Cut-open: A is full, B is hollow. Stage 2 evaluates the failed AI system"],
+        ["Condition 3", "Both High (90% vs. 90%)", "Manager Fails (AI Correct)", "Both trained on ~3,000 cases; both 85% overall accuracy. Manager 90% sure on A; AI 90% confident on B. Cut-open: B is full, A is hollow. Stage 2 evaluates the failed store manager"],
+        ["Condition 4", "Both Low (60% vs. 60%)", "Manager Fails (AI Correct)", "Both trained on ~3,000 cases; both 85% overall accuracy. Manager 60% leaning A; AI 60% leaning B. Cut-open: B is full, A is hollow. Stage 2 evaluates the failed store manager"]
     ]
     t = doc.add_table(rows=1, cols=4)
     format_academic_table(t, col_w, headers, data, is_cn=False)
     doc.add_paragraph().paragraph_format.space_after = Pt(4)
 
-    # --- SECTION 4 ---
-    add_h1("4. Complete Survey Instrument & Measurement Scales")
+    # --- SECTION 3 ---
+    add_h1("3. Complete Survey Instrument & Measurement Scales")
     add_body("The online questionnaire enforces strict forward-only progression across three sequential stages:")
 
-    add_h2("Stage 1: The Decision Conflict Scenario & Pre-Outcome Evaluation")
+    add_h2("Stage 1: The Symmetric Intuition Conflict & Pre-Outcome Evaluation")
     vignette_stage1 = [
-        "[Stage 1: Conflict Vignette Presentation]",
-        "Imagine you are at a fruit market choosing between two un-opened durians (Durian A and Durian B) of identical price to get the one with the fullest pulp inside. You consult both a veteran store manager (15 years of experience) and a deep-learning visual AI system deployed in the store. They give opposite recommendations:",
-        "• Veteran Store Manager's Judgment (Recommends Durian A): \"I honestly can't explain it in words. There is no fixed rule to tell you. It's just a gut feeling and intuition after handling tens of thousands of durians over 15 years. Durian A is definitely fuller.\"",
-        "• Deep Learning Visual AI System's Judgment (Recommends Durian B): Trained on a massive dataset of 1,000,000+ real paired durian images (outer appearance vs. opened pulp outcome), without hand-coded rules. Terminal Output: \"Neural Network Output: Recommend Durian B (Confidence Score: 94.8% [or 58.2%])\"."
+        "[Stage 1: Symmetric Conflict Vignette Presentation]",
+        "Imagine you are at a fruit market choosing between two un-opened durians (Durian A and Durian B) of the same price. You want the one with the fullest, sweetest pulp inside, so you consult both a veteran store manager and a deep-learning visual AI system.",
+        "(Background: Because verifying a durian's internal pulp and taste requires actually cutting it open, training data is naturally limited for both humans and AI. Both the store manager and the AI learned from approximately 3,000 durians that were actually cut open and taste-tested. In prior standardized blind tests, both achieved the exact same overall accuracy of 85%. Furthermore, both the human expert and the deep-learning AI make 'intuitive' judgments that cannot be explained in words.)",
+        "• Veteran Store Manager's Intuition (Recommends Durian A | ~3,000 opened & tasted durians | Overall Accuracy: 85%): \"I honestly can't explain the rules in words. Based on my intuition from cutting open and tasting around 3,000 durians, I feel very confident about this case—I'm about 90% sure Durian A is the better one [or Conditions 2 & 4: this pair is a borderline call—I'm only about 60% sure and slightly leaning toward Durian A] (my overall accuracy is 85%).\"",
+        "• Deep Learning Visual AI's Intuition (Recommends Durian B | ~3,000 opened & tasted durians | Overall Accuracy: 85%): \"Overall Historical Accuracy: 85% | Current Prediction: Recommend Durian B (Case Confidence: 90% [or Conditions 2 & 4: 60%]) — Note: Deep neural network black-box intuition; cannot provide verbal explanation.\""
     ]
     add_callout(doc, vignette_stage1, is_cn=False, border_color="3B82F6", bg_color="F0F9FF")
 
-    add_body("Facing the manager's intuition (which he cannot verbally explain) and the data-driven AI's prediction, which durian do you decide to choose?\n   [ Option A ]: Choose Durian A (Follow the Veteran Store Manager)\n   [ Option B ]: Choose Durian B (Follow the Data-Driven AI)", "Q1. [Binary Choice] ")
-    add_body("Compared to the manager’s unexplainable personal intuition, an AI model trained on a massive dataset of over a million images feels more objective and reliable to me. (7-Point Likert: 1 = Strongly Disagree, 7 = Strongly Agree)", "Q2 (Perceived Data Objectivity): ")
-    add_body("The specific confidence percentage displayed by the AI (94.8% / 58.2%) heavily influenced my choice just now. (7-Point Likert: 1 = Strongly Disagree, 7 = Strongly Agree)", "Q3 (Confidence Score Impact): ")
-    add_body("If a human expert cannot verbally explain the reasoning behind their judgment, I find it difficult to trust their recommendation. (7-Point Likert: 1 = Strongly Disagree, 7 = Strongly Agree)", "Q4 (Skepticism Toward Ineffable Intuition): ")
+    add_body("When human intuition and AI intuition conflict under the exact same training experience (~3,000 cases), the same overall accuracy (85%), and the same confidence level (90% or 60%)—and neither can explain its judgment in words—which durian do you choose?\n   [ Option A ]: Choose Durian A (Follow the Veteran Store Manager's Intuition)\n   [ Option B ]: Choose Durian B (Follow the Deep Learning AI's Intuition)", "Q1. [Binary Choice] ")
+    add_body("Even though both learned from ~3,000 opened durians, share an 85% overall accuracy, and cannot explain their rules in words, the AI's statistical 'intuition' still feels more objective and reliable to me than the human's bodily 'intuition.' (7-Point Likert: 1 = Strongly Disagree, 7 = Strongly Agree)", "Q2 (Perceived Objectivity Between Two 'Intuitions'): ")
+    add_body("The specific confidence level expressed by both sides for this pair (90% / 60%) strongly influenced how I weighed my decision just now. (7-Point Likert: 1 = Strongly Disagree, 7 = Strongly Agree)", "Q3 (Impact of Case-Specific Confidence Level): ")
+    add_body("I find it much harder to tolerate an AI system that 'cannot explain its reasoning in words' than to tolerate a human expert who 'cannot explain their intuition in words.' (7-Point Likert: 1 = Strongly Disagree, 7 = Strongly Agree)", "Q4 (Epistemic Double Standard Toward Unexplainability): ")
 
-    add_h2("Stage 2: Outcome Revelation & Post-Outcome Attribution Scales")
+    add_h2("Stage 2: Outcome Revelation & Symmetric Post-Outcome Attribution Scales")
     vignette_stage2 = [
         "[Stage 2: On-Site Cut-Open Verification Results]",
-        "• Condition 1 & 2 (AI Fails / Manager Wins): Both durians are cut open on the spot: Durian A (recommended by the manager) is packed with 5 large, full chambers of golden pulp. Durian B (recommended by the AI) has a thick shell and is mostly hollow with undeveloped dead chambers inside. The veteran manager's intuition proved completely right, and the AI prediction failed!",
-        "• Condition 3 & 4 (AI Succeeds / Manager Fails): Both durians are cut open on the spot: Durian B (recommended by the AI) is packed with 5 large, full chambers of golden pulp. Durian A (recommended by the manager) has a thick shell and is mostly hollow with undeveloped dead chambers inside. The AI model's prediction proved completely right, and the manager's intuition failed!"
+        "• Conditions 1 & 2 (AI Fails / Manager Correct — Target = 'the AI system'): Both durians are cut open on the spot: Durian A (recommended by the manager) is packed with 5 large, full chambers of sweet golden pulp. Durian B (recommended by the AI) has a thick shell and is mostly hollow with undeveloped dead chambers inside. The store manager's intuition proved right, and the AI's prediction failed!",
+        "• Conditions 3 & 4 (Manager Fails / AI Correct — Target = 'the store manager'): Both durians are cut open on the spot: Durian B (recommended by the AI) is packed with 5 large, full chambers of sweet golden pulp. Durian A (recommended by the manager) has a thick shell and is mostly hollow with undeveloped dead chambers inside. The AI's prediction proved right, and the store manager's intuition failed!"
     ]
     add_callout(doc, vignette_stage2, is_cn=False, border_color="10B981", bg_color="F0FDF4")
 
-    add_body("Whether relying on big-data AI or human intuition, sorting natural fruits always involves probabilistic uncertainty; the side that failed simply encountered an unavoidable statistical outlier. (1 = Strongly Disagree, 7 = Strongly Agree)", "Q5 (Probabilistic Limitation Attribution — Rational Dimension): ")
-    add_body("Looking back at the AI's prediction and confidence score (94.8% / 58.2%), I feel the AI has no genuine grasp of what makes a good durian—it is merely engaging in 'bullshitting' (bluffing with numbers without true understanding). (1 = Strongly Disagree, 7 = Strongly Agree)", "Q6 ('Bullshitting' Attribution — Experimental Philosophy Dimension): ")
-    add_body("I feel the AI’s presentation of 'massive dataset training' and a 'precise confidence percentage' was misleading, making me feel somewhat manipulated or deceived. (1 = Strongly Disagree, 7 = Strongly Agree)", "Q7 (Perceived Deception & Manipulation — Intentional Projection Dimension): ")
-    add_body("After seeing this outcome, I believe that in complex physical tasks, a human expert’s ineffable intuition (tacit knowledge) holds unique value that dataset-trained AI cannot easily replace. (1 = Strongly Disagree, 7 = Strongly Agree)", "Q8 (Re-evaluation of Tacit Knowledge — Knowledge Science Dimension): ")
-    add_body("Next time I face a similar real-world judgment task, I would prefer to rely on the data-driven AI rather than a human expert's unexplainable intuition. (1 = Strongly Disagree, 7 = Strongly Agree)", "Q9 (Future Automation Bias Retention — Trust Disposition): ")
+    add_body("Since both have an 85% overall accuracy, judging natural fruit always carries a 15% chance of error; the fact that [the AI system / the store manager] failed this time is simply an unavoidable statistical outlier and completely understandable. (1 = Strongly Disagree, 7 = Strongly Agree)", "Q5 (Probabilistic Forgiveness — Normal Statistical Outlier): ")
+    add_body("Seeing this failure, and looking back at how [the AI system / the store manager] expressed 90% [or 60%] confidence without being able to explain why in words, I feel [the AI system / the store manager] had no genuine grasp of this case and was merely 'bluffing / bullshitting.' (1 = Strongly Disagree, 7 = Strongly Agree)", "Q6 ('Bullshitting' / Fake Understanding Attribution — Experimental Philosophy Dimension): ")
+    add_body("I feel that expressing 90% [or 60%] confidence without being able to provide any verbal explanation was misleading on the part of [the AI system / the store manager], making this failure frustrating. (1 = Strongly Disagree, 7 = Strongly Agree)", "Q7 (Perceived Overconfidence & Misleadingness — Blame Dimension): ")
+    add_body("Although both humans and deep-learning AI make 'intuitive' judgments that cannot be explained in words at first, if the AI could afterward extract and highlight explicit visual features (e.g., pointing out specific spine angles or shell contours), I would trust the AI much more than an unexplainable human expert. (1 = Strongly Disagree, 7 = Strongly Agree)", "Q8 (Value of Post-Hoc Explicit Feature Extraction — Explainable AI Dimension): ")
+    add_body("After witnessing this outcome, next time I face a similar task where a human expert and a deep-learning AI have the same overall accuracy (85%) and neither can explain their judgment in words, I would prefer to rely on the AI rather than the human expert. (1 = Strongly Disagree, 7 = Strongly Agree)", "Q9 (Future Trust Preference Between Two Intuitions): ")
 
     add_h2("Stage 3: Demographic & Control Variables")
     add_body("• Q10. Gender: [ Male / Female / Other or Prefer not to say ]\n"
@@ -953,36 +867,36 @@ def build_en_docx():
              "• Q12. Academic Background: [ Yes (STEM / Computer Science / Data Science / AI) / No (Humanities / Social Sciences / Business / Arts / Other) ]\n"
              "• Q13. Daily AI Tool Usage Frequency (e.g., ChatGPT, Claude): [ Rarely / 1–2 times per week / Daily / Heavy reliance ]")
 
-    # --- SECTION 5 ---
-    add_h1("5. Statistical Hypotheses & Data Analysis Plan")
+    # --- SECTION 4 ---
+    add_h1("4. Statistical Hypotheses & Data Analysis Plan")
     add_body(
-        "In Stage 1 prior to outcome revelation, participants in the High Confidence conditions (94.8%, Conditions 1 & 3) will exhibit a significantly higher probability of choosing the AI-recommended option (Q1), alongside significantly higher ratings on Perceived Data Objectivity (Q2) and Confidence Impact (Q3), compared to the Low Confidence conditions (58.2%, Conditions 2 & 4) (p < .001).",
-        "• Hypothesis 1 (H1: Main Effect of AI Confidence on Compliance): "
+        "In Stage 1 prior to outcome revelation, despite identical training data (~3,000 cases) and overall accuracy (85%), participants will exhibit a significant epistemic double standard in Q4 (mean score > 4.0, p < .001), demanding explicit verbal explanations more strictly from black-box AI than from human tacit intuition; meanwhile, matched high confidence (90% vs. 90%, C1 & C3) will yield significantly higher perceived confidence impact (Q3) than matched low confidence (60% vs. 60%, C2 & C4).",
+        "• Hypothesis 1 (H1: Pre-Outcome Epistemic Double Standard Toward Unexplainability): "
     )
     add_body(
-        "In Stage 2, participants exposed to AI Failure (Conditions 1 & 2) will report significantly higher Frankfurtian 'Bullshitting' attribution (Q6), Perceived Deception (Q7), and Re-evaluation of Tacit Knowledge (Q8) than participants exposed to AI Success (Conditions 3 & 4) (p < .001).",
-        "• Hypothesis 2 (H2: Main Effect of Outcome on Epistemic Attribution): "
+        "In Stage 2, comparing attribution toward the failed AI (Conditions 1 & 2) versus the failed store manager (Conditions 3 & 4), participants will assign significantly higher Frankfurtian 'bullshitting' attribution (Q6) and perceived misleadingness (Q7), and significantly lower probabilistic forgiveness (Q5), to the failed AI system than to the failed human manager for the exact same diagnostic error (p < .001).",
+        "• Hypothesis 2 (H2: Main Effect of Failed Agent — Asymmetric Epistemic Blame Against AI): "
     )
     add_body(
-        "There will be a significant two-way interaction between AI Confidence and Realized Outcome on Bullshitting Attribution (Q6), Perceived Deception (Q7), and Future Trust Retention (Q9) (p < .01). Specifically, when the AI fails after displaying an overwhelming 94.8% confidence score (Condition 1), the resulting epistemic backlash and collapse in future trust will be disproportionately more severe than when it fails under modest 58.2% confidence (Condition 2).",
-        "• Hypothesis 3 (H3: Confidence × Outcome Interaction — 'The Penalty of Overconfidence'): "
+        "There will be a significant two-way interaction between Case Confidence (90% vs. 60%) and Failed Agent (AI Fails vs. Manager Fails) on Q6, Q7, and Q9 (p < .01). Failing at 90% confidence will provoke a much harsher backlash than failing at 60% confidence, and this Penalty of Overconfidence will be steeper against AI (C1 vs. C2) than against the human expert (C3 vs. C4). Moreover, Q8 will show strong agreement (> 5.0), confirming the value of post-hoc explicit feature extraction.",
+        "• Hypothesis 3 (H3: Confidence × Failed Agent Interaction & Post-Hoc Feature Extraction): "
     )
     add_body(
         "Chi-square test and Binary Logistic Regression for Q1; 2×2 Between-Subjects Factorial ANOVA (Y_ijk = μ + α_i + β_j + (αβ)_ij + ε_ijk) for Q2–Q9; Bonferroni-corrected simple main effects and ANCOVA controlling for STEM background (Q12) and AI familiarity (Q13).",
         "• Statistical Modeling Pipeline: "
     )
 
-    # --- SECTION 6 ---
-    add_h1("6. Online Experimental System & Live Access Links")
+    # --- SECTION 5 ---
+    add_h1("5. Online Experimental System & Permanent Access Links")
     add_body(
-        "A dedicated full-stack web experimental platform is deployed with instant English/Japanese/Chinese localization, automated condition randomization, millisecond response telemetry (stage1Ms, stage2Ms, stage3Ms), and one-click UTF-8 BOM CSV export:"
+        "A dedicated full-stack web experimental platform is permanently deployed with instant English/Japanese/Chinese localization, automated condition randomization, millisecond response telemetry (stage1Ms, stage2Ms, stage3Ms), and one-click UTF-8 BOM CSV export:"
     )
     add_body(f"• Participant Survey Entry: {PUBLIC_URL}\n"
              f"• Researcher & Supervisor Admin Portal: {ADMIN_URL}\n"
-             f"• Condition 1 (94.8% × AI Fails): {PUBLIC_URL}/?condition=1\n"
-             f"• Condition 2 (58.2% × AI Fails): {PUBLIC_URL}/?condition=2\n"
-             f"• Condition 3 (94.8% × AI Succeeds): {PUBLIC_URL}/?condition=3\n"
-             f"• Condition 4 (58.2% × AI Succeeds): {PUBLIC_URL}/?condition=4")
+             f"• Condition 1 (Both 90% Confident × AI Fails / Manager Wins): {PUBLIC_URL}/?condition=1\n"
+             f"• Condition 2 (Both 60% Confident × AI Fails / Manager Wins): {PUBLIC_URL}/?condition=2\n"
+             f"• Condition 3 (Both 90% Confident × Manager Fails / AI Wins): {PUBLIC_URL}/?condition=3\n"
+             f"• Condition 4 (Both 60% Confident × Manager Fails / AI Wins): {PUBLIC_URL}/?condition=4")
 
     out_name = "Minor_Research_Report_EN_20261018.docx"
     p_base = os.path.join(BASE_DIR, out_name)
