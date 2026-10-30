@@ -139,39 +139,61 @@ def get_cn_markdown():
 ### 第三阶段：受试者人口学与控制变量 (Stage 3)
 
 - **Q10. 性别**：[ 男 / 女 / 其他或不愿透露 ]
-- **Q11. 年龄区间**：[ 20岁以下 / 20–29岁 / 30–39岁 / 40–49岁 / 50岁及以上 ]
+- **Q11. 具体年龄（周岁）**：[ 数字填空题：填写具体整数周岁，如 `24`（限定 16–99 岁连续数值变量） ]
 - **Q12. 学科专业背景**：[ 是（理工科 STEM / 计算机 / 数据科学 / AI 相关专业） / 否（人文社科 / 商科 / 艺术 / 其他非理工专业） ]
 - **Q13. 日常使用 AI 工具（如 ChatGPT、Claude 等）的频率**：[ 几乎不用 / 每周 1–2 次 / 几乎每天使用 / 重度深度依赖 ]
 
 ---
 
-## 4. 统计假设与数据分析方案 (Statistical Hypotheses & Data Analysis Plan)
+## 4. 统计假设、预期结果与样本量计算 (Hypotheses, Expected Results & Power Analysis)
 
 ### 4.1 核心统计假设
-- **假设 1（H1：事前认识论双标与个案把握度效应）**：在结果揭晓前的阶段一，尽管店长与 AI 拥有完全相同的训练样本量（~3,000 例）与总体准确率（85%），受试者在面对“无法用语言解释理由”时仍将表现出显著的认识论双标（Q4 均值显著高于中立值 4.0，$p < .001$），即对黑盒 AI 缺乏语言解释的容忍度显著低于对人类隐性直觉的容忍度；同时，双高把握度组（90% vs. 90%，C1 & C3）在把握度影响权重（Q3）上将显著高于双低把握度组（60% vs. 60%，C2 & C4）。
-- **假设 2（H2：失败主体的不对称归因主效应 — “对 AI 错误的严苛惩罚”）**：在阶段二结果揭晓后，比较“AI 失败组（C1 & C2）”与“店长失败组（C3 & C4）”对各自失败主体的归因得分：当 AI 预测失败时，受试者对失败 AI 的法兰克福式“胡扯（Bullshitting）”归因（Q6）与“误导失望感”（Q7）将显著高于人类店长犯同等错误时受到的指责（$p < .001$），而在理性概率豁免（Q5）上的得分将显著低于店长失败组（即人们更容易原谅人类直觉的失误，而将 AI 直觉的失误归结为“不懂装懂的胡扯”）。
-- **假设 3（H3：个案把握度 $\\times$ 失败主体的二阶交互效应与事后特征提取补偿）**：个案把握度（90% vs. 60%）与失败主体（AI 失败 vs. 店长失败）在 Q6（胡扯归因）、Q7（误导感）及 Q9（未来信任倾向）上存在显著的二阶交互作用（$p < .01$）。具体而言，“90% 高把握度下的失败”比“60% 低把握度下的失败”引发显著更强的信任反噬，且这种“高把握度失败惩罚（Penalty of Overconfidence）”在 AI 失败时（C1 vs. C2）的斜率将显著陡峭于人类店长失败时（C3 vs. C4）。此外，受试者在 Q8 上将展现出显著正向得分（$> 5.0$），证明“事后提取并标出显性特征（Post-hoc Feature Extraction）”是弥补深度学习直觉黑盒信任赤字的关键机制。
+- **假设 1（H1：事前认识论双标与个案把握度效应）**：在结果揭晓前的阶段一，尽管店长与 AI 拥有完全相同的训练样本量（~3,000 例）与总体准确率（85%），受试者在面对“无法用语言解释理由”时仍将表现出显著的认识论双标（Q4 均值显著高于中立值 4.0，$p < .001$）；同时，双高把握度组（90% vs. 90%，C1 & C3）在把握度影响权重（Q3）上将显著高于双低把握度组（60% vs. 60%，C2 & C4）。
+- **假设 2（H2：失败主体的不对称归因主效应 — “对 AI 错误的严苛惩罚”）**：在阶段二结果揭晓后，比较“AI 失败组（C1 & C2）”与“店长失败组（C3 & C4）”对各自失败主体的归因得分：当 AI 预测失败时，受试者对失败 AI 的法兰克福式“胡扯（Bullshitting）”归因（Q6）与“误导失望感”（Q7）将显著高于人类店长犯同等错误时受到的指责（$p < .001$），而在理性概率豁免（Q5）上的得分将显著低于店长失败组。
+- **假设 3（H3：个案把握度 $\\times$ 失败主体的二阶交互效应与事后特征提取补偿）**：个案把握度（90% vs. 60%）与失败主体（AI 失败 vs. 店长失败）在 Q6、Q7 及 Q9 上存在显著二阶交互作用（$p < .01$）。“90% 高把握度下的失败”比“60% 低把握度下的失败”引发显著更强的信任反噬，且该惩罚斜率在 AI 失败时（C1 vs. C2）显著陡峭于店长失败时（C3 vs. C4）。此外，Q8 将呈现显著正向得分（$> 5.0$），证明“事后提取并标出显性特征”对修复 AI 直觉信任的关键作用。
 
-### 4.2 统计检验模型
-1. **二项检验与卡方分析（Q1）**：检验在完全对称基准下人类直觉（选 A）与 AI 直觉（选 B）的总体偏好比例，并通过二元 Logistic 回归检验个案把握度水平（90% vs. 60%）及人口学协变量的影响：
-   $$\\text{{logit}}(P(\\text{{Choice}} = \\text{{AI}})) = \\beta_0 + \\beta_1 \\cdot \\text{{ConfidenceLevel}} + \\beta_2 \\cdot \\text{{STEM}} + \\beta_3 \\cdot \\text{{AIFreq}}$$
-2. **$2 \\times 2$ 组间双因素方差分析（Two-Way Factorial ANOVA，Q2–Q9）**：评估“个案把握度（90% vs. 60%）”主效应、“失败主体（AI 失败 vs. 店长失败）”主效应及其交互项，并报告偏 Eta 平方（$\\eta_p^2$）效应量：
+### 4.2 预期结果与先验样本量计算 (Expected Results & A Priori Power Analysis)
+基于上述假设，设定各阶段核心指标的大致预期表现（7 级李克特量表，1–7 分，假定组内标准差 $SD \\approx 1.15$）：
+1. **阶段一预期表现**：在完全对称基线下，预计约 **55%–60%** 受试者选择人类直觉（A号），**40%–45%** 选择 AI 直觉（B号）；认识论双标量表（Q4）预期均值约为 **$M = 5.10, SD = 1.20$**（显著高于中立值 $4.0$，单样本效应量 Cohen's $d \\approx 0.92$）。
+2. **阶段二核心因变量（以 Q6 法兰克福式“胡扯”归因为代表）的 $2 \\times 2$ 预期单元均值**：
+
+| 实验条件组 | 自变量 1：把握度 | 自变量 2：失败主体 | 预期均值 ($M$) | 预期标准差 ($SD$) | 实质效应预期 |
+| :--- | :--- | :--- | :---: | :---: | :--- |
+| **Condition 1** | 高把握度 (90%) | AI 系统失败 | **5.60** | 1.15 | 强烈认识论反噬：高把握翻车的黑盒 AI 被高度归因为“盲目胡扯” |
+| **Condition 2** | 低把握度 (60%) | AI 系统失败 | **3.80** | 1.15 | 当 AI 事先表明仅 60% 临界把握时，指责显著缓和（$\\Delta_{{\\text{{AI}}}} = +1.80$） |
+| **Condition 3** | 高把握度 (90%) | 人类店长失败 | **3.60** | 1.15 | 对人类行家经验失手的容忍度较高 |
+| **Condition 4** | 低把握度 (60%) | 人类店长失败 | **3.40** | 1.15 | 被高度豁免为正常的 15% 统计例外（$\\Delta_{{\\text{{Human}}}} = +0.20$） |
+
+3. **基于预期均值的样本量推算（$\\alpha = 0.05$，统计检验力 $1 - \\beta = 0.80$，$2 \\times 2$ 固定效应方差分析，$df_1 = 1$）**：
+   - **失败主体主效应**（$\\mu_{{\\text{{AI}}}} = 4.70$ vs. $\\mu_{{\\text{{Human}}}} = 3.50$，主效应偏差 $|\\beta| = 0.60$）：效应量 Cohen's $f = 0.60 / 1.15 = \\mathbf{{0.52}}$，最低仅需 **$N = 32$ 人**（每组 8 人）；
+   - **把握度主效应**（$\\mu_{{90\\%}} = 4.60$ vs. $\\mu_{{60\\%}} = 3.60$，主效应偏差 $|\\alpha| = 0.50$）：效应量 Cohen's $f = 0.50 / 1.15 = \\mathbf{{0.43}}$，最低仅需 **$N = 45$ 人**（每组 12 人）；
+   - **二阶交互效应**（$|\\gamma| = |(5.60 - 3.80) - (3.60 - 3.40)| / 4 = 0.40$）：交互效应量 **Cohen's $f = 0.40 / 1.15 = \\mathbf{{0.35}}$**。在 $\\alpha = 0.05, 1 - \\beta = 0.80$ 标准下，检验该交互效应所需的最低有效总样本量为 **$N = 68$ 人（即每组 $n = 17$ 人）**。
+   - 计入约 15% 的注意力筛查与无效卷缓冲，单一语种样本池的目标招募人数定为 **$N = 80$ 人（每组 $n = 20$ 人）**。
+
+### 4.3 目标受试者群体与跨文化范围界定 (Target Participants & Cultural Scope)
+- **基准方案（单一文化同质样本控制）**：为避免语言与文化差异在 $2 \\times 2$ 组间设计中引入额外混杂方差，本研究基准方案聚焦单一母语群体（例如招募 **$N = 68\\text{{–}}80$ 名中文母语成年受试者**，正式发放时将问卷界面锁定为单一语种）。系统内置的英、日文界面供学术指导与审阅使用。
+- **可选跨文化扩展假说（若采用多语种众包样本池）**：若通过众包科研平台同步采集日本与中文受试者（每语种各 $N = 68\\text{{–}}80$ 人），可进一步检验探索性文化差异假说（H4）：受传统“职人（職人 / *Shokunin*）”具身技艺尊重文化的影响，日本受试者在面对不可言传的判断时，是否比处于高频算法消费生态中的中国受试者对“人类直觉”表现出更高的初始偏好与失误宽容度。
+
+### 4.4 统计检验模型
+1. **二项检验与二元 Logistic 回归（Q1）**：控制连续年龄（Q11）、理工科背景（Q12）与日常 AI 频率（Q13）：
+   $$\\text{{logit}}(P(\\text{{Choice}} = \\text{{AI}})) = \\beta_0 + \\beta_1 \\cdot \\text{{ConfidenceLevel}} + \\beta_2 \\cdot \\text{{Age}} + \\beta_3 \\cdot \\text{{STEM}} + \\beta_4 \\cdot \\text{{AIFreq}}$$
+2. **$2 \\times 2$ 组间双因素方差分析与协方差分析（ANOVA / ANCOVA，Q2–Q9）**：
    $$Y_{{ijk}} = \\mu + \\alpha_i (\\text{{Confidence}}_i) + \\beta_j (\\text{{FailedAgent}}_j) + (\\alpha\\beta)_{{ij}} (\\text{{Confidence}}_i \\times \\text{{FailedAgent}}_j) + \\epsilon_{{ijk}}$$
-3. **简单效应分析与协方差控制（ANCOVA）**：采用 Bonferroni 校正检验四个条件组间的简单效应，并将理工科背景（Q12）与日常 AI 使用频率（Q13）作为协变量纳入 ANCOVA 模型。
 
 ---
 
-## 5. 在线实验系统架构与永久访问入口 (Online Experimental System & Permanent Links)
+## 5. 在线实验系统架构与单盲访问链接 (Online Experimental System & Blinded Access Links)
 
-本研究所配套的在线交互式实验系统已部署于云端生产环境，支持中、英、日三语实时切换、自动随机分组、顶部 `[C1 | C2 | C3 | C4]` 预览切换栏、毫秒级反应时采集及 UTF-8 BOM 标准 CSV 数据导出：
+在线实验平台严格区分**“受试者正式单盲入口”**与**“导师审阅预览模式”**：在正式受试者入口中，**顶部的条件切换栏与组别标签已被完全隐藏**，系统静默执行随机分配并锁定会话（防止刷新串组）；仅在携带 `?preview=1` 参数的审阅链接中才展示四组切换栏。
 
-- **受试者问卷系统主链接（随机分配）**：[{PUBLIC_URL}]({PUBLIC_URL})
+- **受试者正式单盲问卷入口（已隐藏所有条件切换标签）**：[{PUBLIC_URL}]({PUBLIC_URL})
+  - 中文锁定单盲入口（向中文受试者发放时使用）：[{PUBLIC_URL}/?lang=zh&locklang=1]({PUBLIC_URL}/?lang=zh&locklang=1)
 - **研究者与导师管理后台（实时统计与 CSV 导出）**：[{ADMIN_URL}]({ADMIN_URL})
-- **四个实验条件组直达预览链接**：
-  - Condition 1 (双方 90% 高把握 × AI 失败/店长正确)：[{PUBLIC_URL}/?condition=1]({PUBLIC_URL}/?condition=1)
-  - Condition 2 (双方 60% 低把握 × AI 失败/店长正确)：[{PUBLIC_URL}/?condition=2]({PUBLIC_URL}/?condition=2)
-  - Condition 3 (双方 90% 高把握 × 店长失败/AI正确)：[{PUBLIC_URL}/?condition=3]({PUBLIC_URL}/?condition=3)
-  - Condition 4 (双方 60% 低把握 × 店长失败/AI正确)：[{PUBLIC_URL}/?condition=4]({PUBLIC_URL}/?condition=4)
+- **导师审阅专用预览链接（带 `?preview=1` 条件切换栏，仅供审阅）**：
+  - Condition 1 (双方 90% 高把握 × AI 失败/店长正确)：[{PUBLIC_URL}/?condition=1&preview=1]({PUBLIC_URL}/?condition=1&preview=1)
+  - Condition 2 (双方 60% 低把握 × AI 失败/店长正确)：[{PUBLIC_URL}/?condition=2&preview=1]({PUBLIC_URL}/?condition=2&preview=1)
+  - Condition 3 (双方 90% 高把握 × 店长失败/AI正确)：[{PUBLIC_URL}/?condition=3&preview=1]({PUBLIC_URL}/?condition=3&preview=1)
+  - Condition 4 (双方 60% 低把握 × 店长失败/AI正确)：[{PUBLIC_URL}/?condition=4&preview=1]({PUBLIC_URL}/?condition=4&preview=1)
 """
 
 
@@ -183,10 +205,9 @@ def get_en_markdown():
 
 ### Project Metadata
 - **Research Title**: *Human Intuition vs. Artificial Intuition: Epistemic Asymmetry and Error Attribution When Two "Ineffable Black Boxes" Conflict*
-- **Chinese Title**: 人类直觉 vs. 人工直觉：当两个“不可言传的黑盒”发生决策冲突时的认识论双标与错误归因研究
-- **Researcher**: XIU TIANYUAN (修 天源), Master's Program (M2), School of Knowledge Science, Japan Advanced Institute of Science and Technology (JAIST)
-- **Academic Advisor**: Prof. Mizumoto (水本 教授)
-- **Date**: October 25, 2026
+- **Researcher**: Tianyuan Xiu, Master's Program (M2), School of Knowledge Science, Japan Advanced Institute of Science and Technology (JAIST)
+- **Academic Advisor**: Prof. Masaharu Mizumoto
+- **Date**: October 30, 2026
 - **Research Domains**: Knowledge Science, Experimental Philosophy, Human-Computer Interaction (HCI), Cognitive Psychology
 
 ---
@@ -288,39 +309,61 @@ The online survey enforces strict forward-only progression across three sequenti
 ### Stage 3: Demographic & Control Variables
 
 - **Q10. Gender**: [ Male / Female / Other or Prefer not to say ]
-- **Q11. Age Group**: [ Under 20 / 20–29 / 30–39 / 40–49 / 50+ ]
+- **Q11. Age (in years)**: [ Exact numeric input: specific integer age in years, e.g., `24` (continuous variable, valid range 16–99) ]
 - **Q12. Academic Background**: [ Yes (STEM / Computer Science / Data Science / AI) / No (Humanities / Social Sciences / Business / Arts / Other) ]
 - **Q13. Daily AI Tool Usage Frequency (e.g., ChatGPT, Claude)**: [ Rarely / 1–2 times per week / Daily / Heavy reliance ]
 
 ---
 
-## 4. Statistical Hypotheses & Data Analysis Plan
+## 4. Hypotheses, Expected Results, Sample Size Calculation & Analysis Plan
 
 ### 4.1 Primary Statistical Hypotheses
 - **Hypothesis 1 (H1: Pre-Outcome Epistemic Double Standard Toward Unexplainability)**: In Stage 1 prior to outcome revelation, despite identical training data (~3,000 cases) and overall accuracy (85%), participants will exhibit a significant epistemic double standard in Q4 (mean score significantly above neutral $4.0$, $p < .001$), demanding explicit verbal explanations more strictly from black-box AI than from human tacit intuition. Meanwhile, matched high confidence (90% vs. 90%, Conditions 1 & 3) will yield significantly higher perceived confidence impact (Q3) than matched low confidence (60% vs. 60%, Conditions 2 & 4).
 - **Hypothesis 2 (H2: Main Effect of Failed Agent — Asymmetric Epistemic Blame Against AI)**: In Stage 2, comparing attribution toward the failed AI (Conditions 1 & 2) versus the failed human manager (Conditions 3 & 4), participants will assign significantly higher Frankfurtian *"bullshitting"* attribution (Q6) and perceived misleadingness (Q7), and significantly lower probabilistic forgiveness (Q5), to **the failed AI system** than to **the failed human manager** for the exact same diagnostic failure ($p < .001$).
-- **Hypothesis 3 (H3: Confidence $\\times$ Failed Agent Interaction & Post-Hoc Feature Extraction)**: There will be a significant two-way interaction between Case Confidence (90% vs. 60%) and Failed Agent (AI Fails vs. Manager Fails) on Q6, Q7, and Q9 ($p < .01$). Failing after expressing 90% confidence will provoke a much harsher backlash than failing after expressing 60% confidence, and this *Penalty of Overconfidence* will be disproportionately steeper when the AI fails (C1 vs. C2) than when the human manager fails (C3 vs. C4). Furthermore, Q8 will show strong positive agreement ($> 5.0$), demonstrating that **post-hoc explicit feature extraction** is the pivotal mechanism for overcoming the epistemic distrust of AI intuition.
+- **Hypothesis 3 (H3: Confidence $\\times$ Failed Agent Interaction & Post-Hoc Feature Extraction)**: There will be a significant two-way interaction between Case Confidence (90% vs. 60%) and Failed Agent (AI Fails vs. Manager Fails) on Q6, Q7, and Q9 ($p < .01$). Failing after expressing 90% confidence will provoke a much harsher backlash than failing after expressing 60% confidence, and this *Penalty of Overconfidence* will be disproportionately steeper when the AI fails (C1 vs. C2) than when the human manager fails (C3 vs. C4). Furthermore, Q8 will show strong positive agreement ($> 5.0$), demonstrating that **post-hoc explicit feature extraction** is a key mechanism for overcoming distrust of AI intuition.
 
-### 4.2 Statistical Modeling Pipeline
-1. **Binomial & Chi-Square / Logistic Regression (Q1)**: Evaluates baseline preference between human intuition and AI intuition, and tests whether matched confidence level (90% vs. 60%) and demographic covariates shift the choice ratio:
-   $$\\text{{logit}}(P(\\text{{Choice}} = \\text{{AI}})) = \\beta_0 + \\beta_1 \\cdot \\text{{ConfidenceLevel}} + \\beta_2 \\cdot \\text{{STEM}} + \\beta_3 \\cdot \\text{{AIFreq}}$$
-2. **Two-Way Factorial Analysis of Variance (Q2–Q9)**: Standard $2 \\times 2$ Between-Subjects ANOVA evaluating main effects of Case Confidence (`90%` vs. `60%`), Failed Agent (`AI Fails` vs. `Manager Fails`), and their interaction term, reporting partial eta-squared ($\\eta_p^2$):
+### 4.2 Expected Results & A Priori Sample Size Calculation (Power Analysis)
+Based on Hypotheses H1–H3, we specify the rough quantitative expectations on the 7-point Likert scales (1 = Strongly Disagree, 4 = Neutral, 7 = Strongly Agree, assuming a typical within-cell standard deviation of $SD \\approx 1.15$):
+1. **Stage 1 Expectations**: Under strictly symmetric baselines, approximately **55%–60%** of participants are expected to favor Human Intuition (Durian A) vs. **40%–45%** for AI Intuition (Durian B), while Q4 (Epistemic Double Standard on Unexplainability) is expected to average **$M = 5.10, SD = 1.20$** (significantly above the midpoint $4.0$, one-sample Cohen's $d \\approx 0.92$).
+2. **Stage 2 Expected $2 \\times 2$ Cell Means (illustrated on the primary outcome Q6: Frankfurtian "Bullshitting" Attribution)**:
+
+| Condition | Factor 1: Confidence | Factor 2: Failed Agent | Expected Mean ($M$) | Expected $SD$ | Substantive Interpretation |
+| :--- | :--- | :--- | :---: | :---: | :--- |
+| **Condition 1** | High (90%) | AI System Fails | **5.60** | 1.15 | Severe backlash: 90%-confident failed black-box AI judged as "bullshitting" |
+| **Condition 2** | Low (60%) | AI System Fails | **3.80** | 1.15 | Attenuated blame when AI expressed borderline 60% uncertainty ($\\Delta_{{\\text{{AI}}}} = +1.80$) |
+| **Condition 3** | High (90%) | Manager Fails | **3.60** | 1.15 | Greater leniency toward human veteran intuition failing at 90% confidence |
+| **Condition 4** | Low (60%) | Manager Fails | **3.40** | 1.15 | Excused as normal 15% statistical outlier ($\\Delta_{{\\text{{Human}}}} = +0.20$) |
+
+3. **Required Sample Size Calculation ($\\alpha = 0.05$, Power $1 - \\beta = 0.80$, $2 \\times 2$ Fixed-Effects ANOVA, $df_1 = 1$)**:
+   - **Main Effect of Failed Agent** ($\\mu_{{\\text{{AI}}}} = 4.70$ vs. $\\mu_{{\\text{{Human}}}} = 3.50$, effect $|\\beta| = 0.60$): Cohen's $f = 0.60 / 1.15 = \\mathbf{{0.52}}$ $\\rightarrow$ minimum required **$N = 32$** ($n = 8$ per condition).
+   - **Main Effect of Confidence** ($\\mu_{{90\\%}} = 4.60$ vs. $\\mu_{{60\\%}} = 3.60$, effect $|\\alpha| = 0.50$): Cohen's $f = 0.50 / 1.15 = \\mathbf{{0.43}}$ $\\rightarrow$ minimum required **$N = 45$** ($n = 12$ per condition).
+   - **Two-Way Interaction Effect** ($|\\gamma| = |(5.60 - 3.80) - (3.60 - 3.40)| / 4 = 0.40$): **Cohen's $f = 0.40 / 1.15 = \\mathbf{{0.35}}$** $\\rightarrow$ minimum required **$N = 68$** (**$n = 17$ per condition**) to achieve $80\\%$ statistical power at $\\alpha = 0.05$.
+   - Including a ~15% buffer for quality screening, the **target sample size is $N = 80$ participants ($n = 20$ per condition)** within a single homogeneous participant pool.
+
+### 4.3 Target Participant Pool & Cultural Scope
+- **Primary Baseline Design (Single Homogeneous Cultural Group)**: To avoid linguistic and cultural confounding within the $2 \\times 2$ design, the baseline study recruits a single culturally homogeneous participant group (**$N = 68\\text{{–}}80$ adult native speakers of one language**, e.g., native Chinese speakers, with the survey interface locked to that language). The multilingual toggle (English / Japanese / Chinese) is maintained on the review interface solely for academic supervision.
+- **Optional Cross-Cultural Extension (If Multi-Language Crowdsourcing Panels Are Utilized)**: Should crowdsourcing panels be deployed across both Japanese and Chinese speakers ($N = 68\\text{{–}}80$ per cultural group), an exploratory cultural hypothesis (H4) can be tested: whether Japanese participants exhibit greater deference and error-forgiveness toward ineffable human intuition—reflecting the cultural valuation of embodied *shokunin* craftsmanship and tacit knowledge—compared to Chinese participants accustomed to pervasive algorithmic consumer recommendation ecosystems.
+
+### 4.4 Statistical Modeling Pipeline
+1. **Binomial & Logistic Regression (Q1)** controlling for continuous Age (Q11), STEM background (Q12), and AI usage frequency (Q13):
+   $$\\text{{logit}}(P(\\text{{Choice}} = \\text{{AI}})) = \\beta_0 + \\beta_1 \\cdot \\text{{ConfidenceLevel}} + \\beta_2 \\cdot \\text{{Age}} + \\beta_3 \\cdot \\text{{STEM}} + \\beta_4 \\cdot \\text{{AIFreq}}$$
+2. **Two-Way Factorial ANOVA & ANCOVA (Q2–Q9)**:
    $$Y_{{ijk}} = \\mu + \\alpha_i (\\text{{Confidence}}_i) + \\beta_j (\\text{{FailedAgent}}_j) + (\\alpha\\beta)_{{ij}} (\\text{{Confidence}}_i \\times \\text{{FailedAgent}}_j) + \\epsilon_{{ijk}}$$
-3. **Simple Effects & Covariate Control (ANCOVA)**: Bonferroni-corrected simple main effects analyses across Conditions 1–4, supplemented by ANCOVA controlling for STEM background (Q12) and AI familiarity (Q13).
 
 ---
 
-## 5. Online Experimental System & Permanent Access Links
+## 5. Online Experimental System & Blinded Access Links
 
-A full-stack web experimental platform is permanently deployed on cloud infrastructure, featuring instant English/Japanese/Chinese switching, automated randomization, a top-level `[C1 | C2 | C3 | C4]` condition preview bar, millisecond stage telemetry (`stage1Ms`, `stage2Ms`, `stage3Ms`), and one-click UTF-8 BOM `.csv` export:
+The online platform strictly separates the **Blinded Participant Entry** from the **Supervisor Preview Mode**: on the actual participant URL, **all condition-switching tabs and condition labels are completely hidden**, and random assignment is locked per browser session so participants cannot view other conditions. Condition-switching tabs appear exclusively when `?preview=1` is appended by the researcher.
 
-- **Participant Survey Entry (Random Assignment)**: [{PUBLIC_URL}]({PUBLIC_URL})
+- **Blinded Participant Survey Entry (Condition tabs strictly hidden)**: [{PUBLIC_URL}]({PUBLIC_URL})
+  - Single-Language Locked Participant Entry (e.g., Chinese-locked): [{PUBLIC_URL}/?lang=zh&locklang=1]({PUBLIC_URL}/?lang=zh&locklang=1)
 - **Researcher & Supervisor Admin Portal**: [{ADMIN_URL}]({ADMIN_URL})
-- **Direct Condition Preview Links**:
-  - Condition 1 (Both 90% Confident × AI Fails / Manager Wins): [{PUBLIC_URL}/?condition=1]({PUBLIC_URL}/?condition=1)
-  - Condition 2 (Both 60% Confident × AI Fails / Manager Wins): [{PUBLIC_URL}/?condition=2]({PUBLIC_URL}/?condition=2)
-  - Condition 3 (Both 90% Confident × Manager Fails / AI Wins): [{PUBLIC_URL}/?condition=3]({PUBLIC_URL}/?condition=3)
-  - Condition 4 (Both 60% Confident × Manager Fails / AI Wins): [{PUBLIC_URL}/?condition=4]({PUBLIC_URL}/?condition=4)
+- **Supervisor Preview Links (With `?preview=1` condition switcher for inspection only)**:
+  - Condition 1 (Both 90% Confident × AI Fails / Manager Wins): [{PUBLIC_URL}/?condition=1&preview=1]({PUBLIC_URL}/?condition=1&preview=1)
+  - Condition 2 (Both 60% Confident × AI Fails / Manager Wins): [{PUBLIC_URL}/?condition=2&preview=1]({PUBLIC_URL}/?condition=2&preview=1)
+  - Condition 3 (Both 90% Confident × Manager Fails / AI Wins): [{PUBLIC_URL}/?condition=3&preview=1]({PUBLIC_URL}/?condition=3&preview=1)
+  - Condition 4 (Both 60% Confident × Manager Fails / AI Wins): [{PUBLIC_URL}/?condition=4&preview=1]({PUBLIC_URL}/?condition=4&preview=1)
 """
 
 
@@ -653,12 +696,13 @@ def build_cn_docx():
 
     add_h2("第三阶段：受试者人口学与控制变量 (Stage 3)")
     add_body("• Q10. 性别：[ 男 / 女 / 其他或不愿透露 ]\n"
-             "• Q11. 年龄区间：[ 20岁以下 / 20–29岁 / 30–39岁 / 40–49岁 / 50岁及以上 ]\n"
+             "• Q11. 具体年龄（周岁）：[ 数字输入框：填写具体整数周岁，如 24（连续数值变量，16–99岁） ]\n"
              "• Q12. 学科专业背景：[ 是（理工科 STEM / 计算机 / 数据科学 / AI 相关专业） / 否（人文社科 / 商科 / 艺术 / 其他非理工专业） ]\n"
              "• Q13. 日常使用 AI 工具（如 ChatGPT、Claude 等）的频率：[ 几乎不用 / 每周 1–2 次 / 几乎每天使用 / 重度深度依赖 ]")
 
     # --- SECTION 4 ---
-    add_h1("4. 统计假设与数据分析方案 (Statistical Hypotheses & Analysis Plan)")
+    add_h1("4. 统计假设、预期结果与样本量计算 (Hypotheses, Expected Results & Power Analysis)")
+    add_h2("4.1 核心统计假设")
     add_body(
         "在阶段一结果揭晓前，尽管店长与 AI 拥有完全相同的训练样本量（~3,000 例）与总体准确率（85%），受试者在面对“无法用语言解释理由”时仍将表现出显著的认识论双标（Q4 均值显著高于中立值 4.0，p < .001）；同时，双高把握度组（90% vs. 90%，C1 & C3）在把握度影响权重（Q3）上将显著高于双低把握度组（60% vs. 60%，C2 & C4）。",
         "• 假设 1（H1：事前认识论双标与个案把握度效应）："
@@ -671,22 +715,50 @@ def build_cn_docx():
         "个案把握度（90% vs. 60%）与失败主体（AI 失败 vs. 店长失败）在 Q6、Q7 及 Q9 上存在显著二阶交互作用（p < .01）。“90% 高把握度下的失败”比“60% 低把握度下的失败”引发显著更强的反噬，且该惩罚斜率在 AI 失败时（C1 vs. C2）显著陡峭于店长失败时（C3 vs. C4）。此外，Q8 将呈现显著高分（> 5.0），证实“事后显性特征提取”对修复 AI 直觉信任的关键作用。",
         "• 假设 3（H3：把握度 × 失败主体交互效应与事后特征提取补偿）："
     )
+
+    add_h2("4.2 预期结果与先验样本量计算 (Expected Results & Sample Size Calculation)")
     add_body(
-        "采用卡方检验与二元 Logistic 回归分析 Q1 决策选择；采用 2×2 组间双因素方差分析（Two-Way Factorial ANOVA: Y_ijk = μ + α_i + β_j + (αβ)_ij + ε_ijk）检验 Q2–Q9 的主效应与交互效应，并将理工科背景（Q12）与 AI 使用频率（Q13）纳入协方差分析（ANCOVA）。",
+        "在阶段一对称基线下，预计约 55%–60% 受试者选择人类直觉（A号），40%–45% 选择 AI 直觉（B号）；Q4（认识论双标）预期均值约为 M = 5.10, SD = 1.20（显著高于中立值 4.0，Cohen's d ≈ 0.92）。阶段二核心因变量（以 Q6 法兰克福式“胡扯”归因为代表，7级量表，假定组内标准差 SD ≈ 1.15）的四组预期均值如下表所示："
+    )
+    exp_w_cn = [Inches(1.1), Inches(1.15), Inches(1.25), Inches(0.85), Inches(2.15)]
+    exp_h_cn = ["实验条件组", "把握度水平", "失败主体", "预期均值 (SD)", "实质效应预期"]
+    exp_d_cn = [
+        ["Condition 1", "高把握 (90%)", "AI 系统失败", "5.60 (1.15)", "强烈认识论反噬：高把握翻车黑盒 AI 被高度归因为胡扯"],
+        ["Condition 2", "低把握 (60%)", "AI 系统失败", "3.80 (1.15)", "AI 事先表明仅 60% 临界把握，指责显著缓和 (Δ_AI = +1.80)"],
+        ["Condition 3", "高把握 (90%)", "人类店长失败", "3.60 (1.15)", "对人类资深行家直觉失误的容忍度显著更高"],
+        ["Condition 4", "低把握 (60%)", "人类店长失败", "3.40 (1.15)", "被豁免为正常的 15% 概率例外 (Δ_Human = +0.20)"]
+    ]
+    t_exp_cn = doc.add_table(rows=1, cols=5)
+    format_academic_table(t_exp_cn, exp_w_cn, exp_h_cn, exp_d_cn, is_cn=True)
+    doc.add_paragraph().paragraph_format.space_after = Pt(4)
+
+    add_body(
+        "基于上述预期均值进行 2×2 固定效应方差分析（α = 0.05，统计检验力 1 - β = 0.80，分子自由度 df_1 = 1）的先验样本量推算：（1）失败主体主效应（4.70 vs. 3.50，Cohen's f = 0.60 / 1.15 = 0.52）最低仅需 N = 32 人；（2）把握度主效应（4.60 vs. 3.60，Cohen's f = 0.50 / 1.15 = 0.43）最低仅需 N = 45 人；（3）二阶交互效应（|γ| = |(5.60 - 3.80) - (3.60 - 3.40)| / 4 = 0.40，Cohen's f = 0.40 / 1.15 = 0.35）所需的最低有效总样本量为 N = 68 人（每组 n = 17 人）。计入约 15% 的注意力与质量筛查缓冲，单一语种样本池的目标招募样本量设定为 N = 80 人（每组 n = 20 人）。",
+        "• 样本量功效推算结论："
+    )
+
+    add_h2("4.3 目标受试者群体、文化范围与统计检验模型")
+    add_body(
+        "为避免跨语言与文化背景在 2×2 设计中引入混杂干扰，本研究基准方案招募单一母语同质受试者群体（N = 68–80 名成年中文母语者，正式发放时锁定中文单盲界面）。若后续通过多语种众包科研平台同步采集日本与中国受试者（每语种各 N = 68–80 人），则可进一步检验跨文化扩展假说（H4）：探讨受“职人（Shokunin）”暗默知传统影响的日本受试者，是否比高频接触算法消费推荐的中国受试者对人类直觉展现更高的偏好与失误宽容度。",
+        "• 目标受试者与文化范围："
+    )
+    add_body(
+        "采用卡方检验与二元 Logistic 回归分析 Q1 决策选择；采用 2×2 组间双因素方差分析（Two-Way Factorial ANOVA: Y_ijk = μ + α_i + β_j + (αβ)_ij + ε_ijk）检验 Q2–Q9 的主效应与交互效应，并将连续年龄（Q11）、理工科背景（Q12）与 AI 使用频率（Q13）纳入协方差分析（ANCOVA）。",
         "• 统计检验模型："
     )
 
     # --- SECTION 5 ---
-    add_h1("5. 在线实验系统架构与永久访问入口 (Online Experimental System & Permanent Links)")
+    add_h1("5. 在线实验系统架构与单盲访问链接 (Online Experimental System & Blinded Links)")
     add_body(
-        "本研究所配套的在线交互式实验平台已部署于云端生产环境，支持中、英、日三语一键切换、被试随机分组、毫秒级阶段反应时记录（stage1Ms, stage2Ms, stage3Ms）以及 UTF-8 BOM 标准 CSV 数据一键导出："
+        "在线实验系统严格实施“受试者单盲入口”与“导师审阅预览模式”分离：在受试者正式入口中，顶部的条件切换栏与组别标签已被完全移除，系统静默执行随机分配并锁定浏览器会话；仅在附带 ?preview=1 参数的导师审阅链接中才展示四组切换栏："
     )
-    add_body(f"• 受试者问卷系统主链接：{PUBLIC_URL}\n"
+    add_body(f"• 受试者正式单盲问卷入口（已隐藏所有条件切换标签）：{PUBLIC_URL}\n"
+             f"• 受试者中文锁定单盲入口：{PUBLIC_URL}/?lang=zh&locklang=1\n"
              f"• 研究者与导师管理后台：{ADMIN_URL}\n"
-             f"• Condition 1 (双方 90% 高把握 × AI 失败/店长正确)：{PUBLIC_URL}/?condition=1\n"
-             f"• Condition 2 (双方 60% 低把握 × AI 失败/店长正确)：{PUBLIC_URL}/?condition=2\n"
-             f"• Condition 3 (双方 90% 高把握 × 店长失败/AI正确)：{PUBLIC_URL}/?condition=3\n"
-             f"• Condition 4 (双方 60% 低把握 × 店长失败/AI正确)：{PUBLIC_URL}/?condition=4")
+             f"• 导师审阅预览 C1 (双方 90% × AI 失败)：{PUBLIC_URL}/?condition=1&preview=1\n"
+             f"• 导师审阅预览 C2 (双方 60% × AI 失败)：{PUBLIC_URL}/?condition=2&preview=1\n"
+             f"• 导师审阅预览 C3 (双方 90% × 店长失败)：{PUBLIC_URL}/?condition=3&preview=1\n"
+             f"• 导师审阅预览 C4 (双方 60% × 店长失败)：{PUBLIC_URL}/?condition=4&preview=1")
 
     out_name = "Minor_Research_Report_CN_20261018.docx"
     p_base = os.path.join(BASE_DIR, out_name)
@@ -761,9 +833,9 @@ def build_en_docx():
     meta_info = [
         "[Project Metadata]",
         "• Research Title: Human Intuition vs. Artificial Intuition: Epistemic Asymmetry and Error Attribution When Two 'Ineffable Black Boxes' Conflict",
-        "• Researcher: XIU TIANYUAN (修 天源) — Master's Program (M2), School of Knowledge Science, JAIST",
-        "• Academic Advisor: Prof. Mizumoto (水本 教授)",
-        "• Date: October 25, 2026",
+        "• Researcher: Tianyuan Xiu — Master's Program (M2), School of Knowledge Science, JAIST",
+        "• Academic Advisor: Prof. Masaharu Mizumoto",
+        "• Date: October 30, 2026",
         "• Research Domains: Knowledge Science, Experimental Philosophy, Human-Computer Interaction (HCI), Cognitive Psychology"
     ]
     add_callout(doc, meta_info, is_cn=False, border_color="1E293B", bg_color="F8FAFC")
@@ -863,12 +935,13 @@ def build_en_docx():
 
     add_h2("Stage 3: Demographic & Control Variables")
     add_body("• Q10. Gender: [ Male / Female / Other or Prefer not to say ]\n"
-             "• Q11. Age Group: [ Under 20 / 20–29 / 30–39 / 40–49 / 50+ ]\n"
+             "• Q11. Age (in years): [ Exact numeric input: specific integer age in years, e.g., 24 (continuous variable, valid range 16–99) ]\n"
              "• Q12. Academic Background: [ Yes (STEM / Computer Science / Data Science / AI) / No (Humanities / Social Sciences / Business / Arts / Other) ]\n"
              "• Q13. Daily AI Tool Usage Frequency (e.g., ChatGPT, Claude): [ Rarely / 1–2 times per week / Daily / Heavy reliance ]")
 
     # --- SECTION 4 ---
-    add_h1("4. Statistical Hypotheses & Data Analysis Plan")
+    add_h1("4. Hypotheses, Expected Results, Sample Size Calculation & Analysis Plan")
+    add_h2("4.1 Primary Statistical Hypotheses")
     add_body(
         "In Stage 1 prior to outcome revelation, despite identical training data (~3,000 cases) and overall accuracy (85%), participants will exhibit a significant epistemic double standard in Q4 (mean score > 4.0, p < .001), demanding explicit verbal explanations more strictly from black-box AI than from human tacit intuition; meanwhile, matched high confidence (90% vs. 90%, C1 & C3) will yield significantly higher perceived confidence impact (Q3) than matched low confidence (60% vs. 60%, C2 & C4).",
         "• Hypothesis 1 (H1: Pre-Outcome Epistemic Double Standard Toward Unexplainability): "
@@ -881,29 +954,59 @@ def build_en_docx():
         "There will be a significant two-way interaction between Case Confidence (90% vs. 60%) and Failed Agent (AI Fails vs. Manager Fails) on Q6, Q7, and Q9 (p < .01). Failing at 90% confidence will provoke a much harsher backlash than failing at 60% confidence, and this Penalty of Overconfidence will be steeper against AI (C1 vs. C2) than against the human expert (C3 vs. C4). Moreover, Q8 will show strong agreement (> 5.0), confirming the value of post-hoc explicit feature extraction.",
         "• Hypothesis 3 (H3: Confidence × Failed Agent Interaction & Post-Hoc Feature Extraction): "
     )
+
+    add_h2("4.2 Expected Results & A Priori Sample Size Calculation (Power Analysis)")
     add_body(
-        "Chi-square test and Binary Logistic Regression for Q1; 2×2 Between-Subjects Factorial ANOVA (Y_ijk = μ + α_i + β_j + (αβ)_ij + ε_ijk) for Q2–Q9; Bonferroni-corrected simple main effects and ANCOVA controlling for STEM background (Q12) and AI familiarity (Q13).",
+        "In Stage 1, under strictly matched baselines, approximately 55%–60% of participants are expected to choose Human Intuition (Durian A) vs. 40%–45% for AI Intuition (Durian B), while Q4 (Epistemic Double Standard on Unexplainability) is expected around M = 5.10, SD = 1.20 (significantly above the neutral midpoint 4.0, one-sample Cohen's d ≈ 0.92). For Stage 2, assuming a standard within-cell SD ≈ 1.15 on the 7-point Likert scales, the rough expected 2×2 cell means (illustrated on the primary outcome Q6: Frankfurtian 'Bullshitting' Attribution) are:"
+    )
+    exp_w_en = [Inches(1.1), Inches(1.15), Inches(1.25), Inches(0.85), Inches(2.15)]
+    exp_h_en = ["Condition", "Confidence", "Failed Agent", "Expected M (SD)", "Substantive Expectation"]
+    exp_d_en = [
+        ["Condition 1", "High (90%)", "AI System Fails", "5.60 (1.15)", "Severe backlash: 90%-confident failed black-box AI judged as 'bullshitting'"],
+        ["Condition 2", "Low (60%)", "AI System Fails", "3.80 (1.15)", "Attenuated blame when AI expressed 60% uncertainty (Δ_AI = +1.80)"],
+        ["Condition 3", "High (90%)", "Manager Fails", "3.60 (1.15)", "Greater leniency toward human veteran intuition failing at 90% confidence"],
+        ["Condition 4", "Low (60%)", "Manager Fails", "3.40 (1.15)", "Excused as normal 15% statistical outlier (Δ_Human = +0.20)"]
+    ]
+    t_exp_en = doc.add_table(rows=1, cols=5)
+    format_academic_table(t_exp_en, exp_w_en, exp_h_en, exp_d_en, is_cn=False)
+    doc.add_paragraph().paragraph_format.space_after = Pt(4)
+
+    add_body(
+        "Conducting an a priori power analysis for a 2×2 fixed-effects ANOVA (α = 0.05, statistical power 1 - β = 0.80, numerator df_1 = 1) based on these expected means yields: (1) Main Effect of Failed Agent (4.70 vs. 3.50, Cohen's f = 0.60 / 1.15 = 0.52) requires minimum N = 32 (n = 8 per cell); (2) Main Effect of Confidence (4.60 vs. 3.60, Cohen's f = 0.50 / 1.15 = 0.43) requires minimum N = 45 (n = 12 per cell); (3) Two-Way Interaction Effect (|γ| = |(5.60 - 3.80) - (3.60 - 3.40)| / 4 = 0.40, Cohen's f = 0.40 / 1.15 = 0.35) requires a minimum total sample size of N = 68 participants (n = 17 per condition). Allowing a ~15% buffer for quality screening, the target sample size is N = 80 participants (n = 20 per condition) within a single homogeneous participant pool.",
+        "• Required Sample Size Calculation: "
+    )
+
+    add_h2("4.3 Target Participant Pool, Cultural Scope & Statistical Models")
+    add_body(
+        "To prevent cross-cultural and cross-linguistic confounding within the 2×2 design, the baseline study targets a single culturally homogeneous participant pool (N = 68–80 adult native speakers of one language, e.g., native Chinese speakers, with the participant URL locked to a single language). The English and Japanese interfaces are maintained on the review link solely for academic supervision. Optionally, if crowdsourcing panels are utilized to recruit both Japanese and Chinese speakers (N = 68–80 per language group), an exploratory cultural hypothesis (H4) can be evaluated: whether Japanese participants show stronger deference and error-forgiveness toward human tacit intuition (reflecting the cultural valuation of embodied shokunin craftsmanship) compared to Chinese participants accustomed to algorithmic consumer recommendation platforms.",
+        "• Target Participants & Cultural Scope: "
+    )
+    add_body(
+        "Chi-square test and Binary Logistic Regression for Q1; 2×2 Between-Subjects Factorial ANOVA (Y_ijk = μ + α_i + β_j + (αβ)_ij + ε_ijk) for Q2–Q9; Bonferroni-corrected simple main effects and ANCOVA controlling for continuous Age (Q11), STEM background (Q12), and AI usage frequency (Q13).",
         "• Statistical Modeling Pipeline: "
     )
 
     # --- SECTION 5 ---
-    add_h1("5. Online Experimental System & Permanent Access Links")
+    add_h1("5. Online Experimental System & Blinded Access Links")
     add_body(
-        "A dedicated full-stack web experimental platform is permanently deployed with instant English/Japanese/Chinese localization, automated condition randomization, millisecond response telemetry (stage1Ms, stage2Ms, stage3Ms), and one-click UTF-8 BOM CSV export:"
+        "The online experimental system strictly separates the Blinded Participant Entry from the Supervisor Preview Mode: on the actual participant URL, all condition-switching tabs and condition labels are completely hidden, and random assignment is locked per browser session so participants cannot see other conditions. Condition-switching tabs appear exclusively when ?preview=1 is appended for researcher inspection:"
     )
-    add_body(f"• Participant Survey Entry: {PUBLIC_URL}\n"
+    add_body(f"• Blinded Participant Survey Entry (Condition tabs strictly hidden): {PUBLIC_URL}\n"
+             f"• Single-Language Locked Participant Entry (e.g., Chinese-locked): {PUBLIC_URL}/?lang=zh&locklang=1\n"
              f"• Researcher & Supervisor Admin Portal: {ADMIN_URL}\n"
-             f"• Condition 1 (Both 90% Confident × AI Fails / Manager Wins): {PUBLIC_URL}/?condition=1\n"
-             f"• Condition 2 (Both 60% Confident × AI Fails / Manager Wins): {PUBLIC_URL}/?condition=2\n"
-             f"• Condition 3 (Both 90% Confident × Manager Fails / AI Wins): {PUBLIC_URL}/?condition=3\n"
-             f"• Condition 4 (Both 60% Confident × Manager Fails / AI Wins): {PUBLIC_URL}/?condition=4")
+             f"• Supervisor Preview C1 (Both 90% Confident × AI Fails): {PUBLIC_URL}/?condition=1&preview=1\n"
+             f"• Supervisor Preview C2 (Both 60% Confident × AI Fails): {PUBLIC_URL}/?condition=2&preview=1\n"
+             f"• Supervisor Preview C3 (Both 90% Confident × Manager Fails): {PUBLIC_URL}/?condition=3&preview=1\n"
+             f"• Supervisor Preview C4 (Both 60% Confident × Manager Fails): {PUBLIC_URL}/?condition=4&preview=1")
 
     out_name = "Minor_Research_Report_EN_20261018.docx"
     p_base = os.path.join(BASE_DIR, out_name)
     p_desk = os.path.join(DESKTOP_SUBDIR, out_name)
+    p_desk_clear = os.path.join(DESKTOP_SUBDIR, "Minor_Research_Proposal_ENGLISH_XiuTianyuan.docx")
     doc.save(p_base)
     shutil.copyfile(p_base, p_desk)
-    print(f"Saved standalone EN DOCX: {p_desk}")
+    shutil.copyfile(p_base, p_desk_clear)
+    print(f"Saved standalone EN DOCX: {p_desk} and {p_desk_clear}")
 
 
 def main():

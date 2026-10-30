@@ -47,13 +47,13 @@ html_template = f'''<!DOCTYPE html>
         </div>
 
         <div class="flex items-center gap-2">
-          <!-- Condition Badge for Inspection -->
-          <span class="text-[11px] font-mono font-medium px-2.5 py-1 bg-slate-100 border border-slate-200 rounded-lg text-slate-600">
-            {{{{ conditionLabel }}}}
+          <!-- Condition Badge ONLY in Researcher Preview Mode -->
+          <span v-if="isPreviewMode" class="text-[11px] font-mono font-medium px-2.5 py-1 bg-amber-50 border border-amber-300 rounded-lg text-amber-800">
+            👁️ {{{{ conditionLabel }}}}
           </span>
 
-          <!-- Language Switcher in Top Right -->
-          <div class="flex items-center gap-1 bg-white p-1 rounded-xl border border-slate-200 shadow-sm text-xs font-medium">
+          <!-- Language Switcher in Top Right (Hidden if ?locklang=1 is set for single-culture deployment) -->
+          <div v-if="!isLangLocked" class="flex items-center gap-1 bg-white p-1 rounded-xl border border-slate-200 shadow-sm text-xs font-medium">
             <span class="text-slate-400 pl-1.5 pr-0.5">🌐</span>
             <button @click="setLang('en')" 
                     :class="currentLang === 'en' ? 'bg-indigo-600 text-white font-bold shadow-sm' : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'"
@@ -74,11 +74,11 @@ html_template = f'''<!DOCTYPE html>
         </div>
       </div>
 
-      <!-- Condition Quick Switcher Bar (for Professor Review & Verification) -->
-      <div class="mb-4 p-2.5 bg-slate-100/90 border border-slate-200/90 rounded-xl flex flex-wrap items-center justify-between gap-2 text-xs">
-        <div class="flex items-center gap-1.5 text-slate-700 font-semibold text-[11px]">
-          <span>🎯</span>
-          <span>{{{{ currentLang === 'en' ? '2×2 Condition Preview:' : (currentLang === 'ja' ? '2×2 条件プレビュー:' : '2×2 实验条件切换预览:') }}}}</span>
+      <!-- Condition Quick Switcher Bar (ONLY visible in Supervisor/Researcher Preview Mode ?preview=1; strictly hidden from real participants) -->
+      <div v-if="isPreviewMode" class="mb-4 p-2.5 bg-amber-50/90 border border-amber-300 rounded-xl flex flex-wrap items-center justify-between gap-2 text-xs">
+        <div class="flex items-center gap-1.5 text-amber-900 font-semibold text-[11px]">
+          <span>🔬</span>
+          <span>{{{{ currentLang === 'en' ? 'Supervisor Preview Mode (Hidden from Real Participants):' : (currentLang === 'ja' ? '研究者プレビューモード（本番の被験者には非表示）:' : '导师预览模式（正式发给被试时完全隐藏）:') }}}}</span>
         </div>
         <div class="flex flex-wrap items-center gap-1.5">
           <button v-for="c in [1, 2, 3, 4]" :key="'cond_btn_' + c"
@@ -502,16 +502,20 @@ html_template = f'''<!DOCTYPE html>
               </div>
             </div>
 
-            <!-- Q11: Age -->
+            <!-- Q11: Exact Numeric Age -->
             <div class="space-y-2">
-              <label class="block text-xs font-bold text-slate-800">{{{{ t.q11_label }}}}</label>
-              <div class="grid grid-cols-5 gap-2">
-                <button v-for="age in ['18-24', '25-34', '35-44', '45-54', '55+']" :key="'age_' + age"
-                        @click="formData.q11 = age"
-                        :class="formData.q11 === age ? 'bg-indigo-600 text-white font-bold' : 'bg-slate-50 border border-slate-200 hover:bg-slate-100 text-slate-700'"
-                        class="p-2.5 rounded-lg text-xs transition text-center font-mono">
-                  {{{{ age }}}}
-                </button>
+              <label for="q11_age_input" class="block text-xs font-bold text-slate-800">{{{{ t.q11_label }}}}</label>
+              <div class="flex items-center gap-3">
+                <input id="q11_age_input"
+                       type="number"
+                       min="16"
+                       max="99"
+                       step="1"
+                       inputmode="numeric"
+                       v-model.number="formData.q11"
+                       :placeholder="t.q11_placeholder"
+                       class="w-36 p-2.5 bg-white border border-slate-300 focus:border-indigo-600 focus:ring-2 focus:ring-indigo-200 outline-none rounded-lg text-sm font-mono text-slate-900 transition">
+                <span class="text-xs text-slate-500 font-medium">{{{{ t.q11_unit }}}}</span>
               </div>
             </div>
 
@@ -570,12 +574,12 @@ html_template = f'''<!DOCTYPE html>
           <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 max-w-md mx-auto text-left text-xs text-slate-700 font-mono space-y-1 mb-6">
             <div class="text-slate-500 pb-1 border-b border-slate-200 font-bold">{{{{ t.receiptTitle }}}}</div>
             <div>Session ID: {{{{ submissionResult.sessionId }}}}</div>
-            <div>Condition: Condition {{{{ currentCondition.id }}}} ({{{{ currentCondition.confidenceLevel }}}} confidence, {{{{ currentCondition.outcomeType }}}})</div>
+            <div v-if="isPreviewMode">Condition: Condition {{{{ currentCondition.id }}}} ({{{{ currentCondition.confidenceLevel }}}} confidence, {{{{ currentCondition.outcomeType }}}})</div>
             <div>Decision: Selected Sample {{{{ submissionResult.q1 }}}}</div>
             <div>Total Duration: {{{{ Math.round(submissionResult.totalDurationMs / 1000) }}}}s</div>
           </div>
 
-          <div class="flex flex-wrap justify-center gap-4">
+          <div v-if="isPreviewMode" class="flex flex-wrap justify-center gap-4">
             <button @click="downloadJSON" class="px-5 py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg text-xs font-semibold transition">
               {{{{ t.btnDownloadJson }}}}
             </button>
@@ -612,13 +616,25 @@ html_template = f'''<!DOCTYPE html>
       setup() {{
         const urlParams = new URLSearchParams(window.location.search);
         const currentLang = ref(urlParams.get('lang') || 'en');
+        const isPreviewMode = ref(urlParams.get('preview') === '1' || urlParams.get('preview') === 'true');
+        const isLangLocked = ref(urlParams.get('locklang') === '1' || urlParams.get('locklang') === 'true');
         const currentStage = ref(1);
         const isSubmitting = ref(false);
         const submissionResult = ref({{}});
 
         let urlCond = parseInt(urlParams.get('condition') || urlParams.get('c') || urlParams.get('cond'));
         if (!urlCond || urlCond < 1 || urlCond > 4) {{
-          urlCond = Math.floor(Math.random() * 4) + 1;
+          if (!isPreviewMode.value) {{
+            const savedCond = parseInt(sessionStorage.getItem('durian_assigned_cond'));
+            if (savedCond >= 1 && savedCond <= 4) {{
+              urlCond = savedCond;
+            }} else {{
+              urlCond = Math.floor(Math.random() * 4) + 1;
+              sessionStorage.setItem('durian_assigned_cond', String(urlCond));
+            }}
+          }} else {{
+            urlCond = Math.floor(Math.random() * 4) + 1;
+          }}
         }}
         const conditionId = ref(urlCond);
         const currentCondition = computed(() => CONDITIONS_DEF[conditionId.value]);
@@ -681,7 +697,11 @@ html_template = f'''<!DOCTYPE html>
 
         const isStage1Complete = computed(() => formData.value.q1 && formData.value.q2 && formData.value.q3 && formData.value.q4);
         const isStage2Complete = computed(() => formData.value.q5 && formData.value.q6 && formData.value.q7 && formData.value.q8 && formData.value.q9);
-        const isStage3Complete = computed(() => formData.value.q10 && formData.value.q11 && formData.value.q12 && formData.value.q13);
+        const isValidAge = computed(() => {{
+          const n = Number(formData.value.q11);
+          return formData.value.q11 !== null && formData.value.q11 !== '' && Number.isInteger(n) && n >= 16 && n <= 99;
+        }});
+        const isStage3Complete = computed(() => formData.value.q10 && isValidAge.value && formData.value.q12 && formData.value.q13);
 
         const goToStage2 = () => {{
           if (!isStage1Complete.value) return;
@@ -759,6 +779,8 @@ html_template = f'''<!DOCTYPE html>
         return {{
           CONDITIONS_DEF,
           currentLang,
+          isPreviewMode,
+          isLangLocked,
           setLang,
           t,
           fmt,

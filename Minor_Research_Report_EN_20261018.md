@@ -5,10 +5,9 @@
 
 ### Project Metadata
 - **Research Title**: *Human Intuition vs. Artificial Intuition: Epistemic Asymmetry and Error Attribution When Two "Ineffable Black Boxes" Conflict*
-- **Chinese Title**: 人类直觉 vs. 人工直觉：当两个“不可言传的黑盒”发生决策冲突时的认识论双标与错误归因研究
-- **Researcher**: XIU TIANYUAN (修 天源), Master's Program (M2), School of Knowledge Science, Japan Advanced Institute of Science and Technology (JAIST)
-- **Academic Advisor**: Prof. Mizumoto (水本 教授)
-- **Date**: October 25, 2026
+- **Researcher**: Tianyuan Xiu, Master's Program (M2), School of Knowledge Science, Japan Advanced Institute of Science and Technology (JAIST)
+- **Academic Advisor**: Prof. Masaharu Mizumoto
+- **Date**: October 30, 2026
 - **Research Domains**: Knowledge Science, Experimental Philosophy, Human-Computer Interaction (HCI), Cognitive Psychology
 
 ---
@@ -110,36 +109,58 @@ The online survey enforces strict forward-only progression across three sequenti
 ### Stage 3: Demographic & Control Variables
 
 - **Q10. Gender**: [ Male / Female / Other or Prefer not to say ]
-- **Q11. Age Group**: [ Under 20 / 20–29 / 30–39 / 40–49 / 50+ ]
+- **Q11. Age (in years)**: [ Exact numeric input: specific integer age in years, e.g., `24` (continuous variable, valid range 16–99) ]
 - **Q12. Academic Background**: [ Yes (STEM / Computer Science / Data Science / AI) / No (Humanities / Social Sciences / Business / Arts / Other) ]
 - **Q13. Daily AI Tool Usage Frequency (e.g., ChatGPT, Claude)**: [ Rarely / 1–2 times per week / Daily / Heavy reliance ]
 
 ---
 
-## 4. Statistical Hypotheses & Data Analysis Plan
+## 4. Hypotheses, Expected Results, Sample Size Calculation & Analysis Plan
 
 ### 4.1 Primary Statistical Hypotheses
 - **Hypothesis 1 (H1: Pre-Outcome Epistemic Double Standard Toward Unexplainability)**: In Stage 1 prior to outcome revelation, despite identical training data (~3,000 cases) and overall accuracy (85%), participants will exhibit a significant epistemic double standard in Q4 (mean score significantly above neutral $4.0$, $p < .001$), demanding explicit verbal explanations more strictly from black-box AI than from human tacit intuition. Meanwhile, matched high confidence (90% vs. 90%, Conditions 1 & 3) will yield significantly higher perceived confidence impact (Q3) than matched low confidence (60% vs. 60%, Conditions 2 & 4).
 - **Hypothesis 2 (H2: Main Effect of Failed Agent — Asymmetric Epistemic Blame Against AI)**: In Stage 2, comparing attribution toward the failed AI (Conditions 1 & 2) versus the failed human manager (Conditions 3 & 4), participants will assign significantly higher Frankfurtian *"bullshitting"* attribution (Q6) and perceived misleadingness (Q7), and significantly lower probabilistic forgiveness (Q5), to **the failed AI system** than to **the failed human manager** for the exact same diagnostic failure ($p < .001$).
-- **Hypothesis 3 (H3: Confidence $\times$ Failed Agent Interaction & Post-Hoc Feature Extraction)**: There will be a significant two-way interaction between Case Confidence (90% vs. 60%) and Failed Agent (AI Fails vs. Manager Fails) on Q6, Q7, and Q9 ($p < .01$). Failing after expressing 90% confidence will provoke a much harsher backlash than failing after expressing 60% confidence, and this *Penalty of Overconfidence* will be disproportionately steeper when the AI fails (C1 vs. C2) than when the human manager fails (C3 vs. C4). Furthermore, Q8 will show strong positive agreement ($> 5.0$), demonstrating that **post-hoc explicit feature extraction** is the pivotal mechanism for overcoming the epistemic distrust of AI intuition.
+- **Hypothesis 3 (H3: Confidence $\times$ Failed Agent Interaction & Post-Hoc Feature Extraction)**: There will be a significant two-way interaction between Case Confidence (90% vs. 60%) and Failed Agent (AI Fails vs. Manager Fails) on Q6, Q7, and Q9 ($p < .01$). Failing after expressing 90% confidence will provoke a much harsher backlash than failing after expressing 60% confidence, and this *Penalty of Overconfidence* will be disproportionately steeper when the AI fails (C1 vs. C2) than when the human manager fails (C3 vs. C4). Furthermore, Q8 will show strong positive agreement ($> 5.0$), demonstrating that **post-hoc explicit feature extraction** is a key mechanism for overcoming distrust of AI intuition.
 
-### 4.2 Statistical Modeling Pipeline
-1. **Binomial & Chi-Square / Logistic Regression (Q1)**: Evaluates baseline preference between human intuition and AI intuition, and tests whether matched confidence level (90% vs. 60%) and demographic covariates shift the choice ratio:
-   $$\text{logit}(P(\text{Choice} = \text{AI})) = \beta_0 + \beta_1 \cdot \text{ConfidenceLevel} + \beta_2 \cdot \text{STEM} + \beta_3 \cdot \text{AIFreq}$$
-2. **Two-Way Factorial Analysis of Variance (Q2–Q9)**: Standard $2 \times 2$ Between-Subjects ANOVA evaluating main effects of Case Confidence (`90%` vs. `60%`), Failed Agent (`AI Fails` vs. `Manager Fails`), and their interaction term, reporting partial eta-squared ($\eta_p^2$):
+### 4.2 Expected Results & A Priori Sample Size Calculation (Power Analysis)
+Based on Hypotheses H1–H3, we specify the rough quantitative expectations on the 7-point Likert scales (1 = Strongly Disagree, 4 = Neutral, 7 = Strongly Agree, assuming a typical within-cell standard deviation of $SD \approx 1.15$):
+1. **Stage 1 Expectations**: Under strictly symmetric baselines, approximately **55%–60%** of participants are expected to favor Human Intuition (Durian A) vs. **40%–45%** for AI Intuition (Durian B), while Q4 (Epistemic Double Standard on Unexplainability) is expected to average **$M = 5.10, SD = 1.20$** (significantly above the midpoint $4.0$, one-sample Cohen's $d \approx 0.92$).
+2. **Stage 2 Expected $2 \times 2$ Cell Means (illustrated on the primary outcome Q6: Frankfurtian "Bullshitting" Attribution)**:
+
+| Condition | Factor 1: Confidence | Factor 2: Failed Agent | Expected Mean ($M$) | Expected $SD$ | Substantive Interpretation |
+| :--- | :--- | :--- | :---: | :---: | :--- |
+| **Condition 1** | High (90%) | AI System Fails | **5.60** | 1.15 | Severe backlash: 90%-confident failed black-box AI judged as "bullshitting" |
+| **Condition 2** | Low (60%) | AI System Fails | **3.80** | 1.15 | Attenuated blame when AI expressed borderline 60% uncertainty ($\Delta_{\text{AI}} = +1.80$) |
+| **Condition 3** | High (90%) | Manager Fails | **3.60** | 1.15 | Greater leniency toward human veteran intuition failing at 90% confidence |
+| **Condition 4** | Low (60%) | Manager Fails | **3.40** | 1.15 | Excused as normal 15% statistical outlier ($\Delta_{\text{Human}} = +0.20$) |
+
+3. **Required Sample Size Calculation ($\alpha = 0.05$, Power $1 - \beta = 0.80$, $2 \times 2$ Fixed-Effects ANOVA, $df_1 = 1$)**:
+   - **Main Effect of Failed Agent** ($\mu_{\text{AI}} = 4.70$ vs. $\mu_{\text{Human}} = 3.50$, effect $|\beta| = 0.60$): Cohen's $f = 0.60 / 1.15 = \mathbf{0.52}$ $\rightarrow$ minimum required **$N = 32$** ($n = 8$ per condition).
+   - **Main Effect of Confidence** ($\mu_{90\%} = 4.60$ vs. $\mu_{60\%} = 3.60$, effect $|\alpha| = 0.50$): Cohen's $f = 0.50 / 1.15 = \mathbf{0.43}$ $\rightarrow$ minimum required **$N = 45$** ($n = 12$ per condition).
+   - **Two-Way Interaction Effect** ($|\gamma| = |(5.60 - 3.80) - (3.60 - 3.40)| / 4 = 0.40$): **Cohen's $f = 0.40 / 1.15 = \mathbf{0.35}$** $\rightarrow$ minimum required **$N = 68$** (**$n = 17$ per condition**) to achieve $80\%$ statistical power at $\alpha = 0.05$.
+   - Including a ~15% buffer for quality screening, the **target sample size is $N = 80$ participants ($n = 20$ per condition)** within a single homogeneous participant pool.
+
+### 4.3 Target Participant Pool & Cultural Scope
+- **Primary Baseline Design (Single Homogeneous Cultural Group)**: To avoid linguistic and cultural confounding within the $2 \times 2$ design, the baseline study recruits a single culturally homogeneous participant group (**$N = 68\text{–}80$ adult native speakers of one language**, e.g., native Chinese speakers, with the survey interface locked to that language). The multilingual toggle (English / Japanese / Chinese) is maintained on the review interface solely for academic supervision.
+- **Optional Cross-Cultural Extension (If Multi-Language Crowdsourcing Panels Are Utilized)**: Should crowdsourcing panels be deployed across both Japanese and Chinese speakers ($N = 68\text{–}80$ per cultural group), an exploratory cultural hypothesis (H4) can be tested: whether Japanese participants exhibit greater deference and error-forgiveness toward ineffable human intuition—reflecting the cultural valuation of embodied *shokunin* craftsmanship and tacit knowledge—compared to Chinese participants accustomed to pervasive algorithmic consumer recommendation ecosystems.
+
+### 4.4 Statistical Modeling Pipeline
+1. **Binomial & Logistic Regression (Q1)** controlling for continuous Age (Q11), STEM background (Q12), and AI usage frequency (Q13):
+   $$\text{logit}(P(\text{Choice} = \text{AI})) = \beta_0 + \beta_1 \cdot \text{ConfidenceLevel} + \beta_2 \cdot \text{Age} + \beta_3 \cdot \text{STEM} + \beta_4 \cdot \text{AIFreq}$$
+2. **Two-Way Factorial ANOVA & ANCOVA (Q2–Q9)**:
    $$Y_{ijk} = \mu + \alpha_i (\text{Confidence}_i) + \beta_j (\text{FailedAgent}_j) + (\alpha\beta)_{ij} (\text{Confidence}_i \times \text{FailedAgent}_j) + \epsilon_{ijk}$$
-3. **Simple Effects & Covariate Control (ANCOVA)**: Bonferroni-corrected simple main effects analyses across Conditions 1–4, supplemented by ANCOVA controlling for STEM background (Q12) and AI familiarity (Q13).
 
 ---
 
-## 5. Online Experimental System & Permanent Access Links
+## 5. Online Experimental System & Blinded Access Links
 
-A full-stack web experimental platform is permanently deployed on cloud infrastructure, featuring instant English/Japanese/Chinese switching, automated randomization, a top-level `[C1 | C2 | C3 | C4]` condition preview bar, millisecond stage telemetry (`stage1Ms`, `stage2Ms`, `stage3Ms`), and one-click UTF-8 BOM `.csv` export:
+The online platform strictly separates the **Blinded Participant Entry** from the **Supervisor Preview Mode**: on the actual participant URL, **all condition-switching tabs and condition labels are completely hidden**, and random assignment is locked per browser session so participants cannot view other conditions. Condition-switching tabs appear exclusively when `?preview=1` is appended by the researcher.
 
-- **Participant Survey Entry (Random Assignment)**: [https://durian-experiment.vercel.app](https://durian-experiment.vercel.app)
+- **Blinded Participant Survey Entry (Condition tabs strictly hidden)**: [https://durian-experiment.vercel.app](https://durian-experiment.vercel.app)
+  - Single-Language Locked Participant Entry (e.g., Chinese-locked): [https://durian-experiment.vercel.app/?lang=zh&locklang=1](https://durian-experiment.vercel.app/?lang=zh&locklang=1)
 - **Researcher & Supervisor Admin Portal**: [https://durian-experiment.vercel.app/admin](https://durian-experiment.vercel.app/admin)
-- **Direct Condition Preview Links**:
-  - Condition 1 (Both 90% Confident × AI Fails / Manager Wins): [https://durian-experiment.vercel.app/?condition=1](https://durian-experiment.vercel.app/?condition=1)
-  - Condition 2 (Both 60% Confident × AI Fails / Manager Wins): [https://durian-experiment.vercel.app/?condition=2](https://durian-experiment.vercel.app/?condition=2)
-  - Condition 3 (Both 90% Confident × Manager Fails / AI Wins): [https://durian-experiment.vercel.app/?condition=3](https://durian-experiment.vercel.app/?condition=3)
-  - Condition 4 (Both 60% Confident × Manager Fails / AI Wins): [https://durian-experiment.vercel.app/?condition=4](https://durian-experiment.vercel.app/?condition=4)
+- **Supervisor Preview Links (With `?preview=1` condition switcher for inspection only)**:
+  - Condition 1 (Both 90% Confident × AI Fails / Manager Wins): [https://durian-experiment.vercel.app/?condition=1&preview=1](https://durian-experiment.vercel.app/?condition=1&preview=1)
+  - Condition 2 (Both 60% Confident × AI Fails / Manager Wins): [https://durian-experiment.vercel.app/?condition=2&preview=1](https://durian-experiment.vercel.app/?condition=2&preview=1)
+  - Condition 3 (Both 90% Confident × Manager Fails / AI Wins): [https://durian-experiment.vercel.app/?condition=3&preview=1](https://durian-experiment.vercel.app/?condition=3&preview=1)
+  - Condition 4 (Both 60% Confident × Manager Fails / AI Wins): [https://durian-experiment.vercel.app/?condition=4&preview=1](https://durian-experiment.vercel.app/?condition=4&preview=1)

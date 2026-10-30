@@ -95,12 +95,12 @@
             </p>
           </div>
           <div class="flex items-center justify-between pt-2 border-t border-slate-200/80">
-            <a :href="'/?condition=' + c" target="_blank"
+            <a :href="'/?condition=' + c + '&preview=1'" target="_blank"
                class="text-xs font-semibold text-indigo-600 hover:text-indigo-800 flex items-center gap-1">
               <span>{{ loc.btnOpenTest }}</span>
               <span>↗</span>
             </a>
-            <button @click="copyLink('/?condition=' + c)" class="text-[11px] text-slate-400 hover:text-slate-700">
+            <button @click="copyLink('/?condition=' + c + '&preview=1')" class="text-[11px] text-slate-400 hover:text-slate-700">
               {{ loc.btnCopy }}
             </button>
           </div>

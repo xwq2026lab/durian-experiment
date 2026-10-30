@@ -110,36 +110,58 @@
 ### 第三阶段：受试者人口学与控制变量 (Stage 3)
 
 - **Q10. 性别**：[ 男 / 女 / 其他或不愿透露 ]
-- **Q11. 年龄区间**：[ 20岁以下 / 20–29岁 / 30–39岁 / 40–49岁 / 50岁及以上 ]
+- **Q11. 具体年龄（周岁）**：[ 数字填空题：填写具体整数周岁，如 `24`（限定 16–99 岁连续数值变量） ]
 - **Q12. 学科专业背景**：[ 是（理工科 STEM / 计算机 / 数据科学 / AI 相关专业） / 否（人文社科 / 商科 / 艺术 / 其他非理工专业） ]
 - **Q13. 日常使用 AI 工具（如 ChatGPT、Claude 等）的频率**：[ 几乎不用 / 每周 1–2 次 / 几乎每天使用 / 重度深度依赖 ]
 
 ---
 
-## 4. 统计假设与数据分析方案 (Statistical Hypotheses & Data Analysis Plan)
+## 4. 统计假设、预期结果与样本量计算 (Hypotheses, Expected Results & Power Analysis)
 
 ### 4.1 核心统计假设
-- **假设 1（H1：事前认识论双标与个案把握度效应）**：在结果揭晓前的阶段一，尽管店长与 AI 拥有完全相同的训练样本量（~3,000 例）与总体准确率（85%），受试者在面对“无法用语言解释理由”时仍将表现出显著的认识论双标（Q4 均值显著高于中立值 4.0，$p < .001$），即对黑盒 AI 缺乏语言解释的容忍度显著低于对人类隐性直觉的容忍度；同时，双高把握度组（90% vs. 90%，C1 & C3）在把握度影响权重（Q3）上将显著高于双低把握度组（60% vs. 60%，C2 & C4）。
-- **假设 2（H2：失败主体的不对称归因主效应 — “对 AI 错误的严苛惩罚”）**：在阶段二结果揭晓后，比较“AI 失败组（C1 & C2）”与“店长失败组（C3 & C4）”对各自失败主体的归因得分：当 AI 预测失败时，受试者对失败 AI 的法兰克福式“胡扯（Bullshitting）”归因（Q6）与“误导失望感”（Q7）将显著高于人类店长犯同等错误时受到的指责（$p < .001$），而在理性概率豁免（Q5）上的得分将显著低于店长失败组（即人们更容易原谅人类直觉的失误，而将 AI 直觉的失误归结为“不懂装懂的胡扯”）。
-- **假设 3（H3：个案把握度 $\times$ 失败主体的二阶交互效应与事后特征提取补偿）**：个案把握度（90% vs. 60%）与失败主体（AI 失败 vs. 店长失败）在 Q6（胡扯归因）、Q7（误导感）及 Q9（未来信任倾向）上存在显著的二阶交互作用（$p < .01$）。具体而言，“90% 高把握度下的失败”比“60% 低把握度下的失败”引发显著更强的信任反噬，且这种“高把握度失败惩罚（Penalty of Overconfidence）”在 AI 失败时（C1 vs. C2）的斜率将显著陡峭于人类店长失败时（C3 vs. C4）。此外，受试者在 Q8 上将展现出显著正向得分（$> 5.0$），证明“事后提取并标出显性特征（Post-hoc Feature Extraction）”是弥补深度学习直觉黑盒信任赤字的关键机制。
+- **假设 1（H1：事前认识论双标与个案把握度效应）**：在结果揭晓前的阶段一，尽管店长与 AI 拥有完全相同的训练样本量（~3,000 例）与总体准确率（85%），受试者在面对“无法用语言解释理由”时仍将表现出显著的认识论双标（Q4 均值显著高于中立值 4.0，$p < .001$）；同时，双高把握度组（90% vs. 90%，C1 & C3）在把握度影响权重（Q3）上将显著高于双低把握度组（60% vs. 60%，C2 & C4）。
+- **假设 2（H2：失败主体的不对称归因主效应 — “对 AI 错误的严苛惩罚”）**：在阶段二结果揭晓后，比较“AI 失败组（C1 & C2）”与“店长失败组（C3 & C4）”对各自失败主体的归因得分：当 AI 预测失败时，受试者对失败 AI 的法兰克福式“胡扯（Bullshitting）”归因（Q6）与“误导失望感”（Q7）将显著高于人类店长犯同等错误时受到的指责（$p < .001$），而在理性概率豁免（Q5）上的得分将显著低于店长失败组。
+- **假设 3（H3：个案把握度 $\times$ 失败主体的二阶交互效应与事后特征提取补偿）**：个案把握度（90% vs. 60%）与失败主体（AI 失败 vs. 店长失败）在 Q6、Q7 及 Q9 上存在显著二阶交互作用（$p < .01$）。“90% 高把握度下的失败”比“60% 低把握度下的失败”引发显著更强的信任反噬，且该惩罚斜率在 AI 失败时（C1 vs. C2）显著陡峭于店长失败时（C3 vs. C4）。此外，Q8 将呈现显著正向得分（$> 5.0$），证明“事后提取并标出显性特征”对修复 AI 直觉信任的关键作用。
 
-### 4.2 统计检验模型
-1. **二项检验与卡方分析（Q1）**：检验在完全对称基准下人类直觉（选 A）与 AI 直觉（选 B）的总体偏好比例，并通过二元 Logistic 回归检验个案把握度水平（90% vs. 60%）及人口学协变量的影响：
-   $$\text{logit}(P(\text{Choice} = \text{AI})) = \beta_0 + \beta_1 \cdot \text{ConfidenceLevel} + \beta_2 \cdot \text{STEM} + \beta_3 \cdot \text{AIFreq}$$
-2. **$2 \times 2$ 组间双因素方差分析（Two-Way Factorial ANOVA，Q2–Q9）**：评估“个案把握度（90% vs. 60%）”主效应、“失败主体（AI 失败 vs. 店长失败）”主效应及其交互项，并报告偏 Eta 平方（$\eta_p^2$）效应量：
+### 4.2 预期结果与先验样本量计算 (Expected Results & A Priori Power Analysis)
+基于上述假设，设定各阶段核心指标的大致预期表现（7 级李克特量表，1–7 分，假定组内标准差 $SD \approx 1.15$）：
+1. **阶段一预期表现**：在完全对称基线下，预计约 **55%–60%** 受试者选择人类直觉（A号），**40%–45%** 选择 AI 直觉（B号）；认识论双标量表（Q4）预期均值约为 **$M = 5.10, SD = 1.20$**（显著高于中立值 $4.0$，单样本效应量 Cohen's $d \approx 0.92$）。
+2. **阶段二核心因变量（以 Q6 法兰克福式“胡扯”归因为代表）的 $2 \times 2$ 预期单元均值**：
+
+| 实验条件组 | 自变量 1：把握度 | 自变量 2：失败主体 | 预期均值 ($M$) | 预期标准差 ($SD$) | 实质效应预期 |
+| :--- | :--- | :--- | :---: | :---: | :--- |
+| **Condition 1** | 高把握度 (90%) | AI 系统失败 | **5.60** | 1.15 | 强烈认识论反噬：高把握翻车的黑盒 AI 被高度归因为“盲目胡扯” |
+| **Condition 2** | 低把握度 (60%) | AI 系统失败 | **3.80** | 1.15 | 当 AI 事先表明仅 60% 临界把握时，指责显著缓和（$\Delta_{\text{AI}} = +1.80$） |
+| **Condition 3** | 高把握度 (90%) | 人类店长失败 | **3.60** | 1.15 | 对人类行家经验失手的容忍度较高 |
+| **Condition 4** | 低把握度 (60%) | 人类店长失败 | **3.40** | 1.15 | 被高度豁免为正常的 15% 统计例外（$\Delta_{\text{Human}} = +0.20$） |
+
+3. **基于预期均值的样本量推算（$\alpha = 0.05$，统计检验力 $1 - \beta = 0.80$，$2 \times 2$ 固定效应方差分析，$df_1 = 1$）**：
+   - **失败主体主效应**（$\mu_{\text{AI}} = 4.70$ vs. $\mu_{\text{Human}} = 3.50$，主效应偏差 $|\beta| = 0.60$）：效应量 Cohen's $f = 0.60 / 1.15 = \mathbf{0.52}$，最低仅需 **$N = 32$ 人**（每组 8 人）；
+   - **把握度主效应**（$\mu_{90\%} = 4.60$ vs. $\mu_{60\%} = 3.60$，主效应偏差 $|\alpha| = 0.50$）：效应量 Cohen's $f = 0.50 / 1.15 = \mathbf{0.43}$，最低仅需 **$N = 45$ 人**（每组 12 人）；
+   - **二阶交互效应**（$|\gamma| = |(5.60 - 3.80) - (3.60 - 3.40)| / 4 = 0.40$）：交互效应量 **Cohen's $f = 0.40 / 1.15 = \mathbf{0.35}$**。在 $\alpha = 0.05, 1 - \beta = 0.80$ 标准下，检验该交互效应所需的最低有效总样本量为 **$N = 68$ 人（即每组 $n = 17$ 人）**。
+   - 计入约 15% 的注意力筛查与无效卷缓冲，单一语种样本池的目标招募人数定为 **$N = 80$ 人（每组 $n = 20$ 人）**。
+
+### 4.3 目标受试者群体与跨文化范围界定 (Target Participants & Cultural Scope)
+- **基准方案（单一文化同质样本控制）**：为避免语言与文化差异在 $2 \times 2$ 组间设计中引入额外混杂方差，本研究基准方案聚焦单一母语群体（例如招募 **$N = 68\text{–}80$ 名中文母语成年受试者**，正式发放时将问卷界面锁定为单一语种）。系统内置的英、日文界面供学术指导与审阅使用。
+- **可选跨文化扩展假说（若采用多语种众包样本池）**：若通过众包科研平台同步采集日本与中文受试者（每语种各 $N = 68\text{–}80$ 人），可进一步检验探索性文化差异假说（H4）：受传统“职人（職人 / *Shokunin*）”具身技艺尊重文化的影响，日本受试者在面对不可言传的判断时，是否比处于高频算法消费生态中的中国受试者对“人类直觉”表现出更高的初始偏好与失误宽容度。
+
+### 4.4 统计检验模型
+1. **二项检验与二元 Logistic 回归（Q1）**：控制连续年龄（Q11）、理工科背景（Q12）与日常 AI 频率（Q13）：
+   $$\text{logit}(P(\text{Choice} = \text{AI})) = \beta_0 + \beta_1 \cdot \text{ConfidenceLevel} + \beta_2 \cdot \text{Age} + \beta_3 \cdot \text{STEM} + \beta_4 \cdot \text{AIFreq}$$
+2. **$2 \times 2$ 组间双因素方差分析与协方差分析（ANOVA / ANCOVA，Q2–Q9）**：
    $$Y_{ijk} = \mu + \alpha_i (\text{Confidence}_i) + \beta_j (\text{FailedAgent}_j) + (\alpha\beta)_{ij} (\text{Confidence}_i \times \text{FailedAgent}_j) + \epsilon_{ijk}$$
-3. **简单效应分析与协方差控制（ANCOVA）**：采用 Bonferroni 校正检验四个条件组间的简单效应，并将理工科背景（Q12）与日常 AI 使用频率（Q13）作为协变量纳入 ANCOVA 模型。
 
 ---
 
-## 5. 在线实验系统架构与永久访问入口 (Online Experimental System & Permanent Links)
+## 5. 在线实验系统架构与单盲访问链接 (Online Experimental System & Blinded Access Links)
 
-本研究所配套的在线交互式实验系统已部署于云端生产环境，支持中、英、日三语实时切换、自动随机分组、顶部 `[C1 | C2 | C3 | C4]` 预览切换栏、毫秒级反应时采集及 UTF-8 BOM 标准 CSV 数据导出：
+在线实验平台严格区分**“受试者正式单盲入口”**与**“导师审阅预览模式”**：在正式受试者入口中，**顶部的条件切换栏与组别标签已被完全隐藏**，系统静默执行随机分配并锁定会话（防止刷新串组）；仅在携带 `?preview=1` 参数的审阅链接中才展示四组切换栏。
 
-- **受试者问卷系统主链接（随机分配）**：[https://durian-experiment.vercel.app](https://durian-experiment.vercel.app)
+- **受试者正式单盲问卷入口（已隐藏所有条件切换标签）**：[https://durian-experiment.vercel.app](https://durian-experiment.vercel.app)
+  - 中文锁定单盲入口（向中文受试者发放时使用）：[https://durian-experiment.vercel.app/?lang=zh&locklang=1](https://durian-experiment.vercel.app/?lang=zh&locklang=1)
 - **研究者与导师管理后台（实时统计与 CSV 导出）**：[https://durian-experiment.vercel.app/admin](https://durian-experiment.vercel.app/admin)
-- **四个实验条件组直达预览链接**：
-  - Condition 1 (双方 90% 高把握 × AI 失败/店长正确)：[https://durian-experiment.vercel.app/?condition=1](https://durian-experiment.vercel.app/?condition=1)
-  - Condition 2 (双方 60% 低把握 × AI 失败/店长正确)：[https://durian-experiment.vercel.app/?condition=2](https://durian-experiment.vercel.app/?condition=2)
-  - Condition 3 (双方 90% 高把握 × 店长失败/AI正确)：[https://durian-experiment.vercel.app/?condition=3](https://durian-experiment.vercel.app/?condition=3)
-  - Condition 4 (双方 60% 低把握 × 店长失败/AI正确)：[https://durian-experiment.vercel.app/?condition=4](https://durian-experiment.vercel.app/?condition=4)
+- **导师审阅专用预览链接（带 `?preview=1` 条件切换栏，仅供审阅）**：
+  - Condition 1 (双方 90% 高把握 × AI 失败/店长正确)：[https://durian-experiment.vercel.app/?condition=1&preview=1](https://durian-experiment.vercel.app/?condition=1&preview=1)
+  - Condition 2 (双方 60% 低把握 × AI 失败/店长正确)：[https://durian-experiment.vercel.app/?condition=2&preview=1](https://durian-experiment.vercel.app/?condition=2&preview=1)
+  - Condition 3 (双方 90% 高把握 × 店长失败/AI正确)：[https://durian-experiment.vercel.app/?condition=3&preview=1](https://durian-experiment.vercel.app/?condition=3&preview=1)
+  - Condition 4 (双方 60% 低把握 × 店长失败/AI正确)：[https://durian-experiment.vercel.app/?condition=4&preview=1](https://durian-experiment.vercel.app/?condition=4&preview=1)

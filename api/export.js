@@ -15,14 +15,14 @@ export default function handler(req, res) {
   const list = getResponses();
   const headers = [
     'session_id', 'timestamp', 'condition_id', 'confidence_level', 'confidence_val',
-    'outcome_type', 'language', 'q1_choice', 'q2_data_authority', 'q3_confidence_anchor',
-    'q4_tacit_skepticism', 'q5_probabilistic', 'q6_bullshit', 'q7_deception',
-    'q8_tacit_reevaluation', 'q9_future_trust', 'q10_gender', 'q11_age',
+    'outcome_type', 'language', 'q1_choice', 'q2_ai_objectivity', 'q3_confidence_impact',
+    'q4_double_standard', 'q5_probabilistic_forgiveness', 'q6_bullshitting', 'q7_overconfidence_blame',
+    'q8_posthoc_feature_value', 'q9_future_trust_ai', 'q10_gender', 'q11_age_years',
     'q12_stem', 'q13_ai_freq', 'stage1_ms', 'stage2_ms', 'stage3_ms',
     'total_duration_ms'
   ];
 
-  let csvContent = headers.join(',') + '\n';
+  let csvContent = '\uFEFF' + headers.join(',') + '\n';
   for (const r of list) {
     const row = [
       r.sessionId, r.timestamp, r.conditionId, r.confidenceLevel, r.confidenceVal,
