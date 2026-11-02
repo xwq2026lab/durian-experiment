@@ -172,7 +172,7 @@ def get_cn_markdown():
 
 ### 4.3 目标受试者群体与跨文化范围界定 (Target Participants & Cultural Scope)
 - **基准方案（单一文化同质样本控制）**：为避免语言与文化差异在 $2 \\times 2$ 组间设计中引入额外混杂方差，本研究基准方案聚焦单一母语群体（例如招募 **$N = 68\\text{{–}}80$ 名中文母语成年受试者**，正式发放时将问卷界面锁定为单一语种）。系统内置的英、日文界面供学术指导与审阅使用。
-- **可选跨文化扩展假说（若采用多语种众包样本池）**：若通过众包科研平台同步采集日本与中文受试者（每语种各 $N = 68\\text{{–}}80$ 人），可进一步检验探索性文化差异假说（H4）：受传统“职人（職人 / *Shokunin*）”具身技艺尊重文化的影响，日本受试者在面对不可言传的判断时，是否比处于高频算法消费生态中的中国受试者对“人类直觉”表现出更高的初始偏好与失误宽容度。
+- **可选跨文化扩展假说（若同步采集多语种样本）**：若研究同时采集日本与中文母语受试者（每语种各 $N = 68\\text{{–}}80$ 人），可进一步检验探索性文化差异假说（H4）：受传统“职人（職人 / *Shokunin*）”具身技艺传统的影响，日本受试者在面对不可言传的判断时，是否比处于高频算法推荐消费环境中的中国受试者对“人类直觉”表现出更高的偏好与失误宽容度。
 
 ### 4.4 统计检验模型
 1. **二项检验与二元 Logistic 回归（Q1）**：控制连续年龄（Q11）、理工科背景（Q12）与日常 AI 频率（Q13）：
@@ -341,8 +341,8 @@ Based on Hypotheses H1–H3, we specify the rough quantitative expectations on t
    - Including a ~15% buffer for quality screening, the **target sample size is $N = 80$ participants ($n = 20$ per condition)** within a single homogeneous participant pool.
 
 ### 4.3 Target Participant Pool & Cultural Scope
-- **Primary Baseline Design (Single Homogeneous Cultural Group)**: To avoid linguistic and cultural confounding within the $2 \\times 2$ design, the baseline study recruits a single culturally homogeneous participant group (**$N = 68\\text{{–}}80$ adult native speakers of one language**, e.g., native Chinese speakers, with the survey interface locked to that language). The multilingual toggle (English / Japanese / Chinese) is maintained on the review interface solely for academic supervision.
-- **Optional Cross-Cultural Extension (If Multi-Language Crowdsourcing Panels Are Utilized)**: Should crowdsourcing panels be deployed across both Japanese and Chinese speakers ($N = 68\\text{{–}}80$ per cultural group), an exploratory cultural hypothesis (H4) can be tested: whether Japanese participants exhibit greater deference and error-forgiveness toward ineffable human intuition—reflecting the cultural valuation of embodied *shokunin* craftsmanship and tacit knowledge—compared to Chinese participants accustomed to pervasive algorithmic consumer recommendation ecosystems.
+- **Primary Baseline Design (Single Homogeneous Group)**: To avoid linguistic and cultural confounding within the $2 \\times 2$ design, the baseline study targets a single homogeneous language group (**$N = 68\\text{{–}}80$ adult participants**, e.g., native Chinese speakers or native Japanese speakers, with the survey interface locked to a single language). The English, Japanese, and Chinese language options on the review interface were built primarily to facilitate academic review.
+- **Optional Cross-Cultural Extension (If Multi-Language Samples Are Collected)**: If both Japanese and Chinese participant groups are collected ($N = 68\\text{{–}}80$ per group), an exploratory cultural hypothesis (H4) can be tested: whether Japanese participants show greater deference and forgiveness toward unexplainable human intuition (consistent with cultural respect for *shokunin* craftsmanship) compared to Chinese participants who are more accustomed to everyday AI recommendations in consumer platforms.
 
 ### 4.4 Statistical Modeling Pipeline
 1. **Binomial & Logistic Regression (Q1)** controlling for continuous Age (Q11), STEM background (Q12), and AI usage frequency (Q13):
@@ -739,7 +739,7 @@ def build_cn_docx():
 
     add_h2("4.3 目标受试者群体、文化范围与统计检验模型")
     add_body(
-        "为避免跨语言与文化背景在 2×2 设计中引入混杂干扰，本研究基准方案招募单一母语同质受试者群体（N = 68–80 名成年中文母语者，正式发放时锁定中文单盲界面）。若后续通过多语种众包科研平台同步采集日本与中国受试者（每语种各 N = 68–80 人），则可进一步检验跨文化扩展假说（H4）：探讨受“职人（Shokunin）”暗默知传统影响的日本受试者，是否比高频接触算法消费推荐的中国受试者对人类直觉展现更高的偏好与失误宽容度。",
+        "为避免跨语言与文化背景在 2×2 设计中引入混杂干扰，本研究基准方案聚焦单一母语同质受试者群体（N = 68–80 人，如中文母语者或日语母语者，正式发放时锁定单一语言界面；网页端多语言切换主要用于学术指导审阅）。若后续同步采集日本与中国两组受试者（每语种各 N = 68–80 人），则可进一步检验探索性跨文化假说（H4）：探讨日本受试者（受传统“职人”经验尊重影响）是否比高频接触算法消费推荐的中国受试者对人类直觉展现更高的偏好与失误宽容度。",
         "• 目标受试者与文化范围："
     )
     add_body(
@@ -978,7 +978,7 @@ def build_en_docx():
 
     add_h2("4.3 Target Participant Pool, Cultural Scope & Statistical Models")
     add_body(
-        "To prevent cross-cultural and cross-linguistic confounding within the 2×2 design, the baseline study targets a single culturally homogeneous participant pool (N = 68–80 adult native speakers of one language, e.g., native Chinese speakers, with the participant URL locked to a single language). The English and Japanese interfaces are maintained on the review link solely for academic supervision. Optionally, if crowdsourcing panels are utilized to recruit both Japanese and Chinese speakers (N = 68–80 per language group), an exploratory cultural hypothesis (H4) can be evaluated: whether Japanese participants show stronger deference and error-forgiveness toward human tacit intuition (reflecting the cultural valuation of embodied shokunin craftsmanship) compared to Chinese participants accustomed to algorithmic consumer recommendation platforms.",
+        "To avoid cross-cultural confounding within the 2×2 design, the baseline plan focuses on a single language group (N = 68–80 adult participants, e.g., native Chinese speakers or native Japanese speakers, with the participant link locked to one language; the English/Japanese/Chinese toggle was built primarily for supervision review). Optionally, if both Japanese and Chinese participant groups are collected (N = 68–80 per group), an exploratory cultural hypothesis (H4) can be tested: whether Japanese participants show greater trust and forgiveness toward human tacit intuition (consistent with cultural respect for shokunin craftsmanship) compared to Chinese participants accustomed to everyday AI consumer recommendations.",
         "• Target Participants & Cultural Scope: "
     )
     add_body(
