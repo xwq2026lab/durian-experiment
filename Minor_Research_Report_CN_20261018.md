@@ -8,7 +8,7 @@
 - **英文题目**：*Human Intuition vs. Artificial Intuition: Epistemic Asymmetry and Error Attribution When Two "Ineffable Black Boxes" Conflict*
 - **研究者**：修 天源 (XIU TIANYUAN)，北陆先端科学技术大学院大学 (JAIST) 知识科学研究科 博士前期课程二年级 (M2)
 - **指导教授**：水本 教授 (Prof. Mizumoto)
-- **日期**：2026年10月25日
+- **日期**：2026年11月2日
 - **研究领域**：知识科学 (Knowledge Science)、实验哲学 (Experimental Philosophy)、人机交互 (HCI)、认知心理学 (Cognitive Psychology)
 
 ---

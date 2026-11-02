@@ -7,7 +7,7 @@
 - **Research Title**: *Human Intuition vs. Artificial Intuition: Epistemic Asymmetry and Error Attribution When Two "Ineffable Black Boxes" Conflict*
 - **Researcher**: Tianyuan Xiu, Master's Program (M2), School of Knowledge Science, Japan Advanced Institute of Science and Technology (JAIST)
 - **Academic Advisor**: Prof. Masaharu Mizumoto
-- **Date**: October 30, 2026
+- **Date**: November 2, 2026
 - **Research Domains**: Knowledge Science, Experimental Philosophy, Human-Computer Interaction (HCI), Cognitive Psychology
 
 ---
@@ -130,7 +130,7 @@ Based on Hypotheses H1–H3, we specify the rough quantitative expectations on t
 | Condition | Factor 1: Confidence | Factor 2: Failed Agent | Expected Mean ($M$) | Expected $SD$ | Substantive Interpretation |
 | :--- | :--- | :--- | :---: | :---: | :--- |
 | **Condition 1** | High (90%) | AI System Fails | **5.60** | 1.15 | Severe backlash: 90%-confident failed black-box AI judged as "bullshitting" |
-| **Condition 2** | Low (60%) | AI System Fails | **3.80** | 1.15 | Attenuated blame when AI expressed borderline 60% uncertainty ($\Delta_{\text{AI}} = +1.80$) |
+| **Condition 2** | Low (60%) | AI System Fails | **3.80** | 1.15 | Attenuated blame when AI expressed borderline 60% confidence ($\Delta_{\text{AI}} = +1.80$) |
 | **Condition 3** | High (90%) | Manager Fails | **3.60** | 1.15 | Greater leniency toward human veteran intuition failing at 90% confidence |
 | **Condition 4** | Low (60%) | Manager Fails | **3.40** | 1.15 | Excused as normal 15% statistical outlier ($\Delta_{\text{Human}} = +0.20$) |
 

@@ -37,7 +37,7 @@ def get_cn_markdown():
 - **英文题目**：*Human Intuition vs. Artificial Intuition: Epistemic Asymmetry and Error Attribution When Two "Ineffable Black Boxes" Conflict*
 - **研究者**：修 天源 (XIU TIANYUAN)，北陆先端科学技术大学院大学 (JAIST) 知识科学研究科 博士前期课程二年级 (M2)
 - **指导教授**：水本 教授 (Prof. Mizumoto)
-- **日期**：2026年10月25日
+- **日期**：2026年11月2日
 - **研究领域**：知识科学 (Knowledge Science)、实验哲学 (Experimental Philosophy)、人机交互 (HCI)、认知心理学 (Cognitive Psychology)
 
 ---
@@ -207,7 +207,7 @@ def get_en_markdown():
 - **Research Title**: *Human Intuition vs. Artificial Intuition: Epistemic Asymmetry and Error Attribution When Two "Ineffable Black Boxes" Conflict*
 - **Researcher**: Tianyuan Xiu, Master's Program (M2), School of Knowledge Science, Japan Advanced Institute of Science and Technology (JAIST)
 - **Academic Advisor**: Prof. Masaharu Mizumoto
-- **Date**: October 30, 2026
+- **Date**: November 2, 2026
 - **Research Domains**: Knowledge Science, Experimental Philosophy, Human-Computer Interaction (HCI), Cognitive Psychology
 
 ---
@@ -330,7 +330,7 @@ Based on Hypotheses H1–H3, we specify the rough quantitative expectations on t
 | Condition | Factor 1: Confidence | Factor 2: Failed Agent | Expected Mean ($M$) | Expected $SD$ | Substantive Interpretation |
 | :--- | :--- | :--- | :---: | :---: | :--- |
 | **Condition 1** | High (90%) | AI System Fails | **5.60** | 1.15 | Severe backlash: 90%-confident failed black-box AI judged as "bullshitting" |
-| **Condition 2** | Low (60%) | AI System Fails | **3.80** | 1.15 | Attenuated blame when AI expressed borderline 60% uncertainty ($\\Delta_{{\\text{{AI}}}} = +1.80$) |
+| **Condition 2** | Low (60%) | AI System Fails | **3.80** | 1.15 | Attenuated blame when AI expressed borderline 60% confidence ($\\Delta_{{\\text{{AI}}}} = +1.80$) |
 | **Condition 3** | High (90%) | Manager Fails | **3.60** | 1.15 | Greater leniency toward human veteran intuition failing at 90% confidence |
 | **Condition 4** | Low (60%) | Manager Fails | **3.40** | 1.15 | Excused as normal 15% statistical outlier ($\\Delta_{{\\text{{Human}}}} = +0.20$) |
 
@@ -596,7 +596,7 @@ def build_cn_docx():
         "• 英文题目：Human Intuition vs. Artificial Intuition: Epistemic Asymmetry and Error Attribution When Two 'Ineffable Black Boxes' Conflict",
         "• 研究者：修 天源 (XIU TIANYUAN) — 北陆先端科学技术大学院大学 (JAIST) 知识科学研究科 博士前期课程二年级 (M2)",
         "• 指导教授：水本 教授 (Prof. Mizumoto)",
-        "• 提交日期：2026年10月25日",
+        "• 提交日期：2026年11月2日",
         "• 研究领域：知识科学 (Knowledge Science)、实验哲学 (Experimental Philosophy)、人机交互 (HCI)、认知心理学 (Cognitive Psychology)"
     ]
     add_callout(doc, meta_info, is_cn=True, border_color="1E293B", bg_color="F8FAFC")
@@ -835,7 +835,7 @@ def build_en_docx():
         "• Research Title: Human Intuition vs. Artificial Intuition: Epistemic Asymmetry and Error Attribution When Two 'Ineffable Black Boxes' Conflict",
         "• Researcher: Tianyuan Xiu — Master's Program (M2), School of Knowledge Science, JAIST",
         "• Academic Advisor: Prof. Masaharu Mizumoto",
-        "• Date: October 30, 2026",
+        "• Date: November 2, 2026",
         "• Research Domains: Knowledge Science, Experimental Philosophy, Human-Computer Interaction (HCI), Cognitive Psychology"
     ]
     add_callout(doc, meta_info, is_cn=False, border_color="1E293B", bg_color="F8FAFC")
@@ -963,7 +963,7 @@ def build_en_docx():
     exp_h_en = ["Condition", "Confidence", "Failed Agent", "Expected M (SD)", "Substantive Expectation"]
     exp_d_en = [
         ["Condition 1", "High (90%)", "AI System Fails", "5.60 (1.15)", "Severe backlash: 90%-confident failed black-box AI judged as 'bullshitting'"],
-        ["Condition 2", "Low (60%)", "AI System Fails", "3.80 (1.15)", "Attenuated blame when AI expressed 60% uncertainty (Δ_AI = +1.80)"],
+        ["Condition 2", "Low (60%)", "AI System Fails", "3.80 (1.15)", "Attenuated blame when AI expressed borderline 60% confidence (Δ_AI = +1.80)"],
         ["Condition 3", "High (90%)", "Manager Fails", "3.60 (1.15)", "Greater leniency toward human veteran intuition failing at 90% confidence"],
         ["Condition 4", "Low (60%)", "Manager Fails", "3.40 (1.15)", "Excused as normal 15% statistical outlier (Δ_Human = +0.20)"]
     ]
