@@ -270,7 +270,7 @@ html_template = f'''<!DOCTYPE html>
             <div class="space-y-2">
               <div class="text-xs font-medium text-slate-800 leading-relaxed">{{{{ fmt(t.q2_title) }}}}</div>
               <div class="flex items-center justify-between gap-1 sm:gap-2">
-                <span class="text-[10px] text-slate-400 hidden sm:inline">1 (Disagree)</span>
+                <span class="text-[10px] text-slate-400 hidden sm:inline">{{{{ currentLang === 'ja' ? '1 (全く同意しない)' : (currentLang === 'zh' ? '1 (完全不同意)' : '1 (Disagree)') }}}}</span>
                 <div class="flex gap-1 sm:gap-2 flex-1 justify-center">
                   <button v-for="val in 7" :key="'q2_' + val"
                           @click="formData.q2 = val"
@@ -279,7 +279,7 @@ html_template = f'''<!DOCTYPE html>
                     {{{{ val }}}}
                   </button>
                 </div>
-                <span class="text-[10px] text-slate-400 hidden sm:inline">7 (Agree)</span>
+                <span class="text-[10px] text-slate-400 hidden sm:inline">{{{{ currentLang === 'ja' ? '7 (非常に同意する)' : (currentLang === 'zh' ? '7 (完全同意)' : '7 (Agree)') }}}}</span>
               </div>
             </div>
 
@@ -289,7 +289,7 @@ html_template = f'''<!DOCTYPE html>
                 {{{{ fmt(t.q3_title) }}}}
               </div>
               <div class="flex items-center justify-between gap-1 sm:gap-2">
-                <span class="text-[10px] text-slate-400 hidden sm:inline">1 (Disagree)</span>
+                <span class="text-[10px] text-slate-400 hidden sm:inline">{{{{ currentLang === 'ja' ? '1 (全く同意しない)' : (currentLang === 'zh' ? '1 (完全不同意)' : '1 (Disagree)') }}}}</span>
                 <div class="flex gap-1 sm:gap-2 flex-1 justify-center">
                   <button v-for="val in 7" :key="'q3_' + val"
                           @click="formData.q3 = val"
@@ -298,7 +298,7 @@ html_template = f'''<!DOCTYPE html>
                     {{{{ val }}}}
                   </button>
                 </div>
-                <span class="text-[10px] text-slate-400 hidden sm:inline">7 (Agree)</span>
+                <span class="text-[10px] text-slate-400 hidden sm:inline">{{{{ currentLang === 'ja' ? '7 (非常に同意する)' : (currentLang === 'zh' ? '7 (完全同意)' : '7 (Agree)') }}}}</span>
               </div>
             </div>
 
@@ -306,7 +306,7 @@ html_template = f'''<!DOCTYPE html>
             <div class="space-y-2">
               <div class="text-xs font-medium text-slate-800 leading-relaxed">{{{{ fmt(t.q4_title) }}}}</div>
               <div class="flex items-center justify-between gap-1 sm:gap-2">
-                <span class="text-[10px] text-slate-400 hidden sm:inline">1 (Disagree)</span>
+                <span class="text-[10px] text-slate-400 hidden sm:inline">{{{{ currentLang === 'ja' ? '1 (全く同意しない)' : (currentLang === 'zh' ? '1 (完全不同意)' : '1 (Disagree)') }}}}</span>
                 <div class="flex gap-1 sm:gap-2 flex-1 justify-center">
                   <button v-for="val in 7" :key="'q4_' + val"
                           @click="formData.q4 = val"
@@ -315,7 +315,7 @@ html_template = f'''<!DOCTYPE html>
                     {{{{ val }}}}
                   </button>
                 </div>
-                <span class="text-[10px] text-slate-400 hidden sm:inline">7 (Agree)</span>
+                <span class="text-[10px] text-slate-400 hidden sm:inline">{{{{ currentLang === 'ja' ? '7 (非常に同意する)' : (currentLang === 'zh' ? '7 (完全同意)' : '7 (Agree)') }}}}</span>
               </div>
             </div>
 
@@ -376,7 +376,7 @@ html_template = f'''<!DOCTYPE html>
             <div class="space-y-2">
               <div class="text-xs font-medium text-slate-800 leading-relaxed">{{{{ fmt(t.q5_title) }}}}</div>
               <div class="flex items-center justify-between gap-1 sm:gap-2">
-                <span class="text-[10px] text-slate-400 hidden sm:inline">1 (Disagree)</span>
+                <span class="text-[10px] text-slate-400 hidden sm:inline">{{{{ currentLang === 'ja' ? '1 (全く同意しない)' : (currentLang === 'zh' ? '1 (完全不同意)' : '1 (Disagree)') }}}}</span>
                 <div class="flex gap-1 sm:gap-2 flex-1 justify-center">
                   <button v-for="val in 7" :key="'q5_' + val"
                           @click="formData.q5 = val"
@@ -385,7 +385,7 @@ html_template = f'''<!DOCTYPE html>
                     {{{{ val }}}}
                   </button>
                 </div>
-                <span class="text-[10px] text-slate-400 hidden sm:inline">7 (Agree)</span>
+                <span class="text-[10px] text-slate-400 hidden sm:inline">{{{{ currentLang === 'ja' ? '7 (非常に同意する)' : (currentLang === 'zh' ? '7 (完全同意)' : '7 (Agree)') }}}}</span>
               </div>
             </div>
 
@@ -395,7 +395,7 @@ html_template = f'''<!DOCTYPE html>
                 {{{{ fmt(t.q6_title) }}}}
               </div>
               <div class="flex items-center justify-between gap-1 sm:gap-2">
-                <span class="text-[10px] text-slate-400 hidden sm:inline">1 (Disagree)</span>
+                <span class="text-[10px] text-slate-400 hidden sm:inline">{{{{ currentLang === 'ja' ? '1 (全く同意しない)' : (currentLang === 'zh' ? '1 (完全不同意)' : '1 (Disagree)') }}}}</span>
                 <div class="flex gap-1 sm:gap-2 flex-1 justify-center">
                   <button v-for="val in 7" :key="'q6_' + val"
                           @click="formData.q6 = val"
@@ -404,7 +404,7 @@ html_template = f'''<!DOCTYPE html>
                     {{{{ val }}}}
                   </button>
                 </div>
-                <span class="text-[10px] text-slate-400 hidden sm:inline">7 (Agree)</span>
+                <span class="text-[10px] text-slate-400 hidden sm:inline">{{{{ currentLang === 'ja' ? '7 (非常に同意する)' : (currentLang === 'zh' ? '7 (完全同意)' : '7 (Agree)') }}}}</span>
               </div>
             </div>
 
@@ -412,7 +412,7 @@ html_template = f'''<!DOCTYPE html>
             <div class="space-y-2">
               <div class="text-xs font-medium text-slate-800 leading-relaxed">{{{{ fmt(t.q7_title) }}}}</div>
               <div class="flex items-center justify-between gap-1 sm:gap-2">
-                <span class="text-[10px] text-slate-400 hidden sm:inline">1 (Disagree)</span>
+                <span class="text-[10px] text-slate-400 hidden sm:inline">{{{{ currentLang === 'ja' ? '1 (全く同意しない)' : (currentLang === 'zh' ? '1 (完全不同意)' : '1 (Disagree)') }}}}</span>
                 <div class="flex gap-1 sm:gap-2 flex-1 justify-center">
                   <button v-for="val in 7" :key="'q7_' + val"
                           @click="formData.q7 = val"
@@ -421,7 +421,7 @@ html_template = f'''<!DOCTYPE html>
                     {{{{ val }}}}
                   </button>
                 </div>
-                <span class="text-[10px] text-slate-400 hidden sm:inline">7 (Agree)</span>
+                <span class="text-[10px] text-slate-400 hidden sm:inline">{{{{ currentLang === 'ja' ? '7 (非常に同意する)' : (currentLang === 'zh' ? '7 (完全同意)' : '7 (Agree)') }}}}</span>
               </div>
             </div>
 
@@ -429,7 +429,7 @@ html_template = f'''<!DOCTYPE html>
             <div class="space-y-2">
               <div class="text-xs font-medium text-slate-800 leading-relaxed">{{{{ fmt(t.q8_title) }}}}</div>
               <div class="flex items-center justify-between gap-1 sm:gap-2">
-                <span class="text-[10px] text-slate-400 hidden sm:inline">1 (Disagree)</span>
+                <span class="text-[10px] text-slate-400 hidden sm:inline">{{{{ currentLang === 'ja' ? '1 (全く同意しない)' : (currentLang === 'zh' ? '1 (完全不同意)' : '1 (Disagree)') }}}}</span>
                 <div class="flex gap-1 sm:gap-2 flex-1 justify-center">
                   <button v-for="val in 7" :key="'q8_' + val"
                           @click="formData.q8 = val"
@@ -438,7 +438,7 @@ html_template = f'''<!DOCTYPE html>
                     {{{{ val }}}}
                   </button>
                 </div>
-                <span class="text-[10px] text-slate-400 hidden sm:inline">7 (Agree)</span>
+                <span class="text-[10px] text-slate-400 hidden sm:inline">{{{{ currentLang === 'ja' ? '7 (非常に同意する)' : (currentLang === 'zh' ? '7 (完全同意)' : '7 (Agree)') }}}}</span>
               </div>
             </div>
 
@@ -446,7 +446,7 @@ html_template = f'''<!DOCTYPE html>
             <div class="space-y-2">
               <div class="text-xs font-medium text-slate-800 leading-relaxed">{{{{ fmt(t.q9_title) }}}}</div>
               <div class="flex items-center justify-between gap-1 sm:gap-2">
-                <span class="text-[10px] text-slate-400 hidden sm:inline">1 (Disagree)</span>
+                <span class="text-[10px] text-slate-400 hidden sm:inline">{{{{ currentLang === 'ja' ? '1 (全く同意しない)' : (currentLang === 'zh' ? '1 (完全不同意)' : '1 (Disagree)') }}}}</span>
                 <div class="flex gap-1 sm:gap-2 flex-1 justify-center">
                   <button v-for="val in 7" :key="'q9_' + val"
                           @click="formData.q9 = val"
@@ -455,7 +455,7 @@ html_template = f'''<!DOCTYPE html>
                     {{{{ val }}}}
                   </button>
                 </div>
-                <span class="text-[10px] text-slate-400 hidden sm:inline">7 (Agree)</span>
+                <span class="text-[10px] text-slate-400 hidden sm:inline">{{{{ currentLang === 'ja' ? '7 (非常に同意する)' : (currentLang === 'zh' ? '7 (完全同意)' : '7 (Agree)') }}}}</span>
               </div>
             </div>
 
@@ -552,7 +552,7 @@ html_template = f'''<!DOCTYPE html>
                     :class="isStage3Complete && !isSubmitting ? 'bg-emerald-600 hover:bg-emerald-700 text-white shadow-sm' : 'bg-slate-200 text-slate-400 cursor-not-allowed'"
                     class="px-8 py-3.5 rounded-xl font-bold text-xs sm:text-sm transition flex items-center gap-2 mx-auto">
               <span v-if="!isSubmitting">{{{{ t.btn_submit }}}}</span>
-              <span v-else>Submitting...</span>
+              <span v-else>{{{{ currentLang === 'ja' ? '送信中...' : (currentLang === 'zh' ? '正在提交...' : 'Submitting...') }}}}</span>
             </button>
           </div>
         </section>
@@ -573,10 +573,10 @@ html_template = f'''<!DOCTYPE html>
 
           <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 max-w-md mx-auto text-left text-xs text-slate-700 font-mono space-y-1 mb-6">
             <div class="text-slate-500 pb-1 border-b border-slate-200 font-bold">{{{{ t.receiptTitle }}}}</div>
-            <div>Session ID: {{{{ submissionResult.sessionId }}}}</div>
+            <div>{{{{ currentLang === 'ja' ? '回答ID: ' : (currentLang === 'zh' ? '会话编号: ' : 'Session ID: ') }}}}{{{{ submissionResult.sessionId }}}}</div>
             <div v-if="isPreviewMode">Condition: Condition {{{{ currentCondition.id }}}} ({{{{ currentCondition.confidenceLevel }}}} confidence, {{{{ currentCondition.outcomeType }}}})</div>
-            <div>Decision: Selected Sample {{{{ submissionResult.q1 }}}}</div>
-            <div>Total Duration: {{{{ Math.round(submissionResult.totalDurationMs / 1000) }}}}s</div>
+            <div>{{{{ currentLang === 'ja' ? '選択結果: サンプル ' : (currentLang === 'zh' ? '决策选择: 样品 ' : 'Decision: Selected Sample ') }}}}{{{{ submissionResult.q1 }}}}</div>
+            <div>{{{{ currentLang === 'ja' ? '所要時間: ' : (currentLang === 'zh' ? '作答总耗时: ' : 'Total Duration: ') }}}}{{{{ Math.round(submissionResult.totalDurationMs / 1000) }}}}s</div>
           </div>
 
           <div v-if="isPreviewMode" class="flex flex-wrap justify-center gap-4">
@@ -594,8 +594,8 @@ html_template = f'''<!DOCTYPE html>
 
     <!-- Footer -->
     <footer class="mt-8 text-center text-xs text-slate-400">
-      <p>Research Project: Human Intuition vs. AI Intuition — Epistemic Asymmetry in Decision Conflicts</p>
-      <p class="mt-1 text-[11px] text-slate-400">Knowledge Science & Experimental Philosophy Lab · 2026</p>
+      <p>{{{{ currentLang === 'ja' ? '研究課題：人間の直観 vs AIの直観 — 意思決定の対立における認識論的非対称性' : (currentLang === 'zh' ? '研究课题：人类直觉 vs. 人工直觉 — 决策冲突中的认识论双标研究' : 'Research Project: Human Intuition vs. AI Intuition — Epistemic Asymmetry in Decision Conflicts') }}}}</p>
+      <p class="mt-1 text-[11px] text-slate-400">{{{{ currentLang === 'ja' ? '知識科学・実験哲学研究プロジェクト · 2026' : (currentLang === 'zh' ? '知识科学与实验哲学研究项目 · 2026' : 'Knowledge Science & Experimental Philosophy Lab · 2026') }}}}</p>
     </footer>
 
   </div>
@@ -647,6 +647,8 @@ html_template = f'''<!DOCTYPE html>
         }});
 
         const t = computed(() => I18N_DICT[currentLang.value] || I18N_DICT.en);
+        document.documentElement.lang = currentLang.value;
+        document.title = t.value.experimentTitle;
 
         const fmt = (str) => {{
           if (!str) return '';
@@ -658,6 +660,7 @@ html_template = f'''<!DOCTYPE html>
         const setLang = (lang) => {{
           currentLang.value = lang;
           document.documentElement.lang = lang;
+          document.title = (I18N_DICT[lang] || I18N_DICT.en).experimentTitle;
         }};
 
         const switchCondition = (id) => {{

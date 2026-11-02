@@ -7,7 +7,7 @@
 - **Research Title**: *Human Intuition vs. Artificial Intuition: Epistemic Asymmetry and Error Attribution When Two "Ineffable Black Boxes" Conflict*
 - **Researcher**: Tianyuan Xiu, Master's Program (M2), School of Knowledge Science, Japan Advanced Institute of Science and Technology (JAIST)
 - **Academic Advisor**: Prof. Masaharu Mizumoto
-- **Date**: November 2, 2026
+- **Date**: November 3, 2026
 - **Research Domains**: Knowledge Science, Experimental Philosophy, Human-Computer Interaction (HCI), Cognitive Psychology
 
 ---
@@ -141,7 +141,7 @@ Based on Hypotheses H1–H3, we specify the rough quantitative expectations on t
    - Including a ~15% buffer for quality screening, the **target sample size is $N = 80$ participants ($n = 20$ per condition)** within a single homogeneous participant pool.
 
 ### 4.3 Target Participant Pool & Cultural Scope
-- **Primary Baseline Design (Single Homogeneous Group)**: To avoid linguistic and cultural confounding within the $2 \times 2$ design, the baseline study targets a single homogeneous language group (**$N = 68\text{–}80$ adult participants**, e.g., native Chinese speakers or native Japanese speakers, with the survey interface locked to a single language). The English, Japanese, and Chinese language options on the review interface were built primarily to facilitate academic review.
+- **Primary Baseline Design (Single Homogeneous Group)**: To avoid linguistic and cultural confounding within the $2 \times 2$ design, the baseline study targets a single homogeneous language group (**$N = 68\text{–}80$ adult participants**, e.g., native Japanese speakers with the survey display locked to Japanese via `?lang=ja&locklang=1`, or equivalently a single homogeneous group of native Chinese speakers if self-recruited). The English, Japanese, and Chinese language switcher on the general link was built primarily to facilitate academic review.
 - **Optional Cross-Cultural Extension (If Multi-Language Samples Are Collected)**: If both Japanese and Chinese participant groups are collected ($N = 68\text{–}80$ per group), an exploratory cultural hypothesis (H4) can be tested: whether Japanese participants show greater deference and forgiveness toward unexplainable human intuition (consistent with cultural respect for *shokunin* craftsmanship) compared to Chinese participants who are more accustomed to everyday AI recommendations in consumer platforms.
 
 ### 4.4 Statistical Modeling Pipeline
@@ -157,7 +157,7 @@ Based on Hypotheses H1–H3, we specify the rough quantitative expectations on t
 The online platform strictly separates the **Blinded Participant Entry** from the **Supervisor Preview Mode**: on the actual participant URL, **all condition-switching tabs and condition labels are completely hidden**, and random assignment is locked per browser session so participants cannot view other conditions. Condition-switching tabs appear exclusively when `?preview=1` is appended by the researcher.
 
 - **Blinded Participant Survey Entry (Condition tabs strictly hidden)**: [https://durian-experiment.vercel.app](https://durian-experiment.vercel.app)
-  - Single-Language Locked Participant Entry (e.g., Chinese-locked): [https://durian-experiment.vercel.app/?lang=zh&locklang=1](https://durian-experiment.vercel.app/?lang=zh&locklang=1)
+  - Single-Language Locked Participant Entry (Display locked to Japanese): [https://durian-experiment.vercel.app/?lang=ja&locklang=1](https://durian-experiment.vercel.app/?lang=ja&locklang=1)
 - **Researcher & Supervisor Admin Portal**: [https://durian-experiment.vercel.app/admin](https://durian-experiment.vercel.app/admin)
 - **Supervisor Preview Links (With `?preview=1` condition switcher for inspection only)**:
   - Condition 1 (Both 90% Confident × AI Fails / Manager Wins): [https://durian-experiment.vercel.app/?condition=1&preview=1](https://durian-experiment.vercel.app/?condition=1&preview=1)

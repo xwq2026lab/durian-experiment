@@ -37,7 +37,7 @@ def get_cn_markdown():
 - **英文题目**：*Human Intuition vs. Artificial Intuition: Epistemic Asymmetry and Error Attribution When Two "Ineffable Black Boxes" Conflict*
 - **研究者**：修 天源 (XIU TIANYUAN)，北陆先端科学技术大学院大学 (JAIST) 知识科学研究科 博士前期课程二年级 (M2)
 - **指导教授**：水本 教授 (Prof. Mizumoto)
-- **日期**：2026年11月2日
+- **日期**：2026年11月3日
 - **研究领域**：知识科学 (Knowledge Science)、实验哲学 (Experimental Philosophy)、人机交互 (HCI)、认知心理学 (Cognitive Psychology)
 
 ---
@@ -171,7 +171,7 @@ def get_cn_markdown():
    - 计入约 15% 的注意力筛查与无效卷缓冲，单一语种样本池的目标招募人数定为 **$N = 80$ 人（每组 $n = 20$ 人）**。
 
 ### 4.3 目标受试者群体与跨文化范围界定 (Target Participants & Cultural Scope)
-- **基准方案（单一文化同质样本控制）**：为避免语言与文化差异在 $2 \\times 2$ 组间设计中引入额外混杂方差，本研究基准方案聚焦单一母语群体（例如招募 **$N = 68\\text{{–}}80$ 名中文母语成年受试者**，正式发放时将问卷界面锁定为单一语种）。系统内置的英、日文界面供学术指导与审阅使用。
+- **基准方案（单一文化同质样本控制）**：为避免语言与文化差异在 $2 \\times 2$ 组间设计中引入额外混杂方差，本研究基准方案聚焦单一母语群体（例如招募 **$N = 68\\text{{–}}80$ 名日语母语成年受试者**，正式发放时将问卷显示界面锁定为日文 `?lang=ja&locklang=1`；若由研究者个人渠道独立招募，亦可同理锁定为单一中文界面招募 $N = 68\\text{{–}}80$ 名中文母语者）。审阅链接内置的英、日、中文切换供学术指导与审阅使用。
 - **可选跨文化扩展假说（若同步采集多语种样本）**：若研究同时采集日本与中文母语受试者（每语种各 $N = 68\\text{{–}}80$ 人），可进一步检验探索性文化差异假说（H4）：受传统“职人（職人 / *Shokunin*）”具身技艺传统的影响，日本受试者在面对不可言传的判断时，是否比处于高频算法推荐消费环境中的中国受试者对“人类直觉”表现出更高的偏好与失误宽容度。
 
 ### 4.4 统计检验模型
@@ -187,7 +187,7 @@ def get_cn_markdown():
 在线实验平台严格区分**“受试者正式单盲入口”**与**“导师审阅预览模式”**：在正式受试者入口中，**顶部的条件切换栏与组别标签已被完全隐藏**，系统静默执行随机分配并锁定会话（防止刷新串组）；仅在携带 `?preview=1` 参数的审阅链接中才展示四组切换栏。
 
 - **受试者正式单盲问卷入口（已隐藏所有条件切换标签）**：[{PUBLIC_URL}]({PUBLIC_URL})
-  - 中文锁定单盲入口（向中文受试者发放时使用）：[{PUBLIC_URL}/?lang=zh&locklang=1]({PUBLIC_URL}/?lang=zh&locklang=1)
+  - 单一语言锁定被试入口（显示界面锁定为日文，隐藏语言切换与条件栏）：[{PUBLIC_URL}/?lang=ja&locklang=1]({PUBLIC_URL}/?lang=ja&locklang=1)
 - **研究者与导师管理后台（实时统计与 CSV 导出）**：[{ADMIN_URL}]({ADMIN_URL})
 - **导师审阅专用预览链接（带 `?preview=1` 条件切换栏，仅供审阅）**：
   - Condition 1 (双方 90% 高把握 × AI 失败/店长正确)：[{PUBLIC_URL}/?condition=1&preview=1]({PUBLIC_URL}/?condition=1&preview=1)
@@ -207,7 +207,7 @@ def get_en_markdown():
 - **Research Title**: *Human Intuition vs. Artificial Intuition: Epistemic Asymmetry and Error Attribution When Two "Ineffable Black Boxes" Conflict*
 - **Researcher**: Tianyuan Xiu, Master's Program (M2), School of Knowledge Science, Japan Advanced Institute of Science and Technology (JAIST)
 - **Academic Advisor**: Prof. Masaharu Mizumoto
-- **Date**: November 2, 2026
+- **Date**: November 3, 2026
 - **Research Domains**: Knowledge Science, Experimental Philosophy, Human-Computer Interaction (HCI), Cognitive Psychology
 
 ---
@@ -341,7 +341,7 @@ Based on Hypotheses H1–H3, we specify the rough quantitative expectations on t
    - Including a ~15% buffer for quality screening, the **target sample size is $N = 80$ participants ($n = 20$ per condition)** within a single homogeneous participant pool.
 
 ### 4.3 Target Participant Pool & Cultural Scope
-- **Primary Baseline Design (Single Homogeneous Group)**: To avoid linguistic and cultural confounding within the $2 \\times 2$ design, the baseline study targets a single homogeneous language group (**$N = 68\\text{{–}}80$ adult participants**, e.g., native Chinese speakers or native Japanese speakers, with the survey interface locked to a single language). The English, Japanese, and Chinese language options on the review interface were built primarily to facilitate academic review.
+- **Primary Baseline Design (Single Homogeneous Group)**: To avoid linguistic and cultural confounding within the $2 \\times 2$ design, the baseline study targets a single homogeneous language group (**$N = 68\\text{{–}}80$ adult participants**, e.g., native Japanese speakers with the survey display locked to Japanese via `?lang=ja&locklang=1`, or equivalently a single homogeneous group of native Chinese speakers if self-recruited). The English, Japanese, and Chinese language switcher on the general link was built primarily to facilitate academic review.
 - **Optional Cross-Cultural Extension (If Multi-Language Samples Are Collected)**: If both Japanese and Chinese participant groups are collected ($N = 68\\text{{–}}80$ per group), an exploratory cultural hypothesis (H4) can be tested: whether Japanese participants show greater deference and forgiveness toward unexplainable human intuition (consistent with cultural respect for *shokunin* craftsmanship) compared to Chinese participants who are more accustomed to everyday AI recommendations in consumer platforms.
 
 ### 4.4 Statistical Modeling Pipeline
@@ -357,7 +357,7 @@ Based on Hypotheses H1–H3, we specify the rough quantitative expectations on t
 The online platform strictly separates the **Blinded Participant Entry** from the **Supervisor Preview Mode**: on the actual participant URL, **all condition-switching tabs and condition labels are completely hidden**, and random assignment is locked per browser session so participants cannot view other conditions. Condition-switching tabs appear exclusively when `?preview=1` is appended by the researcher.
 
 - **Blinded Participant Survey Entry (Condition tabs strictly hidden)**: [{PUBLIC_URL}]({PUBLIC_URL})
-  - Single-Language Locked Participant Entry (e.g., Chinese-locked): [{PUBLIC_URL}/?lang=zh&locklang=1]({PUBLIC_URL}/?lang=zh&locklang=1)
+  - Single-Language Locked Participant Entry (Display locked to Japanese): [{PUBLIC_URL}/?lang=ja&locklang=1]({PUBLIC_URL}/?lang=ja&locklang=1)
 - **Researcher & Supervisor Admin Portal**: [{ADMIN_URL}]({ADMIN_URL})
 - **Supervisor Preview Links (With `?preview=1` condition switcher for inspection only)**:
   - Condition 1 (Both 90% Confident × AI Fails / Manager Wins): [{PUBLIC_URL}/?condition=1&preview=1]({PUBLIC_URL}/?condition=1&preview=1)
@@ -596,7 +596,7 @@ def build_cn_docx():
         "• 英文题目：Human Intuition vs. Artificial Intuition: Epistemic Asymmetry and Error Attribution When Two 'Ineffable Black Boxes' Conflict",
         "• 研究者：修 天源 (XIU TIANYUAN) — 北陆先端科学技术大学院大学 (JAIST) 知识科学研究科 博士前期课程二年级 (M2)",
         "• 指导教授：水本 教授 (Prof. Mizumoto)",
-        "• 提交日期：2026年11月2日",
+        "• 提交日期：2026年11月3日",
         "• 研究领域：知识科学 (Knowledge Science)、实验哲学 (Experimental Philosophy)、人机交互 (HCI)、认知心理学 (Cognitive Psychology)"
     ]
     add_callout(doc, meta_info, is_cn=True, border_color="1E293B", bg_color="F8FAFC")
@@ -739,7 +739,7 @@ def build_cn_docx():
 
     add_h2("4.3 目标受试者群体、文化范围与统计检验模型")
     add_body(
-        "为避免跨语言与文化背景在 2×2 设计中引入混杂干扰，本研究基准方案聚焦单一母语同质受试者群体（N = 68–80 人，如中文母语者或日语母语者，正式发放时锁定单一语言界面；网页端多语言切换主要用于学术指导审阅）。若后续同步采集日本与中国两组受试者（每语种各 N = 68–80 人），则可进一步检验探索性跨文化假说（H4）：探讨日本受试者（受传统“职人”经验尊重影响）是否比高频接触算法消费推荐的中国受试者对人类直觉展现更高的偏好与失误宽容度。",
+        "为避免跨语言与文化背景在 2×2 设计中引入混杂干扰，本研究基准方案聚焦单一母语同质受试者群体（N = 68–80 人，例如日语母语成年受试者，正式发放时将问卷显示界面锁定为日文 ?lang=ja&locklang=1；若由研究者个人渠道独立招募，亦可同理锁定为单一中文界面招募中文母语者；审阅页内置的多语言切换主要用于学术指导审阅）。若后续同步采集日本与中国两组受试者（每语种各 N = 68–80 人），则可进一步检验探索性跨文化假说（H4）：探讨日本受试者（受传统“职人”经验尊重影响）是否比高频接触算法消费推荐的中国受试者对人类直觉展现更高的偏好与失误宽容度。",
         "• 目标受试者与文化范围："
     )
     add_body(
@@ -753,7 +753,7 @@ def build_cn_docx():
         "在线实验系统严格实施“受试者单盲入口”与“导师审阅预览模式”分离：在受试者正式入口中，顶部的条件切换栏与组别标签已被完全移除，系统静默执行随机分配并锁定浏览器会话；仅在附带 ?preview=1 参数的导师审阅链接中才展示四组切换栏："
     )
     add_body(f"• 受试者正式单盲问卷入口（已隐藏所有条件切换标签）：{PUBLIC_URL}\n"
-             f"• 受试者中文锁定单盲入口：{PUBLIC_URL}/?lang=zh&locklang=1\n"
+             f"• 单一语言锁定被试入口（显示界面锁定为日文）：{PUBLIC_URL}/?lang=ja&locklang=1\n"
              f"• 研究者与导师管理后台：{ADMIN_URL}\n"
              f"• 导师审阅预览 C1 (双方 90% × AI 失败)：{PUBLIC_URL}/?condition=1&preview=1\n"
              f"• 导师审阅预览 C2 (双方 60% × AI 失败)：{PUBLIC_URL}/?condition=2&preview=1\n"
@@ -835,7 +835,7 @@ def build_en_docx():
         "• Research Title: Human Intuition vs. Artificial Intuition: Epistemic Asymmetry and Error Attribution When Two 'Ineffable Black Boxes' Conflict",
         "• Researcher: Tianyuan Xiu — Master's Program (M2), School of Knowledge Science, JAIST",
         "• Academic Advisor: Prof. Masaharu Mizumoto",
-        "• Date: November 2, 2026",
+        "• Date: November 3, 2026",
         "• Research Domains: Knowledge Science, Experimental Philosophy, Human-Computer Interaction (HCI), Cognitive Psychology"
     ]
     add_callout(doc, meta_info, is_cn=False, border_color="1E293B", bg_color="F8FAFC")
@@ -978,7 +978,7 @@ def build_en_docx():
 
     add_h2("4.3 Target Participant Pool, Cultural Scope & Statistical Models")
     add_body(
-        "To avoid cross-cultural confounding within the 2×2 design, the baseline plan focuses on a single language group (N = 68–80 adult participants, e.g., native Chinese speakers or native Japanese speakers, with the participant link locked to one language; the English/Japanese/Chinese toggle was built primarily for supervision review). Optionally, if both Japanese and Chinese participant groups are collected (N = 68–80 per group), an exploratory cultural hypothesis (H4) can be tested: whether Japanese participants show greater trust and forgiveness toward human tacit intuition (consistent with cultural respect for shokunin craftsmanship) compared to Chinese participants accustomed to everyday AI consumer recommendations.",
+        "To avoid cross-cultural confounding within the 2×2 design, the baseline plan focuses on a single homogeneous language group (N = 68–80 adult participants, e.g., native Japanese speakers with the survey display locked to Japanese via ?lang=ja&locklang=1, or equivalently native Chinese speakers if self-recruited; the English/Japanese/Chinese toggle on the general link was built primarily for supervision review). Optionally, if both Japanese and Chinese participant groups are collected (N = 68–80 per group), an exploratory cultural hypothesis (H4) can be tested: whether Japanese participants show greater trust and forgiveness toward human tacit intuition (consistent with cultural respect for shokunin craftsmanship) compared to Chinese participants accustomed to everyday AI consumer recommendations.",
         "• Target Participants & Cultural Scope: "
     )
     add_body(
@@ -992,7 +992,7 @@ def build_en_docx():
         "The online experimental system strictly separates the Blinded Participant Entry from the Supervisor Preview Mode: on the actual participant URL, all condition-switching tabs and condition labels are completely hidden, and random assignment is locked per browser session so participants cannot see other conditions. Condition-switching tabs appear exclusively when ?preview=1 is appended for researcher inspection:"
     )
     add_body(f"• Blinded Participant Survey Entry (Condition tabs strictly hidden): {PUBLIC_URL}\n"
-             f"• Single-Language Locked Participant Entry (e.g., Chinese-locked): {PUBLIC_URL}/?lang=zh&locklang=1\n"
+             f"• Single-Language Locked Participant Entry (Display locked to Japanese): {PUBLIC_URL}/?lang=ja&locklang=1\n"
              f"• Researcher & Supervisor Admin Portal: {ADMIN_URL}\n"
              f"• Supervisor Preview C1 (Both 90% Confident × AI Fails): {PUBLIC_URL}/?condition=1&preview=1\n"
              f"• Supervisor Preview C2 (Both 60% Confident × AI Fails): {PUBLIC_URL}/?condition=2&preview=1\n"

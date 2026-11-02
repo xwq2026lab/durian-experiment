@@ -8,7 +8,7 @@
 - **英文题目**：*Human Intuition vs. Artificial Intuition: Epistemic Asymmetry and Error Attribution When Two "Ineffable Black Boxes" Conflict*
 - **研究者**：修 天源 (XIU TIANYUAN)，北陆先端科学技术大学院大学 (JAIST) 知识科学研究科 博士前期课程二年级 (M2)
 - **指导教授**：水本 教授 (Prof. Mizumoto)
-- **日期**：2026年11月2日
+- **日期**：2026年11月3日
 - **研究领域**：知识科学 (Knowledge Science)、实验哲学 (Experimental Philosophy)、人机交互 (HCI)、认知心理学 (Cognitive Psychology)
 
 ---
@@ -142,7 +142,7 @@
    - 计入约 15% 的注意力筛查与无效卷缓冲，单一语种样本池的目标招募人数定为 **$N = 80$ 人（每组 $n = 20$ 人）**。
 
 ### 4.3 目标受试者群体与跨文化范围界定 (Target Participants & Cultural Scope)
-- **基准方案（单一文化同质样本控制）**：为避免语言与文化差异在 $2 \times 2$ 组间设计中引入额外混杂方差，本研究基准方案聚焦单一母语群体（例如招募 **$N = 68\text{–}80$ 名中文母语成年受试者**，正式发放时将问卷界面锁定为单一语种）。系统内置的英、日文界面供学术指导与审阅使用。
+- **基准方案（单一文化同质样本控制）**：为避免语言与文化差异在 $2 \times 2$ 组间设计中引入额外混杂方差，本研究基准方案聚焦单一母语群体（例如招募 **$N = 68\text{–}80$ 名日语母语成年受试者**，正式发放时将问卷显示界面锁定为日文 `?lang=ja&locklang=1`；若由研究者个人渠道独立招募，亦可同理锁定为单一中文界面招募 $N = 68\text{–}80$ 名中文母语者）。审阅链接内置的英、日、中文切换供学术指导与审阅使用。
 - **可选跨文化扩展假说（若同步采集多语种样本）**：若研究同时采集日本与中文母语受试者（每语种各 $N = 68\text{–}80$ 人），可进一步检验探索性文化差异假说（H4）：受传统“职人（職人 / *Shokunin*）”具身技艺传统的影响，日本受试者在面对不可言传的判断时，是否比处于高频算法推荐消费环境中的中国受试者对“人类直觉”表现出更高的偏好与失误宽容度。
 
 ### 4.4 统计检验模型
@@ -158,7 +158,7 @@
 在线实验平台严格区分**“受试者正式单盲入口”**与**“导师审阅预览模式”**：在正式受试者入口中，**顶部的条件切换栏与组别标签已被完全隐藏**，系统静默执行随机分配并锁定会话（防止刷新串组）；仅在携带 `?preview=1` 参数的审阅链接中才展示四组切换栏。
 
 - **受试者正式单盲问卷入口（已隐藏所有条件切换标签）**：[https://durian-experiment.vercel.app](https://durian-experiment.vercel.app)
-  - 中文锁定单盲入口（向中文受试者发放时使用）：[https://durian-experiment.vercel.app/?lang=zh&locklang=1](https://durian-experiment.vercel.app/?lang=zh&locklang=1)
+  - 单一语言锁定被试入口（显示界面锁定为日文，隐藏语言切换与条件栏）：[https://durian-experiment.vercel.app/?lang=ja&locklang=1](https://durian-experiment.vercel.app/?lang=ja&locklang=1)
 - **研究者与导师管理后台（实时统计与 CSV 导出）**：[https://durian-experiment.vercel.app/admin](https://durian-experiment.vercel.app/admin)
 - **导师审阅专用预览链接（带 `?preview=1` 条件切换栏，仅供审阅）**：
   - Condition 1 (双方 90% 高把握 × AI 失败/店长正确)：[https://durian-experiment.vercel.app/?condition=1&preview=1](https://durian-experiment.vercel.app/?condition=1&preview=1)
