@@ -21,9 +21,17 @@
     <header class="mb-6 pb-4 border-b border-slate-200">
       <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
         <div>
-          <div class="flex items-center gap-2 text-xs font-bold tracking-wider text-indigo-700 uppercase mb-1">
+          <div class="flex flex-wrap items-center gap-2 text-xs font-bold tracking-wider text-indigo-700 uppercase mb-1">
             <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
             <span>{{ loc.portalBadge }}</span>
+            <span v-if="stats.storageMode === 'permanent_cloud_redis'"
+                  class="normal-case tracking-normal px-2 py-0.5 rounded-full text-[11px] font-semibold bg-emerald-100 text-emerald-800 border border-emerald-200">
+              🟢 {{ loc.storagePermanent }}
+            </span>
+            <span v-else
+                  class="normal-case tracking-normal px-2 py-0.5 rounded-full text-[11px] font-semibold bg-amber-100 text-amber-800 border border-amber-200">
+              🟡 {{ loc.storageTemp }}
+            </span>
           </div>
           <h1 class="text-xl sm:text-2xl font-bold text-slate-900">
             {{ loc.portalTitle }}
@@ -313,6 +321,8 @@
     const i18nAdmin = {
       en: {
         portalBadge: "Professor Dashboard & 2x2 Experiment Control",
+        storagePermanent: "Permanent Cloud DB Active",
+        storageTemp: "Temporary Memory (/tmp)",
         portalTitle: "2x2 Between-Subjects Study Analytics Console",
         portalSubtitle: "Study: Human Intuition vs. AI Intuition — Epistemic Asymmetry When Two Black-Boxes Conflict",
         btnExportCsv: "Export Full CSV",
@@ -346,6 +356,8 @@
       },
       zh: {
         portalBadge: "导师管理与 2×2 实验控制台",
+        storagePermanent: "永久云数据库已启用",
+        storageTemp: "临时内存模式 (/tmp)",
         portalTitle: "2×2 组间情境实验数据看板与参数控制器",
         portalSubtitle: "课题：《人类直觉 vs. 人工直觉：两个“不可言传黑盒”冲突时的认识论双标与错误归因研究》",
         btnExportCsv: "导出完整学术 CSV",
@@ -379,6 +391,8 @@
       },
       ja: {
         portalBadge: "指導教員用 2×2 実験管理コンソール",
+        storagePermanent: "クラウドDB永続保存 有効",
+        storageTemp: "一時メモリ保存 (/tmp)",
         portalTitle: "2×2 被験者間実験データ分析ダッシュボード",
         portalSubtitle: "研究題目：人間の直観 vs AIの直観：2つの「言語化不能なブラックボックス」の対立と認識論的二重基準",
         btnExportCsv: "CSVデータ出力",

@@ -1,26 +1,16 @@
-import fs from 'fs';
+import { getAllResponses } from './_store.js';
 
-const TMP_FILE = '/tmp/responses.json';
-
-function getResponses() {
-  try {
-    if (fs.existsSync(TMP_FILE)) {
-      return JSON.parse(fs.readFileSync(TMP_FILE, 'utf8'));
-    }
-  } catch (e) {}
-  return [];
-}
-
-export default function handler(req, res) {
+export default async function handler(req, res) {
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+  res.setHeader('Cache-Control', 'no-store');
 
   if (req.method === 'OPTIONS') {
     return res.status(200).end();
   }
 
-  const responses = getResponses();
+  const { storageMode, list: responses } = await getAllResponses();
   const total = responses.length;
 
   const condStats = {};
@@ -58,6 +48,7 @@ export default function handler(req, res) {
   };
 
   res.status(200).json({
+    storageMode,
     total,
     conditions: condStats,
     confidenceEffect

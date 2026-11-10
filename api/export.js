@@ -1,18 +1,7 @@
-import fs from 'fs';
+import { getAllResponses } from './_store.js';
 
-const TMP_FILE = '/tmp/responses.json';
-
-function getResponses() {
-  try {
-    if (fs.existsSync(TMP_FILE)) {
-      return JSON.parse(fs.readFileSync(TMP_FILE, 'utf8'));
-    }
-  } catch (e) {}
-  return [];
-}
-
-export default function handler(req, res) {
-  const list = getResponses();
+export default async function handler(req, res) {
+  const { list } = await getAllResponses();
   const headers = [
     'session_id', 'timestamp', 'condition_id', 'confidence_level', 'confidence_val',
     'outcome_type', 'language', 'q1_choice', 'q2_ai_objectivity', 'q3_confidence_impact',
@@ -35,6 +24,7 @@ export default function handler(req, res) {
     csvContent += row.map(v => v !== undefined && v !== null ? `"${String(v).replace(/"/g, '""')}"` : '""').join(',') + '\n';
   }
 
+  res.setHeader('Cache-Control', 'no-store');
   res.setHeader('Content-Type', 'text/csv; charset=utf-8');
   res.setHeader('Content-Disposition', 'attachment; filename="durian_experiment_data.csv"');
   res.status(200).send(csvContent);

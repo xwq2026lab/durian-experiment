@@ -1,23 +1,6 @@
-import fs from 'fs';
+import { appendResponse } from './_store.js';
 
-const TMP_FILE = '/tmp/responses.json';
-
-function getResponses() {
-  try {
-    if (fs.existsSync(TMP_FILE)) {
-      return JSON.parse(fs.readFileSync(TMP_FILE, 'utf8'));
-    }
-  } catch (e) {}
-  return [];
-}
-
-function saveResponses(list) {
-  try {
-    fs.writeFileSync(TMP_FILE, JSON.stringify(list, null, 2), 'utf8');
-  } catch (e) {}
-}
-
-export default function handler(req, res) {
+export default async function handler(req, res) {
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
@@ -59,11 +42,9 @@ export default function handler(req, res) {
       userAgent: req.headers['user-agent'] || ''
     };
 
-    const list = getResponses();
-    list.push(record);
-    saveResponses(list);
+    const storageMode = await appendResponse(record);
 
-    return res.status(200).json({ status: 'ok', sessionId: record.sessionId });
+    return res.status(200).json({ status: 'ok', sessionId: record.sessionId, storageMode });
   }
 
   res.status(405).json({ error: 'Method not allowed' });
