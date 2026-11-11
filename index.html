@@ -103,6 +103,27 @@
       <!-- STAGE 1: The Decision Conflict Scenario -->
       <transition name="fade" mode="out-in">
         <section v-if="currentStage === 1" key="stage1">
+          <!-- KSEC Informed Consent & Ethical Disclosure Box (Type G Compliance) -->
+          <div class="mb-6 p-4 bg-indigo-50/50 border border-indigo-200 rounded-xl text-xs text-slate-700 space-y-2">
+            <div class="font-bold text-indigo-950 text-xs sm:text-sm flex items-center justify-between">
+              <span>{{ currentLang === 'ja' ? '📋 研究に関するご説明と参加同意（JAIST 知識科学系倫理審査準拠）' : (currentLang === 'zh' ? '📋 研究说明与知情同意（JAIST 知识科学系伦理审查规范）' : '📋 Research Information & Informed Consent (JAIST Knowledge Science Study)') }}</span>
+            </div>
+            <ul class="space-y-1 text-[11px] sm:text-xs text-slate-600 leading-relaxed">
+              <li>{{ currentLang === 'ja' ? '• 任意参加と中断の自由：本研究への参加は完全に任意です。いつでもブラウザを閉じて回答を中断でき、中断による不利益は一切ありません（未送信の回答データは記録・利用されません）。' : (currentLang === 'zh' ? '• 自愿参与与随时退出：本研究完全自愿参与。您可随时关闭网页退出且无任何不利影响，未提交的作答不会被记录或使用。' : '• Voluntary Participation: Participation is completely voluntary. You may stop at any time by closing this page without penalty, and any unsubmitted responses will not be utilized.') }}</li>
+              <li>{{ currentLang === 'ja' ? '• 匿名性と研究目的限定：個人を特定できる情報（氏名・住所・生年月日・所属先等）は一切収集しません。得られたデータは本研究の目的のみに使用されます。' : (currentLang === 'zh' ? '• 匿名性与研究用途限定：本问卷不收集任何个人身份识别信息（姓名、详细地址、出生日期等），所得数据仅用于本研究目的。' : '• Anonymity & Purpose Limitation: No personally identifiable information (name, address, date of birth, company, etc.) is collected. Data obtained will be used solely for the purpose of this study.') }}</li>
+              <li>{{ currentLang === 'ja' ? '• お問い合わせ先：研究代表者：修 天元（JAIST 博士前期課程, s2510084@jaist.ac.jp）／ 指導教員：水本 正晴 准教授（JAIST, mizumoto@jaist.ac.jp）' : (currentLang === 'zh' ? '• 研究人员联系方式：研究代表人：修天元（JAIST 硕士课程, s2510084@jaist.ac.jp）｜指导教员：水本正晴 准教授（JAIST, mizumoto@jaist.ac.jp）' : '• Researcher Contact: Principal Researcher: Xiu Tianyuan (JAIST Master’s Program, s2510084@jaist.ac.jp) | Supervising Faculty: Assoc. Prof. Masaharu Mizumoto (JAIST, mizumoto@jaist.ac.jp).') }}</li>
+            </ul>
+            <div class="pt-1.5">
+              <button type="button"
+                      @click="hasConsented = !hasConsented"
+                      :class="hasConsented ? 'bg-emerald-600 text-white border-emerald-600 shadow-xs' : 'bg-white hover:bg-indigo-50 text-indigo-700 border-indigo-300'"
+                      class="w-full sm:w-auto px-4 py-2 rounded-lg border font-bold text-xs transition flex items-center justify-center gap-2">
+                <span>{{ hasConsented ? '☑' : '☐' }}</span>
+                <span>{{ currentLang === 'ja' ? (hasConsented ? '上記の説明を確認し、本研究への参加に同意します（同意済み）' : '上記の説明を確認し、本研究への参加に同意する（クリックして同意）') : (currentLang === 'zh' ? (hasConsented ? '我已阅读上述说明并同意参与本研究（已同意）' : '点击此处同意参与本研究（必选）') : (hasConsented ? 'I have read the explanation above and consent to participate in this study (Consented)' : 'Click here to consent to participate in this study (Required)')) }}</span>
+              </button>
+            </div>
+          </div>
+
           <div class="text-center mb-6">
             <span class="inline-block px-3 py-1 bg-indigo-50 border border-indigo-200 rounded-full text-indigo-700 text-xs font-semibold mb-2">
               {{ t.stage1Badge }}
@@ -564,12 +585,17 @@
             {{ t.stage4Desc }}
           </p>
 
-          <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 max-w-md mx-auto text-left text-xs text-slate-700 font-mono space-y-1 mb-6">
+          <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 max-w-md mx-auto text-left text-xs text-slate-700 font-mono space-y-1 mb-4">
             <div class="text-slate-500 pb-1 border-b border-slate-200 font-bold">{{ t.receiptTitle }}</div>
             <div>{{ currentLang === 'ja' ? '回答ID: ' : (currentLang === 'zh' ? '会话编号: ' : 'Session ID: ') }}{{ submissionResult.sessionId }}</div>
             <div v-if="isPreviewMode">Condition: Condition {{ currentCondition.id }} ({{ currentCondition.confidenceLevel }} confidence, {{ currentCondition.outcomeType }})</div>
             <div>{{ currentLang === 'ja' ? '選択結果: サンプル ' : (currentLang === 'zh' ? '决策选择: 样品 ' : 'Decision: Selected Sample ') }}{{ submissionResult.q1 }}</div>
             <div>{{ currentLang === 'ja' ? '所要時間: ' : (currentLang === 'zh' ? '作答总耗时: ' : 'Total Duration: ') }}{{ Math.round(submissionResult.totalDurationMs / 1000) }}s</div>
+          </div>
+
+          <!-- Post-Study Debriefing & Contact Note (KSEC Row 44 & Row 45) -->
+          <div class="bg-indigo-50/50 p-3.5 rounded-xl border border-indigo-200 max-w-md mx-auto text-left text-[11px] text-slate-600 leading-relaxed mb-6">
+            {{ currentLang === 'ja' ? '【デブリーフィング・お問い合わせ】本調査におけるドリアン選別の場面および正解率（85%）・確信度（90%/60%）の数値は、人間の直観とAIの直観に対する認知的評価・エラー帰属を比較するために設定された架空の実験シナリオです。本研究に関するご質問やご要望がございましたら、研究代表者・修 天元（s2510084@jaist.ac.jp）または指導教員・水本 正晴 准教授（mizumoto@jaist.ac.jp）までお気軽にお問い合わせください。' : (currentLang === 'zh' ? '【事后说明与联系方式】本问卷中的榴莲挑选情境及准确率（85%）、把握度（90%/60%）数值均为用于比较人类直觉与AI直觉认知评价的虚拟实验情境。如有任何疑问，请联系研究代表人修天元（s2510084@jaist.ac.jp）或指导教员水本正晴准教授（mizumoto@jaist.ac.jp）。' : '[Debriefing & Inquiries] Please note that the durian selection scenario and the accuracy (85%) and confidence (90%/60%) figures in this survey were hypothetical experimental vignettes designed to examine how people evaluate and attribute errors to human intuition versus AI intuition. If you have any questions or requests regarding this research, please feel free to contact Xiu Tianyuan (s2510084@jaist.ac.jp) or Assoc. Prof. Masaharu Mizumoto (mizumoto@jaist.ac.jp).') }}
           </div>
 
           <div v-if="isPreviewMode" class="flex flex-wrap justify-center gap-4">
@@ -612,6 +638,7 @@
         const isPreviewMode = ref(urlParams.get('preview') === '1' || urlParams.get('preview') === 'true');
         const isLangLocked = ref(urlParams.get('locklang') === '1' || urlParams.get('locklang') === 'true');
         const currentStage = ref(1);
+        const hasConsented = ref(false);
         const isSubmitting = ref(false);
         const submissionResult = ref({});
 
@@ -691,7 +718,7 @@
           }
         };
 
-        const isStage1Complete = computed(() => formData.value.q1 && formData.value.q2 && formData.value.q3 && formData.value.q4);
+        const isStage1Complete = computed(() => hasConsented.value && formData.value.q1 && formData.value.q2 && formData.value.q3 && formData.value.q4);
         const isStage2Complete = computed(() => formData.value.q5 && formData.value.q6 && formData.value.q7 && formData.value.q8 && formData.value.q9);
         const isValidAge = computed(() => {
           const n = Number(formData.value.q11);
@@ -784,6 +811,7 @@
           currentCondition,
           conditionLabel,
           currentStage,
+          hasConsented,
           formData,
           demoOptions,
           isStage1Complete,
