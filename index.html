@@ -58,7 +58,7 @@
                     class="px-2.5 py-1 rounded-lg transition">
               日本語
             </button>
-            <button @click="setLang('zh')" 
+            <button v-if="currentLang === 'zh'" @click="setLang('zh')" 
                     :class="currentLang === 'zh' ? 'bg-indigo-600 text-white font-bold shadow-sm' : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'"
                     class="px-2.5 py-1 rounded-lg transition">
               中文
