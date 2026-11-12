@@ -31,6 +31,8 @@ export default async function handler(req, res) {
       q7: resp.q7,
       q8: resp.q8,
       q9: resp.q9,
+      q_ac: resp.q_ac,
+      ac_passed: Number(resp.q_ac) === 2 ? 1 : 0,
       q10_gender: resp.q10,
       q11_age: resp.q11,
       q12_stem: resp.q12,

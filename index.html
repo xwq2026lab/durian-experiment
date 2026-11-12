@@ -473,6 +473,25 @@
               </div>
             </div>
 
+            <!-- Standard Attention Check Question (Directed-Response Item) -->
+            <div class="space-y-2 pt-2 border-t border-slate-100">
+              <div class="text-xs font-medium text-slate-800 leading-relaxed">
+                {{ currentLang === 'ja' ? '確認質問（アテンション・チェック）：設問を注意深く読んでいることを確認するため、この項目では「2」を選択してください。' : (currentLang === 'zh' ? '注意力检验题（Attention Check）：为了确认您正在认真阅读题目，请在本题中选择“2”。' : 'Attention Check: To confirm that you are reading the questions carefully, please select "2" on the scale below.') }}
+              </div>
+              <div class="flex items-center justify-between gap-1 sm:gap-2">
+                <span class="text-[10px] text-slate-400 hidden sm:inline">{{ currentLang === 'ja' ? '1 (全く同意しない)' : (currentLang === 'zh' ? '1 (完全不同意)' : '1 (Disagree)') }}</span>
+                <div class="flex gap-1 sm:gap-2 flex-1 justify-center">
+                  <button v-for="val in 7" :key="'qac_' + val"
+                          @click="formData.q_ac = val"
+                          :class="formData.q_ac === val ? 'bg-indigo-600 text-white font-bold ring-2 ring-indigo-300' : 'bg-slate-100 hover:bg-slate-200 text-slate-700'"
+                          class="w-8 h-8 sm:w-10 sm:h-9 rounded-lg text-xs font-medium transition flex items-center justify-center">
+                    {{ val }}
+                  </button>
+                </div>
+                <span class="text-[10px] text-slate-400 hidden sm:inline">{{ currentLang === 'ja' ? '7 (非常に同意する)' : (currentLang === 'zh' ? '7 (完全同意)' : '7 (Agree)') }}</span>
+              </div>
+            </div>
+
           </div>
 
           <div class="text-center pt-2">
@@ -696,7 +715,7 @@
 
         const formData = ref({
           q1: null, q2: null, q3: null, q4: null,
-          q5: null, q6: null, q7: null, q8: null, q9: null,
+          q5: null, q6: null, q7: null, q8: null, q9: null, q_ac: null,
           q10: null, q11: null, q12: null, q13: null
         });
 
@@ -719,7 +738,7 @@
         };
 
         const isStage1Complete = computed(() => hasConsented.value && formData.value.q1 && formData.value.q2 && formData.value.q3 && formData.value.q4);
-        const isStage2Complete = computed(() => formData.value.q5 && formData.value.q6 && formData.value.q7 && formData.value.q8 && formData.value.q9);
+        const isStage2Complete = computed(() => formData.value.q5 && formData.value.q6 && formData.value.q7 && formData.value.q8 && formData.value.q9 && formData.value.q_ac);
         const isValidAge = computed(() => {
           const n = Number(formData.value.q11);
           return formData.value.q11 !== null && formData.value.q11 !== '' && Number.isInteger(n) && n >= 16 && n <= 99;
@@ -792,7 +811,8 @@
         };
 
         const resetExperiment = () => {
-          formData.value = { q1: null, q2: null, q3: null, q4: null, q5: null, q6: null, q7: null, q8: null, q9: null, q10: null, q11: null, q12: null, q13: null };
+          formData.value = { q1: null, q2: null, q3: null, q4: null, q5: null, q6: null, q7: null, q8: null, q9: null, q_ac: null, q10: null, q11: null, q12: null, q13: null };
+          hasConsented.value = false;
           currentStage.value = 1;
           startTime.value = Date.now();
           stageStart = Date.now();
