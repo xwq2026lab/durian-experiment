@@ -123,6 +123,18 @@
             </div>
           </div>
 
+          <!-- Prolific ID Question (English Version Only, right after Informed Consent) -->
+          <div v-if="currentLang === 'en'" class="mb-6 p-4 bg-white border border-indigo-200 rounded-xl shadow-2xs">
+            <label for="prolific_id_input" class="block text-xs sm:text-sm font-bold text-slate-900 mb-2">
+              Your Prolific ID:
+            </label>
+            <input id="prolific_id_input"
+                   type="text"
+                   v-model.trim="formData.prolificId"
+                   placeholder="Enter your Prolific ID"
+                   class="w-full sm:w-80 p-2.5 bg-slate-50 border border-slate-300 focus:bg-white focus:border-indigo-600 focus:ring-2 focus:ring-indigo-200 outline-none rounded-lg text-xs sm:text-sm font-mono text-slate-900 transition">
+          </div>
+
           <div class="text-center mb-6">
             <span class="inline-block px-3 py-1 bg-indigo-50 border border-indigo-200 rounded-full text-indigo-700 text-xs font-semibold mb-2">
               {{ t.stage1Badge }}
@@ -596,9 +608,22 @@
           <h2 class="text-2xl font-bold text-slate-900 mb-2">
             {{ t.stage4Title }}
           </h2>
-          <p class="text-xs sm:text-sm text-slate-600 max-w-md mx-auto mb-6 leading-relaxed">
+          <p class="text-xs sm:text-sm text-slate-600 max-w-md mx-auto mb-5 leading-relaxed">
             {{ t.stage4Desc }}
           </p>
+
+          <!-- Platform Confirmation Message (Lancers Password for JA / Prolific Redirect URL for EN) -->
+          <div class="bg-emerald-50 border-2 border-emerald-400 rounded-xl p-4 max-w-lg mx-auto mb-6 text-sm sm:text-base font-bold text-emerald-950 leading-relaxed shadow-xs">
+            <span v-if="currentLang === 'ja'">ご協力ありがとうございました。パスワード：みかん</span>
+            <span v-else-if="currentLang === 'en'">
+              Thank you for your cooperation! Redirect URL:
+              <a href="https://app.prolific.com/submissions/complete?cc=CPSEC0VP"
+                 target="_blank"
+                 rel="noopener noreferrer"
+                 class="text-indigo-600 underline hover:text-indigo-800 break-all font-mono">https://app.prolific.com/submissions/complete?cc=CPSEC0VP</a>
+            </span>
+            <span v-else>感谢您的配合！问卷已提交完成。</span>
+          </div>
 
           <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 max-w-md mx-auto text-left text-xs text-slate-700 font-mono space-y-1 mb-6">
             <div class="text-slate-500 pb-1 border-b border-slate-200 font-bold">{{ t.receiptTitle }}</div>
@@ -704,6 +729,7 @@
         let stageStart = Date.now();
 
         const formData = ref({
+          prolificId: urlParams.get('PROLIFIC_PID') || '',
           q1: null, q2: null, q3: null, q4: null,
           q5: null, q6: null, q7: null, q8: null, q9: null, q_ac: null,
           q10: null, q11: null, q12: null, q13: null
@@ -801,7 +827,7 @@
         };
 
         const resetExperiment = () => {
-          formData.value = { q1: null, q2: null, q3: null, q4: null, q5: null, q6: null, q7: null, q8: null, q9: null, q_ac: null, q10: null, q11: null, q12: null, q13: null };
+          formData.value = { prolificId: urlParams.get('PROLIFIC_PID') || '', q1: null, q2: null, q3: null, q4: null, q5: null, q6: null, q7: null, q8: null, q9: null, q_ac: null, q10: null, q11: null, q12: null, q13: null };
           hasConsented.value = false;
           currentStage.value = 1;
           startTime.value = Date.now();

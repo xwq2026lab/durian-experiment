@@ -22,6 +22,7 @@ export default async function handler(req, res) {
       confidenceVal: data.confidenceVal,
       outcomeType: data.outcomeType,
       language: data.language || 'en',
+      prolificId: resp.prolificId || '',
       q1_choice: resp.q1,
       q2: resp.q2,
       q3: resp.q3,

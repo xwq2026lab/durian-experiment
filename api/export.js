@@ -4,7 +4,7 @@ export default async function handler(req, res) {
   const { list } = await getAllResponses();
   const headers = [
     'session_id', 'timestamp', 'condition_id', 'confidence_level', 'confidence_val',
-    'outcome_type', 'language', 'q1_choice', 'q2_ai_objectivity', 'q3_confidence_impact',
+    'outcome_type', 'language', 'prolific_id', 'q1_choice', 'q2_ai_objectivity', 'q3_confidence_impact',
     'q4_double_standard', 'q5_probabilistic_forgiveness', 'q6_bullshitting', 'q7_overconfidence_blame',
     'q8_posthoc_feature_value', 'q9_future_trust_ai', 'q_ac_attention_check', 'attention_check_pass',
     'q10_gender', 'q11_age_years',
@@ -16,7 +16,7 @@ export default async function handler(req, res) {
   for (const r of list) {
     const row = [
       r.sessionId, r.timestamp, r.conditionId, r.confidenceLevel, r.confidenceVal,
-      r.outcomeType, r.language, r.q1_choice, r.q2, r.q3,
+      r.outcomeType, r.language, r.prolificId || '', r.q1_choice, r.q2, r.q3,
       r.q4, r.q5, r.q6, r.q7,
       r.q8, r.q9, r.q_ac, r.ac_passed !== undefined ? r.ac_passed : (Number(r.q_ac) === 2 ? 1 : ''),
       r.q10_gender, r.q11_age,
